@@ -10,6 +10,6 @@ add_executable(projaed main.cpp
         cadeira.h
         aula.cpp
         aula.h
-        mytime.cpp
-        mytime.h
+        tempo.cpp
+        tempo.h
 )

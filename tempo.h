@@ -2,15 +2,18 @@
 // Created by ricky on 08-10-2023.
 //
 
-#ifndef PROJAED_MYTIME_H
-#define PROJAED_MYTIME_H
+#ifndef PROJAED_TEMPO_H
+#define PROJAED_TEMPO_H
 
 
 #include <string>
 
-class Mytime {
+class tempo {
 public:
-    Mytime(std::string tempo);
+    tempo(double tempo);
+
+    tempo();
+
 
     int getHora() const;
 
@@ -22,4 +25,4 @@ private:
 };
 
 
-#endif //PROJAED_MYTIME_H
+#endif //PROJAED_TEMPO_H
