@@ -12,9 +12,13 @@
 
 class turma {
 public:
+    turma();
+    turma(const std::string &dia, double inicio, double duracao, const std::string &tipo);
+    void addAula(const std::string &dia, double inicio, double duracao, const std::string &tipo);
+    void addStudent();
 private:
+    int numalunos;
     std::vector<aula> aulas;
-    std::string IdTurma;
 };
 
 

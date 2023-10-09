@@ -12,4 +12,6 @@ add_executable(projaed main.cpp
         aula.h
         tempo.cpp
         tempo.h
+        estudante.cpp
+        estudante.h
 )

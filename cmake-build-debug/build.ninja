@@ -79,6 +79,12 @@ build CMakeFiles/projaed.dir/tempo.cpp.o: CXX_COMPILER__projaed_unscanned_Debug 
   OBJECT_DIR = CMakeFiles/projaed.dir
   OBJECT_FILE_DIR = CMakeFiles/projaed.dir
 
+build CMakeFiles/projaed.dir/estudante.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /home/ricky/Desktop/aed/projaed/estudante.cpp || cmake_object_order_depends_target_projaed
+  DEP_FILE = CMakeFiles/projaed.dir/estudante.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/projaed.dir
+  OBJECT_FILE_DIR = CMakeFiles/projaed.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target projaed
@@ -87,7 +93,7 @@ build CMakeFiles/projaed.dir/tempo.cpp.o: CXX_COMPILER__projaed_unscanned_Debug 
 #############################################
 # Link the executable projaed
 
-build projaed: CXX_EXECUTABLE_LINKER__projaed_Debug CMakeFiles/projaed.dir/main.cpp.o CMakeFiles/projaed.dir/turma.cpp.o CMakeFiles/projaed.dir/cadeira.cpp.o CMakeFiles/projaed.dir/aula.cpp.o CMakeFiles/projaed.dir/tempo.cpp.o
+build projaed: CXX_EXECUTABLE_LINKER__projaed_Debug CMakeFiles/projaed.dir/main.cpp.o CMakeFiles/projaed.dir/turma.cpp.o CMakeFiles/projaed.dir/cadeira.cpp.o CMakeFiles/projaed.dir/aula.cpp.o CMakeFiles/projaed.dir/tempo.cpp.o CMakeFiles/projaed.dir/estudante.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/projaed.dir
   POST_BUILD = :
