@@ -8,13 +8,8 @@ time::time(){
 }
 
 time::time(double time) {
-    hour = (int)time;
-    if (time > hour){
-        minute = 30;
-    }
-    else{
-        minute = 0;
-    }
+    hour = (int) time;
+    minute = (int) ((time - hour) * 60);
 }
 
 int time::getHour() const {
