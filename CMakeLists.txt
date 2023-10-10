@@ -4,14 +4,14 @@ project(projaed)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(projaed main.cpp
-        turma.cpp
-        turma.h
-        cadeira.cpp
-        cadeira.h
-        aula.cpp
-        aula.h
-        tempo.cpp
-        tempo.h
-        estudante.cpp
-        estudante.h
+        studentGroup.cpp
+        studentGroup.h
+        course.cpp
+        course.h
+        lesson.cpp
+        lesson.h
+        time.cpp
+        time.h
+        student.cpp
+        student.h
 )

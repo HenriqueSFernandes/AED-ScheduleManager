@@ -1,11 +1,12 @@
 #include <iostream>
-#include "tempo.h"
-#include "aula.h"
+#include "time.h"
+#include "lesson.h"
 
 using namespace std;
+using namespace Time;
 
 int main() {
-    aula aula1("monday", 10.5, 1.5, "TP");
-    cout << "dia: " << aula1.getDia() << " inicio: " << aula1.getInicio().getHora() << ":" << aula1.getInicio().getMinuto() <<  " fim: " << aula1.getFim().getHora() << ":" << aula1.getFim().getMinuto() << "tipo: " << aula1.getTipo() << endl;
+    lesson aula1("monday", 10.5, 1.5, "TP");
+    cout << "dia: " << aula1.getWeekday() << " inicio: " << aula1.getStartTime().getHour() << ":" << aula1.getStartTime().getMinute() <<  " fim: " << aula1.getEndTime().getHour() << ":" << aula1.getEndTime().getMinute() << " tipo: " << aula1.getType() << endl;
     return 0;
 }

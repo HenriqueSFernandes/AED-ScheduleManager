@@ -55,32 +55,32 @@ build CMakeFiles/projaed.dir/main.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /
   OBJECT_DIR = CMakeFiles/projaed.dir
   OBJECT_FILE_DIR = CMakeFiles/projaed.dir
 
-build CMakeFiles/projaed.dir/turma.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /home/ricky/Desktop/aed/projaed/turma.cpp || cmake_object_order_depends_target_projaed
-  DEP_FILE = CMakeFiles/projaed.dir/turma.cpp.o.d
+build CMakeFiles/projaed.dir/studentGroup.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /home/ricky/Desktop/aed/projaed/studentGroup.cpp || cmake_object_order_depends_target_projaed
+  DEP_FILE = CMakeFiles/projaed.dir/studentGroup.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/projaed.dir
   OBJECT_FILE_DIR = CMakeFiles/projaed.dir
 
-build CMakeFiles/projaed.dir/cadeira.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /home/ricky/Desktop/aed/projaed/cadeira.cpp || cmake_object_order_depends_target_projaed
-  DEP_FILE = CMakeFiles/projaed.dir/cadeira.cpp.o.d
+build CMakeFiles/projaed.dir/course.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /home/ricky/Desktop/aed/projaed/course.cpp || cmake_object_order_depends_target_projaed
+  DEP_FILE = CMakeFiles/projaed.dir/course.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/projaed.dir
   OBJECT_FILE_DIR = CMakeFiles/projaed.dir
 
-build CMakeFiles/projaed.dir/aula.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /home/ricky/Desktop/aed/projaed/aula.cpp || cmake_object_order_depends_target_projaed
-  DEP_FILE = CMakeFiles/projaed.dir/aula.cpp.o.d
+build CMakeFiles/projaed.dir/lesson.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /home/ricky/Desktop/aed/projaed/lesson.cpp || cmake_object_order_depends_target_projaed
+  DEP_FILE = CMakeFiles/projaed.dir/lesson.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/projaed.dir
   OBJECT_FILE_DIR = CMakeFiles/projaed.dir
 
-build CMakeFiles/projaed.dir/tempo.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /home/ricky/Desktop/aed/projaed/tempo.cpp || cmake_object_order_depends_target_projaed
-  DEP_FILE = CMakeFiles/projaed.dir/tempo.cpp.o.d
+build CMakeFiles/projaed.dir/time.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /home/ricky/Desktop/aed/projaed/time.cpp || cmake_object_order_depends_target_projaed
+  DEP_FILE = CMakeFiles/projaed.dir/time.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/projaed.dir
   OBJECT_FILE_DIR = CMakeFiles/projaed.dir
 
-build CMakeFiles/projaed.dir/estudante.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /home/ricky/Desktop/aed/projaed/estudante.cpp || cmake_object_order_depends_target_projaed
-  DEP_FILE = CMakeFiles/projaed.dir/estudante.cpp.o.d
+build CMakeFiles/projaed.dir/student.cpp.o: CXX_COMPILER__projaed_unscanned_Debug /home/ricky/Desktop/aed/projaed/student.cpp || cmake_object_order_depends_target_projaed
+  DEP_FILE = CMakeFiles/projaed.dir/student.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/projaed.dir
   OBJECT_FILE_DIR = CMakeFiles/projaed.dir
@@ -93,7 +93,7 @@ build CMakeFiles/projaed.dir/estudante.cpp.o: CXX_COMPILER__projaed_unscanned_De
 #############################################
 # Link the executable projaed
 
-build projaed: CXX_EXECUTABLE_LINKER__projaed_Debug CMakeFiles/projaed.dir/main.cpp.o CMakeFiles/projaed.dir/turma.cpp.o CMakeFiles/projaed.dir/cadeira.cpp.o CMakeFiles/projaed.dir/aula.cpp.o CMakeFiles/projaed.dir/tempo.cpp.o CMakeFiles/projaed.dir/estudante.cpp.o
+build projaed: CXX_EXECUTABLE_LINKER__projaed_Debug CMakeFiles/projaed.dir/main.cpp.o CMakeFiles/projaed.dir/studentGroup.cpp.o CMakeFiles/projaed.dir/course.cpp.o CMakeFiles/projaed.dir/lesson.cpp.o CMakeFiles/projaed.dir/time.cpp.o CMakeFiles/projaed.dir/student.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/projaed.dir
   POST_BUILD = :
