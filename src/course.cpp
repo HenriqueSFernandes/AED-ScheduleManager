@@ -5,6 +5,10 @@ course::course(std::string classCode, std::string ucCode, std::string weekday, d
     this->ucCode = ucCode;
     this->classes.insert({classCode, studentGroup(weekday, startHour, duration, type)});
 }
+course::course(){
+    this->ucCode="";
+
+}
 
 void course::addClass(std::string classCode, std::string weekday, double startHour, double duration,
                       std::string type) {

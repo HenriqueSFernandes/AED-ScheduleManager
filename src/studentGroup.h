@@ -14,6 +14,7 @@ public:
     void addStudent();
 private:
     int numStudents;
+    std::string classId;
     std::vector<lesson> lessons;
 };
 

@@ -3,15 +3,17 @@ project(projaed)
 
 set(CMAKE_CXX_STANDARD 17)
 
+#file(COPY ${CMAKE_SOURCE_DIR}/data DESTINATION ${CMAKE_BINARY_DIR})
+
 add_executable(projaed main.cpp
-        studentGroup.cpp
-        studentGroup.h
-        course.cpp
-        course.h
-        lesson.cpp
-        lesson.h
-        time.cpp
-        time.h
-        student.cpp
-        student.h
+        src/studentGroup.cpp
+        src/studentGroup.h
+        src/course.cpp
+        src/course.h
+        src/lesson.cpp
+        src/lesson.h
+        src/time.cpp
+        src/time.h
+        src/student.cpp
+        src/student.h
 )
