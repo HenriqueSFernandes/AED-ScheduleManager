@@ -12,6 +12,9 @@ public:
     studentGroup(const std::string &weekday, double startTime, double duration, const std::string &type);
     void addLesson(const std::string &weekday, double startTime, double duration, const std::string &type);
     void addStudent();
+    std::vector<lesson> getLessons(){
+        return this->lessons;
+    }
 private:
     int numStudents;
     std::string classId;

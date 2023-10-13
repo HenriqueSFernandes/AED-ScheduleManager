@@ -12,6 +12,9 @@ public:
     course(std::string classCode, std::string ucCode, std::string weekday, double startHour, double duration, std::string type);
     course();
     void addClass(std::string classCode, std::string weekday, double startHour, double duration, std::string type);
+    std::map<std::string, studentGroup> getClasses(){
+        return this->classes;
+    }
 
 private:
     std::string ucCode;
