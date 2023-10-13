@@ -3,7 +3,7 @@
 course::course(std::string classCode, std::string ucCode, std::string weekday, double startHour, double duration,
                std::string type) {
     this->ucCode = ucCode;
-    this->classes.insert({classCode, studentGroup(weekday, startHour, duration, type)});
+    this->classes.insert({classCode, studentGroup(classCode, weekday, startHour, duration, type)});
 }
 course::course(){
     this->ucCode="";
@@ -16,6 +16,6 @@ void course::addClass(std::string classCode, std::string weekday, double startHo
         classes[classCode].addLesson(weekday, startHour, duration, type);
     }
     else{
-        classes.insert({classCode, studentGroup(weekday, startHour, duration, type)});
+        classes.insert({classCode, studentGroup(classCode, weekday, startHour, duration, type)});
     }
 }
