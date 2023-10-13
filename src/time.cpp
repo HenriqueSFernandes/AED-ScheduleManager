@@ -19,3 +19,8 @@ int time::getHour() const {
 int time::getMinute() const {
     return minute;
 }
+
+std::ostream& Time::operator<<(std::ostream& os, const time& t){
+    os << t.hour << ':' << t.minute;
+    return os;
+}
