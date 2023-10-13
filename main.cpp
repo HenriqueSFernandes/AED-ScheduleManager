@@ -44,5 +44,8 @@ int main() {
     }
     classes.close();
 
+    lesson lesson1("Friday", 10.5, 12.5, "TP");
+    cout << lesson1 << endl;
+
 }
 

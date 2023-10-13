@@ -5,6 +5,7 @@
 #include <string>
 #include <ctime>
 #include "time.h"
+#include <iostream>
 
 class lesson {
 public:
@@ -19,6 +20,8 @@ public:
     const Time::time &getEndTime() const;
 
     const std::string &getType() const;
+
+    friend std::ostream& operator<<(std::ostream& os, const lesson& lesson);
 
 private:
     std::string weekday;

@@ -29,3 +29,7 @@ const Time::time &lesson::getEndTime() const {
 const std::string &lesson::getType() const {
     return type;
 }
+
+std::ostream &operator<<(std::ostream &os, const lesson &lesson) {
+    os << lesson.weekday << " from " << lesson.startTime << " to " << lesson.endTime << " type: " << lesson.type;
+}

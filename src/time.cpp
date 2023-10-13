@@ -21,6 +21,6 @@ int time::getMinute() const {
 }
 
 std::ostream& Time::operator<<(std::ostream& os, const time& t){
-    os << t.hour << ':' << t.minute;
+    os << std::setw(2) << std::setfill('0') <<  t.hour << ':' << std::setw(2) << std::setfill('0') << t.minute;
     return os;
 }
