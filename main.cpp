@@ -11,9 +11,9 @@
 using namespace std;
 using namespace Time;
 
-template <class T>
-void printVector(vector<T> v){
-    for (auto i : v){
+template<class T>
+void printVector(vector<T> v) {
+    for (auto i: v) {
         cout << i << " ";
     }
     cout << endl;
@@ -38,20 +38,21 @@ int main() {
         while (getline(ss, word, ',')) {
             elements.push_back(word);
         }
-        string ucCode=elements[1];
-        if(courses.find(ucCode) == courses.end()){
+        string ucCode = elements[1];
+        if (courses.find(ucCode) == courses.end()) {
 
 
-            courses.insert({ucCode , course(elements[0], elements[1], elements[2], stod(elements[3]), stod(elements[4]), elements[5])});
-        }else{
+            courses.insert({ucCode, course(elements[0], elements[1], elements[2], stod(elements[3]), stod(elements[4]),
+                                           elements[5])});
+        } else {
             courses[ucCode].addClass(elements[0], elements[2], stod(elements[3]), stod(elements[4]), elements[5]);
         }
 
     }
     classes.close();
 
-    studentGroup class1 = courses["L.EIC003"].getClasses()["1LEIC11"];
-    cout << class1 << endl;
+    course uc1 = courses["L.EIC003"];
+    cout << uc1 << endl;
 
 }
 

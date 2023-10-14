@@ -50,3 +50,17 @@
 351	413	1697235613336978728	projaed	253af7bfc0bc2f01
 1	340	1697235632645253308	CMakeFiles/projaed.dir/src/studentGroup.cpp.o	bb0400dbfa156a17
 340	397	1697235632697254047	projaed	253af7bfc0bc2f01
+2	381	1697236079771609886	CMakeFiles/projaed.dir/src/time.cpp.o	b29e477af3c5ee11
+2	389	1697236079779610000	CMakeFiles/projaed.dir/src/lesson.cpp.o	21ce0fa8e293a616
+3	468	1697236079859611137	CMakeFiles/projaed.dir/src/student.cpp.o	4a87d0de0a7b4433
+2	477	1697236079867611251	CMakeFiles/projaed.dir/src/studentGroup.cpp.o	bb0400dbfa156a17
+2	612	1697236080003613184	CMakeFiles/projaed.dir/src/course.cpp.o	b37a40f7aacd81eb
+2	731	1697236080123614891	CMakeFiles/projaed.dir/main.cpp.o	58aea89889abc3f3
+731	792	1697236080183615743	projaed	253af7bfc0bc2f01
+0	492	1697236140173079261	CMakeFiles/projaed.dir/src/course.cpp.o	b37a40f7aacd81eb
+492	549	1697236140229080921	projaed	253af7bfc0bc2f01
+1	494	1697236155933543640	CMakeFiles/projaed.dir/src/course.cpp.o	b37a40f7aacd81eb
+494	564	1697236156001545631	projaed	253af7bfc0bc2f01
+1	292	1697236175582114123	CMakeFiles/projaed.dir/src/lesson.cpp.o	21ce0fa8e293a616
+1	377	1697236175666116542	CMakeFiles/projaed.dir/src/studentGroup.cpp.o	bb0400dbfa156a17
+377	442	1697236175726118270	projaed	253af7bfc0bc2f01

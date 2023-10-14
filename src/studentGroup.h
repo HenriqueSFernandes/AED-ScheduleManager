@@ -10,13 +10,18 @@
 class studentGroup {
 public:
     studentGroup();
-    studentGroup(const std::string &classCode, const std::string &weekday, double startTime, double duration, const std::string &type);
+
+    studentGroup(const std::string &classCode, const std::string &weekday, double startTime, double duration,
+                 const std::string &type);
+
     void addLesson(const std::string &weekday, double startTime, double duration, const std::string &type);
+
     void addStudent();
-    std::vector<lesson> getLessons(){
-        return this->lessons;
-    }
-    friend std::ostream& operator<<(std::ostream& os, const studentGroup& studentGroup);
+
+    std::vector<lesson> getLessons();
+
+    friend std::ostream &operator<<(std::ostream &os, const studentGroup &studentGroup);
+
 private:
     int numStudents;
     std::string classCode;

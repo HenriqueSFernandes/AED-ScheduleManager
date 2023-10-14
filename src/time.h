@@ -17,7 +17,7 @@ namespace Time {
 
         int getMinute() const;
 
-        friend std::ostream &operator<<(std::ostream &os, const time& t);
+        friend std::ostream &operator<<(std::ostream &os, const time &t);
 
     private:
         int hour;

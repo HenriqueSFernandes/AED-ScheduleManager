@@ -21,7 +21,7 @@ public:
 
     const std::string &getType() const;
 
-    friend std::ostream& operator<<(std::ostream& os, const lesson& lesson);
+    friend std::ostream &operator<<(std::ostream &os, const lesson &lesson);
 
 private:
     std::string weekday;
