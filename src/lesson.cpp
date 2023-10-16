@@ -5,7 +5,7 @@ using namespace Time;
 lesson::lesson(const std::string &weekday, double startTime, double duration, const std::string &type) {
     this->weekday = weekday;
     this->startTime = Time::time(startTime);
-    this->duration =  Time::time(duration);
+    this->duration = Time::time(duration);
     this->type = type;
     this->endTime = Time::time(startTime + duration);
 }
@@ -28,4 +28,9 @@ const Time::time &lesson::getEndTime() const {
 
 const std::string &lesson::getType() const {
     return type;
+}
+
+std::ostream &operator<<(std::ostream &os, const lesson &lesson) {
+    os << lesson.weekday << " from " << lesson.startTime << " to " << lesson.endTime << " type: " << lesson.type;
+    return os;
 }

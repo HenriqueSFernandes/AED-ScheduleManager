@@ -3,14 +3,21 @@
 
 
 #include <string>
+#include <iostream>
+#include <iomanip>
 
 namespace Time {
     class time {
     public:
         time(double time);
+
         time();
+
         int getHour() const;
+
         int getMinute() const;
+
+        friend std::ostream &operator<<(std::ostream &os, const time &t);
 
     private:
         int hour;
