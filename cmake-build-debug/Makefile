@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\nowayjose\Desktop\projaed\aedHenrique\projaed
+CMAKE_SOURCE_DIR = C:\Users\nowayjose\Documents\AEDFEITODIREITO\projaed
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\nowayjose\Desktop\projaed\aedHenrique\projaed\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\nowayjose\Documents\AEDFEITODIREITO\projaed\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\nowayjose\Desktop\projaed\aedHenrique\projaed\cmake-build-debug\CMakeFiles C:\Users\nowayjose\Desktop\projaed\aedHenrique\projaed\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\nowayjose\Documents\AEDFEITODIREITO\projaed\cmake-build-debug\CMakeFiles C:\Users\nowayjose\Documents\AEDFEITODIREITO\projaed\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\nowayjose\Desktop\projaed\aedHenrique\projaed\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\nowayjose\Documents\AEDFEITODIREITO\projaed\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -152,29 +152,77 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/course.obj: src/course.cpp.obj
-.PHONY : src/course.obj
+src/ControlUnit.obj: src/ControlUnit.cpp.obj
+.PHONY : src/ControlUnit.obj
 
 # target to build an object file
-src/course.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/course.cpp.obj
-.PHONY : src/course.cpp.obj
+src/ControlUnit.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/ControlUnit.cpp.obj
+.PHONY : src/ControlUnit.cpp.obj
 
-src/course.i: src/course.cpp.i
-.PHONY : src/course.i
+src/ControlUnit.i: src/ControlUnit.cpp.i
+.PHONY : src/ControlUnit.i
 
 # target to preprocess a source file
-src/course.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/course.cpp.i
-.PHONY : src/course.cpp.i
+src/ControlUnit.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/ControlUnit.cpp.i
+.PHONY : src/ControlUnit.cpp.i
 
-src/course.s: src/course.cpp.s
-.PHONY : src/course.s
+src/ControlUnit.s: src/ControlUnit.cpp.s
+.PHONY : src/ControlUnit.s
 
 # target to generate assembly for a file
-src/course.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/course.cpp.s
-.PHONY : src/course.cpp.s
+src/ControlUnit.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/ControlUnit.cpp.s
+.PHONY : src/ControlUnit.cpp.s
+
+src/Menu.obj: src/Menu.cpp.obj
+.PHONY : src/Menu.obj
+
+# target to build an object file
+src/Menu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/Menu.cpp.obj
+.PHONY : src/Menu.cpp.obj
+
+src/Menu.i: src/Menu.cpp.i
+.PHONY : src/Menu.i
+
+# target to preprocess a source file
+src/Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/Menu.cpp.i
+.PHONY : src/Menu.cpp.i
+
+src/Menu.s: src/Menu.cpp.s
+.PHONY : src/Menu.s
+
+# target to generate assembly for a file
+src/Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/Menu.cpp.s
+.PHONY : src/Menu.cpp.s
+
+src/Schedule.obj: src/Schedule.cpp.obj
+.PHONY : src/Schedule.obj
+
+# target to build an object file
+src/Schedule.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/Schedule.cpp.obj
+.PHONY : src/Schedule.cpp.obj
+
+src/Schedule.i: src/Schedule.cpp.i
+.PHONY : src/Schedule.i
+
+# target to preprocess a source file
+src/Schedule.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/Schedule.cpp.i
+.PHONY : src/Schedule.cpp.i
+
+src/Schedule.s: src/Schedule.cpp.s
+.PHONY : src/Schedule.s
+
+# target to generate assembly for a file
+src/Schedule.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projaed.dir\build.make CMakeFiles/projaed.dir/src/Schedule.cpp.s
+.PHONY : src/Schedule.cpp.s
 
 src/lesson.obj: src/lesson.cpp.obj
 .PHONY : src/lesson.obj
@@ -284,9 +332,15 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... src/course.obj
-	@echo ... src/course.i
-	@echo ... src/course.s
+	@echo ... src/ControlUnit.obj
+	@echo ... src/ControlUnit.i
+	@echo ... src/ControlUnit.s
+	@echo ... src/Menu.obj
+	@echo ... src/Menu.i
+	@echo ... src/Menu.s
+	@echo ... src/Schedule.obj
+	@echo ... src/Schedule.i
+	@echo ... src/Schedule.s
 	@echo ... src/lesson.obj
 	@echo ... src/lesson.i
 	@echo ... src/lesson.s

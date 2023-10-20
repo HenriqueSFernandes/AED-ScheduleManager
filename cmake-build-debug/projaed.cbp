@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug"/>
+				<Option working_dir="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projaed">
-				<Option output="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/projaed.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug"/>
+				<Option output="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/projaed.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -34,15 +34,15 @@
 					<Add directory="/mingw/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projaed/fast">
-				<Option output="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/projaed.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug"/>
+				<Option output="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/projaed.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -57,67 +57,79 @@
 					<Add directory="/mingw/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed/fast"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug"/>
+				<Option working_dir="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug"/>
+				<Option working_dir="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/main.cpp">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/main.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/src/course.cpp">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/ControlUnit.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/src/course.h">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/ControlUnit.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/src/lesson.cpp">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/Menu.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/src/lesson.h">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/Menu.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/src/student.cpp">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/Schedule.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/src/student.h">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/Schedule.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/src/studentGroup.cpp">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/lesson.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/src/studentGroup.h">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/lesson.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/src/time.cpp">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/student.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/src/time.h">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/student.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="C:/Users/nowayjose/Desktop/projaed/aedHenrique/projaed/CMakeLists.txt">
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/studentGroup.cpp">
+			<Option target="projaed"/>
+		</Unit>
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/studentGroup.h">
+			<Option target="projaed"/>
+		</Unit>
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/time.cpp">
+			<Option target="projaed"/>
+		</Unit>
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/src/time.h">
+			<Option target="projaed"/>
+		</Unit>
+		<Unit filename="C:/Users/nowayjose/Documents/AEDFEITODIREITO/projaed/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

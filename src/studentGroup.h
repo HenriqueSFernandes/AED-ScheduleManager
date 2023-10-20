@@ -1,32 +1,35 @@
-#ifndef PROJAED_STUDENTGROUP_H
-#define PROJAED_STUDENTGROUP_H
+#ifndef STUDENTGROUP_H
+#define STUDENTGROUP_H
 
-
-#include <vector>
-#include <string>
-#include "lesson.h"
 #include <iostream>
+#include <string>
 
 class studentGroup {
 public:
-    studentGroup();
+    // Constructors
+    studentGroup(const std::string &uccode,const std::string &classCode);
+    const std::string& getClassCode() const {
+        return classCode;
+    }
 
-    studentGroup(const std::string &classCode, const std::string &weekday, double startTime, double duration,
-                 const std::string &type);
+    const std::string& getUcCode() const {
+        return UcCode;
+    }
 
-    void addLesson(const std::string &weekday, double startTime, double duration, const std::string &type);
+    bool operator<(const studentGroup& other) const {
+        // Define a comparison logic here based on your criteria.
+        // For example, you can compare based on class code or other fields.
+        return this->classCode < other.classCode;
+    }
+   friend std::ostream& operator<<(std::ostream& os, const studentGroup& group) {
+        os << "UcCode: " << group.classCode<< ", Class Code: " << group.UcCode;
+        return os;
+    }
 
-    void addStudent();
-
-    std::vector<lesson> getLessons();
-
-    friend std::ostream &operator<<(std::ostream &os, const studentGroup &studentGroup);
 
 private:
-    int numStudents;
     std::string classCode;
-    std::vector<lesson> lessons;
+    std::string UcCode;
+
 };
-
-
-#endif //PROJAED_STUDENTGROUP_H
+#endif

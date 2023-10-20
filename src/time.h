@@ -5,7 +5,8 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
-
+#include <string>
+using namespace std;
 namespace Time {
     class time {
     public:
@@ -13,9 +14,12 @@ namespace Time {
 
         time();
 
+        string displayHourFormat();
+
         int getHour() const;
 
         int getMinute() const;
+
 
         friend std::ostream &operator<<(std::ostream &os, const time &t);
 

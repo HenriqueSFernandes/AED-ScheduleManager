@@ -2,7 +2,9 @@
 
 using namespace Time;
 
-lesson::lesson(const std::string &weekday, double startTime, double duration, const std::string &type) {
+lesson::lesson(const std::string &uccode,const std::string &studentgroup,  const std::string &weekday, double startTime, double duration, const std::string &type) {
+    this->UcCode=uccode;
+    this->studentGroup=studentgroup;
     this->weekday = weekday;
     this->startTime = Time::time(startTime);
     this->duration = Time::time(duration);
@@ -13,6 +15,10 @@ lesson::lesson(const std::string &weekday, double startTime, double duration, co
 const std::string &lesson::getWeekday() const {
     return weekday;
 }
+const std::string &lesson::getUccode() const {
+    return UcCode;
+}
+
 
 const Time::time &lesson::getStartTime() const {
     return startTime;
@@ -31,6 +37,6 @@ const std::string &lesson::getType() const {
 }
 
 std::ostream &operator<<(std::ostream &os, const lesson &lesson) {
-    os << lesson.weekday << " from " << lesson.startTime << " to " << lesson.endTime << " type: " << lesson.type;
+    os << lesson.weekday << " from " << lesson.startTime << " to " << lesson.endTime << " type: " << lesson.type<< " regarding class :"<<lesson.studentGroup<< "of the UC"<<lesson.UcCode;
     return os;
 }
