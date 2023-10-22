@@ -1,8 +1,8 @@
 #include "student.h"
-Student::Student(string studentId, string name) {
+Student::Student(string studentId, string name, set<studentGroup> group) {
     this->studentID = studentId;
     this->name = name;
-
+    this->StudentGroups=group;
 }
 void Student::addStudentGroup( studentGroup GroupToAdd){
     this->StudentGroups.insert(GroupToAdd);

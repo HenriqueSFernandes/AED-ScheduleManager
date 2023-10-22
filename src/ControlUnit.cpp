@@ -6,6 +6,7 @@
 #include "ControlUnit.h"
 #include "student.h"
 #include "Schedule.h"
+#include <memory>
 using namespace std;
 
 void ControlUnit::Start() {
@@ -86,56 +87,62 @@ void ControlUnit::LoadClassesPerUcCSV() {
 
     inFile.close();
 }
-void ControlUnit::LoadStudentsClassesCSV()  {
-    //MUDAR CODIGO FANADO
+
+void ControlUnit::LoadStudentsClassesCSV() {
     string line;
-    string StudentCode,StudentName,UcCode,ClassCode;
-    ifstream inFile("../data/students_classes.csv");
+    string stCode, stName, ucCode, classCode;
+    ifstream inFile;
+    inFile.open("../data/students_classes.csv");
+    getline(inFile,line);
+    //Reading the first line with actual data
+    getline(inFile,line);
+    stringstream is(line);
+    getline(is,stCode,',');
+    getline(is,stName,',');
+    getline(is,ucCode,',');
+    getline(is,classCode,'\r');
+    string prevStCode=stCode;
+    set<studentGroup> cpu;
 
-    if (!inFile) {
-        cerr << "Failed to open file" << endl;
-        return;
-    }
+    Student st_class(prevStCode,stName,cpu);
 
-    getline(inFile, line); // Read and discard the header line
-
-    while (getline(inFile, line)) {
+    StudentVector.push_back(st_class);
+    while(getline(inFile,line)){
         stringstream is(line);
-        getline(is, StudentCode, ',');
-        getline(is, StudentName, ',');
-        getline(is, UcCode, ',');
-        getline(is, ClassCode, '\r');
-
-
-
-        Student * Student_ = new Student(StudentCode,StudentName);
-        MainKey key={UcCode,ClassCode};
-        studentGroup * CorrespondingClass=KeyToStudentGroup[key];
-        Student_->addStudentGroup(*CorrespondingClass);
-        cout<<*Student_<<endl;
-        StudentVector.push_back(*Student_);
-
-        MainKey groupKey = {UcCode, ClassCode};
-        if( StudentMap.find(groupKey)!=StudentMap.end()){
-            std::set<Student*> newSet;
-            newSet.insert(Student_);
-            StudentMap[groupKey] = newSet;
-
-        }else{
-            StudentMap[groupKey].insert(Student_);
-
+        getline(is,stCode,',');
+        if(prevStCode != stCode){
+            st_class= Student(prevStCode,stName,cpu);
+            StudentVector.push_back(st_class);
+            cpu.clear();
+            prevStCode = stCode;
         }
-    }
+        getline(is,stName,',');
+        getline(is,ucCode,',');
+        getline(is,classCode,'\r');
+        cpu.insert(studentGroup(ucCode,classCode));
 
+    }
+    cpu.insert(studentGroup(ucCode,classCode));
+    st_class= Student(prevStCode,stName,cpu);
+    StudentVector.push_back(st_class);
     inFile.close();
+    StudentVector.push_back(st_class);
+
 }
+
+
+
 void ControlUnit::DisplayStudentSchedule(string upcode){
     vector<lesson> myVec;
     for(auto student : StudentVector){
         if(student.getStudentID()==upcode){
-            set<studentGroup> studentgroups =student.getStudentGroups();
+            set<studentGroup > studentgroups =student.getStudentGroups();
+            for( auto el : studentgroups){
+
+            }
             for(auto studentgroup : studentgroups){
                 MainKey key={studentgroup.getUcCode(),studentgroup.getClassCode()};
+
                 set<lesson*> Lectures= LessonMap[key];
                 for(auto element : Lectures){
                     cout<<"aula"<<*element<<endl;
@@ -148,5 +155,36 @@ void ControlUnit::DisplayStudentSchedule(string upcode){
     }
     Schedule StudentSchedule= Schedule(myVec);
     StudentSchedule.display();
+
+}
+
+void ControlUnit::DisplayClassSchedule(string classCode, string UcCode){
+    vector<lesson> LessonsVector;
+    MainKey key={UcCode, classCode};
+    set<lesson*> LessonsSet=LessonMap[key];
+    for( auto lesson : LessonsSet){
+        LessonsVector.push_back(*lesson);
+    }
+    Schedule ClassSchedule= Schedule(LessonsVector);
+    ClassSchedule.display();
+
+
+}
+int ControlUnit::StudentsInAtLeastNUcs(int n){
+   int NumberOfStudents=0;
+
+   for( auto student : this->StudentVector ){
+       set<studentGroup > studentgroups =student.getStudentGroups();
+        std::cout<<"//"<<endl;
+       for( auto element : studentgroups){
+           cout<<element<<endl;
+       }
+       if(studentgroups.size()>=n){
+
+           NumberOfStudents++;
+       }
+   }
+   return NumberOfStudents;
+
 
 }

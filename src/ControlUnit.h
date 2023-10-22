@@ -21,6 +21,8 @@ public :
     void LoadClassesPerUcCSV();
     void LoadStudentsClassesCSV();
     void DisplayStudentSchedule(string upcode);
+    void DisplayClassSchedule(string classCode, string UcCode);
+    int StudentsInAtLeastNUcs(int n);
 private:
     struct MainKey {
         string UcCode;
@@ -33,6 +35,8 @@ private:
             return ClassCode < other.ClassCode;
         }
     };
+    set<Student> StudentSet;
+
     vector<Student> StudentVector;
     vector<lesson> LessonVector;
     vector<studentGroup> StudentGroupVector;

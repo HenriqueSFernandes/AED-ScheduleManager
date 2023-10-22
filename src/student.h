@@ -8,14 +8,22 @@
 using namespace std;
 class Student {
 public:
-    Student(string studentId, string name);
+    Student(){};
+    Student(string studentId, string name, set<studentGroup> group);
     std::string getStudentID() const;
     void setStudentID(const std::string& studentId);
+
     void addStudentGroup( studentGroup GroupToAdd);
     void removeGroup(studentGroup GroupToRemove);
     set<studentGroup> getStudentGroups();
     bool operator<(const Student& other) const {
         return studentID < other.studentID;
+    }
+    bool operator==(const Student& other) const {
+        // Implement your equality comparison logic here
+        // This function should not modify the state of the object.
+        // It should only compare the object's attributes.
+        return (this->studentID== other.studentID) && (this->name == other.name);
     }
 
     std::string getName() const;
@@ -24,7 +32,8 @@ public:
 private:
     std::string studentID;
     std::string name;
-    set<studentGroup> StudentGroups;
+    std::set<studentGroup> StudentGroups;
+
 
 
 };

@@ -10,6 +10,8 @@ class Menu {
 public:
     void createMenu();
     void SeeStudentSchedule();
+    void SeeClassSchedule();
+    void SeeNumStudentsAtLeastNUCs();
     void endMenu();
     void listingMenu();
 

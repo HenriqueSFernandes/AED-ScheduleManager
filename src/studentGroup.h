@@ -7,6 +7,9 @@
 class studentGroup {
 public:
     // Constructors
+    studentGroup(){
+
+    }
     studentGroup(const std::string &uccode,const std::string &classCode);
     const std::string& getClassCode() const {
         return classCode;
@@ -19,12 +22,13 @@ public:
     bool operator<(const studentGroup& other) const {
         // Define a comparison logic here based on your criteria.
         // For example, you can compare based on class code or other fields.
-        return this->classCode < other.classCode;
+        return this->classCode + this->UcCode < other.classCode+other.UcCode;
     }
    friend std::ostream& operator<<(std::ostream& os, const studentGroup& group) {
-        os << "UcCode: " << group.classCode<< ", Class Code: " << group.UcCode;
+        os << "UcCode: " << group.UcCode<< ", Class Code: " << group.classCode;
         return os;
     }
+
 
 
 private:
