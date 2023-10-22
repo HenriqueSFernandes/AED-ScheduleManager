@@ -87,7 +87,7 @@ void ControlUnit::LoadClassesPerUcCSV() {
 
     inFile.close();
 }
-
+///CODIGO FANADO
 void ControlUnit::LoadStudentsClassesCSV() {
     string line;
     string stCode, stName, ucCode, classCode;
