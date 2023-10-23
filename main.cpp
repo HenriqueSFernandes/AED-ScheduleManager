@@ -1,26 +1,20 @@
 #include <iostream>
 #include "src/time.h"
 #include "src/lesson.h"
-#include "src/course.h"
+
 #include <sstream>
 #include <fstream>
 #include <map>
 #include <string>
-
+#include "src/Menu.h"
 
 using namespace std;
 using namespace Time;
 
-template<class T>
-void printVector(vector<T> v) {
-    for (auto i: v) {
-        cout << i << " ";
-    }
-    cout << endl;
-}
+
 
 int main() {
-
+    /*
     map<string, course> courses;
 
     ifstream classes;
@@ -52,7 +46,8 @@ int main() {
     classes.close();
 
     course uc1 = courses["L.EIC003"];
-    cout << uc1 << endl;
-
+    cout << uc1 << endl;*/
+    Menu myMenu= Menu();
+    myMenu.createMenu();
 }
 

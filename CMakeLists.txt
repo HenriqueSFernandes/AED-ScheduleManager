@@ -8,12 +8,16 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(projaed main.cpp
         src/studentGroup.cpp
         src/studentGroup.h
-        src/course.cpp
-        src/course.h
         src/lesson.cpp
         src/lesson.h
         src/time.cpp
         src/time.h
         src/student.cpp
         src/student.h
+        src/ControlUnit.cpp
+        src/ControlUnit.h
+        src/Menu.cpp
+        src/Menu.h
+        src/Schedule.cpp
+        src/Schedule.h
 )
