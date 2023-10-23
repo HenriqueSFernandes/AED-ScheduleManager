@@ -23,6 +23,11 @@ public :
     void DisplayStudentSchedule(string upcode);
     void DisplayClassSchedule(string classCode, string UcCode);
     int StudentsInAtLeastNUcs(int n);
+    //Mudanças Leo
+    void courseStudents(string courseCode);
+    void yearStudents(char year);
+    void classStudents(string classCode);
+    //fim mudanças
 private:
     struct MainKey {
         string UcCode;

@@ -21,6 +21,12 @@ void Menu::createMenu(){
         Menu::SeeClassSchedule();
     } else if(option==3){
         Menu::SeeNumStudentsAtLeastNUCs();
+    } else if(option==4) {
+        Menu::SeeStudentsInUc();
+    } else if(option==5){
+        Menu::SeeStudentsInClass();
+    } else if(option==6){
+        Menu::SeeStudentsInYear();
     }
 
 
@@ -48,4 +54,27 @@ void Menu::SeeNumStudentsAtLeastNUCs(){
     int result= this->Control.StudentsInAtLeastNUcs(n);
     std::cout<<"There are "<<result<<" students with at least "<<n<<" UCs"<<endl;
 
+}
+
+//Mudanças Leo
+
+void Menu::SeeStudentsInUc(){
+    std::cout<<"Enter the UC code of the UC you want to see Students"<<endl;
+    string uccode;
+    cin >> uccode;
+    this->Control.courseStudents(uccode);
+}
+
+void Menu::SeeStudentsInYear(){
+    std::cout<<"Enter the year you want students from:"<<endl;
+    char year;
+    cin >> year;
+    this->Control.yearStudents(year);
+}
+
+void Menu::SeeStudentsInClass(){
+    std::cout<<"Enter the class you want to see students from:";
+    string classCode;
+    cin>> classCode;
+    this->Control.classStudents(classCode);
 }

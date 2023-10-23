@@ -19,7 +19,7 @@ void ControlUnit::Start() {
     cout<<"Loaded AULUNOS"<<endl;
 }
 void ControlUnit::LoadClassesCSV() {
-    //MUDAR CODIGO FANADO
+    //ppppppppppppppp
     string line;
     string ucCode, classCode;
     ifstream inFile("../data/classes_per_uc.csv");
@@ -47,7 +47,7 @@ void ControlUnit::LoadClassesCSV() {
     inFile.close();
 }
 void ControlUnit::LoadClassesPerUcCSV() {
-    //MUDAR CODIGO FANADO
+    //ppppppppppppppppppppppp
     string line;
     string ClassCode,UcCode,Weekday,StartHour,Duration,Type;
     ifstream inFile("../data/classes.csv");
@@ -187,4 +187,119 @@ int ControlUnit::StudentsInAtLeastNUcs(int n){
    return NumberOfStudents;
 
 
+}
+
+//Minhas Alterações
+
+
+void ControlUnit::classStudents(string classCode){
+    set<studentGroup> groups;
+    set<Student> students;
+    string ucCode;
+    bool classnotexist = true;
+    while(classnotexist){
+        for(auto group:StudentGroupVector){
+            if(classCode == group.getClassCode()){
+                classnotexist=false;
+                break;
+            }
+        }
+        if(classnotexist){
+            cout<<"Given class doesn't exist, please provide a new class code:"<<endl;
+            cin>>classCode;
+        }
+    }
+    cout<<"Which course from class " << classCode << " you would like to see students from?:" << endl;
+    cin>>ucCode;
+    bool ucnotexist = true;
+
+    while(ucnotexist){
+        for(auto group: StudentGroupVector){
+            if(classCode == group.getClassCode() && ucCode == group.getUcCode()){
+                ucnotexist = false;
+                break;
+            }
+        }
+        if(ucnotexist){
+            cout<<"This course doesn't exist in this class, please provide a new Course:"<<endl;
+            cin>>ucCode;
+        }
+    }
+    for (auto student: StudentVector) {
+        groups = student.getStudentGroups();
+        for (auto group: groups) {
+            if (group.getClassCode() == classCode && group.getUcCode() == ucCode){
+                students.insert(student);
+                break;
+            }
+        }
+    }
+
+    cout<< "Students in " << classCode <<" from " << ucCode << " :"<<endl<<endl;
+    for(auto student: students){
+        cout<<student<<endl;
+    }
+    cout<<endl<<"There are "<<students.size()<< " students in the class " << classCode << " from course " << ucCode<<"." << endl;
+
+}
+
+void ControlUnit::courseStudents(string courseCode){
+    set<studentGroup> groups;
+    set<Student> students;
+    bool notexist = true;
+    while(notexist) {
+        for (auto student: StudentVector) {
+            groups = student.getStudentGroups();
+            for (auto group: groups) {
+                if (group.getUcCode() == courseCode) {
+                    students.insert(student);
+                    break;
+                }
+            }
+        }
+        if(students.size()== 0){
+            notexist=true;
+            cout<<"Given UC code doesn't exist, please provide a new one:"<<endl;
+            cin>>courseCode;
+        }
+        else{
+            notexist=false;
+        }
+    }
+    cout<< "Students in " << courseCode <<":"<<endl<<endl;
+    for(auto student: students){
+        cout<<student<<endl;
+    }
+    cout<<endl<<"There are "<<students.size()<< " students in the course " << courseCode<<"." << endl;
+
+}
+
+void ControlUnit::yearStudents(char year){
+    set<studentGroup> groups;
+    set<Student> students;
+    bool notexist = true;
+    while(notexist) {
+        for (auto student: StudentVector) {
+            groups = student.getStudentGroups();
+            for (auto group: groups) {
+                if (group.getClassCode()[0] == year) {
+                    students.insert(student);
+                    break;
+                }
+            }
+        }
+        if(students.size()== 0){
+            notexist=true;
+            cout<<"Given year doesn't exist, please provide a new one:"<<endl;
+            cin>>year;
+        }
+        else{
+            notexist=false;
+        }
+    }
+    cout<< "Students in year " << year <<":"<<endl<<endl;
+    for(auto student: students){
+        cout<<student<<endl;
+    }
+    cout<<endl<<"There are "<<students.size()<< " students in the year " << year << "." <<endl;
 }

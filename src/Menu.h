@@ -14,6 +14,11 @@ public:
     void SeeNumStudentsAtLeastNUCs();
     void endMenu();
     void listingMenu();
+    //Mudanças Leo
+    void SeeStudentsInUc();
+    void SeeStudentsInYear();
+    void SeeStudentsInClass();
+    //Fim Mudanças
 
 private:
     ControlUnit Control;
