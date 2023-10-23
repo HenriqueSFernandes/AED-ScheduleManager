@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2023.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\projaed.dir/objects.a
-C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\ar.exe qc CMakeFiles\projaed.dir/objects.a @CMakeFiles\projaed.dir\objects1.rsp
-C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\projaed.dir/objects.a -Wl,--no-whole-archive -o projaed.exe -Wl,--out-implib,libprojaed.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\projaed.dir\linkLibs.rsp

@@ -10,8 +10,8 @@ add_executable(projaed main.cpp
         src/studentGroup.h
         src/lesson.cpp
         src/lesson.h
-        src/time.cpp
-        src/time.h
+        src/lessontime.cpp
+        src/lessontime.h
         src/student.cpp
         src/student.h
         src/ControlUnit.cpp

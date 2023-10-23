@@ -1,5 +1,5 @@
 #include <iostream>
-#include "src/time.h"
+#include "src/lessontime.h"
 #include "src/lesson.h"
 
 #include <sstream>
@@ -9,7 +9,6 @@
 #include "src/Menu.h"
 
 using namespace std;
-using namespace Time;
 
 
 

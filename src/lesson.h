@@ -4,7 +4,7 @@
 
 #include <string>
 #include <ctime>
-#include "time.h"
+#include "lessontime.h"
 #include <iostream>
 
 class lesson {
@@ -13,10 +13,10 @@ public:
 
     const std::string &getWeekday() const;
 
-    const Time::time &getStartTime() const;
+    const lessontime &getStartTime() const;
 
-    const Time::time &getDuration() const;
-    const Time::time &getEndTime() const;
+    const lessontime &getDuration() const;
+    const lessontime &getEndTime() const;
 
     const string &getUccode() const;
 
@@ -35,9 +35,9 @@ private:
     std::string studentGroup;
     std::string UcCode;
     std::string weekday;
-    Time::time startTime;
-    Time::time duration;
-    Time::time endTime;
+    lessontime startTime;
+    lessontime duration;
+    lessontime endTime;
     std::string type;
 };
 
