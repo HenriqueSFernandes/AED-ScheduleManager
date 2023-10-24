@@ -16,7 +16,7 @@ void ControlUnit::Start() {
     cout<<"Loaded AULAS"<<endl;
 
     ControlUnit::LoadStudentsClassesCSV();
-    cout<<"Loaded AULUNOS"<<endl;
+    cout<<"Loaded ALUNOS"<<endl;
 }
 void ControlUnit::LoadClassesCSV() {
     //ppppppppppppppp
@@ -37,7 +37,7 @@ void ControlUnit::LoadClassesCSV() {
         getline(is, classCode, '\r');
 
         studentGroup* group = new studentGroup(ucCode, classCode);
-        cout << *group << endl;
+        //cout << *group << endl;
         StudentGroupVector.push_back(*group);
 
         MainKey groupKey = {ucCode, classCode};
@@ -70,7 +70,7 @@ void ControlUnit::LoadClassesPerUcCSV() {
 
 
         lesson * Lesson = new lesson(UcCode,ClassCode,Weekday,stod(StartHour) ,stod(Duration),Type);
-        cout << *Lesson << endl;
+        //cout << *Lesson << endl;
         LessonVector.push_back(*Lesson);
 
         MainKey groupKey = {UcCode, ClassCode};
@@ -133,6 +133,11 @@ void ControlUnit::LoadStudentsClassesCSV() {
 
 
 void ControlUnit::DisplayStudentSchedule(string upcode){
+    cout<<"Would you like the default Version or the Visual Version"<<endl;
+    cout<<"1) Default"<<endl;
+    cout<<"2) Visual"<<endl;
+    int option;
+    cin>>option;
     vector<lesson> myVec;
     for(auto student : StudentVector){
         if(student.getStudentID()==upcode){
@@ -145,7 +150,17 @@ void ControlUnit::DisplayStudentSchedule(string upcode){
 
                 set<lesson*> Lectures= LessonMap[key];
                 for(auto element : Lectures){
-                    cout<<"aula"<<*element<<endl;
+                    if(option==1){
+                        int width = 80; // Calculate the width based on the content length
+                        std::string horizontalLine(width, '-');
+
+                        std::cout << '+' << horizontalLine << '+' << std::endl;
+                        std::cout << "| " <<*element<<" |"<< std::endl;
+                        std::cout << '+' << horizontalLine << '+' << std::endl;
+
+
+                    }
+
                     myVec.push_back(*element);
                 }
 
@@ -153,20 +168,86 @@ void ControlUnit::DisplayStudentSchedule(string upcode){
 
         }
     }
-    Schedule StudentSchedule= Schedule(myVec);
-    StudentSchedule.display();
+    if(option==2){
+        Schedule StudentSchedule= Schedule(myVec);
+        StudentSchedule.display();
+    }
+
 
 }
-
-void ControlUnit::DisplayClassSchedule(string classCode, string UcCode){
+//ze
+//as drenas de visual tirei a olho mais ou menos depois se der tempo faço certo
+//Imaginem isto é CLASS POR UC N É LEGIT FULL CLASS
+/*void ControlUnit::DisplayClassSchedule(string classCode, string UcCode){
+    cout<<"Would you like the default Version or the Visual Version"<<endl;
+    cout<<"1) Default"<<endl;
+    cout<<"2) Visual"<<endl;
+    int option;
+    cin>>option;
     vector<lesson> LessonsVector;
     MainKey key={UcCode, classCode};
     set<lesson*> LessonsSet=LessonMap[key];
     for( auto lesson : LessonsSet){
         LessonsVector.push_back(*lesson);
+        if(option==1){
+            int width = 80; // Calculate the width based on the content length
+            std::string horizontalLine(width, '-');
+
+            std::cout << '+' << horizontalLine << '+' << std::endl;
+            std::cout << "| " <<*lesson<<" |"<< std::endl;
+            std::cout << '+' << horizontalLine << '+' << std::endl;
+
+        }
     }
-    Schedule ClassSchedule= Schedule(LessonsVector);
-    ClassSchedule.display();
+    if(option ==2){
+        Schedule ClassSchedule= Schedule(LessonsVector);
+        ClassSchedule.display();
+    }
+
+
+
+}*/
+//LEGIT FULL CLASS
+//TESTEI E MSM RESULTADO QUE A MAH
+void ControlUnit::DisplayClassSchedule(string classCode){
+    cout<<"Would you like the default Version or the Visual Version"<<endl;
+    cout<<"1) Default"<<endl;
+    cout<<"2) Visual"<<endl;
+    int option;
+    cin>>option;
+    vector<lesson> LessonsVector;
+    set<lesson*> LessonsSet;
+    for( auto studentGroup : StudentGroupVector){
+        if(studentGroup.getClassCode()==classCode){
+
+
+            MainKey key={studentGroup.getUcCode(), classCode};
+
+            LessonsSet.insert(LessonMap[key].begin(),LessonMap[key].end());
+
+        }
+    }
+
+
+
+    for( auto lesson : LessonsSet){
+
+        LessonsVector.push_back(*lesson);
+        if(option==1){
+            int width = 80; // Calculate the width based on the content length
+            std::string horizontalLine(width, '-');
+
+            std::cout << '+' << horizontalLine << '+' << std::endl;
+            std::cout << "| " <<*lesson<<" |"<< std::endl;
+            std::cout << '+' << horizontalLine << '+' << std::endl;
+
+        }
+    }
+    if(option ==2){
+        Schedule ClassSchedule= Schedule(LessonsVector);
+        ClassSchedule.display();
+    }
+
 
 
 }
@@ -189,7 +270,7 @@ int ControlUnit::StudentsInAtLeastNUcs(int n){
 
 }
 
-//Minhas Alterações
+//Alterações do Leandro
 
 
 void ControlUnit::classStudents(string classCode){

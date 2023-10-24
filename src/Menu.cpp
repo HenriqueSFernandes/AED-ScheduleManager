@@ -4,6 +4,7 @@
 
 #include "Menu.h"
 #include "ControlUnit.h"
+//Initializes the main menu and display the options
 void Menu::createMenu(){
     this->Control=ControlUnit();
 
@@ -41,10 +42,11 @@ void Menu::SeeClassSchedule(){
     std::cout<<"Enter the Class Code"<<endl;
     string classCode;
     cin>>classCode;
-    std::cout<<"Enter the Uc Code"<<endl;
-    string ucCode;
-    cin>>ucCode;
-    this->Control.DisplayClassSchedule(classCode,ucCode);
+    //std::cout<<"Enter the Uc Code"<<endl;
+    //string ucCode;
+    //cin>>ucCode;
+    //this->Control.DisplayClassSchedule(classCode,ucCode);
+    this->Control.DisplayClassSchedule(classCode);
 }
 void Menu::SeeNumStudentsAtLeastNUCs(){
 

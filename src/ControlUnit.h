@@ -19,9 +19,11 @@ public :
     void Start();
     void LoadClassesCSV();
     void LoadClassesPerUcCSV();
+
     void LoadStudentsClassesCSV();
     void DisplayStudentSchedule(string upcode);
-    void DisplayClassSchedule(string classCode, string UcCode);
+    //void DisplayClassSchedule(string classCode, string UcCode);
+    void DisplayClassSchedule(string classCode);
     int StudentsInAtLeastNUcs(int n);
     //Mudanças Leo
     void courseStudents(string courseCode);

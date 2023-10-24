@@ -1,4 +1,4 @@
-# Install script for directory: /home/ricky/Desktop/aed/projaed
+# Install script for directory: /home/kali/PROJAEDATUAL/projaed
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ricky/Desktop/aed/projaed/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,6 +1,6 @@
-/home/ricky/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/ricky/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -G Ninja -S /home/ricky/Desktop/aed/projaed -B /home/ricky/Desktop/aed/projaed/cmake-build-debug
--- The C compiler identification is GNU 12.3.0
--- The CXX compiler identification is GNU 12.3.0
+/home/kali/Desktop/clion-2023.2.2/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /home/kali/PROJAEDATUAL/projaed -B /home/kali/PROJAEDATUAL/projaed/cmake-build-debug
+-- The C compiler identification is GNU 13.2.0
+-- The CXX compiler identification is GNU 13.2.0
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Check for working C compiler: /usr/bin/cc - skipped
@@ -11,6 +11,6 @@
 -- Check for working CXX compiler: /usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Configuring done (0.3s)
+-- Configuring done (0.8s)
 -- Generating done (0.0s)
--- Build files have been written to: /home/ricky/Desktop/aed/projaed/cmake-build-debug
+-- Build files have been written to: /home/kali/PROJAEDATUAL/projaed/cmake-build-debug
