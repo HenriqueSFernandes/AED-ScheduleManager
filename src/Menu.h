@@ -23,6 +23,7 @@ public:
 private:
     ControlUnit Control;
 
+    void SeeUcFromMostStudents();
 };
 
 

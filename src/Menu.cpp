@@ -28,6 +28,8 @@ void Menu::createMenu(){
         Menu::SeeStudentsInClass();
     } else if(option==6){
         Menu::SeeStudentsInYear();
+    } else if(option==7){
+        Menu::SeeUcFromMostStudents();
     }
 
 
@@ -79,4 +81,8 @@ void Menu::SeeStudentsInClass(){
     string classCode;
     cin>> classCode;
     this->Control.classStudents(classCode);
+}
+
+void Menu::SeeUcFromMostStudents() {
+    this->Control.UCWithMostStudents();
 }

@@ -8,126 +8,126 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/kali/PROJAEDATUAL/projaed/cmake-build-debug"/>
+				<Option working_dir="C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projaed">
-				<Option output="/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/projaed" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/kali/PROJAEDATUAL/projaed/cmake-build-debug"/>
+				<Option output="C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/projaed.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/13"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
-					<Add directory="/usr/include/c++/13/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projaed/fast">
-				<Option output="/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/projaed" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/kali/PROJAEDATUAL/projaed/cmake-build-debug"/>
+				<Option output="C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/projaed.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/13"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/13"/>
-					<Add directory="/usr/include/c++/13/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/13/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed/fast"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/kali/PROJAEDATUAL/projaed/cmake-build-debug"/>
+				<Option working_dir="C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/kali/PROJAEDATUAL/projaed/cmake-build-debug"/>
+				<Option working_dir="C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/kali/PROJAEDATUAL/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/leodr/Desktop/AED/projaed/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/main.cpp">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/main.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/ControlUnit.cpp">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/ControlUnit.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/ControlUnit.h">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/ControlUnit.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/Menu.cpp">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/Menu.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/Menu.h">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/Menu.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/Schedule.cpp">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/Schedule.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/Schedule.h">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/Schedule.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/lesson.cpp">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/lesson.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/lesson.h">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/lesson.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/lessontime.cpp">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/lessontime.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/lessontime.h">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/lessontime.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/student.cpp">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/student.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/student.h">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/student.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/studentGroup.cpp">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/studentGroup.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/src/studentGroup.h">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/src/studentGroup.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/kali/PROJAEDATUAL/projaed/CMakeLists.txt">
+		<Unit filename="C:/Users/leodr/Desktop/AED/projaed/projaed/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

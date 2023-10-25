@@ -7,6 +7,8 @@
 #include "student.h"
 #include "Schedule.h"
 #include <memory>
+#include <algorithm>
+
 using namespace std;
 
 void ControlUnit::Start() {
@@ -383,4 +385,29 @@ void ControlUnit::yearStudents(char year){
         cout<<student<<endl;
     }
     cout<<endl<<"There are "<<students.size()<< " students in the year " << year << "." <<endl;
+}
+
+
+
+void ControlUnit::UCWithMostStudents(){
+    set<studentGroup> groups;
+    map<string,int> ucs;
+    for(auto student:StudentVector){
+        groups = student.getStudentGroups();
+        for(auto group:groups){
+            if (ucs.find(group.getUcCode())==ucs.end()) {
+                ucs[group.getUcCode()] = 1;
+            } else {
+                ucs[group.getUcCode()] += 1;
+            }
+        }
+    }
+    vector<pair<string,int>> ucsvec(ucs.begin(),ucs.end());
+    sort(ucsvec.begin(),ucsvec.end(),[](const pair<string,int> &a, const pair<string, int> &b){
+        return a.second > b.second;
+    });
+    cout<<"These are the Ucs in descending order of registered students.";
+    for(auto uc:ucsvec){
+        cout<<uc.first<<" with " << uc.second << " students."<<endl<<endl;
+    }
 }
