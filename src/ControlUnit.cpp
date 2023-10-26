@@ -105,10 +105,12 @@ void ControlUnit::LoadStudentsClassesCSV() {
     getline(is,classCode,'\r');
     string prevStCode=stCode;
     set<studentGroup> cpu;
-
+    cpu.insert(studentGroup(ucCode,classCode));
     Student st_class(prevStCode,stName,cpu);
 
-    StudentVector.push_back(st_class);
+
+
+
     while(getline(inFile,line)){
         stringstream is(line);
         getline(is,stCode,',');
@@ -128,7 +130,7 @@ void ControlUnit::LoadStudentsClassesCSV() {
     st_class= Student(prevStCode,stName,cpu);
     StudentVector.push_back(st_class);
     inFile.close();
-    StudentVector.push_back(st_class);
+
 
 }
 
@@ -406,7 +408,7 @@ void ControlUnit::UCWithMostStudents(){
     sort(ucsvec.begin(),ucsvec.end(),[](const pair<string,int> &a, const pair<string, int> &b){
         return a.second > b.second;
     });
-    cout<<"These are the Ucs in descending order of registered students.";
+    cout<<"These are the Ucs in descending order of registered students."<<endl;
     for(auto uc:ucsvec){
         cout<<uc.first<<" with " << uc.second << " students."<<endl<<endl;
     }
