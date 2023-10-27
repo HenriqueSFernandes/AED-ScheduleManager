@@ -480,7 +480,7 @@ bool ControlUnit::IsThereConflict(vector<lesson> lessons){
 
    for(int i=0;i<lessons.size()-1;i++){
        for(int j=i+1; j<lessons.size();j++){
-           bool overLap=(lessons[i].getStartTime()<lessons[j].getEndTime() or lessons[j].getStartTime()<lessons[i].getEndTime());
+           bool overLap=((lessons[i].getStartTime()<=lessons[j].getStartTime() and lessons[j].getEndTime()<=lessons[i].getEndTime()) or (lessons[j].getStartTime()<=lessons[i].getStartTime() and lessons[i].getEndTime()<=lessons[j].getEndTime()));
 
            bool bothPratical=( lessons[i].getType()=="TP" or lessons[i].getType()=="PL") and ( lessons[j].getType()=="TP" or lessons[j].getType()=="PL");
            bool sameDay = lessons[i].getWeekday()==lessons[j].getWeekday();
