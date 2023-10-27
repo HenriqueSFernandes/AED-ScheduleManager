@@ -36,6 +36,6 @@ const std::string &lesson::getType() const {
 }
 
 std::ostream &operator<<(std::ostream &os, const lesson &lesson) {
-    os << lesson.weekday << " from " << lesson.startTime << " to " << lesson.endTime << " type: " << lesson.type<< " regarding class :"<<lesson.studentGroup<< "of the UC"<<lesson.UcCode;
+    os << lesson.weekday << " from " << lesson.startTime << " to " << lesson.endTime << " type: " << lesson.type<< " regarding class : "<<lesson.studentGroup<< " of the UC"<<lesson.UcCode;
     return os;
 }

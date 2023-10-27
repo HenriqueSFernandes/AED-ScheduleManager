@@ -8,7 +8,7 @@
 #include "Schedule.h"
 #include <memory>
 #include <algorithm>
-
+#include <cstdlib>
 using namespace std;
 
 void ControlUnit::Start() {
@@ -135,13 +135,33 @@ void ControlUnit::LoadStudentsClassesCSV() {
 }
 
 
-
-void ControlUnit::DisplayStudentSchedule(string upcode){
+//Deve dar confia
+void ControlUnit::DisplayStudentSchedule(){
     cout<<"Would you like the default Version or the Visual Version"<<endl;
     cout<<"1) Default"<<endl;
     cout<<"2) Visual"<<endl;
     int option;
     cin>>option;
+    std::cout<<"Enter the UPCODE OF THE STUDENT"<<endl;
+    string upcode;
+
+    bool valid=false;
+    while(not valid){
+        //ya esta parte do bool um quites ppp especialmente  parte sinalizada
+        cin>>upcode;
+        valid=upcode.size() == 9;
+
+        if(not valid){
+            cout<<"Invalid number number try again a valid code is for instance 202028717"<<endl;
+        }else{break;
+        }
+        //PPPPPP
+
+        cin.ignore(INT_MAX, '\n');
+        cin.clear();
+        //PPPPPP
+    }
+
     vector<lesson> myVec;
     for(auto student : StudentVector){
         if(student.getStudentID()==upcode){
@@ -213,12 +233,29 @@ void ControlUnit::DisplayStudentSchedule(string upcode){
 }*/
 //LEGIT FULL CLASS
 //TESTEI E MSM RESULTADO QUE A MAH
-void ControlUnit::DisplayClassSchedule(string classCode){
+void ControlUnit::DisplayClassSchedule(){
     cout<<"Would you like the default Version or the Visual Version"<<endl;
     cout<<"1) Default"<<endl;
     cout<<"2) Visual"<<endl;
     int option;
     cin>>option;
+    std::cout<<"Enter the Class Code"<<endl;
+    string classCode;
+
+    bool valid=false;
+    while ( not valid) {
+        cin>>classCode;
+        valid=classCode.length() == 7 && isdigit(classCode[0]) && classCode.substr(1, 4) == "LEIC" && isdigit(classCode[5]) && isdigit(classCode[6]);
+        //estava a dar problema de n limpar o cin resolvi com PPPPPPP da Mah atenção
+        if(not valid){
+            std::cout << "Invalid input. Try Again class is of the form {NUMBER]{LEIC}{NUMBER}{NUMBER} for instance 3LEIC05" << std::endl;
+        }else{break;}
+
+
+        cin.ignore(INT_MAX, '\n');
+        cin.clear();
+
+    }
     vector<lesson> LessonsVector;
     set<lesson*> LessonsSet;
     for( auto studentGroup : StudentGroupVector){
@@ -255,17 +292,17 @@ void ControlUnit::DisplayClassSchedule(string classCode){
 
 
 }
+// Escolher se deixo ali o cout ou n
 int ControlUnit::StudentsInAtLeastNUcs(int n){
+
    int NumberOfStudents=0;
 
    for( auto student : this->StudentVector ){
        set<studentGroup > studentgroups =student.getStudentGroups();
-        std::cout<<"//"<<endl;
-       for( auto element : studentgroups){
-           cout<<element<<endl;
-       }
-       if(studentgroups.size()>=n){
 
+
+       if(studentgroups.size()>=n){
+            cout<<"//"<<student<<"//"<<endl;
            NumberOfStudents++;
        }
    }
@@ -412,4 +449,44 @@ void ControlUnit::UCWithMostStudents(){
     for(auto uc:ucsvec){
         cout<<uc.first<<" with " << uc.second << " students."<<endl<<endl;
     }
+}
+//helper functions
+bool ControlUnit::IsBalanced(vector<studentGroup>){
+
+    int cap=30;
+    int min =cap+1;
+    int max=-1;
+    for(auto studentGroup : this->StudentGroupVector ){
+
+        MainKey key={studentGroup.getUcCode(),studentGroup.getClassCode()};
+        if (StudentMap.find(key) != StudentMap.end()) {
+            int size = StudentMap[key].size();
+            if(size >max){max=size;}
+            else if(size< min){min=size;}
+
+        }
+
+    }
+    if(max-min<=4){
+        return true;
+
+    }
+    return false;
+
+}
+//helper functions
+bool ControlUnit::IsThereConflict(vector<lesson> lessons){
+
+   for(int i=1;i<lessons.size();i++){
+       bool overLap=(lessons[i].getStartTime()<lessons[i-1].getEndTime() or lessons[i-1].getStartTime()<lessons[i].getEndTime());
+       bool bothPratical=( lessons[i].getType()=="TP" or lessons[i].getType()=="PL") and ( lessons[i-1].getType()=="TP" or lessons[i-1].getType()=="PL");
+       bool sameDay = lessons[i].getWeekday()==lessons[i-1].getWeekday();
+       if(overLap and bothPratical and sameDay ){
+           return true;
+       }
+
+   }
+   return false;
+
+
 }

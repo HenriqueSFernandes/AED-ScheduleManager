@@ -6,49 +6,64 @@
 #include "ControlUnit.h"
 //Initializes the main menu and display the options
 void Menu::createMenu(){
-    this->Control=ControlUnit();
-
+    this->Control = ControlUnit();
 
     int InputOption;
-    std::cout<<"Hello welcome to my Schedule Management System What would you like to do?"<<endl;
-    std::cout<<"1) Get Schedule of Student"<<endl;
+    std::cout << "Hello, welcome to my Schedule Management System. What would you like to do?" << std::endl;
+    std::cout << "1) Get Schedule of Student" << std::endl;
     this->Control.Start();
-    std::cout<< "Select 1 fot Student schedule 2 for class schedule"<<endl;
+    std::cout << "Select an option:" << std::endl;
+    std::cout << "1. See Student Schedule" << std::endl;
+    std::cout << "2. See Class Schedule" << std::endl;
+    std::cout << "3. See Number of Students with at least NUCs" << std::endl;
+    std::cout << "4. See Students in a UC" << std::endl;
+    std::cout << "5. See Students in a Class" << std::endl;
+    std::cout << "6. See Students in a Year" << std::endl;
+    std::cout << "7. See UC with Most Students" << std::endl;
+
     int option;
-    cin>>option;
-    if(option==1){
-        Menu::SeeStudentSchedule();
-    }else if(option==2){
-        Menu::SeeClassSchedule();
-    } else if(option==3){
-        Menu::SeeNumStudentsAtLeastNUCs();
-    } else if(option==4) {
-        Menu::SeeStudentsInUc();
-    } else if(option==5){
-        Menu::SeeStudentsInClass();
-    } else if(option==6){
-        Menu::SeeStudentsInYear();
-    } else if(option==7){
-        Menu::SeeUcFromMostStudents();
+    std::cin >> option;
+
+    switch (option) {
+        case 1:
+            Menu::SeeStudentSchedule();
+            break;
+        case 2:
+            Menu::SeeClassSchedule();
+            break;
+        case 3:
+            Menu::SeeNumStudentsAtLeastNUCs();
+            break;
+        case 4:
+            Menu::SeeStudentsInUc();
+            break;
+        case 5:
+            Menu::SeeStudentsInClass();
+            break;
+        case 6:
+            Menu::SeeStudentsInYear();
+            break;
+        case 7:
+            Menu::SeeUcFromMostStudents();
+            break;
+        default:
+            std::cout << "Invalid option. Please select a valid option." << std::endl;
+            break;
     }
 
 
 }
 void Menu::SeeStudentSchedule(){
-    std::cout<<"Enter the UPCODE OF THE STUDENT"<<endl;
-    string upcode;
-    cin>>upcode;
-    this->Control.DisplayStudentSchedule(upcode);
+
+    this->Control.DisplayStudentSchedule();
 }
 void Menu::SeeClassSchedule(){
-    std::cout<<"Enter the Class Code"<<endl;
-    string classCode;
-    cin>>classCode;
+
     //std::cout<<"Enter the Uc Code"<<endl;
     //string ucCode;
     //cin>>ucCode;
     //this->Control.DisplayClassSchedule(classCode,ucCode);
-    this->Control.DisplayClassSchedule(classCode);
+    this->Control.DisplayClassSchedule();
 }
 void Menu::SeeNumStudentsAtLeastNUCs(){
 

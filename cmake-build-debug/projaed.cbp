@@ -8,126 +8,126 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/up202208001/Desktop/AED/projaed/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projaed">
-				<Option output="/home/up202208001/Desktop/AED/projaed/cmake-build-debug/projaed" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/up202208001/Desktop/AED/projaed/cmake-build-debug"/>
+				<Option output="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/projaed.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/11"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
-					<Add directory="/usr/include/c++/11/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projaed/fast">
-				<Option output="/home/up202208001/Desktop/AED/projaed/cmake-build-debug/projaed" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/up202208001/Desktop/AED/projaed/cmake-build-debug"/>
+				<Option output="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/projaed.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/11"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
-					<Add directory="/usr/include/c++/11/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed/fast"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 projaed/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/up202208001/Desktop/AED/projaed/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/up202208001/Desktop/AED/projaed/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/up202208001/Desktop/AED/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/main.cpp">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/main.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/ControlUnit.cpp">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/ControlUnit.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/ControlUnit.h">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/ControlUnit.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/Menu.cpp">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/Menu.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/Menu.h">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/Menu.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/Schedule.cpp">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/Schedule.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/Schedule.h">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/Schedule.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/lesson.cpp">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/lesson.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/lesson.h">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/lesson.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/lessontime.cpp">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/lessontime.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/lessontime.h">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/lessontime.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/student.cpp">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/student.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/student.h">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/student.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/studentGroup.cpp">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/studentGroup.cpp">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/src/studentGroup.h">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/src/studentGroup.h">
 			<Option target="projaed"/>
 		</Unit>
-		<Unit filename="/home/up202208001/Desktop/AED/projaed/CMakeLists.txt">
+		<Unit filename="C:/Users/Jose Sousa/OneDrive - Universidade do Porto/Ambiente de Trabalho/scheduleuwu/projaed/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

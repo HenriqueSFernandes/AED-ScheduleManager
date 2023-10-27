@@ -12,6 +12,7 @@
 #include <map>
 #include "student.h"
 #include <set>
+#include <list>
 #include "lesson.h"
 class ControlUnit {
 public :
@@ -21,15 +22,19 @@ public :
     void LoadClassesPerUcCSV();
 
     void LoadStudentsClassesCSV();
-    void DisplayStudentSchedule(string upcode);
+    void DisplayStudentSchedule();
     //void DisplayClassSchedule(string classCode, string UcCode);
-    void DisplayClassSchedule(string classCode);
+    void DisplayClassSchedule();
     int StudentsInAtLeastNUcs(int n);
     //Mudanças Leo
     void courseStudents(string courseCode);
     void yearStudents(char year);
     void classStudents(string classCode);
     void UCWithMostStudents();
+    //Helper Function
+    bool IsBalanced(vector<studentGroup>);
+    bool IsThereConflict(vector<lesson>);
+    //
     //fim mudanças
 private:
     struct MainKey {
@@ -47,7 +52,7 @@ private:
 
     vector<Student> StudentVector;
     vector<lesson> LessonVector;
-    vector<studentGroup> StudentGroupVector;
+    list<studentGroup> StudentGroupVector;
     map<MainKey,studentGroup*> KeyToStudentGroup;
     map<MainKey,set<Student*>> StudentMap;
     map<MainKey,set<lesson*>> LessonMap;
