@@ -24,7 +24,7 @@ void ControlUnit::LoadClassesCSV() {
     //ppppppppppppppp
     string line;
     string ucCode, classCode;
-    ifstream inFile("../data/classes_per_uc.csv");
+    ifstream inFile("../data2/classes_per_uc.csv");
 
     if (!inFile) {
         cerr << "Failed to open file" << endl;
@@ -52,7 +52,7 @@ void ControlUnit::LoadClassesPerUcCSV() {
     //ppppppppppppppppppppppp
     string line;
     string ClassCode,UcCode,Weekday,StartHour,Duration,Type;
-    ifstream inFile("../data/classes.csv");
+    ifstream inFile("../data2/classes.csv");
 
     if (!inFile) {
         cerr << "Failed to open file" << endl;
@@ -94,7 +94,7 @@ void ControlUnit::LoadStudentsClassesCSV() {
     string line;
     string stCode, stName, ucCode, classCode;
     ifstream inFile;
-    inFile.open("../data/students_classes.csv");
+    inFile.open("../data2/students_classes.csv");
     getline(inFile,line);
     //Reading the first line with actual data
     getline(inFile,line);
@@ -193,6 +193,7 @@ void ControlUnit::DisplayStudentSchedule(){
         }
     }
     if(option==2){
+        cout<<" is there conflict"<<IsThereConflict(myVec)<<endl;
         Schedule StudentSchedule= Schedule(myVec);
         StudentSchedule.display();
     }
@@ -477,13 +478,18 @@ bool ControlUnit::IsBalanced(vector<studentGroup>){
 //helper functions
 bool ControlUnit::IsThereConflict(vector<lesson> lessons){
 
-   for(int i=1;i<lessons.size();i++){
-       bool overLap=(lessons[i].getStartTime()<lessons[i-1].getEndTime() or lessons[i-1].getStartTime()<lessons[i].getEndTime());
-       bool bothPratical=( lessons[i].getType()=="TP" or lessons[i].getType()=="PL") and ( lessons[i-1].getType()=="TP" or lessons[i-1].getType()=="PL");
-       bool sameDay = lessons[i].getWeekday()==lessons[i-1].getWeekday();
-       if(overLap and bothPratical and sameDay ){
-           return true;
+   for(int i=0;i<lessons.size()-1;i++){
+       for(int j=i+1; j<lessons.size();j++){
+           bool overLap=(lessons[i].getStartTime()<lessons[j].getEndTime() or lessons[j].getStartTime()<lessons[i].getEndTime());
+
+           bool bothPratical=( lessons[i].getType()=="TP" or lessons[i].getType()=="PL") and ( lessons[j].getType()=="TP" or lessons[j].getType()=="PL");
+           bool sameDay = lessons[i].getWeekday()==lessons[j].getWeekday();
+           if(overLap and bothPratical and sameDay ){
+               cout<<lessons[i]<<"/"<<lessons[j]<<endl;
+               return true;
+           }
        }
+
 
    }
    return false;
