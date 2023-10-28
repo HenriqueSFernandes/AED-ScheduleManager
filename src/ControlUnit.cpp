@@ -497,8 +497,52 @@ bool ControlUnit::IsThereConflict(vector<lesson> lessons){
 
 }
 //FUNCOES PARA REQUEST
-void ControlUnit::processRequest(Request request) {
-    if(request.getType()=="add"){
-        processRequest()
+void ControlUnit::processRequest(Request * request ) {
+    if (request->getType() == "add") {
+        processAddRequest(dynamic_cast<AddRequest*>(request));
+
+    }//then have
+}
+void ControlUnit::processAddRequest(AddRequest* addRequest) {
+    string upCode = addRequest->getUpCodeStudent();
+    string classCode = addRequest->getClassCode();
+    string ucCode = addRequest->getUCCode();
+    cout<<"hey i got the request"<<upCode<<"/"<<classCode<<"/"<<ucCode;
+    // Find the set in the StudentMap
+    MainKey key = {ucCode, classCode};
+    //ppppppp
+    //PARA O MAP
+    auto it = StudentMap.find(key);
+
+    if (it != StudentMap.end()) {
+        auto& mySet = it->second;
+
+        // Create a copy of the set with the elements you want to keep
+        std::set<Student*> updatedSet;
+        for (auto student : mySet) {
+            if (student->getStudentID() != upCode) {
+                updatedSet.insert(student);
+            }
+        }
+
+        mySet = updatedSet;
+
+        if (mySet.empty()) {
+            StudentMap.erase(it);
+        }
     }
+    //PARA O vector
+    vector<Student> updatedVector;
+    for (auto& student : StudentVector) {
+        if (student.getStudentID() != upCode) {
+            updatedVector.push_back(student);
+        }else{
+            student.addStudentGroup(studentGroup(ucCode,classCode));
+            updatedVector.push_back(student);
+        }
+    }
+
+    // Replace the original vector with the updated one
+    StudentVector = updatedVector;
+
 }

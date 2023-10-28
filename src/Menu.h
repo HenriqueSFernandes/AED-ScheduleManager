@@ -18,6 +18,7 @@ public:
     void SeeStudentsInUc();
     void SeeStudentsInYear();
     void SeeStudentsInClass();
+    void AdicionarAlunoATurmaImediatamente();
     //Fim Mudanças
 
 private:

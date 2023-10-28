@@ -4,6 +4,7 @@
 
 #include "Menu.h"
 #include "ControlUnit.h"
+#include "Request.h" //depois retirado acho eu so para teste
 //Initializes the main menu and display the options
 void Menu::createMenu(){
     this->Control = ControlUnit();
@@ -20,6 +21,7 @@ void Menu::createMenu(){
     std::cout << "5. See Students in a Class" << std::endl;
     std::cout << "6. See Students in a Year" << std::endl;
     std::cout << "7. See UC with Most Students" << std::endl;
+    std::cout << "7. TESTE ALTERAR TURMA TEMPORARIO" << std::endl; //TESTE
 
     int option;
     std::cin >> option;
@@ -46,6 +48,9 @@ void Menu::createMenu(){
         case 7:
             Menu::SeeUcFromMostStudents();
             break;
+        case 8:
+            Menu::AdicionarAlunoATurmaImediatamente();
+            break;
         default:
             std::cout << "Invalid option. Please select a valid option." << std::endl;
             break;
@@ -54,6 +59,8 @@ void Menu::createMenu(){
 
 }
 void Menu::SeeStudentSchedule(){
+
+
 
     this->Control.DisplayStudentSchedule();
 }
@@ -100,4 +107,27 @@ void Menu::SeeStudentsInClass(){
 
 void Menu::SeeUcFromMostStudents() {
     this->Control.UCWithMostStudents();
+}
+void Menu::AdicionarAlunoATurmaImediatamente() {
+    //Testing Request
+    //202028717,Rute,L.EIC003,1LEIC04
+    //202028717,Rute,L.EIC011,2LEIC11
+    //202028717,Rute,L.EIC012,2LEIC11
+    //vOU ADICIONAR A RUTE A L.EIC004,1LEIC05
+    //std::string type,const std::string& upCodeStudent, const std::string& uCCode, const std::string& classCode
+    cout<<"upcode"<<endl;
+    string upcode;
+    cin>>upcode;
+    cout<<"classcode"<<endl;
+    string classcode;
+    cin>>classcode;
+    cout<<"uccode"<<endl;
+    string uccode;
+    cin>>uccode;
+    Request * testrequest= new AddRequest("add",upcode,uccode,classcode);
+    this->Control.processRequest(testrequest);
+    cout<<"verifica se deu"<<endl;
+
+    this->Control.DisplayStudentSchedule();
+
 }

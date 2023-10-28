@@ -1,5 +1,3 @@
-// request.h
-
 #ifndef PROJAED_REQUEST_H
 #define PROJAED_REQUEST_H
 
@@ -8,23 +6,28 @@
 
 class Request {
 private:
-    static int count;  // Declare a static member variable for request ID.
+    int count=0;  // Declare a static member variable for request ID.
     int requestId; //The ID that identifies each Request
     bool processed;
     std::string type;
 
-
-
 public:
-    Request(string type) {
+    Request(std::string type) {
         requestId = count++;
-        processed=0;
-        this->type=type;
+        processed = false;
+        this->type = type;
     }
-    void setProcessed(bool processed){
-        this->processed=processed;
+
+    void setProcessed(bool processed) {
+        this->processed = processed;
     }
-    string getType(){ return type;}
+
+    std::string getType() const { return type; }
+
+    // Add a virtual function (it can be a pure virtual function).
+    virtual void dummy() {
+        //ALLOWS DOWNCASTING
+    }
 };
 
 #endif // PROJAED_REQUEST_H

@@ -27,12 +27,7 @@ public:
     std::string getClassCode1() const;
     std::string getClassCode2() const;
 
-    // Setters
-    void setUpCodeStudent(const std::string& upCodeStudent);
-    void setUCCode1(const std::string& uCCode1);
-    void setUCCode2(const std::string& uCCode2);
-    void setClassCode1(const std::string& classCode1);
-    void setClassCode2(const std::string& classCode2);
+
 };
 
 #endif // PROJAED_SWITCHREQUEST_H

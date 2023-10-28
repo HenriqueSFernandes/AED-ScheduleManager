@@ -43,10 +43,10 @@ public :
     bool IsBalanced(vector<studentGroup>);
     bool IsThereConflict(vector<lesson>);
     //REQUEST FUNCSTIONS
-    void processRequest(Request request );
-    void processAddRequest(AddRequest addRequest);
-    void processRemoveRequest(RemoveRequest removeRequest);
-    void processSwitchRequest(SwitchRequest switchRequest);
+    void processRequest(Request * request );
+    void processAddRequest(AddRequest * addRequest);
+    void processRemoveRequest(RemoveRequest * removeRequest);
+    void processSwitchRequest(SwitchRequest * switchRequest);
     //fim mudanças
 private:
     struct MainKey {
@@ -60,15 +60,15 @@ private:
             return ClassCode < other.ClassCode;
         }
     };
-    set<Student> StudentSet;
+    //set<Student> StudentSet; nao ta a ser usado
     vector<Student> StudentVector;
     vector<lesson> LessonVector;
     list<studentGroup> StudentGroupVector;
     map<MainKey,studentGroup*> KeyToStudentGroup;
     map<MainKey,set<Student*>> StudentMap;
     map<MainKey,set<lesson*>> LessonMap;
-    queue<Request> RequestsToProcess;
-    stack<Request> ProcessedRequests;
+    queue<Request*> RequestsToProcess;
+    stack<Request*> ProcessedRequests;
 
 
 };
