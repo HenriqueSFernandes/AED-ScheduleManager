@@ -13,7 +13,14 @@
 #include "student.h"
 #include <set>
 #include <list>
+#include <queue>
+#include <stack>
 #include "lesson.h"
+#include "Request.h"
+#include "AddRequest.h"
+#include "RemoveRequest.h"
+#include "SwitchRequest.h"
+
 class ControlUnit {
 public :
 
@@ -31,10 +38,15 @@ public :
     void yearStudents(char year);
     void classStudents(string classCode);
     void UCWithMostStudents();
+
     //Helper Function
     bool IsBalanced(vector<studentGroup>);
     bool IsThereConflict(vector<lesson>);
-    //
+    //REQUEST FUNCSTIONS
+    void processRequest(Request request );
+    void processAddRequest(AddRequest addRequest);
+    void processRemoveRequest(RemoveRequest removeRequest);
+    void processSwitchRequest(SwitchRequest switchRequest);
     //fim mudanças
 private:
     struct MainKey {
@@ -49,13 +61,15 @@ private:
         }
     };
     set<Student> StudentSet;
-
     vector<Student> StudentVector;
     vector<lesson> LessonVector;
     list<studentGroup> StudentGroupVector;
     map<MainKey,studentGroup*> KeyToStudentGroup;
     map<MainKey,set<Student*>> StudentMap;
     map<MainKey,set<lesson*>> LessonMap;
+    queue<Request> RequestsToProcess;
+    stack<Request> ProcessedRequests;
+
 
 };
 

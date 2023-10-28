@@ -2,16 +2,17 @@
 #define PROJAED_ADDREQUEST_H
 
 #include <string>
-
-class AddRequest {
+#include "Request.h"
+class AddRequest : public Request{
 private:
     std::string upCodeStudent;
     std::string uCCode;
     std::string classCode;
 
+
 public:
     // Constructor
-    AddRequest(const std::string& upCodeStudent, const std::string& uCCode, const std::string& classCode);
+    AddRequest( std::string type,const std::string& upCodeStudent, const std::string& uCCode, const std::string& classCode);
 
     // Getters
     std::string getUpCodeStudent() const;

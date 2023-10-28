@@ -7,16 +7,17 @@
 #define PROJAED_REMOVEREQUEST_H
 
 #include <string>
-
-class RemoveRequest {
+#include "Request.h"
+class RemoveRequest : public Request{
 private:
     std::string upCodeStudent;
     std::string uCCode;
     std::string classCode;
 
+
 public:
     // Constructor
-    RemoveRequest(const std::string& upCodeStudent, const std::string& uCCode, const std::string& classCode);
+    RemoveRequest( std::string type,const std::string& upCodeStudent, const std::string& uCCode, const std::string& classCode);
 
     // Getters
     std::string getUpCodeStudent() const;

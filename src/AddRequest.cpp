@@ -5,8 +5,8 @@
 #include "AddRequest.h"
 
 // Constructor
-AddRequest::AddRequest(const std::string& upCodeStudent, const std::string& uCCode, const std::string& classCode)
-        : upCodeStudent(upCodeStudent), uCCode(uCCode), classCode(classCode) {
+AddRequest::AddRequest( std::string type,const std::string& upCodeStudent, const std::string& uCCode, const std::string& classCode)
+        : Request(type),upCodeStudent(upCodeStudent), uCCode(uCCode), classCode(classCode) {
 }
 
 // Getters

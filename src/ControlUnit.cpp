@@ -496,3 +496,9 @@ bool ControlUnit::IsThereConflict(vector<lesson> lessons){
 
 
 }
+//FUNCOES PARA REQUEST
+void ControlUnit::processRequest(Request request) {
+    if(request.getType()=="add"){
+        processRequest()
+    }
+}
