@@ -30,10 +30,10 @@ public :
 
     void LoadStudentsClassesCSV();
     void DisplayStudentSchedule();
-    //void DisplayClassSchedule(string classCode, string UcCode);
     void DisplayClassSchedule();
     int StudentsInAtLeastNUcs(int n);
-    //Mudanças Leo
+
+    //por a receber comparacao (perguntada no menu) para dar display diferente ao criar set resultado
     void courseStudents(string courseCode);
     void yearStudents(char year);
     void classStudents(string classCode);
@@ -47,7 +47,10 @@ public :
     void processAddRequest(AddRequest * addRequest);
     void processRemoveRequest(RemoveRequest * removeRequest);
     void processSwitchRequest(SwitchRequest * switchRequest);
-    //fim mudanças
+    void createAdd();
+    void createRemove();
+    void createSwitch();
+
 private:
     struct MainKey {
         string UcCode;
@@ -65,7 +68,7 @@ private:
     vector<lesson> LessonVector;
     list<studentGroup> StudentGroupVector;
     map<MainKey,studentGroup*> KeyToStudentGroup;
-    map<MainKey,set<Student*>> StudentMap;
+
     map<MainKey,set<lesson*>> LessonMap;
     queue<Request*> RequestsToProcess;
     stack<Request*> ProcessedRequests;

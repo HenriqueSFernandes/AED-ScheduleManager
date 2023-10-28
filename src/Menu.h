@@ -14,17 +14,19 @@ public:
     void SeeNumStudentsAtLeastNUCs();
     void endMenu();
     void listingMenu();
-    //Mudanças Leo
     void SeeStudentsInUc();
     void SeeStudentsInYear();
     void SeeStudentsInClass();
     void AdicionarAlunoATurmaImediatamente();
-    //Fim Mudanças
+    void createRequest();
+    void RemoverAlunoATurmaImediatamente();
+    void TrocarTurmaInstantaneamente();
 
 private:
     ControlUnit Control;
 
     void SeeUcFromMostStudents();
+
 };
 
 

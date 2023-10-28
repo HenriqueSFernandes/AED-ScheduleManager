@@ -1,6 +1,4 @@
-//
-// Created by nowayjose on 20/10/2023.
-//
+
 #include "studentGroup.h"
 #include <fstream>
 #include "ControlUnit.h"
@@ -9,6 +7,7 @@
 #include <memory>
 #include <algorithm>
 #include <cstdlib>
+#include "RemoveRequest.h"
 using namespace std;
 
 void ControlUnit::Start() {
@@ -107,6 +106,8 @@ void ControlUnit::LoadStudentsClassesCSV() {
     set<studentGroup> cpu;
     cpu.insert(studentGroup(ucCode,classCode));
     Student st_class(prevStCode,stName,cpu);
+    MainKey key={ucCode, classCode};
+
 
 
 
@@ -125,8 +126,10 @@ void ControlUnit::LoadStudentsClassesCSV() {
         getline(is,classCode,'\r');
         cpu.insert(studentGroup(ucCode,classCode));
 
+
     }
     cpu.insert(studentGroup(ucCode,classCode));
+
     st_class= Student(prevStCode,stName,cpu);
     StudentVector.push_back(st_class);
     inFile.close();
@@ -452,7 +455,7 @@ void ControlUnit::UCWithMostStudents(){
     }
 }
 //helper functions
-bool ControlUnit::IsBalanced(vector<studentGroup>){
+/*bool ControlUnit::IsBalanced(vector<studentGroup>){
 
     int cap=30;
     int min =cap+1;
@@ -474,7 +477,7 @@ bool ControlUnit::IsBalanced(vector<studentGroup>){
     }
     return false;
 
-}
+}*/
 //helper functions
 bool ControlUnit::IsThereConflict(vector<lesson> lessons){
 
@@ -496,11 +499,79 @@ bool ControlUnit::IsThereConflict(vector<lesson> lessons){
 
 
 }
+//
 //FUNCOES PARA REQUEST
+
+void ControlUnit::createAdd(){
+    string id;
+    string uc;
+    string studentgroup;
+    cin>>id;
+    cout<<"What UC do you want to add the student to:"<<endl;
+    cin>>uc;
+    cout<<"What Class of the UC you want to add the student into:"<<endl;
+    cin>>studentgroup;
+    RequestsToProcess.push(new AddRequest("add",id,uc,studentgroup));
+}
+void ControlUnit::createRemove(){
+    cout<<"What's the ID of the student that you want to remove from an UC:"<<endl;
+    string id;
+    string uc;
+    string studentgroup;
+    cin>>id;
+    cout<<"What UC you want to remove the student from:"<<endl;
+    cin>>uc;
+    cout<<"What Class is he in in the specified Uc:"<<endl;
+    cin>>studentgroup;
+    RequestsToProcess.push(new RemoveRequest("remove",id,uc,studentgroup));
+}
+void ControlUnit::createSwitch(){
+    cout<<"What's the ID of the student that you want to switch from classes/UCs:"<<endl;
+    string id;
+    string uc1;
+    string uc2;
+    int choice;
+    string studentgroup1;
+    string studentgroup2;
+    cin>>id;
+    cout<<"What UC do you want to leave:"<<endl;
+    cin>>uc1;
+    cout<<"What class is he in right now:"<<endl;
+    cin>>studentgroup1;
+    bool invalid = true;
+    while(invalid) {
+        cout<<"Do you want to swap classes from the same UC or swap UCs?\n1.Swap Class from UC\n2.Swap UC\nChoose one:"<<endl;
+        cin>>choice;
+        switch (choice) {
+            case 1:
+                invalid = false;
+                uc2 = uc1;
+                break;
+            case 2:
+                invalid = false;
+                cout << "What UC do you want the student to go to:" << endl;
+                cin >> uc2;
+                break;
+            default:
+                cout << "Invalid choice." << endl;
+                break;
+        }
+    }
+    cout<<"What class do you want to go to?";
+    cin>> studentgroup2;
+    RequestsToProcess.push(new SwitchRequest("switch",id,uc1,uc2,studentgroup1,studentgroup2));
+}
 void ControlUnit::processRequest(Request * request ) {
     if (request->getType() == "add") {
+        cout<<"Detetado como add request"<<endl;
         processAddRequest(dynamic_cast<AddRequest*>(request));
 
+    }else if (request->getType() == "remove") {
+        cout<<"Detetado como remove request"<<endl;
+        processRemoveRequest(dynamic_cast<RemoveRequest*>(request));
+    }else if (request->getType() == "switch") {
+        cout<<"Detetado como switch request"<<endl;
+        processSwitchRequest(dynamic_cast<SwitchRequest*>(request));
     }//then have
 }
 void ControlUnit::processAddRequest(AddRequest* addRequest) {
@@ -508,41 +579,49 @@ void ControlUnit::processAddRequest(AddRequest* addRequest) {
     string classCode = addRequest->getClassCode();
     string ucCode = addRequest->getUCCode();
     cout<<"hey i got the request"<<upCode<<"/"<<classCode<<"/"<<ucCode;
+
+
+    for (auto& student : StudentVector) {
+        if (student.getStudentID() == upCode) {
+            student.addStudentGroup(studentGroup(ucCode,classCode));
+        }
+    }
+
+
+
+
+
+}
+void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
+    string upCode = removeRequest->getUpCodeStudent();
+    string classCode = removeRequest->getClassCode();
+    string ucCode = removeRequest->getUCCode();
+    cout<<"hey i got the request"<<upCode<<"/"<<classCode<<"/"<<ucCode;
     // Find the set in the StudentMap
     MainKey key = {ucCode, classCode};
     //ppppppp
     //PARA O MAP
-    auto it = StudentMap.find(key);
 
-    if (it != StudentMap.end()) {
-        auto& mySet = it->second;
 
-        // Create a copy of the set with the elements you want to keep
-        std::set<Student*> updatedSet;
-        for (auto student : mySet) {
-            if (student->getStudentID() != upCode) {
-                updatedSet.insert(student);
-            }
-        }
-
-        mySet = updatedSet;
-
-        if (mySet.empty()) {
-            StudentMap.erase(it);
-        }
-    }
-    //PARA O vector
-    vector<Student> updatedVector;
     for (auto& student : StudentVector) {
-        if (student.getStudentID() != upCode) {
-            updatedVector.push_back(student);
-        }else{
-            student.addStudentGroup(studentGroup(ucCode,classCode));
-            updatedVector.push_back(student);
+        if (student.getStudentID() == upCode) {
+
+                student.removeGroup(studentGroup(ucCode, classCode));
+
+
         }
     }
+
 
     // Replace the original vector with the updated one
-    StudentVector = updatedVector;
 
+
+
+}
+
+void ControlUnit::processSwitchRequest(SwitchRequest * switchRequest) {
+    RemoveRequest * RemReq= new RemoveRequest("remove",switchRequest->getUpCodeStudent(),switchRequest->getUCCode1(),switchRequest->getClassCode1());
+    AddRequest  * AddReq= new AddRequest("add",switchRequest->getUpCodeStudent(),switchRequest->getUCCode2(),switchRequest->getClassCode2());
+    processRemoveRequest(RemReq);
+    processAddRequest(AddReq);
 }

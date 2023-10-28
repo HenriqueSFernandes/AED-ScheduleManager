@@ -6,14 +6,19 @@
 
 class Request {
 private:
-    int count=0;  // Declare a static member variable for request ID.
+    static int count;  // Declare a static member variable for request ID.
     int requestId; //The ID that identifies each Request
     bool processed;
     std::string type;
 
 public:
+    void static setCount(){
+        count=0;
+    }
     Request(std::string type) {
-        requestId = count++;
+        count++;
+        requestId = count;
+        cout<<"request id is "<<requestId<<" and count is "<<count<<endl;
         processed = false;
         this->type = type;
     }

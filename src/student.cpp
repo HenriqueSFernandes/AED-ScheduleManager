@@ -8,7 +8,13 @@ void Student::addStudentGroup( studentGroup GroupToAdd){
     this->StudentGroups.insert(GroupToAdd);
 }
 void Student::removeGroup(studentGroup GroupToRemove){
-    this->StudentGroups.erase(GroupToRemove);
+    cout<<"Chamado o remove group"<<endl;
+    for( auto& sg : StudentGroups){
+        if(sg.getUcCode()==GroupToRemove.getUcCode() and sg.getClassCode()==GroupToRemove.getClassCode()){
+            this->StudentGroups.erase(sg);
+
+        }
+    }
 }
 set<studentGroup> Student::getStudentGroups(){
     return this->StudentGroups;
