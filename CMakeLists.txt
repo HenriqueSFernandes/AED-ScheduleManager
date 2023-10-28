@@ -20,4 +20,11 @@ add_executable(projaed main.cpp
         src/Menu.h
         src/Schedule.cpp
         src/Schedule.h
+        src/Request.h
+        src/SwitchRequest.cpp
+        src/SwitchRequest.h
+        src/AddRequest.cpp
+        src/AddRequest.h
+        src/RemoveRequest.cpp
+        src/RemoveRequest.h
 )
