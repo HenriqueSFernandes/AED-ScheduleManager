@@ -21,7 +21,7 @@ void Menu::createMenu(){
     std::cout << "5. See Students in a Class" << std::endl;
     std::cout << "6. See Students in a Year" << std::endl;
     std::cout << "7. See UC with Most Students" << std::endl;
-    std::cout << "7. TESTE ALTERAR TURMA TEMPORARIO" << std::endl; //TESTE
+    std::cout << "8. TESTE ALTERAR TURMA TEMPORARIO" << std::endl; //TESTE
 
     int option;
     std::cin >> option;
