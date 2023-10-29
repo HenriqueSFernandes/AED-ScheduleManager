@@ -24,7 +24,7 @@
 class ControlUnit {
 public :
 
-    void Start();
+    void Start(string filename);
     void LoadClassesCSV();
     void LoadClassesPerUcCSV();
 
@@ -47,6 +47,7 @@ public :
     void processAddRequest(AddRequest * addRequest);
     void processRemoveRequest(RemoveRequest * removeRequest);
     void processSwitchRequest(SwitchRequest * switchRequest);
+    void CheckIfThereAreConflicts();
     void createAdd();
     void createRemove();
     void createSwitch();
@@ -64,12 +65,14 @@ private:
         }
     };
     //set<Student> StudentSet; nao ta a ser usado
+    string filename;
     vector<Student> StudentVector;
     vector<lesson> LessonVector;
     list<studentGroup> StudentGroupVector;
     map<MainKey,studentGroup*> KeyToStudentGroup;
 
     map<MainKey,set<lesson*>> LessonMap;
+    map<MainKey,int> SizeMap;
     queue<Request*> RequestsToProcess;
     stack<Request*> ProcessedRequests;
 

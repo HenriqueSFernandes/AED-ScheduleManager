@@ -2,84 +2,199 @@
 // Created by nowayjose on 20/10/2023.
 //
 
+#include <climits>
+#include <functional>
 #include "Menu.h"
 #include "ControlUnit.h"
 #include "Request.h" //depois retirado acho eu so para teste
 //Initializes the main menu and display the options
 void Menu::createMenu(){
     this->Control = ControlUnit();
+
     bool run = true;
     int InputOption;
+    int fileoption;
+    string filename;
+    while(run) {
 
-    std::cout << "Hello, welcome to my Schedule Management System. What would you like to do?" << std::endl;
-    std::cout << "1) Get Schedule of Student" << std::endl;
-    this->Control.Start();
+        std::cout << "Hello, welcome to my Schedule Management System." << std::endl;
+        std::cout<< "Would you like to use the Original Version or the Updated Version of the Student DB"<<endl;
+        std::cout<< "1)Original Version\n2)Updated Version"<<endl;
+        cin>>fileoption;
+
+        switch (fileoption){
+            case 1:
+                run = false;
+                filename = "../data/students_classes.csv";
+                break;
+            case 2:
+                run = false;
+                filename = "../data/students_classes_updated.csv";
+                break;
+            default:
+                cout<<"Invalid option, choose again."<<endl;
+                break;
+        }
+    }
+
+    run = true;
+    this->Control.Start(filename);
+    this->Control.CheckIfThereAreConflicts();
     while(run) {
         std::cout << "Select an option:" << std::endl;
-        std::cout << "1. See Student Schedule" << std::endl;
-        std::cout << "2. See Class Schedule" << std::endl;
-        std::cout << "3. See Number of Students with at least NUCs" << std::endl;
-        std::cout << "4. See Students in a UC" << std::endl;
-        std::cout << "5. See Students in a Class" << std::endl;
-        std::cout << "6. See Students in a Year" << std::endl;
-        std::cout << "7. See UC with Most Students" << std::endl;
-        std::cout << "8. TESTE ALTERAR TURMA TEMPORARIO" << std::endl; //TESTE
-        std::cout << "9. Leave Program" << std::endl;
-        std::cout << "10. Create Request" << std::endl;
+        std::cout << "1) Listing Menu"<<endl;
+        std::cout<<"2) Create Requests"<<endl;
+        std::cout<<"3)Process Requests"<<endl;
+        std::cout<<"4) Leave the program"<<endl;
         int option;
         std::cin >> option;
+        switch (option){
+            case 1:
+                Menu::listingMenu();
+                break;
+            case 2:
+                Menu::createRequest();
+                break;
+            case 3:
+                //ainda nao implementado, parte do henrique;
+                break;
+            case 4:
+                run = false;
+                //acrescentar função para dar update do file;
+                break;
+            default:
+                cout<<"Invalid option."<<endl;
+                break;
+        }
 
-        switch (option) {
+    }
+
+
+}
+
+void Menu::listingMenu(){
+    int option;
+    while(true){
+        cout<<"Choose the type of listing you want to see."<<endl;
+        cout<<"1) See Schedules"<<endl;
+        cout<<"2) See Number of Students registered in at least N UCs"<<endl;
+        cout<<"3) See Students"<<endl;
+        cout<<"4) See all UCs"<<endl;
+        cin>>option;
+        switch(option){
+            case 1:
+                Menu::scheduleMenu();
+                break;
+            case 2:
+                Menu::SeeNumStudentsAtLeastNUCs();
+                break;
+            case 3:
+                Menu::studentMenu();
+                break;
+            case 4:
+                Menu::SeeUcFromMostStudents();
+                break;
+            default:
+                cout<<"Invalid option."<<endl;
+                continue;
+        }
+        break;
+
+    }
+
+}
+
+
+void Menu::scheduleMenu(){
+    int option;
+    while(true){
+        cout<<"What do you want to see?"<<endl;
+        cout<<"1) Student Schedule"<<endl;
+        cout<<"2) Class Schedule"<<endl;
+        cin>>option;
+        switch(option){
             case 1:
                 Menu::SeeStudentSchedule();
                 break;
             case 2:
                 Menu::SeeClassSchedule();
                 break;
-            case 3:
-                Menu::SeeNumStudentsAtLeastNUCs();
-                break;
-            case 4:
+            default:
+                cout<<"Invalid option."<<endl;
+                continue;
+        }
+        break;
+    }
+}
+
+void Menu::studentMenu() {
+    int option;
+    while(true){
+        cout<<"Choose the type of student listing you want to see."<<endl;
+        cout<<"1) See all Students in an UC"<<endl;
+        cout<<"2) See all Students in a Year"<<endl;
+        cout<<"3) See all Students in a Class"<<endl;
+
+        cin>>option;
+        switch(option){
+            case 1:
                 Menu::SeeStudentsInUc();
                 break;
-            case 5:
-                Menu::SeeStudentsInClass();
-                break;
-            case 6:
+            case 2:
                 Menu::SeeStudentsInYear();
                 break;
-            case 7:
-                Menu::SeeUcFromMostStudents();
-                break;
-            case 8:
-                Menu::AdicionarAlunoATurmaImediatamente();
-                break;
-            case 9:
-                run = false;
-                break;
-            case 10:
-                Menu::createRequest();
-                break;
-            case 11:
-                Menu::RemoverAlunoATurmaImediatamente();
-                break;
-            case 12:
-                Menu::TrocarTurmaInstantaneamente();
+            case 3:
+                Menu::SeeStudentsInClass();
                 break;
             default:
-                std::cout << "Invalid option. Please select a valid option." << std::endl;
-                break;
+                cout<<"Invalid option."<<endl;
+                continue;
         }
+        break;
+
     }
 
-
 }
+
+//teu se calhar so aquele da contagem de alunos em n cadeiras
+//eu so vou fazer o meu set com resultado ter ordens diferentes, pois dps o cout fica sempre por ordem do set res
+//Fu ver e vector tipon faço com vector na mesma a pesquisar por ordens dif?????
+ // ou mudo para set
+ //a notaçao dessa funcao e um quites estranha
+/*function<bool(Student,Student)> Menu::optionStudentMenu(){
+    int option;
+    while(true){
+        cout<<"What's the order you want to see students in?"<<endl;
+        cout<<"1) UP code ascending"<<endl;
+        cout<<"2) UP code descending"<<endl;
+        cout<<"3) Alphabetical ascending"<<endl;
+        cout<<"4) Alphabetical descending"<<endl;
+        cin>>option;
+        switch (option){
+            case 1:
+                return [](Student a, Student b){return a.getStudentID()<b.getStudentID();};
+                break;
+            case 2:
+                return [](Student a, Student b){return a.getStudentID()>b.getStudentID();};
+                break;
+            case 3:
+                return [](Student a, Student b){return a.getName()<b.getName();};
+                break;
+            case 4:
+                return [](Student a, Student b){return a.getName()>b.getName();};
+                break;
+            default:
+                cout<<"Invalid option."<<endl;
+                continue;
+        }
+        break;
+ }
+*/
+
 void Menu::SeeStudentSchedule(){
-
-
-
     this->Control.DisplayStudentSchedule();
 }
+
 void Menu::SeeClassSchedule(){
 
     //std::cout<<"Enter the Uc Code"<<endl;
@@ -88,6 +203,7 @@ void Menu::SeeClassSchedule(){
     //this->Control.DisplayClassSchedule(classCode,ucCode);
     this->Control.DisplayClassSchedule();
 }
+
 void Menu::SeeNumStudentsAtLeastNUCs(){
 
     std::cout<<"Enter the N "<<endl;
@@ -98,7 +214,6 @@ void Menu::SeeNumStudentsAtLeastNUCs(){
 
 }
 
-//Mudanças Leo
 
 void Menu::SeeStudentsInUc(){
     std::cout<<"Enter the UC code of the UC you want to see Students"<<endl;
@@ -124,6 +239,40 @@ void Menu::SeeStudentsInClass(){
 void Menu::SeeUcFromMostStudents() {
     this->Control.UCWithMostStudents();
 }
+
+
+void Menu::createRequest(){
+    int requesttype;
+    while(true) {
+        cout << "What type of request do you want to do?" << endl;
+        cout<< "1.Add a Class"<<endl;
+        cout<<"2.Remove a Class"<<endl;
+        cout<<"3.Switch Classes"<<endl;
+
+        std::cin >> requesttype;
+
+
+        switch (requesttype) {
+            case 1:
+                this->Control.createAdd();
+                break;
+            case 2:
+                this->Control.createRemove();
+                break;
+            case 3:
+                this->Control.createSwitch();
+                break;
+            default:
+                cout << "Invalid option." << endl;
+                continue;
+        }
+        break;
+    }
+
+}
+
+
+//funções de teste, inutilizadas por enquanto (supostamente)
 void Menu::AdicionarAlunoATurmaImediatamente() {
     cout<<"upcode"<<endl;
     string upcode;
@@ -165,38 +314,7 @@ void Menu::RemoverAlunoATurmaImediatamente() {
 
 
 
-void Menu::createRequest(){
-    int requesttype;
-    bool invalid = true;
-    while(invalid) {
-        cout << "What type of request do you want to do?" << endl;
-        cout<< "1.Add a Class\n2.Remove a Class\n3.Switch Classes\nWrite your choice:" << endl;
-        cin.clear();
-        cin.ignore(INT_MAX, '\n');
 
-        std::cin >> requesttype;   //bug aqui, da problema neste cin por algum motivo quando se põe 1
-
-
-        switch (requesttype) {
-            case 1:
-                invalid = false;
-                this->Control.createAdd();
-                break;
-            case 2:
-                invalid = false;
-                this->Control.createRemove();
-                break;
-            case 3:
-                invalid = false;
-                this->Control.createSwitch();
-                break;
-            default:
-                cout << "Invalid option." << endl;
-                break;
-        }
-    }
-
-}
 
 void Menu::TrocarTurmaInstantaneamente() {
     cout<<"upcode"<<endl;

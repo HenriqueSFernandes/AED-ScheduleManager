@@ -7,10 +7,12 @@
 #include <memory>
 #include <algorithm>
 #include <cstdlib>
+#include <climits>
 #include "RemoveRequest.h"
 using namespace std;
 
-void ControlUnit::Start() {
+void ControlUnit::Start(string filename) {
+    this->filename=filename;
     ControlUnit::LoadClassesCSV();
     cout<<"Loaded CLASSES"<<endl;
     ControlUnit::LoadClassesPerUcCSV();
@@ -19,7 +21,7 @@ void ControlUnit::Start() {
     ControlUnit::LoadStudentsClassesCSV();
     cout<<"Loaded ALUNOS"<<endl;
 }
-void ControlUnit::LoadClassesCSV() {
+void ControlUnit::LoadClassesPerUcCSV() {
     //ppppppppppppppp
     string line;
     string ucCode, classCode;
@@ -47,7 +49,7 @@ void ControlUnit::LoadClassesCSV() {
 
     inFile.close();
 }
-void ControlUnit::LoadClassesPerUcCSV() {
+void ControlUnit::LoadClassesCSV() {
     //ppppppppppppppppppppppp
     string line;
     string ClassCode,UcCode,Weekday,StartHour,Duration,Type;
@@ -93,7 +95,7 @@ void ControlUnit::LoadStudentsClassesCSV() {
     string line;
     string stCode, stName, ucCode, classCode;
     ifstream inFile;
-    inFile.open("../data2/students_classes.csv");
+    inFile.open(filename);
     getline(inFile,line);
     //Reading the first line with actual data
     getline(inFile,line);
@@ -105,8 +107,15 @@ void ControlUnit::LoadStudentsClassesCSV() {
     string prevStCode=stCode;
     set<studentGroup> cpu;
     cpu.insert(studentGroup(ucCode,classCode));
+
     Student st_class(prevStCode,stName,cpu);
     MainKey key={ucCode, classCode};
+    if(SizeMap.find(key)==SizeMap.end()){
+        SizeMap[key]=1;
+    }else{
+        SizeMap[key]++;
+    }
+
 
 
 
@@ -125,10 +134,22 @@ void ControlUnit::LoadStudentsClassesCSV() {
         getline(is,ucCode,',');
         getline(is,classCode,'\r');
         cpu.insert(studentGroup(ucCode,classCode));
+        key={ucCode, classCode};
+        if(SizeMap.find(key)==SizeMap.end()){
+            SizeMap[key]=1;
+        }else{
+            SizeMap[key]++;
+        }
 
 
     }
     cpu.insert(studentGroup(ucCode,classCode));
+    key={ucCode, classCode};
+    if(SizeMap.find(key)==SizeMap.end()){
+        SizeMap[key]=1;
+    }else{
+        SizeMap[key]++;
+    }
 
     st_class= Student(prevStCode,stName,cpu);
     StudentVector.push_back(st_class);
@@ -315,38 +336,37 @@ int ControlUnit::StudentsInAtLeastNUcs(int n){
 
 }
 
-//Alterações do Leandro
 
 
 void ControlUnit::classStudents(string classCode){
     set<studentGroup> groups;
     set<Student> students;
     string ucCode;
-    bool classnotexist = true;
-    while(classnotexist){
+    bool notexist = true;
+    while(notexist){
         for(auto group:StudentGroupVector){
             if(classCode == group.getClassCode()){
-                classnotexist=false;
+                notexist=false;
                 break;
             }
         }
-        if(classnotexist){
+        if(notexist){
             cout<<"Given class doesn't exist, please provide a new class code:"<<endl;
             cin>>classCode;
         }
     }
     cout<<"Which course from class " << classCode << " you would like to see students from?:" << endl;
     cin>>ucCode;
-    bool ucnotexist = true;
+    notexist = true;
 
-    while(ucnotexist){
+    while(notexist){
         for(auto group: StudentGroupVector){
             if(classCode == group.getClassCode() && ucCode == group.getUcCode()){
-                ucnotexist = false;
+                notexist = false;
                 break;
             }
         }
-        if(ucnotexist){
+        if(notexist){
             cout<<"This course doesn't exist in this class, please provide a new Course:"<<endl;
             cin>>ucCode;
         }
@@ -454,30 +474,32 @@ void ControlUnit::UCWithMostStudents(){
         cout<<uc.first<<" with " << uc.second << " students."<<endl<<endl;
     }
 }
+
 //helper functions
-/*bool ControlUnit::IsBalanced(vector<studentGroup>){
+bool ControlUnit::IsBalanced(vector<studentGroup> groups){
 
     int cap=30;
     int min =cap+1;
     int max=-1;
-    for(auto studentGroup : this->StudentGroupVector ){
+
+    for(auto studentGroup : groups){
+
 
         MainKey key={studentGroup.getUcCode(),studentGroup.getClassCode()};
-        if (StudentMap.find(key) != StudentMap.end()) {
-            int size = StudentMap[key].size();
-            if(size >max){max=size;}
-            else if(size< min){min=size;}
 
-        }
+        int size = SizeMap[key];
+
+        if(size >max){max=size;}
+        if(size< min){min=size;}
 
     }
-    if(max-min<=4){
+
+    if((max-min)<=4){
         return true;
-
+    }else{
+        return false;
     }
-    return false;
-
-}*/
+}
 //helper functions
 bool ControlUnit::IsThereConflict(vector<lesson> lessons){
 
@@ -506,6 +528,7 @@ void ControlUnit::createAdd(){
     string id;
     string uc;
     string studentgroup;
+    cout<<"What's the ID of the student that you want to add to an UC:"<<endl;
     cin>>id;
     cout<<"What UC do you want to add the student to:"<<endl;
     cin>>uc;
@@ -584,6 +607,13 @@ void ControlUnit::processAddRequest(AddRequest* addRequest) {
     for (auto& student : StudentVector) {
         if (student.getStudentID() == upCode) {
             student.addStudentGroup(studentGroup(ucCode,classCode));
+            MainKey key ={ucCode, classCode};
+
+            if(SizeMap.find(key)==SizeMap.end()){
+                SizeMap[key]=1;
+            }else{
+                SizeMap[key]++;
+            }
         }
     }
 
@@ -598,15 +628,18 @@ void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
     string ucCode = removeRequest->getUCCode();
     cout<<"hey i got the request"<<upCode<<"/"<<classCode<<"/"<<ucCode;
     // Find the set in the StudentMap
-    MainKey key = {ucCode, classCode};
-    //ppppppp
-    //PARA O MAP
 
 
     for (auto& student : StudentVector) {
         if (student.getStudentID() == upCode) {
 
                 student.removeGroup(studentGroup(ucCode, classCode));
+                MainKey key ={ucCode, classCode};
+
+                SizeMap[key]--;
+
+
+
 
 
         }
@@ -624,4 +657,12 @@ void ControlUnit::processSwitchRequest(SwitchRequest * switchRequest) {
     AddRequest  * AddReq= new AddRequest("add",switchRequest->getUpCodeStudent(),switchRequest->getUCCode2(),switchRequest->getClassCode2());
     processRemoveRequest(RemReq);
     processAddRequest(AddReq);
+}
+void ControlUnit::CheckIfThereAreConflicts() {
+
+
+    for (auto& studentGroup : StudentGroupVector) { // Use a reference to avoid unnecessary copies
+        MainKey key={studentGroup.getUcCode(),studentGroup.getClassCode()};
+        cout<<"student group"<<studentGroup<<"SIZE"<<SizeMap[key]<<endl;
+    }
 }

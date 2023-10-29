@@ -13,7 +13,10 @@ public:
     void SeeClassSchedule();
     void SeeNumStudentsAtLeastNUCs();
     void endMenu();
+
     void listingMenu();
+    void scheduleMenu();
+    void studentMenu();
     void SeeStudentsInUc();
     void SeeStudentsInYear();
     void SeeStudentsInClass();
@@ -21,12 +24,15 @@ public:
     void createRequest();
     void RemoverAlunoATurmaImediatamente();
     void TrocarTurmaInstantaneamente();
+    //TESTING
+    void Testing();
 
 private:
     ControlUnit Control;
 
     void SeeUcFromMostStudents();
 
+    //function<bool(Student, Student)> optionStudentMenu();
 };
 
 
