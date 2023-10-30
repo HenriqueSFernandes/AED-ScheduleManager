@@ -29,6 +29,8 @@ public:
     std::string getName() const;
     void setName(const std::string& name);
     friend std::ostream& operator<<(std::ostream& os, const Student& student);
+    bool isinuc(string uc);
+    bool isinclass(string uc, string studgroup);
 private:
     std::string studentID;
     std::string name;

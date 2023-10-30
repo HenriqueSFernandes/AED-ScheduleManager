@@ -45,3 +45,23 @@ std::ostream& operator<<(std::ostream& os, const Student& student) {
 
     return os;
 }
+
+
+bool Student::isinuc(std::string uc) {
+    for (auto group:StudentGroups){
+        if(group.getUcCode()==uc){
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Student::isinclass(std::string uc, std::string studgroup) {
+    for (auto group: StudentGroups) {
+        if (group.getClassCode() == studgroup and group.getUcCode() == uc) {
+            return true;
+        }
+
+    }
+    return false;
+}

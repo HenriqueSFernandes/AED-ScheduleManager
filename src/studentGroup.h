@@ -36,7 +36,7 @@ private:
 
     std::string classCode;
     std::string UcCode;
-    int cap=30; //might change latter on
+
 
 };
 #endif

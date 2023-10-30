@@ -185,6 +185,7 @@ void ControlUnit::DisplayStudentSchedule(){
         cin.clear();
         //PPPPPP
     }
+    bool found=false;
 
     vector<lesson> myVec;
     for(auto student : StudentVector){
@@ -208,6 +209,7 @@ void ControlUnit::DisplayStudentSchedule(){
 
 
                     }
+                    found=true;
 
                     myVec.push_back(*element);
                 }
@@ -216,7 +218,7 @@ void ControlUnit::DisplayStudentSchedule(){
 
         }
     }
-    if(option==2){
+    if(option==2 and found){
         cout<<" is there conflict"<<IsThereConflict(myVec)<<endl;
         Schedule StudentSchedule= Schedule(myVec);
         StudentSchedule.display();
@@ -476,9 +478,9 @@ void ControlUnit::UCWithMostStudents(){
 }
 
 //helper functions
-bool ControlUnit::IsBalanced(vector<studentGroup> groups){
+int ControlUnit::NumBalanced(vector<studentGroup> groups,map<MainKey,int> myMap){
 
-    int cap=30;
+    int cap= this->cap;
     int min =cap+1;
     int max=-1;
 
@@ -487,18 +489,14 @@ bool ControlUnit::IsBalanced(vector<studentGroup> groups){
 
         MainKey key={studentGroup.getUcCode(),studentGroup.getClassCode()};
 
-        int size = SizeMap[key];
+        int size = myMap[key];
 
         if(size >max){max=size;}
         if(size< min){min=size;}
 
     }
 
-    if((max-min)<=4){
-        return true;
-    }else{
-        return false;
-    }
+   return max-min;
 }
 //helper functions
 bool ControlUnit::IsThereConflict(vector<lesson> lessons){
@@ -584,17 +582,190 @@ void ControlUnit::createSwitch(){
     cin>> studentgroup2;
     RequestsToProcess.push(new SwitchRequest("switch",id,uc1,uc2,studentgroup1,studentgroup2));
 }
+bool ControlUnit::CheckAdd(AddRequest *addrq){
+    bool result= true;
+    string upcode=addrq->getUpCodeStudent();
+    bool notmorethan7=true;
+    bool studentExists=false;
+    bool NotInMoreTHanONeClass=true;
+    map<string,int> HaveISeenThisUc;
+    vector<lesson> lessonVec;
+
+    for( auto student : StudentVector){
+        if(student.getStudentID()==upcode){
+            studentExists=true;
+            NotInMoreTHanONeClass = !student.isinuc(addrq->getUCCode());
+
+            for( auto studentGroup : student.getStudentGroups()){
+
+
+
+                MainKey key={studentGroup.getUcCode(),studentGroup.getClassCode()};
+                set<lesson*> lessonSet=LessonMap[key];
+                for(auto lesson : lessonSet){
+                    lessonVec.push_back(*lesson);
+                }
+            }
+            if(student.getStudentGroups().size()>=7){
+                notmorethan7=false;
+            }
+            break;
+        }
+
+
+    }
+    vector<studentGroup> mysgs;
+
+    map<MainKey,int> dummyMap=SizeMap;
+    for( auto sg : StudentGroupVector){
+        if( sg.getUcCode()==addrq->getUCCode()){
+            mysgs.push_back(sg);
+
+            if(sg.getClassCode()==addrq->getClassCode()){
+                MainKey key={sg.getUcCode(),sg.getClassCode()};
+                dummyMap[key]++;
+            }
+        }
+    }
+    result=notmorethan7 and studentExists and NotInMoreTHanONeClass;
+    MainKey key={addrq->getUCCode(), addrq->getClassCode()};
+    int oldBalance= NumBalanced(mysgs,SizeMap);
+    set<lesson*> lessonSet=LessonMap[key];
+    int newbalance= NumBalanced(mysgs,dummyMap);
+    for(auto lesson : lessonSet){
+        lessonVec.push_back(*lesson);
+    }
+    int classSize= SizeMap[key];
+    bool respectsCap=true;
+    if(classSize>=cap){
+        respectsCap=false;
+    }
+
+    bool validBalance;
+    if(newbalance <= 4 or newbalance<=oldBalance){
+        //Se balanço menor ou igual a 4 ou não piorar
+        validBalance=true;
+    }else{
+        validBalance=false;
+    }
+    result=result and respectsCap and  not IsThereConflict(lessonVec) and validBalance;
+    return result;
+}
+
+
+
+
+
+
+bool ControlUnit::CheckRemove(RemoveRequest *remrq){
+    //Falta o isbalnced
+    bool result = true;
+    string upcode= remrq->getUpCodeStudent();
+    bool notlessthan0=true;
+    bool studentExists=false;
+    bool isinclass=true;
+    for(auto student: StudentVector){
+        if(student.getStudentID()==upcode) {
+            studentExists = true;
+            if (student.getStudentGroups().size() <= 1) {
+                notlessthan0 = false;
+            }
+            isinclass = student.isinclass(remrq->getUCCode(), remrq->getClassCode());
+            break;
+        }
+    }
+    result = (notlessthan0 and studentExists and isinclass);
+    return result;
+}
+
+
+bool ControlUnit::CheckSwitch(SwitchRequest *swrq){
+    //Falta completar o codigo tipo o balanced 
+    bool result;
+    string upcode = swrq->getUpCodeStudent();
+    bool studentExists=false;
+    bool isinclass = true;
+    bool respectscap = true;
+    bool NotInMoreThan1Group = true;
+    vector<lesson> mylessons;
+    for(auto student: StudentVector){
+        if(student.getStudentID()==upcode){
+            studentExists=true;
+            isinclass = student.isinclass(swrq->getUCCode1(),swrq->getClassCode1());
+            if(swrq->getUCCode1()!=swrq->getUCCode2()){
+                NotInMoreThan1Group = !student.isinuc(swrq->getUCCode2());
+            }
+            for( auto sg : student.getStudentGroups()){
+                MainKey key={sg.getUcCode(), sg.getClassCode()};
+                if(sg.getUcCode()+sg.getClassCode()!=swrq->getUCCode1()+swrq->getClassCode1() ){
+                    set<lesson*> lessonSet=LessonMap[key];
+                    for( auto les : lessonSet){
+                        mylessons.push_back(*les);
+                    }
+                }
+            } MainKey key={swrq->getUCCode2(), swrq->getClassCode2()};
+            set<lesson*> lessonSet=LessonMap[key];
+            for( auto les : lessonSet){
+                mylessons.push_back(*les);
+            }
+
+            break;
+        }
+    }
+    bool conflict = IsThereConflict(mylessons);
+    MainKey key = {swrq->getUCCode2(),swrq->getClassCode2()};
+    int classSize = SizeMap[key];
+    if(classSize >=cap){
+        respectscap=false;
+    }
+
+
+
+
+}
+
+
 void ControlUnit::processRequest(Request * request ) {
+bool isvalid;
     if (request->getType() == "add") {
+        //chamar checker de uc mais de 7
+        //ver se turma nao ultrapassa cap
+        // ver se nao ha conflito de horario
+        // ver se nao esta em mais do que uma turma na uc
+        //ver balanço
         cout<<"Detetado como add request"<<endl;
-        processAddRequest(dynamic_cast<AddRequest*>(request));
+        isvalid = CheckAdd(dynamic_cast<AddRequest*>(request));
+        if(isvalid) {
+
+            processAddRequest(dynamic_cast<AddRequest *>(request));
+        }else{
+            cout<<"The request was invalid so it was automatically denied."<<endl;
+
+        }
 
     }else if (request->getType() == "remove") {
+        //ver se ele esta na cadeira e na turma
+        //ver balanço
         cout<<"Detetado como remove request"<<endl;
-        processRemoveRequest(dynamic_cast<RemoveRequest*>(request));
+        isvalid = CheckRemove(dynamic_cast<RemoveRequest*>(request));
+        if(isvalid){
+            processRemoveRequest(dynamic_cast<RemoveRequest*>(request));
+        }else{
+            cout<<"The request was invalid so it was automatically denied."<<endl;
+        }
+
     }else if (request->getType() == "switch") {
+        //ver se existe vaga na que tu vais
+        //ver a cap
+        // ver se nao ha confito
+        // ver balanço
         cout<<"Detetado como switch request"<<endl;
-        processSwitchRequest(dynamic_cast<SwitchRequest*>(request));
+        isvalid = CheckSwitch(dynamic_cast<SwitchRequest*>(request));
+        if(isvalid){
+            processSwitchRequest(dynamic_cast<SwitchRequest*>(request));
+        }else{
+            cout<<"The request was invalid so it was automatically denied."<<endl;
+        }
     }//then have
 }
 void ControlUnit::processAddRequest(AddRequest* addRequest) {
@@ -627,28 +798,16 @@ void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
     string classCode = removeRequest->getClassCode();
     string ucCode = removeRequest->getUCCode();
     cout<<"hey i got the request"<<upCode<<"/"<<classCode<<"/"<<ucCode;
-    // Find the set in the StudentMap
-
 
     for (auto& student : StudentVector) {
         if (student.getStudentID() == upCode) {
-
                 student.removeGroup(studentGroup(ucCode, classCode));
                 MainKey key ={ucCode, classCode};
-
                 SizeMap[key]--;
-
-
-
 
 
         }
     }
-
-
-    // Replace the original vector with the updated one
-
-
 
 }
 
@@ -665,4 +824,12 @@ void ControlUnit::CheckIfThereAreConflicts() {
         MainKey key={studentGroup.getUcCode(),studentGroup.getClassCode()};
         cout<<"student group"<<studentGroup<<"SIZE"<<SizeMap[key]<<endl;
     }
+}
+
+
+
+
+
+void ControlUnit::testvalidadd1(){
+    processRequest(RequestsToProcess.front());
 }

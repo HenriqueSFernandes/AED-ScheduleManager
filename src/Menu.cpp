@@ -44,7 +44,7 @@ void Menu::createMenu(){
         std::cout << "Select an option:" << std::endl;
         std::cout << "1) Listing Menu"<<endl;
         std::cout<<"2) Create Requests"<<endl;
-        std::cout<<"3)Process Requests"<<endl;
+        std::cout<<"3) Process Requests"<<endl;
         std::cout<<"4) Leave the program"<<endl;
         int option;
         std::cin >> option;
@@ -61,6 +61,9 @@ void Menu::createMenu(){
             case 4:
                 run = false;
                 //acrescentar função para dar update do file;
+                break;
+            case 5:
+                this->Control.testvalidadd1();
                 break;
             default:
                 cout<<"Invalid option."<<endl;
@@ -94,6 +97,7 @@ void Menu::listingMenu(){
             case 4:
                 Menu::SeeUcFromMostStudents();
                 break;
+
             default:
                 cout<<"Invalid option."<<endl;
                 continue;
