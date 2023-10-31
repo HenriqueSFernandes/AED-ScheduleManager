@@ -97,6 +97,8 @@ public :
 
     void removeLastPendingRequest(); //this method removes the most recent request that hasn't been applied
 
+    void undoRequest(int n); //this method removes last n applied request
+
     void CheckIfThereAreConflicts();
 
     void classChange();
