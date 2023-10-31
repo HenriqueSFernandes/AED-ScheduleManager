@@ -142,7 +142,7 @@ void Menu::requestMenu() {
     while (true){
         cout << "Choose the desired operation\n";
         cout << "1) Create request\n";
-        cout << "2) Remove last pending request (WIP)\n";
+        cout << "2) Remove last pending request\n";
         cout << "3) Process pending requests\n";
         cout << "4) Undo last request (WIP)\n";
         cout << "5) Go back\n";
@@ -152,6 +152,7 @@ void Menu::requestMenu() {
                 Menu::createRequest();
                 break;
             case 2:
+                this->Control.removeLastPendingRequest();
                 break;
             case 3:
                 this->Control.processAllRequests();
