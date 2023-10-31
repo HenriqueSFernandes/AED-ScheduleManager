@@ -13,7 +13,7 @@ private:
 
 public:
     // Constructor
-    AddRequest(std::string type, const std::string &upCodeStudent, const std::string &uCCode,
+    AddRequest(const std::string &upCodeStudent, const std::string &uCCode,
                const std::string &classCode);
 
     // Getters

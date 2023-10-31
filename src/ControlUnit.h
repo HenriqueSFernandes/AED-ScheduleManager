@@ -15,6 +15,7 @@
 #include <list>
 #include <queue>
 #include <stack>
+#include <functional>
 #include "lesson.h"
 #include "Request.h"
 #include "AddRequest.h"
@@ -40,7 +41,7 @@ private:
     //set<Student> StudentSet; nao ta a ser usado
     string filename;
     vector<Student> StudentVector;
-    vector<lesson> LessonVector;
+    vector<lesson> LessonVector; //MUDAR NOME
     list <studentGroup> StudentGroupVector;
     map<MainKey, studentGroup *> KeyToStudentGroup;
     map<MainKey, set<lesson *>> LessonMap;
@@ -65,12 +66,16 @@ public :
 
     int StudentsInAtLeastNUcs(int n);
 
+    int StudentsInAtMostNUcs(int n);
+
+    int StudentsInUcs(int n);
+
     //por a receber comparacao (perguntada no menu) para dar display diferente ao criar set resultado
-    void courseStudents(string courseCode);
+    void courseStudents(string courseCode, function<bool(Student,Student)> func);
 
-    void yearStudents(char year);
+    void yearStudents(char year, function<bool(Student,Student)> func);
 
-    void classStudents(string classCode);
+    void classStudents(string classCode, function<bool(Student,Student)> func);
 
     void UCWithMostStudents();
 
@@ -105,9 +110,10 @@ public :
     bool CheckRemove(RemoveRequest *remrq);
 
     bool CheckSwitch(SwitchRequest *swrq);
+    string checkIfInUc( string upcode, string uccode);
 
 
-    void testvalidadd1();
+    string getClassinUc(string upcode, string uccode);
 };
 
 

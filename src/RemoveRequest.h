@@ -18,7 +18,7 @@ private:
 
 public:
     // Constructor
-    RemoveRequest(std::string type, const std::string &upCodeStudent, const std::string &uCCode,
+    RemoveRequest( const std::string &upCodeStudent, const std::string &uCCode,
                   const std::string &classCode);
 
     // Getters

@@ -59,9 +59,6 @@ void Menu::createMenu() {
                 run = false;
                 // TODO acrescentar função para dar update do file;
                 break;
-            case 5:
-                this->Control.testvalidadd1();
-                break;
             default:
                 cout << "Invalid option.\n";
                 break;
@@ -77,16 +74,17 @@ void Menu::listingMenu() {
     while (true) {
         cout << "Choose the type of listing you want to see.\n";
         cout << "1) See Schedules\n";
-        cout << "2) See Number of Students registered in at least N UCs\n";
+        cout << "2) See Number of Students in N UCs\n";
         cout << "3) See Students\n";
         cout << "4) See all UCs\n";
+        cout << "5) Go back\n";
         cin >> option;
         switch (option) {
             case 1:
                 Menu::scheduleMenu();
                 break;
             case 2:
-                Menu::SeeNumStudentsAtLeastNUCs();
+                Menu::SeeNumStudentsInNUCs();
                 break;
             case 3:
                 Menu::studentMenu();
@@ -94,7 +92,8 @@ void Menu::listingMenu() {
             case 4:
                 Menu::SeeUcFromMostStudents();
                 break;
-
+            case 5:
+                break;
             default:
                 cout << "Invalid option.\n";
                 continue;
@@ -105,6 +104,39 @@ void Menu::listingMenu() {
 
 }
 
+
+void Menu::SeeNumStudentsInNUCs(){
+    int option;
+    while (true) {
+        cout << "Choose the type of listing you want to see.\n";
+        cout << "1) See in at least N UCs\n";
+        cout << "2) See in exact N UCs\n";
+        cout << "3) See in more than N UCs\n";
+        cout << "4) Go back\n";
+        cin >> option;
+        switch (option) {
+            case 1:
+                Menu::SeeNumStudentsAtLeastNUCs();
+                break;
+            case 2:
+                Menu::SeeNumStudentsInExactNUCs();
+                break;
+            case 3:
+                Menu::SeeNumStudentsAtMostNUCs();
+                break;
+            case 4:
+                Menu::listingMenu();
+                break;
+            default:
+                cout << "Invalid option.\n";
+                continue;
+        }
+        break;
+
+    }
+
+};
+
 void Menu::requestMenu() {
     int option;
     while (true){
@@ -113,6 +145,7 @@ void Menu::requestMenu() {
         cout << "2) Remove last pending request (WIP)\n";
         cout << "3) Process pending requests\n";
         cout << "4) Undo last request (WIP)\n";
+        cout << "5) Go back\n";
         cin >> option;
         switch (option){
             case 1:
@@ -124,6 +157,8 @@ void Menu::requestMenu() {
                 this->Control.processAllRequests();
                 break;
             case 4:
+                break;
+            case 5:
                 break;
             default:
                 cout << "Invalid option.\n";
@@ -139,6 +174,7 @@ void Menu::scheduleMenu() {
         cout << "What do you want to see?\n";
         cout << "1) Student Schedule\n";
         cout << "2) Class Schedule\n";
+        cout << "3) Go back\n";
         cin >> option;
         switch (option) {
             case 1:
@@ -146,6 +182,9 @@ void Menu::scheduleMenu() {
                 break;
             case 2:
                 Menu::SeeClassSchedule();
+                break;
+            case 3:
+                Menu::listingMenu();
                 break;
             default:
                 cout << "Invalid option.\n";
@@ -157,22 +196,29 @@ void Menu::scheduleMenu() {
 
 void Menu::studentMenu() {
     int option;
+    function<bool(Student,Student)> func;
     while (true) {
         cout << "Choose the type of student listing you want to see.\n";
         cout << "1) See all Students in an UC\n";
         cout << "2) See all Students in a Year\n";
         cout << "3) See all Students in a Class\n";
-
+        cout << "4) Go back\n";
         cin >> option;
         switch (option) {
             case 1:
-                Menu::SeeStudentsInUc();
+                func = Menu::optionStudentMenu();
+                Menu::SeeStudentsInUc(func);
                 break;
             case 2:
-                Menu::SeeStudentsInYear();
+                func = Menu::optionStudentMenu();
+                Menu::SeeStudentsInYear(func);
                 break;
             case 3:
-                Menu::SeeStudentsInClass();
+                func = Menu::optionStudentMenu();
+                Menu::SeeStudentsInClass(func);
+                break;
+            case 4:
+                Menu::listingMenu();
                 break;
             default:
                 cout << "Invalid option.\n";
@@ -189,35 +235,36 @@ void Menu::studentMenu() {
 //Fu ver e vector tipon faço com vector na mesma a pesquisar por ordens dif?????
 // ou mudo para set
 //a notaçao dessa funcao e um quites estranha
-/*function<bool(Student,Student)> Menu::optionStudentMenu(){
+function<bool(Student,Student)> Menu::optionStudentMenu() {
     int option;
-    while(true){
-        cout<<"What's the order you want to see students in?"<<endl;
-        cout<<"1) UP code ascending"<<endl;
-        cout<<"2) UP code descending"<<endl;
-        cout<<"3) Alphabetical ascending"<<endl;
-        cout<<"4) Alphabetical descending"<<endl;
-        cin>>option;
-        switch (option){
+    while (true) {
+        cout << "What's the order you want to see students in?" << endl;
+        cout << "1) UP code ascending" << endl;
+        cout << "2) UP code descending" << endl;
+        cout << "3) Alphabetical ascending" << endl;
+        cout << "4) Alphabetical descending" << endl;
+        cin >> option;
+        switch (option) {
             case 1:
-                return [](Student a, Student b){return a.getStudentID()<b.getStudentID();};
+                return [](Student a, Student b) { return a.getStudentID() < b.getStudentID(); };
                 break;
             case 2:
-                return [](Student a, Student b){return a.getStudentID()>b.getStudentID();};
+                return [](Student a, Student b) { return a.getStudentID() > b.getStudentID(); };
                 break;
             case 3:
-                return [](Student a, Student b){return a.getName()<b.getName();};
+                return [](Student a, Student b) { return a.getName() < b.getName(); };
                 break;
             case 4:
-                return [](Student a, Student b){return a.getName()>b.getName();};
+                return [](Student a, Student b) { return a.getName() > b.getName(); };
                 break;
             default:
-                cout<<"Invalid option."<<endl;
+                cout << "Invalid option." << endl;
                 continue;
         }
         break;
- }
-*/
+    }
+}
+
 
 void Menu::SeeStudentSchedule() {
     this->Control.DisplayStudentSchedule();
@@ -241,27 +288,45 @@ void Menu::SeeNumStudentsAtLeastNUCs() {
     std::cout << "There are " << result << " students with at least " << n << " UCs\n";
 
 }
+void Menu::SeeNumStudentsAtMostNUCs() {
 
+    std::cout << "Enter the N \n";
+    int n;
+    cin >> n;
+    int result = this->Control.StudentsInAtMostNUcs(n);
+    std::cout << "There are " << result << " students with at least " << n << " UCs\n";
 
-void Menu::SeeStudentsInUc() {
+}
+
+void Menu::SeeNumStudentsInExactNUCs() {
+
+    std::cout << "Enter the N \n";
+    int n;
+    cin >> n;
+    int result = this->Control.StudentsInUcs(n);
+    std::cout << "There are " << result << " students with at least " << n << " UCs\n";
+
+}
+
+void Menu::SeeStudentsInUc(function<bool(Student,Student)> func) {
     std::cout << "Enter the UC code of the UC you want to see Students\n";
     string uccode;
     cin >> uccode;
-    this->Control.courseStudents(uccode);
+    this->Control.courseStudents(uccode,func);
 }
 
-void Menu::SeeStudentsInYear() {
+void Menu::SeeStudentsInYear(function<bool(Student,Student)> func) {
     std::cout << "Enter the year you want students from:\n";
     char year;
     cin >> year;
-    this->Control.yearStudents(year);
+    this->Control.yearStudents(year,func);
 }
 
-void Menu::SeeStudentsInClass() {
+void Menu::SeeStudentsInClass(function<bool(Student,Student)> func) {
     std::cout << "Enter the class you want to see students from:\n";
     string classCode;
     cin >> classCode;
-    this->Control.classStudents(classCode);
+    this->Control.classStudents(classCode,func);
 }
 
 void Menu::SeeUcFromMostStudents() {
@@ -276,6 +341,7 @@ void Menu::createRequest() {
         cout << "1) Add a Class\n";
         cout << "2) Remove a Class\n";
         cout << "3) Switch Classes\n";
+        cout << "4) Go back\n";
 
         std::cin >> requesttype;
 
@@ -289,6 +355,9 @@ void Menu::createRequest() {
                 break;
             case 3:
                 this->Control.createSwitch();
+                break;
+            case 4:
+                Menu::requestMenu();
                 break;
             default:
                 cout << "Invalid option.\n";
@@ -311,7 +380,7 @@ void Menu::AdicionarAlunoATurmaImediatamente() {
     cout << "uccode\n";
     string uccode;
     cin >> uccode;
-    Request *testrequest = new AddRequest("add", upcode, uccode, classcode);
+    Request *testrequest = new AddRequest(upcode, uccode, classcode);
     this->Control.processRequest(testrequest);
     cout << "verifica se deu\n";
 
@@ -330,7 +399,7 @@ void Menu::RemoverAlunoATurmaImediatamente() {
     cout << "uccode\n";
     string uccode;
     cin >> uccode;
-    Request *testrequest = new RemoveRequest("remove", upcode, uccode, classcode);
+    Request *testrequest = new RemoveRequest(upcode, uccode, classcode);
     this->Control.processRequest(testrequest);
     cout << "verifica se deu\n";
 
@@ -356,7 +425,7 @@ void Menu::TrocarTurmaInstantaneamente() {
     cout << "uccode2\n";
     string uccode2;
     cin >> uccode2;
-    Request *testrequest = new SwitchRequest("switch", upcode, uccode1, uccode2, classcode1, classcode2);
+    Request *testrequest = new SwitchRequest(upcode, uccode1, uccode2, classcode1, classcode2);
     this->Control.processRequest(testrequest);
     cout << "verifica se deu\n";
 

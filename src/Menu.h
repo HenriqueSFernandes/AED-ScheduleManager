@@ -17,6 +17,10 @@ public:
 
     void SeeNumStudentsAtLeastNUCs();
 
+    void SeeNumStudentsAtMostNUCs();
+
+    void SeeNumStudentsInNUCs();
+
     void endMenu();
 
     void listingMenu();
@@ -27,11 +31,11 @@ public:
 
     void studentMenu();
 
-    void SeeStudentsInUc();
+    void SeeStudentsInUc(function<bool(Student,Student)> comp);
 
-    void SeeStudentsInYear();
+    void SeeStudentsInYear(function<bool(Student,Student)> comp);
 
-    void SeeStudentsInClass();
+    void SeeStudentsInClass(function<bool(Student,Student)> comp);
 
     void AdicionarAlunoATurmaImediatamente();
 
@@ -41,6 +45,8 @@ public:
 
     void TrocarTurmaInstantaneamente();
 
+    function<bool(Student, Student)> optionStudentMenu();
+
     //TESTING
     void Testing();
 
@@ -49,7 +55,8 @@ private:
 
     void SeeUcFromMostStudents();
 
-    //function<bool(Student, Student)> optionStudentMenu();
+
+    void SeeNumStudentsInExactNUCs();
 };
 
 

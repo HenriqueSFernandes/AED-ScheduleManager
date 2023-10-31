@@ -16,7 +16,7 @@ private:
 
 public:
     // Constructor
-    SwitchRequest(std::string type, const std::string &upCodeStudent,
+    SwitchRequest(const std::string &upCodeStudent,
                   const std::string &uCCode1, const std::string &uCCode2,
                   const std::string &classCode1, const std::string &classCode2);
 

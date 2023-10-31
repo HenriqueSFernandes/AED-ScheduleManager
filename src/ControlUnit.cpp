@@ -201,12 +201,15 @@ void ControlUnit::DisplayStudentSchedule() {
                 set<lesson *> Lectures = LessonMap[key];
                 for (auto element: Lectures) {
                     if (option == 1) {
-                        int width = 80; // Calculate the width based on the content length
+                        int width = 85; // Calculate the width based on the content length
                         std::string horizontalLine(width, '-');
 
                         std::cout << '+' << horizontalLine << '+' << std::endl;
-                        std::cout << "| " << *element << " |" << std::endl;
-                        std::cout << '+' << horizontalLine << '+' << std::endl;
+
+// Adjust the width for proper alignment
+                        std::cout<<"    "<<*element << std::endl;
+
+                        std::cout << '+' << horizontalLine << '+' << std::endl<<endl;
 
 
                     }
@@ -332,7 +335,41 @@ int ControlUnit::StudentsInAtLeastNUcs(int n) {
 
 
         if (studentgroups.size() >= n) {
-            cout << "//" << student << "//" << endl;
+            cout <<student <<endl;
+            NumberOfStudents++;
+        }
+    }
+    return NumberOfStudents;
+
+
+}
+int ControlUnit::StudentsInAtMostNUcs(int n) {
+
+    int NumberOfStudents = 0;
+
+    for (auto student: this->StudentVector) {
+        set<studentGroup> studentgroups = student.getStudentGroups();
+
+
+        if (studentgroups.size() <= n) {
+            cout <<student << endl;
+            NumberOfStudents++;
+        }
+    }
+    return NumberOfStudents;
+
+
+}
+int ControlUnit::StudentsInUcs(int n) {
+
+    int NumberOfStudents = 0;
+
+    for (auto student: this->StudentVector) {
+        set<studentGroup> studentgroups = student.getStudentGroups();
+
+
+        if (studentgroups.size() == n) {
+            cout << student <<endl;
             NumberOfStudents++;
         }
     }
@@ -342,9 +379,9 @@ int ControlUnit::StudentsInAtLeastNUcs(int n) {
 }
 
 
-void ControlUnit::classStudents(string classCode) {
+void ControlUnit::classStudents(string classCode, function<bool(Student,Student)> func) {
     set<studentGroup> groups;
-    set<Student> students;
+    set<Student, decltype(func)> students(func);
     string ucCode;
     bool notexist = true;
     while (notexist) {
@@ -394,9 +431,9 @@ void ControlUnit::classStudents(string classCode) {
 
 }
 
-void ControlUnit::courseStudents(string courseCode) {
+void ControlUnit::courseStudents(string courseCode, function<bool(Student,Student)> func) {
     set<studentGroup> groups;
-    set<Student> students;
+    set<Student, decltype(func)> students(func);
     bool notexist = true;
     while (notexist) {
         for (auto student: StudentVector) {
@@ -424,9 +461,9 @@ void ControlUnit::courseStudents(string courseCode) {
 
 }
 
-void ControlUnit::yearStudents(char year) {
+void ControlUnit::yearStudents(char year, function<bool(Student,Student)> func) {
     set<studentGroup> groups;
-    set<Student> students;
+    set<Student, decltype(func)> students(func);
     bool notexist = true;
     while (notexist) {
         for (auto student: StudentVector) {
@@ -537,7 +574,7 @@ void ControlUnit::createAdd() {
     cin >> uc;
     cout << "What Class of the UC you want to add the student into:" << endl;
     cin >> studentgroup;
-    RequestsToProcess.push(new AddRequest("add", id, uc, studentgroup));
+    RequestsToProcess.push(new AddRequest( id, uc, studentgroup));
 }
 
 void ControlUnit::createRemove() {
@@ -550,7 +587,7 @@ void ControlUnit::createRemove() {
     cin >> uc;
     cout << "What Class is he in in the specified Uc:" << endl;
     cin >> studentgroup;
-    RequestsToProcess.push(new RemoveRequest("remove", id, uc, studentgroup));
+    RequestsToProcess.push(new RemoveRequest( id, uc, studentgroup));
 }
 
 void ControlUnit::createSwitch() {
@@ -562,42 +599,69 @@ void ControlUnit::createSwitch() {
     string studentgroup1;
     string studentgroup2;
     cin >> id;
-    cout << "What UC do you want to leave:" << endl;
-    cin >> uc1;
-    cout << "What class is he in right now:" << endl;
-    cin >> studentgroup1;
-    bool invalid = true;
-    while (invalid) {
-        cout
-                << "Do you want to swap classes from the same UC or swap UCs?\n1.Swap Class from UC\n2.Swap UC\nChoose one:"
-                << endl;
+    while (true) {
+        cout << "Do you want to switch UCs or switch Classes from an UC?" << endl;
+        cout << "1) Switch UCs" << endl;
+        cout << "2) Switch Classes" << endl;
         cin >> choice;
         switch (choice) {
             case 1:
-                invalid = false;
-                uc2 = uc1;
+                cout << "What UC do you want to leave?" << endl;
+                cin >> uc1;
+                studentgroup1 = getClassinUc(id, uc1);
+                while(studentgroup1=="false"){
+                    cout<< "Student not in given UC please give another one."<<endl;
+                    cin>>uc1;
+                    studentgroup1 = getClassinUc(id,uc1);
+                }
+                cout<<"What UC do you want to join?"<<endl;
+                cin>>uc2;
                 break;
             case 2:
-                invalid = false;
-                cout << "What UC do you want the student to go to:" << endl;
-                cin >> uc2;
+                cout<<"What UC do you want to swap classes?"<<endl;
+                cin>>uc1;
+                studentgroup1 = getClassinUc(id,uc1);
+                while(studentgroup1=="false"){
+                    cout<< "Student not in given UC please give another one."<<endl;
+                    cin>>uc1;
+                    studentgroup1 = getClassinUc(id,uc1);
+                }
+                uc2=uc1;
                 break;
             default:
-                cout << "Invalid choice." << endl;
-                break;
+                cout<<"Invalid option."<<endl;
+                continue;
         }
+        break;
     }
     cout << "What class do you want to go to?";
     cin >> studentgroup2;
-    RequestsToProcess.push(new SwitchRequest("switch", id, uc1, uc2, studentgroup1, studentgroup2));
+    RequestsToProcess.push(new SwitchRequest( id, uc1, uc2, studentgroup1, studentgroup2));
 }
 
+string ControlUnit::getClassinUc( string upcode, string uccode){
+    for( auto student : StudentVector){
+        if(student.getStudentID()==upcode){
+            for( auto sg : student.getStudentGroups()){
+                if(sg.getUcCode()==uccode){
+                    return sg.getClassCode();
+
+                }
+            }
+            return "false";
+        }
+    }
+    return "nostudent";
+
+}
 bool ControlUnit::CheckAdd(AddRequest *addrq) {
     bool result = true;
     string upcode = addrq->getUpCodeStudent();
     bool notmorethan7 = true;
     bool studentExists = false;
     bool NotInMoreTHanONeClass = true;
+    MainKey key= {addrq->getUCCode(), addrq->getClassCode()};
+    bool existsclass= KeyToStudentGroup.find( key)!= KeyToStudentGroup.end();
     map<string, int> HaveISeenThisUc;
     vector<lesson> lessonVec;
 
@@ -637,7 +701,7 @@ bool ControlUnit::CheckAdd(AddRequest *addrq) {
         }
     }
     result = notmorethan7 and studentExists and NotInMoreTHanONeClass;
-    MainKey key = {addrq->getUCCode(), addrq->getClassCode()};
+    key = {addrq->getUCCode(), addrq->getClassCode()};
     int oldBalance = NumBalanced(mysgs, SizeMap);
     set<lesson *> lessonSet = LessonMap[key];
     int newbalance = NumBalanced(mysgs, dummyMap);
@@ -657,7 +721,7 @@ bool ControlUnit::CheckAdd(AddRequest *addrq) {
     } else {
         validBalance = false;
     }
-    result = result and respectsCap and not IsThereConflict(lessonVec) and validBalance;
+    result = result and respectsCap  and existsclass and not IsThereConflict(lessonVec) and validBalance;
     return result;
 }
 
@@ -665,6 +729,7 @@ bool ControlUnit::CheckAdd(AddRequest *addrq) {
 bool ControlUnit::CheckRemove(RemoveRequest *remrq) {
     //Falta o isbalnced
     bool result = true;
+
     string upcode = remrq->getUpCodeStudent();
     bool notlessthan0 = true;
     bool studentExists = false;
@@ -679,19 +744,42 @@ bool ControlUnit::CheckRemove(RemoveRequest *remrq) {
             break;
         }
     }
-    result = (notlessthan0 and studentExists and isinclass);
+    vector<studentGroup> mysgs;
+    map<MainKey, int> dummyMap = SizeMap;
+    for (auto sg: StudentGroupVector){
+        if (sg.getUcCode() == remrq->getUCCode()) {
+            mysgs.push_back(sg);
+
+            if (sg.getClassCode() == remrq->getClassCode()) {
+                MainKey key = {sg.getUcCode(), sg.getClassCode()};
+                dummyMap[key]--;
+            }
+        }
+    }
+    MainKey key = {remrq->getUCCode(), remrq->getClassCode()};
+    int oldBalance = NumBalanced(mysgs, SizeMap);
+    int newbalance = NumBalanced(mysgs, dummyMap);
+    bool validBalance;
+    if (newbalance <= 4 or newbalance <= oldBalance) {
+        //Se balanço menor ou igual a 4 ou não piorar
+        validBalance = true;
+    } else {
+        validBalance = false;
+    }
+    result = (notlessthan0 and studentExists and isinclass and validBalance);
     return result;
 }
 
 
 bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
-    //Falta completar o codigo tipo o balanced 
     bool result;
     string upcode = swrq->getUpCodeStudent();
     bool studentExists = false;
     bool isinclass = true;
     bool respectscap = true;
     bool NotInMoreThan1Group = true;
+    MainKey key= {swrq->getUCCode2(), swrq->getClassCode2()};
+    bool existsclass= KeyToStudentGroup.find( key)!= KeyToStudentGroup.end();
     vector<lesson> mylessons;
     for (auto student: StudentVector) {
         if (student.getStudentID() == upcode) {
@@ -719,14 +807,56 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
         }
     }
     bool conflict = IsThereConflict(mylessons);
-    MainKey key = {swrq->getUCCode2(), swrq->getClassCode2()};
+    key = {swrq->getUCCode2(), swrq->getClassCode2()};
     int classSize = SizeMap[key];
     if (classSize >= cap) {
         respectscap = false;
     }
 
+    bool validBalanceRem;
+    bool validBalanceAdd;
 
-    // temp para fazer isto n dar erro
+    vector<studentGroup> mysgsUc1;
+    vector<studentGroup> mysgsUc2;
+    map<MainKey, int> dummyMap = SizeMap;
+    for (auto sg: StudentGroupVector){
+        if (sg.getUcCode() == swrq->getUCCode1()) {
+            mysgsUc1.push_back(sg);
+
+            if (sg.getClassCode() == swrq->getClassCode1()) {
+                MainKey key = {sg.getUcCode(), sg.getClassCode()};
+                dummyMap[key]--;
+            }
+        }
+        if (sg.getUcCode() == swrq->getUCCode2()) {
+            mysgsUc2.push_back(sg);
+
+            if (sg.getClassCode() == swrq->getClassCode2()) {
+                MainKey key = {sg.getUcCode(), sg.getClassCode()};
+                dummyMap[key]++;
+            }
+        }
+    }
+
+    int oldBalance1 = NumBalanced(mysgsUc1, SizeMap);
+    int newbalance1 = NumBalanced(mysgsUc1, dummyMap);
+
+    if (newbalance1 <= 4 or newbalance1 <= oldBalance1) {
+        //Se balanço menor ou igual a 4 ou não piorar
+        validBalanceRem = true;
+    } else {
+        validBalanceRem = false;
+    }
+    int oldBalance2 = NumBalanced(mysgsUc2, SizeMap);
+    int newbalance2 = NumBalanced(mysgsUc2, dummyMap);
+    if (newbalance2 <= 4 or newbalance2 <= oldBalance2) {
+        //Se balanço menor ou igual a 4 ou não piorar
+        validBalanceAdd = true;
+    } else {
+        validBalanceAdd = false;
+    }
+
+    result = (existsclass and studentExists and isinclass and respectscap and NotInMoreThan1Group and !conflict and validBalanceAdd and validBalanceRem);
     return result;
 
 }
@@ -774,6 +904,7 @@ bool ControlUnit::processRequest(Request *request) {
             processSwitchRequest(dynamic_cast<SwitchRequest *>(request));
             return true;
         } else {
+            cout<<"Error in switch request"<<endl;
             return false;
         }
     }//then have
@@ -822,14 +953,15 @@ void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
 }
 
 void ControlUnit::processSwitchRequest(SwitchRequest *switchRequest) {
-    RemoveRequest *RemReq = new RemoveRequest("remove", switchRequest->getUpCodeStudent(), switchRequest->getUCCode1(),
+    RemoveRequest *RemReq = new RemoveRequest(switchRequest->getUpCodeStudent(), switchRequest->getUCCode1(),
                                               switchRequest->getClassCode1());
-    AddRequest *AddReq = new AddRequest("add", switchRequest->getUpCodeStudent(), switchRequest->getUCCode2(),
+    AddRequest *AddReq = new AddRequest(switchRequest->getUpCodeStudent(), switchRequest->getUCCode2(),
                                         switchRequest->getClassCode2());
     processRemoveRequest(RemReq);
     processAddRequest(AddReq);
 }
 
+//TESTAR
 void ControlUnit::CheckIfThereAreConflicts() {
 
 
@@ -840,9 +972,6 @@ void ControlUnit::CheckIfThereAreConflicts() {
 }
 
 
-void ControlUnit::testvalidadd1() {
-    processRequest(RequestsToProcess.front());
-}
 
 void ControlUnit::processAllRequests() {
     if (RequestsToProcess.empty()) {

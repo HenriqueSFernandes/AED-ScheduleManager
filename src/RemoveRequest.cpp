@@ -6,9 +6,9 @@
 #include "RemoveRequest.h"
 
 // Constructor
-RemoveRequest::RemoveRequest(std::string type, const std::string &upCodeStudent, const std::string &uCCode,
+RemoveRequest::RemoveRequest( const std::string &upCodeStudent, const std::string &uCCode,
                              const std::string &classCode)
-        : Request(type), upCodeStudent(upCodeStudent), uCCode(uCCode), classCode(classCode) {
+        : Request("remove"), upCodeStudent(upCodeStudent), uCCode(uCCode), classCode(classCode) {
 }
 
 // Getters
