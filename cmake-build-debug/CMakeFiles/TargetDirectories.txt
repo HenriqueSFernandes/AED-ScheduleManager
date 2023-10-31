@@ -1,3 +1,0 @@
-/home/ricky/Desktop/aed/projaed/cmake-build-debug/CMakeFiles/projaed.dir
-/home/ricky/Desktop/aed/projaed/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ricky/Desktop/aed/projaed/cmake-build-debug/CMakeFiles/rebuild_cache.dir
