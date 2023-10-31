@@ -37,12 +37,11 @@ private:
             return ClassCode < other.ClassCode;
         }
     };
-
-    //set<Student> StudentSet; nao ta a ser usado
+    
     string filename;
     vector<Student> StudentVector;
-    vector<lesson> LessonVector; //MUDAR NOME
-    list <studentGroup> StudentGroupVector;
+    vector<lesson> LessonVector;
+    list <studentGroup> StudentGroupList;
     map<MainKey, studentGroup *> KeyToStudentGroup;
     map<MainKey, set<lesson *>> LessonMap;
     map<MainKey, int> SizeMap;
@@ -59,6 +58,8 @@ public :
     void LoadClassesPerUcCSV();
 
     void LoadStudentsClassesCSV();
+
+    void saveChanges();
 
     void DisplayStudentSchedule();
 
@@ -101,8 +102,6 @@ public :
 
     void CheckIfThereAreConflicts();
 
-    void classChange();
-
     void createAdd();
 
     void createRemove();
@@ -114,9 +113,6 @@ public :
     bool CheckRemove(RemoveRequest *remrq);
 
     bool CheckSwitch(SwitchRequest *swrq);
-
-    string checkIfInUc(string upcode, string uccode);
-
 
     string getClassinUc(string upcode, string uccode);
 };

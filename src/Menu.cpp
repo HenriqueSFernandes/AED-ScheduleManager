@@ -57,7 +57,7 @@ void Menu::createMenu() {
                 break;
             case 3:
                 run = false;
-                // TODO acrescentar função para dar update do file;
+                this->Control.saveChanges();
                 break;
             default:
                 cout << "Invalid option.\n";

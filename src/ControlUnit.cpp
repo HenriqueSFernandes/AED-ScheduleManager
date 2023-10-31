@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include <climits>
 #include "RemoveRequest.h"
+#include <filesystem>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ void ControlUnit::LoadClassesPerUcCSV() {
     //ppppppppppppppp
     string line;
     string ucCode, classCode;
-    ifstream inFile("../data2/classes_per_uc.csv");
+    ifstream inFile("../data/classes_per_uc.csv");
 
     if (!inFile) {
         cerr << "Failed to open file" << endl;
@@ -43,7 +44,7 @@ void ControlUnit::LoadClassesPerUcCSV() {
 
         studentGroup *group = new studentGroup(ucCode, classCode);
         //cout << *group << endl;
-        StudentGroupVector.push_back(*group);
+        StudentGroupList.push_back(*group);
 
         MainKey groupKey = {ucCode, classCode};
         KeyToStudentGroup[groupKey] = group;
@@ -56,7 +57,7 @@ void ControlUnit::LoadClassesCSV() {
     //ppppppppppppppppppppppp
     string line;
     string ClassCode, UcCode, Weekday, StartHour, Duration, Type;
-    ifstream inFile("../data2/classes.csv");
+    ifstream inFile("../data/classes.csv");
 
     if (!inFile) {
         cerr << "Failed to open file" << endl;
@@ -94,12 +95,12 @@ void ControlUnit::LoadClassesCSV() {
     inFile.close();
 }
 
-///CODIGO FANADO
+// ppppppppp
 void ControlUnit::LoadStudentsClassesCSV() {
     string line;
     string stCode, stName, ucCode, classCode;
     ifstream inFile;
-    inFile.open(filename);
+        inFile.open(filename);
     getline(inFile, line);
     //Reading the first line with actual data
     getline(inFile, line);
@@ -292,7 +293,7 @@ void ControlUnit::DisplayClassSchedule() {
     }
     vector<lesson> LessonsVector;
     set<lesson *> LessonsSet;
-    for (auto studentGroup: StudentGroupVector) {
+    for (auto studentGroup: StudentGroupList) {
         if (studentGroup.getClassCode() == classCode) {
 
 
@@ -387,7 +388,7 @@ void ControlUnit::classStudents(string classCode, function<bool(Student, Student
     string ucCode;
     bool notexist = true;
     while (notexist) {
-        for (auto group: StudentGroupVector) {
+        for (auto group: StudentGroupList) {
             if (classCode == group.getClassCode()) {
                 notexist = false;
                 break;
@@ -403,7 +404,7 @@ void ControlUnit::classStudents(string classCode, function<bool(Student, Student
     notexist = true;
 
     while (notexist) {
-        for (auto group: StudentGroupVector) {
+        for (auto group: StudentGroupList) {
             if (classCode == group.getClassCode() && ucCode == group.getUcCode()) {
                 notexist = false;
                 break;
@@ -693,7 +694,7 @@ bool ControlUnit::CheckAdd(AddRequest *addrq) {
     vector<studentGroup> mysgs;
 
     map<MainKey, int> dummyMap = SizeMap;
-    for (auto sg: StudentGroupVector) {
+    for (auto sg: StudentGroupList) {
         if (sg.getUcCode() == addrq->getUCCode()) {
             mysgs.push_back(sg);
 
@@ -749,7 +750,7 @@ bool ControlUnit::CheckRemove(RemoveRequest *remrq) {
     }
     vector<studentGroup> mysgs;
     map<MainKey, int> dummyMap = SizeMap;
-    for (auto sg: StudentGroupVector) {
+    for (auto sg: StudentGroupList) {
         if (sg.getUcCode() == remrq->getUCCode()) {
             mysgs.push_back(sg);
 
@@ -822,7 +823,7 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
     vector<studentGroup> mysgsUc1;
     vector<studentGroup> mysgsUc2;
     map<MainKey, int> dummyMap = SizeMap;
-    for (auto sg: StudentGroupVector) {
+    for (auto sg: StudentGroupList) {
         if (sg.getUcCode() == swrq->getUCCode1()) {
             mysgsUc1.push_back(sg);
 
@@ -969,7 +970,7 @@ void ControlUnit::processSwitchRequest(SwitchRequest *switchRequest) {
 void ControlUnit::CheckIfThereAreConflicts() {
 
 
-    for (auto &studentGroup: StudentGroupVector) { // Use a reference to avoid unnecessary copies
+    for (auto &studentGroup: StudentGroupList) { // Use a reference to avoid unnecessary copies
         MainKey key = {studentGroup.getUcCode(), studentGroup.getClassCode()};
         cout << "student group" << studentGroup << "SIZE" << SizeMap[key] << endl;
     }
@@ -1003,9 +1004,10 @@ void ControlUnit::removeLastPendingRequest() {
     RequestsToProcess.pop_back();
 }
 
+// Iterate over every applied request
 void ControlUnit::undoRequest(int n) {
     for (int i = 0; i < n; i++) {
-        if (ProcessedRequests.empty()){
+        if (ProcessedRequests.empty()) {
             cout << "No more requests to undo.\n";
             break;
         }
@@ -1030,4 +1032,13 @@ void ControlUnit::undoRequest(int n) {
             cout << "Unable to undo request\n";
         }
     }
+}
+
+void ControlUnit::saveChanges() {
+    fstream out("../data/students_classes_updated.csv", ios::out | ios::trunc);
+    out << "StudentCode,StudentName,UcCode,ClassCode\r\n";
+    for (Student s: StudentVector)
+        for (const auto& studentGroup : s.getStudentGroups())
+            out << s.getStudentID() << ',' << s.getName() << ',' << studentGroup.getUcCode() << ',' << studentGroup.getClassCode() << "\r\n";
+    out.close();
 }
