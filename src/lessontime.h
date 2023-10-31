@@ -15,6 +15,8 @@ public:
 
     lessontime();
 
+    lessontime(int hour, int minutes);
+
     string displayHourFormat();
 
     int getHour() const;

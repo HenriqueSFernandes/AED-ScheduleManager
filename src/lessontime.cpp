@@ -30,4 +30,9 @@ std::string lessontime::displayHourFormat() {
     return ss.str();
 }
 
+lessontime::lessontime(int hour, int minutes) {
+    this->hour = hour;
+    this->minute = minutes;
+}
+
 

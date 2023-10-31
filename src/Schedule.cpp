@@ -158,7 +158,7 @@ void Schedule::display(){
                 nextMin=30;
             }
 
-            std::string cellContent = "| " + std::to_string(horas) + ":" + std::to_string(meiaHora)+ "-" +std::to_string(nextHoras) + ":" + std::to_string(nextMin);
+            std::string cellContent = "| " + lessontime(horas, meiaHora).displayHourFormat() + "-" + lessontime(nextHoras, nextMin).displayHourFormat();
             while (cellContent.size() < cellWidth - 2) {
                 cellContent += " ";
             }
