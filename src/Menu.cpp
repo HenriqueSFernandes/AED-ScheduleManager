@@ -18,9 +18,9 @@ void Menu::createMenu() {
     string filename;
     while (run) {
 
-        std::cout << "Hello, welcome to my Schedule Management System." << std::endl;
-        std::cout << "Would you like to use the Original Version or the Updated Version of the Student DB" << endl;
-        std::cout << "1)Original Version\n2)Updated Version" << endl;
+        std::cout << "Hello, welcome to the Schedule Management System.\n";
+        std::cout << "Would you like to use the Original Version or the Updated Version of the Student DB\n";
+        std::cout << "1) Original Version\n2) Updated Version\n";
         cin >> fileoption;
 
         switch (fileoption) {
@@ -33,7 +33,7 @@ void Menu::createMenu() {
                 filename = "../data/students_classes_updated.csv";
                 break;
             default:
-                cout << "Invalid option, choose again." << endl;
+                cout << "Invalid option, choose again.\n";
                 break;
         }
     }
@@ -42,11 +42,10 @@ void Menu::createMenu() {
     this->Control.Start(filename);
     this->Control.CheckIfThereAreConflicts();
     while (run) {
-        std::cout << "Select an option:" << std::endl;
-        std::cout << "1) Listing Menu" << endl;
-        std::cout << "2) Create Requests" << endl;
-        std::cout << "3) Process Requests" << endl;
-        std::cout << "4) Leave the program" << endl;
+        std::cout << "Select an option:\n";
+        std::cout << "1) Listing menu\n";
+        std::cout << "2) Request menu\n";
+        std::cout << "3) Leave the program\n";
         int option;
         std::cin >> option;
         switch (option) {
@@ -54,20 +53,17 @@ void Menu::createMenu() {
                 Menu::listingMenu();
                 break;
             case 2:
-                Menu::createRequest();
+                Menu::requestMenu();
                 break;
             case 3:
-                this->Control.processAllRequests();
-                break;
-            case 4:
                 run = false;
-                //acrescentar função para dar update do file;
+                // TODO acrescentar função para dar update do file;
                 break;
             case 5:
                 this->Control.testvalidadd1();
                 break;
             default:
-                cout << "Invalid option." << endl;
+                cout << "Invalid option.\n";
                 break;
         }
 
@@ -79,11 +75,11 @@ void Menu::createMenu() {
 void Menu::listingMenu() {
     int option;
     while (true) {
-        cout << "Choose the type of listing you want to see." << endl;
-        cout << "1) See Schedules" << endl;
-        cout << "2) See Number of Students registered in at least N UCs" << endl;
-        cout << "3) See Students" << endl;
-        cout << "4) See all UCs" << endl;
+        cout << "Choose the type of listing you want to see.\n";
+        cout << "1) See Schedules\n";
+        cout << "2) See Number of Students registered in at least N UCs\n";
+        cout << "3) See Students\n";
+        cout << "4) See all UCs\n";
         cin >> option;
         switch (option) {
             case 1:
@@ -100,7 +96,7 @@ void Menu::listingMenu() {
                 break;
 
             default:
-                cout << "Invalid option." << endl;
+                cout << "Invalid option.\n";
                 continue;
         }
         break;
@@ -109,13 +105,40 @@ void Menu::listingMenu() {
 
 }
 
+void Menu::requestMenu() {
+    int option;
+    while (true){
+        cout << "Choose the desired operation\n";
+        cout << "1) Create request\n";
+        cout << "2) Remove last pending request (WIP)\n";
+        cout << "3) Process pending requests\n";
+        cout << "4) Undo last request (WIP)\n";
+        cin >> option;
+        switch (option){
+            case 1:
+                Menu::createRequest();
+                break;
+            case 2:
+                break;
+            case 3:
+                this->Control.processAllRequests();
+                break;
+            case 4:
+                break;
+            default:
+                cout << "Invalid option.\n";
+                continue;
+        }
+        break;
+    }
+}
 
 void Menu::scheduleMenu() {
     int option;
     while (true) {
-        cout << "What do you want to see?" << endl;
-        cout << "1) Student Schedule" << endl;
-        cout << "2) Class Schedule" << endl;
+        cout << "What do you want to see?\n";
+        cout << "1) Student Schedule\n";
+        cout << "2) Class Schedule\n";
         cin >> option;
         switch (option) {
             case 1:
@@ -125,7 +148,7 @@ void Menu::scheduleMenu() {
                 Menu::SeeClassSchedule();
                 break;
             default:
-                cout << "Invalid option." << endl;
+                cout << "Invalid option.\n";
                 continue;
         }
         break;
@@ -135,10 +158,10 @@ void Menu::scheduleMenu() {
 void Menu::studentMenu() {
     int option;
     while (true) {
-        cout << "Choose the type of student listing you want to see." << endl;
-        cout << "1) See all Students in an UC" << endl;
-        cout << "2) See all Students in a Year" << endl;
-        cout << "3) See all Students in a Class" << endl;
+        cout << "Choose the type of student listing you want to see.\n";
+        cout << "1) See all Students in an UC\n";
+        cout << "2) See all Students in a Year\n";
+        cout << "3) See all Students in a Class\n";
 
         cin >> option;
         switch (option) {
@@ -152,7 +175,7 @@ void Menu::studentMenu() {
                 Menu::SeeStudentsInClass();
                 break;
             default:
-                cout << "Invalid option." << endl;
+                cout << "Invalid option.\n";
                 continue;
         }
         break;
@@ -211,31 +234,31 @@ void Menu::SeeClassSchedule() {
 
 void Menu::SeeNumStudentsAtLeastNUCs() {
 
-    std::cout << "Enter the N " << endl;
+    std::cout << "Enter the N \n";
     int n;
     cin >> n;
     int result = this->Control.StudentsInAtLeastNUcs(n);
-    std::cout << "There are " << result << " students with at least " << n << " UCs" << endl;
+    std::cout << "There are " << result << " students with at least " << n << " UCs\n";
 
 }
 
 
 void Menu::SeeStudentsInUc() {
-    std::cout << "Enter the UC code of the UC you want to see Students" << endl;
+    std::cout << "Enter the UC code of the UC you want to see Students\n";
     string uccode;
     cin >> uccode;
     this->Control.courseStudents(uccode);
 }
 
 void Menu::SeeStudentsInYear() {
-    std::cout << "Enter the year you want students from:" << endl;
+    std::cout << "Enter the year you want students from:\n";
     char year;
     cin >> year;
     this->Control.yearStudents(year);
 }
 
 void Menu::SeeStudentsInClass() {
-    std::cout << "Enter the class you want to see students from:";
+    std::cout << "Enter the class you want to see students from:\n";
     string classCode;
     cin >> classCode;
     this->Control.classStudents(classCode);
@@ -249,10 +272,10 @@ void Menu::SeeUcFromMostStudents() {
 void Menu::createRequest() {
     int requesttype;
     while (true) {
-        cout << "What type of request do you want to do?" << endl;
-        cout << "1.Add a Class" << endl;
-        cout << "2.Remove a Class" << endl;
-        cout << "3.Switch Classes" << endl;
+        cout << "What type of request do you want to do?\n";
+        cout << "1) Add a Class\n";
+        cout << "2) Remove a Class\n";
+        cout << "3) Switch Classes\n";
 
         std::cin >> requesttype;
 
@@ -268,7 +291,7 @@ void Menu::createRequest() {
                 this->Control.createSwitch();
                 break;
             default:
-                cout << "Invalid option." << endl;
+                cout << "Invalid option.\n";
                 continue;
         }
         break;
@@ -279,38 +302,37 @@ void Menu::createRequest() {
 
 //funções de teste, inutilizadas por enquanto (supostamente)
 void Menu::AdicionarAlunoATurmaImediatamente() {
-    cout << "upcode" << endl;
+    cout << "upcode\n";
     string upcode;
     cin >> upcode;
-    cout << "classcode" << endl;
+    cout << "classcode\n";
     string classcode;
     cin >> classcode;
-    cout << "uccode" << endl;
+    cout << "uccode\n";
     string uccode;
     cin >> uccode;
     Request *testrequest = new AddRequest("add", upcode, uccode, classcode);
     this->Control.processRequest(testrequest);
-    cout << "verifica se deu" << endl;
+    cout << "verifica se deu\n";
 
 
     this->Control.DisplayStudentSchedule();
     Menu::AdicionarAlunoATurmaImediatamente();
 }
 
-
 void Menu::RemoverAlunoATurmaImediatamente() {
-    cout << "upcode" << endl;
+    cout << "upcode\n";
     string upcode;
     cin >> upcode;
-    cout << "classcode" << endl;
+    cout << "classcode\n";
     string classcode;
     cin >> classcode;
-    cout << "uccode" << endl;
+    cout << "uccode\n";
     string uccode;
     cin >> uccode;
     Request *testrequest = new RemoveRequest("remove", upcode, uccode, classcode);
     this->Control.processRequest(testrequest);
-    cout << "verifica se deu" << endl;
+    cout << "verifica se deu\n";
 
 
     this->Control.DisplayStudentSchedule();
@@ -319,24 +341,24 @@ void Menu::RemoverAlunoATurmaImediatamente() {
 
 
 void Menu::TrocarTurmaInstantaneamente() {
-    cout << "upcode" << endl;
+    cout << "upcode\n";
     string upcode;
     cin >> upcode;
-    cout << "classcode1" << endl;
+    cout << "classcode1\n";
     string classcode1;
     cin >> classcode1;
-    cout << "uccode1" << endl;
+    cout << "uccode1\n";
     string uccode1;
     cin >> uccode1;
-    cout << "classcode2" << endl;
+    cout << "classcode2\n";
     string classcode2;
     cin >> classcode2;
-    cout << "uccode2" << endl;
+    cout << "uccode2\n";
     string uccode2;
     cin >> uccode2;
     Request *testrequest = new SwitchRequest("switch", upcode, uccode1, uccode2, classcode1, classcode2);
     this->Control.processRequest(testrequest);
-    cout << "verifica se deu" << endl;
+    cout << "verifica se deu\n";
 
 
     this->Control.DisplayStudentSchedule();

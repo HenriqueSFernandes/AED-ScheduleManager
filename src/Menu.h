@@ -21,6 +21,8 @@ public:
 
     void listingMenu();
 
+    void requestMenu();
+
     void scheduleMenu();
 
     void studentMenu();
