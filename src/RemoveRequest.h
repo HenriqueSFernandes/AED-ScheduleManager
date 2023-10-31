@@ -8,7 +8,8 @@
 
 #include <string>
 #include "Request.h"
-class RemoveRequest : public Request{
+
+class RemoveRequest : public Request {
 private:
     std::string upCodeStudent;
     std::string uCCode;
@@ -17,17 +18,22 @@ private:
 
 public:
     // Constructor
-    RemoveRequest( std::string type,const std::string& upCodeStudent, const std::string& uCCode, const std::string& classCode);
+    RemoveRequest(std::string type, const std::string &upCodeStudent, const std::string &uCCode,
+                  const std::string &classCode);
 
     // Getters
     std::string getUpCodeStudent() const;
+
     std::string getUCCode() const;
+
     std::string getClassCode() const;
 
     // Setters
-    void setUpCodeStudent(const std::string& upCodeStudent);
-    void setUCCode(const std::string& uCCode);
-    void setClassCode(const std::string& classCode);
+    void setUpCodeStudent(const std::string &upCodeStudent);
+
+    void setUCCode(const std::string &uCCode);
+
+    void setClassCode(const std::string &classCode);
 };
 
 #endif //PROJAED_REMOVEREQUEST_H

@@ -16,15 +16,19 @@ private:
 
 public:
     // Constructor
-    SwitchRequest( std::string type,const std::string& upCodeStudent,
-                  const std::string& uCCode1, const std::string& uCCode2,
-                  const std::string& classCode1, const std::string& classCode2);
+    SwitchRequest(std::string type, const std::string &upCodeStudent,
+                  const std::string &uCCode1, const std::string &uCCode2,
+                  const std::string &classCode1, const std::string &classCode2);
 
     // Getters
     std::string getUpCodeStudent() const;
+
     std::string getUCCode1() const;
+
     std::string getUCCode2() const;
+
     std::string getClassCode1() const;
+
     std::string getClassCode2() const;
 
 

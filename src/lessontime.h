@@ -25,6 +25,7 @@ public:
 
 
     friend std::ostream &operator<<(std::ostream &os, const lessontime &t);
+
     bool operator<(const lessontime &other) const {
         // Compare two lessontime objects based on their hours and minutes
         if (hour < other.hour) {
@@ -35,14 +36,16 @@ public:
 
         return false;
     }
+
     bool operator==(const lessontime &other) const {
         // Compare two lessontime objects based on their hours and minutes
-       if(hour==other.getHour() && minute==other.getMinute()){
-           return true;
-       }
+        if (hour == other.getHour() && minute == other.getMinute()) {
+            return true;
+        }
 
         return false;
     }
+
     bool operator<=(const lessontime &other) const {
         if (hour < other.hour) {
             return true;

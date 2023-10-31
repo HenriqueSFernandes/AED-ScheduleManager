@@ -6,24 +6,39 @@
 #define PROJAED_MENU_H
 
 #include "ControlUnit.h"
+
 class Menu {
 public:
     void createMenu();
+
     void SeeStudentSchedule();
+
     void SeeClassSchedule();
+
     void SeeNumStudentsAtLeastNUCs();
+
     void endMenu();
 
     void listingMenu();
+
     void scheduleMenu();
+
     void studentMenu();
+
     void SeeStudentsInUc();
+
     void SeeStudentsInYear();
+
     void SeeStudentsInClass();
+
     void AdicionarAlunoATurmaImediatamente();
+
     void createRequest();
+
     void RemoverAlunoATurmaImediatamente();
+
     void TrocarTurmaInstantaneamente();
+
     //TESTING
     void Testing();
 

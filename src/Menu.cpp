@@ -7,22 +7,23 @@
 #include "Menu.h"
 #include "ControlUnit.h"
 #include "Request.h" //depois retirado acho eu so para teste
+
 //Initializes the main menu and display the options
-void Menu::createMenu(){
+void Menu::createMenu() {
     this->Control = ControlUnit();
 
     bool run = true;
     int InputOption;
     int fileoption;
     string filename;
-    while(run) {
+    while (run) {
 
         std::cout << "Hello, welcome to my Schedule Management System." << std::endl;
-        std::cout<< "Would you like to use the Original Version or the Updated Version of the Student DB"<<endl;
-        std::cout<< "1)Original Version\n2)Updated Version"<<endl;
-        cin>>fileoption;
+        std::cout << "Would you like to use the Original Version or the Updated Version of the Student DB" << endl;
+        std::cout << "1)Original Version\n2)Updated Version" << endl;
+        cin >> fileoption;
 
-        switch (fileoption){
+        switch (fileoption) {
             case 1:
                 run = false;
                 filename = "../data/students_classes.csv";
@@ -32,7 +33,7 @@ void Menu::createMenu(){
                 filename = "../data/students_classes_updated.csv";
                 break;
             default:
-                cout<<"Invalid option, choose again."<<endl;
+                cout << "Invalid option, choose again." << endl;
                 break;
         }
     }
@@ -40,15 +41,15 @@ void Menu::createMenu(){
     run = true;
     this->Control.Start(filename);
     this->Control.CheckIfThereAreConflicts();
-    while(run) {
+    while (run) {
         std::cout << "Select an option:" << std::endl;
-        std::cout << "1) Listing Menu"<<endl;
-        std::cout<<"2) Create Requests"<<endl;
-        std::cout<<"3) Process Requests"<<endl;
-        std::cout<<"4) Leave the program"<<endl;
+        std::cout << "1) Listing Menu" << endl;
+        std::cout << "2) Create Requests" << endl;
+        std::cout << "3) Process Requests" << endl;
+        std::cout << "4) Leave the program" << endl;
         int option;
         std::cin >> option;
-        switch (option){
+        switch (option) {
             case 1:
                 Menu::listingMenu();
                 break;
@@ -56,7 +57,7 @@ void Menu::createMenu(){
                 Menu::createRequest();
                 break;
             case 3:
-                //ainda nao implementado, parte do henrique;
+                this->Control.processAllRequests();
                 break;
             case 4:
                 run = false;
@@ -66,7 +67,7 @@ void Menu::createMenu(){
                 this->Control.testvalidadd1();
                 break;
             default:
-                cout<<"Invalid option."<<endl;
+                cout << "Invalid option." << endl;
                 break;
         }
 
@@ -75,16 +76,16 @@ void Menu::createMenu(){
 
 }
 
-void Menu::listingMenu(){
+void Menu::listingMenu() {
     int option;
-    while(true){
-        cout<<"Choose the type of listing you want to see."<<endl;
-        cout<<"1) See Schedules"<<endl;
-        cout<<"2) See Number of Students registered in at least N UCs"<<endl;
-        cout<<"3) See Students"<<endl;
-        cout<<"4) See all UCs"<<endl;
-        cin>>option;
-        switch(option){
+    while (true) {
+        cout << "Choose the type of listing you want to see." << endl;
+        cout << "1) See Schedules" << endl;
+        cout << "2) See Number of Students registered in at least N UCs" << endl;
+        cout << "3) See Students" << endl;
+        cout << "4) See all UCs" << endl;
+        cin >> option;
+        switch (option) {
             case 1:
                 Menu::scheduleMenu();
                 break;
@@ -99,7 +100,7 @@ void Menu::listingMenu(){
                 break;
 
             default:
-                cout<<"Invalid option."<<endl;
+                cout << "Invalid option." << endl;
                 continue;
         }
         break;
@@ -109,14 +110,14 @@ void Menu::listingMenu(){
 }
 
 
-void Menu::scheduleMenu(){
+void Menu::scheduleMenu() {
     int option;
-    while(true){
-        cout<<"What do you want to see?"<<endl;
-        cout<<"1) Student Schedule"<<endl;
-        cout<<"2) Class Schedule"<<endl;
-        cin>>option;
-        switch(option){
+    while (true) {
+        cout << "What do you want to see?" << endl;
+        cout << "1) Student Schedule" << endl;
+        cout << "2) Class Schedule" << endl;
+        cin >> option;
+        switch (option) {
             case 1:
                 Menu::SeeStudentSchedule();
                 break;
@@ -124,7 +125,7 @@ void Menu::scheduleMenu(){
                 Menu::SeeClassSchedule();
                 break;
             default:
-                cout<<"Invalid option."<<endl;
+                cout << "Invalid option." << endl;
                 continue;
         }
         break;
@@ -133,14 +134,14 @@ void Menu::scheduleMenu(){
 
 void Menu::studentMenu() {
     int option;
-    while(true){
-        cout<<"Choose the type of student listing you want to see."<<endl;
-        cout<<"1) See all Students in an UC"<<endl;
-        cout<<"2) See all Students in a Year"<<endl;
-        cout<<"3) See all Students in a Class"<<endl;
+    while (true) {
+        cout << "Choose the type of student listing you want to see." << endl;
+        cout << "1) See all Students in an UC" << endl;
+        cout << "2) See all Students in a Year" << endl;
+        cout << "3) See all Students in a Class" << endl;
 
-        cin>>option;
-        switch(option){
+        cin >> option;
+        switch (option) {
             case 1:
                 Menu::SeeStudentsInUc();
                 break;
@@ -151,7 +152,7 @@ void Menu::studentMenu() {
                 Menu::SeeStudentsInClass();
                 break;
             default:
-                cout<<"Invalid option."<<endl;
+                cout << "Invalid option." << endl;
                 continue;
         }
         break;
@@ -163,8 +164,8 @@ void Menu::studentMenu() {
 //teu se calhar so aquele da contagem de alunos em n cadeiras
 //eu so vou fazer o meu set com resultado ter ordens diferentes, pois dps o cout fica sempre por ordem do set res
 //Fu ver e vector tipon faço com vector na mesma a pesquisar por ordens dif?????
- // ou mudo para set
- //a notaçao dessa funcao e um quites estranha
+// ou mudo para set
+//a notaçao dessa funcao e um quites estranha
 /*function<bool(Student,Student)> Menu::optionStudentMenu(){
     int option;
     while(true){
@@ -195,11 +196,11 @@ void Menu::studentMenu() {
  }
 */
 
-void Menu::SeeStudentSchedule(){
+void Menu::SeeStudentSchedule() {
     this->Control.DisplayStudentSchedule();
 }
 
-void Menu::SeeClassSchedule(){
+void Menu::SeeClassSchedule() {
 
     //std::cout<<"Enter the Uc Code"<<endl;
     //string ucCode;
@@ -208,35 +209,35 @@ void Menu::SeeClassSchedule(){
     this->Control.DisplayClassSchedule();
 }
 
-void Menu::SeeNumStudentsAtLeastNUCs(){
+void Menu::SeeNumStudentsAtLeastNUCs() {
 
-    std::cout<<"Enter the N "<<endl;
+    std::cout << "Enter the N " << endl;
     int n;
-    cin>>n;
-    int result= this->Control.StudentsInAtLeastNUcs(n);
-    std::cout<<"There are "<<result<<" students with at least "<<n<<" UCs"<<endl;
+    cin >> n;
+    int result = this->Control.StudentsInAtLeastNUcs(n);
+    std::cout << "There are " << result << " students with at least " << n << " UCs" << endl;
 
 }
 
 
-void Menu::SeeStudentsInUc(){
-    std::cout<<"Enter the UC code of the UC you want to see Students"<<endl;
+void Menu::SeeStudentsInUc() {
+    std::cout << "Enter the UC code of the UC you want to see Students" << endl;
     string uccode;
     cin >> uccode;
     this->Control.courseStudents(uccode);
 }
 
-void Menu::SeeStudentsInYear(){
-    std::cout<<"Enter the year you want students from:"<<endl;
+void Menu::SeeStudentsInYear() {
+    std::cout << "Enter the year you want students from:" << endl;
     char year;
     cin >> year;
     this->Control.yearStudents(year);
 }
 
-void Menu::SeeStudentsInClass(){
-    std::cout<<"Enter the class you want to see students from:";
+void Menu::SeeStudentsInClass() {
+    std::cout << "Enter the class you want to see students from:";
     string classCode;
-    cin>> classCode;
+    cin >> classCode;
     this->Control.classStudents(classCode);
 }
 
@@ -245,13 +246,13 @@ void Menu::SeeUcFromMostStudents() {
 }
 
 
-void Menu::createRequest(){
+void Menu::createRequest() {
     int requesttype;
-    while(true) {
+    while (true) {
         cout << "What type of request do you want to do?" << endl;
-        cout<< "1.Add a Class"<<endl;
-        cout<<"2.Remove a Class"<<endl;
-        cout<<"3.Switch Classes"<<endl;
+        cout << "1.Add a Class" << endl;
+        cout << "2.Remove a Class" << endl;
+        cout << "3.Switch Classes" << endl;
 
         std::cin >> requesttype;
 
@@ -278,18 +279,18 @@ void Menu::createRequest(){
 
 //funções de teste, inutilizadas por enquanto (supostamente)
 void Menu::AdicionarAlunoATurmaImediatamente() {
-    cout<<"upcode"<<endl;
+    cout << "upcode" << endl;
     string upcode;
-    cin>>upcode;
-    cout<<"classcode"<<endl;
+    cin >> upcode;
+    cout << "classcode" << endl;
     string classcode;
-    cin>>classcode;
-    cout<<"uccode"<<endl;
+    cin >> classcode;
+    cout << "uccode" << endl;
     string uccode;
-    cin>>uccode;
-    Request * testrequest= new AddRequest("add",upcode,uccode,classcode);
+    cin >> uccode;
+    Request *testrequest = new AddRequest("add", upcode, uccode, classcode);
     this->Control.processRequest(testrequest);
-    cout<<"verifica se deu"<<endl;
+    cout << "verifica se deu" << endl;
 
 
     this->Control.DisplayStudentSchedule();
@@ -298,18 +299,18 @@ void Menu::AdicionarAlunoATurmaImediatamente() {
 
 
 void Menu::RemoverAlunoATurmaImediatamente() {
-    cout<<"upcode"<<endl;
+    cout << "upcode" << endl;
     string upcode;
-    cin>>upcode;
-    cout<<"classcode"<<endl;
+    cin >> upcode;
+    cout << "classcode" << endl;
     string classcode;
-    cin>>classcode;
-    cout<<"uccode"<<endl;
+    cin >> classcode;
+    cout << "uccode" << endl;
     string uccode;
-    cin>>uccode;
-    Request * testrequest= new RemoveRequest("remove",upcode,uccode,classcode);
+    cin >> uccode;
+    Request *testrequest = new RemoveRequest("remove", upcode, uccode, classcode);
     this->Control.processRequest(testrequest);
-    cout<<"verifica se deu"<<endl;
+    cout << "verifica se deu" << endl;
 
 
     this->Control.DisplayStudentSchedule();
@@ -317,28 +318,25 @@ void Menu::RemoverAlunoATurmaImediatamente() {
 }
 
 
-
-
-
 void Menu::TrocarTurmaInstantaneamente() {
-    cout<<"upcode"<<endl;
+    cout << "upcode" << endl;
     string upcode;
-    cin>>upcode;
-    cout<<"classcode1"<<endl;
+    cin >> upcode;
+    cout << "classcode1" << endl;
     string classcode1;
-    cin>>classcode1;
-    cout<<"uccode1"<<endl;
+    cin >> classcode1;
+    cout << "uccode1" << endl;
     string uccode1;
-    cin>>uccode1;
-    cout<<"classcode2"<<endl;
+    cin >> uccode1;
+    cout << "classcode2" << endl;
     string classcode2;
-    cin>>classcode2;
-    cout<<"uccode2"<<endl;
+    cin >> classcode2;
+    cout << "uccode2" << endl;
     string uccode2;
-    cin>>uccode2;
-    Request * testrequest= new SwitchRequest("switch",upcode,uccode1,uccode2,classcode1,classcode2);
+    cin >> uccode2;
+    Request *testrequest = new SwitchRequest("switch", upcode, uccode1, uccode2, classcode1, classcode2);
     this->Control.processRequest(testrequest);
-    cout<<"verifica se deu"<<endl;
+    cout << "verifica se deu" << endl;
 
 
     this->Control.DisplayStudentSchedule();

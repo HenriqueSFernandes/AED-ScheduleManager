@@ -12,13 +12,14 @@ private:
     std::string type;
 
 public:
-    void static setCount(){
-        count=0;
+    void static setCount() {
+        count = 0;
     }
+
     Request(std::string type) {
         count++;
         requestId = count;
-        cout<<"request id is "<<requestId<<" and count is "<<count<<endl;
+        cout << "request id is " << requestId << " and count is " << count << endl;
         processed = false;
         this->type = type;
     }

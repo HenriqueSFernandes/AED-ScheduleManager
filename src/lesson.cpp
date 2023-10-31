@@ -1,9 +1,10 @@
 #include "lesson.h"
 
 
-lesson::lesson(const std::string &uccode,const std::string &studentgroup,  const std::string &weekday, double startTime, double duration, const std::string &type) {
-    this->UcCode=uccode;
-    this->studentGroup=studentgroup;
+lesson::lesson(const std::string &uccode, const std::string &studentgroup, const std::string &weekday, double startTime,
+               double duration, const std::string &type) {
+    this->UcCode = uccode;
+    this->studentGroup = studentgroup;
     this->weekday = weekday;
     this->startTime = lessontime(startTime);
     this->duration = lessontime(duration);
@@ -14,6 +15,7 @@ lesson::lesson(const std::string &uccode,const std::string &studentgroup,  const
 const std::string &lesson::getWeekday() const {
     return weekday;
 }
+
 const std::string &lesson::getUccode() const {
     return UcCode;
 }
@@ -36,6 +38,7 @@ const std::string &lesson::getType() const {
 }
 
 std::ostream &operator<<(std::ostream &os, const lesson &lesson) {
-    os << lesson.weekday << " from " << lesson.startTime << " to " << lesson.endTime << " type: " << lesson.type<< " regarding class : "<<lesson.studentGroup<< " of the UC"<<lesson.UcCode;
+    os << lesson.weekday << " from " << lesson.startTime << " to " << lesson.endTime << " type: " << lesson.type
+       << " regarding class : " << lesson.studentGroup << " of the UC" << lesson.UcCode;
     return os;
 }

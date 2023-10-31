@@ -5,6 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 #file(COPY ${CMAKE_SOURCE_DIR}/data DESTINATION ${CMAKE_BINARY_DIR})
 
+add_compile_options(-fsanitize=address)
+add_link_options(-fsanitize=address)
+
 add_executable(projaed main.cpp
         src/studentGroup.cpp
         src/studentGroup.h
