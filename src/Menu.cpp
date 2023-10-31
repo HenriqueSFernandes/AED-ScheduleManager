@@ -144,7 +144,7 @@ void Menu::requestMenu() {
         cout << "1) Create request\n";
         cout << "2) Remove last pending request\n";
         cout << "3) Process pending requests\n";
-        cout << "4) Undo last request (WIP)\n";
+        cout << "4) Undo last request\n";
         cout << "5) Go back\n";
         cin >> option;
         switch (option){
@@ -158,6 +158,10 @@ void Menu::requestMenu() {
                 this->Control.processAllRequests();
                 break;
             case 4:
+                int amount;
+                cout << "How many request do you want to undo?\n";
+                cin >> amount;
+                this->Control.undoRequest(amount);
                 break;
             case 5:
                 break;

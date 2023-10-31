@@ -1000,5 +1000,34 @@ void ControlUnit::processAllRequests() {
 }
 
 void ControlUnit::removeLastPendingRequest() {
-    RequestsToProcess.pop_back();   // {leic02 ,leic03}
+    RequestsToProcess.pop_back();
+}
+
+void ControlUnit::undoRequest(int n) {
+    for (int i = 0; i < n; i++) {
+        if (ProcessedRequests.empty()){
+            cout << "No more requests to undo.\n";
+            break;
+        }
+        Request *request = ProcessedRequests.top();
+        ProcessedRequests.pop();
+        if (request->getType() == "add") {
+            auto *request2 = dynamic_cast<AddRequest *>(request);
+            Request *request3 = new RemoveRequest(request2->getUpCodeStudent(), request2->getUCCode(),
+                                                  request2->getClassCode());
+            processRequest(request3);
+        } else if (request->getType() == "remove") {
+            auto *request2 = dynamic_cast<RemoveRequest *>(request);
+            Request *request3 = new AddRequest(request2->getUpCodeStudent(), request2->getUCCode(),
+                                               request2->getClassCode());
+            processRequest(request3);
+        } else if (request->getType() == "switch") {
+            auto *request2 = dynamic_cast<SwitchRequest *>(request);
+            Request *request3 = new SwitchRequest(request2->getUpCodeStudent(), request2->getUCCode2(),
+                                                  request2->getUCCode1(), request2->getClassCode2(),
+                                                  request2->getClassCode1());
+        } else {
+            cout << "Unable to undo request\n";
+        }
+    }
 }
