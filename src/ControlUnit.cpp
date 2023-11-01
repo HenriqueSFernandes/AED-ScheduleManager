@@ -651,7 +651,7 @@ bool ControlUnit::CheckAdd(AddRequest *addrq) {
     auto student = StudentSet.find(dummyStudent);
     if (student != StudentSet.end()) {
         studentExists = true;
-        NotInMoreTHanONeClass = !student->isinuc(addrq->getUCCode());
+        NotInMoreTHanONeClass = !student->isInUC(addrq->getUCCode());
 
         for (auto studentGroup: student->getStudentGroups()) {
 
@@ -720,7 +720,7 @@ bool ControlUnit::CheckRemove(RemoveRequest *remrq) {
         if (student->getStudentGroups().size() <= 1) {
             notlessthan0 = false;
         }
-        isinclass = student->isinclass(remrq->getUCCode(), remrq->getClassCode());
+        isinclass = student->isInClass(remrq->getUCCode(), remrq->getClassCode());
 
     }
 
@@ -767,9 +767,9 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
 
     if (student != StudentSet.end()) {
         studentExists = true;
-        isinclass = student->isinclass(swrq->getUCCode1(), swrq->getClassCode1());
+        isinclass = student->isInClass(swrq->getUCCode1(), swrq->getClassCode1());
         if (swrq->getUCCode1() != swrq->getUCCode2()) {
-            NotInMoreThan1Group = !student->isinuc(swrq->getUCCode2());
+            NotInMoreThan1Group = !student->isInUC(swrq->getUCCode2());
         }
         for (auto sg: student->getStudentGroups()) {
             MainKey key = {sg.getUcCode(), sg.getClassCode()};

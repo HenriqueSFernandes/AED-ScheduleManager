@@ -1,0 +1,40 @@
+\hypertarget{_remove_request_8h_source}{}\doxysection{Remove\+Request.\+h}
+\label{_remove_request_8h_source}\index{src/RemoveRequest.h@{src/RemoveRequest.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJAED\_REMOVEREQUEST\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJAED\_REMOVEREQUEST\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Request.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }RemoveRequest : \textcolor{keyword}{public} Request \{}
+\DoxyCodeLine{8 \textcolor{keyword}{private}:}
+\DoxyCodeLine{9     std::string upCodeStudent;}
+\DoxyCodeLine{10     std::string uCCode;}
+\DoxyCodeLine{11     std::string classCode;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \textcolor{comment}{// Constructor}}
+\DoxyCodeLine{16     RemoveRequest(\textcolor{keyword}{const} std::string \&upCodeStudent, \textcolor{keyword}{const} std::string \&uCCode,}
+\DoxyCodeLine{17                   \textcolor{keyword}{const} std::string \&classCode);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{comment}{// Getters}}
+\DoxyCodeLine{20     std::string getUpCodeStudent() \textcolor{keyword}{const};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     std::string getUCCode() \textcolor{keyword}{const};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     std::string getClassCode() \textcolor{keyword}{const};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{comment}{// Setters}}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} setUpCodeStudent(\textcolor{keyword}{const} std::string \&upCodeStudent);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} setUCCode(\textcolor{keyword}{const} std::string \&uCCode);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} setClassCode(\textcolor{keyword}{const} std::string \&classCode);}
+\DoxyCodeLine{32 \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJAED\_REMOVEREQUEST\_H}}
+
+\end{DoxyCode}

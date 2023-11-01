@@ -1,0 +1,146 @@
+\hypertarget{classlesson}{}\doxysection{lesson Class Reference}
+\label{classlesson}\index{lesson@{lesson}}
+
+
+Class used to represent a lesson from a course.  
+
+
+
+
+{\ttfamily \#include $<$lesson.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlesson_a6d39cea092355da169a76eb3b710b289}{lesson}} (const std\+::string \&uccode, const std\+::string \&studentgroup, const std\+::string \&weekday, double start\+Time, double duration, const std\+::string \&type)
+\begin{DoxyCompactList}\small\item\em Parameterized Constructor. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classlesson_a0f81c69fa8107ca20eb40e59f9acb670}{get\+Weekday}} () const
+\begin{DoxyCompactList}\small\item\em Gets the lesson\textquotesingle{}s weekday. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classlessontime}{lessontime}} \& \mbox{\hyperlink{classlesson_a0186115102100636a4c69cffd891dad8}{get\+Start\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Gets the time the lesson starts. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classlessontime}{lessontime}} \& \mbox{\hyperlink{classlesson_af384c28e18a6c30669b295801330d810}{get\+Duration}} () const
+\begin{DoxyCompactList}\small\item\em Gets the duration of the lesson. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classlessontime}{lessontime}} \& \mbox{\hyperlink{classlesson_ac30a319ba307601e1ba1260591d17215}{get\+End\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Gets the time the lesson ends. \end{DoxyCompactList}\item 
+const string \& \mbox{\hyperlink{classlesson_a527cfd5a2dee6d476b2552de7764d224}{get\+Uccode}} () const
+\begin{DoxyCompactList}\small\item\em Gets the course code of the lesson. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classlesson_adf20c1b1799c88b25cf90fc7959489f9}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Gets the type of the lesson. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class used to represent a lesson from a course. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlesson_a6d39cea092355da169a76eb3b710b289}\label{classlesson_a6d39cea092355da169a76eb3b710b289}} 
+\index{lesson@{lesson}!lesson@{lesson}}
+\index{lesson@{lesson}!lesson@{lesson}}
+\doxysubsubsection{\texorpdfstring{lesson()}{lesson()}}
+{\footnotesize\ttfamily lesson\+::lesson (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{uccode,  }\item[{const std\+::string \&}]{studentgroup,  }\item[{const std\+::string \&}]{weekday,  }\item[{double}]{start\+Time,  }\item[{double}]{duration,  }\item[{const std\+::string \&}]{type }\end{DoxyParamCaption})}
+
+
+
+Parameterized Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uccode} & String representing the course. \\
+\hline
+{\em studentgroup} & String representing the class. \\
+\hline
+{\em weekday} & String representing the weekday. \\
+\hline
+{\em start\+Time} & The time the lesson starts. \\
+\hline
+{\em duration} & The duration of the lesson. \\
+\hline
+{\em type} & The type of the lesson. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlesson_af384c28e18a6c30669b295801330d810}\label{classlesson_af384c28e18a6c30669b295801330d810}} 
+\index{lesson@{lesson}!getDuration@{getDuration}}
+\index{getDuration@{getDuration}!lesson@{lesson}}
+\doxysubsubsection{\texorpdfstring{getDuration()}{getDuration()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classlessontime}{lessontime}} \& lesson\+::get\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the duration of the lesson. 
+
+\begin{DoxyReturn}{Returns}
+The duration of the lesson. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlesson_ac30a319ba307601e1ba1260591d17215}\label{classlesson_ac30a319ba307601e1ba1260591d17215}} 
+\index{lesson@{lesson}!getEndTime@{getEndTime}}
+\index{getEndTime@{getEndTime}!lesson@{lesson}}
+\doxysubsubsection{\texorpdfstring{getEndTime()}{getEndTime()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classlessontime}{lessontime}} \& lesson\+::get\+End\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the time the lesson ends. 
+
+\begin{DoxyReturn}{Returns}
+The time the lesson ends. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlesson_a0186115102100636a4c69cffd891dad8}\label{classlesson_a0186115102100636a4c69cffd891dad8}} 
+\index{lesson@{lesson}!getStartTime@{getStartTime}}
+\index{getStartTime@{getStartTime}!lesson@{lesson}}
+\doxysubsubsection{\texorpdfstring{getStartTime()}{getStartTime()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classlessontime}{lessontime}} \& lesson\+::get\+Start\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the time the lesson starts. 
+
+\begin{DoxyReturn}{Returns}
+The time the lesson starts. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlesson_adf20c1b1799c88b25cf90fc7959489f9}\label{classlesson_adf20c1b1799c88b25cf90fc7959489f9}} 
+\index{lesson@{lesson}!getType@{getType}}
+\index{getType@{getType}!lesson@{lesson}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily const std\+::string \& lesson\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the type of the lesson. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the type of the lesson. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlesson_a527cfd5a2dee6d476b2552de7764d224}\label{classlesson_a527cfd5a2dee6d476b2552de7764d224}} 
+\index{lesson@{lesson}!getUccode@{getUccode}}
+\index{getUccode@{getUccode}!lesson@{lesson}}
+\doxysubsubsection{\texorpdfstring{getUccode()}{getUccode()}}
+{\footnotesize\ttfamily const std\+::string \& lesson\+::get\+Uccode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the course code of the lesson. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the course code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlesson_a0f81c69fa8107ca20eb40e59f9acb670}\label{classlesson_a0f81c69fa8107ca20eb40e59f9acb670}} 
+\index{lesson@{lesson}!getWeekday@{getWeekday}}
+\index{getWeekday@{getWeekday}!lesson@{lesson}}
+\doxysubsubsection{\texorpdfstring{getWeekday()}{getWeekday()}}
+{\footnotesize\ttfamily const std\+::string \& lesson\+::get\+Weekday (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the lesson\textquotesingle{}s weekday. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the weekday. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{lesson_8h}{lesson.\+h}}\item 
+src/lesson.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,59 @@
+\hypertarget{student_8h_source}{}\doxysection{student.\+h}
+\label{student_8h_source}\index{src/student.h@{src/student.h}}
+\mbox{\hyperlink{student_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef PROJAED\_STUDENT\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define PROJAED\_STUDENT\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}studentGroup.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_student}{Student}} \{}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_student_af9168cedbfa5565cf0b20c1a9d3f5c9d}{Student}}() \{\};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{28     \mbox{\hyperlink{class_student_af9168cedbfa5565cf0b20c1a9d3f5c9d}{Student}}(\textcolor{keywordtype}{string} studentId, \textcolor{keywordtype}{string} name, set<studentGroup> group);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{34     std::string \mbox{\hyperlink{class_student_aa23a5caf2b0e59dbd9834cdd7f3f37a0}{getStudentID}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{40     set<studentGroup> \mbox{\hyperlink{class_student_ad3420b04fc1bb5dcc413bfa771db896d}{getStudentGroups}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{46     std::string \mbox{\hyperlink{class_student_af2b671e64af8a240f59652414a8b8047}{getName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_a489c963162c2b5798154a3217815cfc8}{setName}}(\textcolor{keyword}{const} std::string \&name);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_aa061a0b43cd8c617edf76a28c31b5300}{setStudentID}}(\textcolor{keyword}{const} std::string \&studentId);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_a126ececb9fa08b66c0a5794739c66805}{addStudentGroup}}(studentGroup GroupToAdd);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_a77616da1750d6197c7c28f50aa12e522}{removeGroup}}(studentGroup GroupToRemove);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_student_ae8187d6467f3ebc287d99df8ac6da3d5}{isInUC}}(\textcolor{keywordtype}{string} uc) \textcolor{keyword}{const};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_student_ae58b2cf232d0a305c6b767256ca622e9}{isInClass}}(\textcolor{keywordtype}{string} uc, \textcolor{keywordtype}{string} studgroup) \textcolor{keyword}{const};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{class_student}{Student}} \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{89         \textcolor{keywordflow}{return} studentID < other.studentID;}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{class_student}{Student}} \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{93         \textcolor{keywordflow}{return} (this-\/>studentID == other.studentID) \&\& (this-\/>name == other.name);}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} \mbox{\hyperlink{class_student}{Student}} \&student);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{private}:}
+\DoxyCodeLine{99     std::string studentID;}
+\DoxyCodeLine{100     std::string name;}
+\DoxyCodeLine{101     std::set<studentGroup> StudentGroups;}
+\DoxyCodeLine{102 \};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJAED\_STUDENT\_H}}
+
+\end{DoxyCode}

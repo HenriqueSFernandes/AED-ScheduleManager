@@ -1,0 +1,54 @@
+\hypertarget{_menu_8h_source}{}\doxysection{Menu.\+h}
+\label{_menu_8h_source}\index{src/Menu.h@{src/Menu.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJAED\_MENU\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJAED\_MENU\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}ControlUnit.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }Menu \{}
+\DoxyCodeLine{7 \textcolor{keyword}{public}:}
+\DoxyCodeLine{8     \textcolor{keywordtype}{void} createMenu();}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \textcolor{keywordtype}{void} SeeStudentSchedule();}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keywordtype}{void} SeeClassSchedule();}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} SeeNumStudentsAtLeastNUCs();}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} SeeNumStudentsAtMostNUCs();}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} SeeNumStudentsInNUCs();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} listingMenu();}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} requestMenu();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} scheduleMenu();}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} studentMenu();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} SeeStudentsInUc(function<\textcolor{keywordtype}{bool}(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})> comp);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} SeeStudentsInYear(function<\textcolor{keywordtype}{bool}(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})> comp);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} SeeStudentsInClass(function<\textcolor{keywordtype}{bool}(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})> comp);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} createRequest();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     function<bool(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})> optionStudentMenu();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{private}:}
+\DoxyCodeLine{39     ControlUnit Control;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} SeeUcFromMostStudents();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} SeeNumStudentsInExactNUCs();}
+\DoxyCodeLine{45 \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJAED\_MENU\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,50 @@
+\hypertarget{student_group_8h_source}{}\doxysection{student\+Group.\+h}
+\label{student_group_8h_source}\index{src/studentGroup.h@{src/studentGroup.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STUDENTGROUP\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STUDENTGROUP\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }studentGroup \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9     \textcolor{comment}{// Constructors}}
+\DoxyCodeLine{10     studentGroup() \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     studentGroup(\textcolor{keyword}{const} std::string \&uccode, \textcolor{keyword}{const} std::string \&classCode);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{const} std::string \&getClassCode()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{17         \textcolor{keywordflow}{return} classCode;}
+\DoxyCodeLine{18     \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{const} std::string \&getUcCode()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{21         \textcolor{keywordflow}{return} UcCode;}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} studentGroup \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{25         \textcolor{comment}{// Define a comparison logic here based on your criteria.}}
+\DoxyCodeLine{26         \textcolor{comment}{// For example, you can compare based on class code or other fields.}}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} this-\/>classCode + this-\/>UcCode < other.classCode + other.UcCode;}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} studentGroup \&group) \{}
+\DoxyCodeLine{31         os << \textcolor{stringliteral}{"{}UcCode: "{}} << group.UcCode << \textcolor{stringliteral}{"{}, Class Code: "{}} << group.classCode;}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{private}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     std::string classCode;}
+\DoxyCodeLine{39     std::string UcCode;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

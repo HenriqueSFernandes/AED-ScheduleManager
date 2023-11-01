@@ -1,0 +1,40 @@
+\hypertarget{_switch_request_8h_source}{}\doxysection{Switch\+Request.\+h}
+\label{_switch_request_8h_source}\index{src/SwitchRequest.h@{src/SwitchRequest.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJAED\_SWITCHREQUEST\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJAED\_SWITCHREQUEST\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Request.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }SwitchRequest : \textcolor{keyword}{public} Request \{}
+\DoxyCodeLine{8 \textcolor{keyword}{private}:}
+\DoxyCodeLine{9     std::string upCodeStudent;}
+\DoxyCodeLine{10     std::string uCCode\_1;}
+\DoxyCodeLine{11     std::string uCCode\_2;}
+\DoxyCodeLine{12     std::string classCode\_1;}
+\DoxyCodeLine{13     std::string classCode\_2;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \textcolor{comment}{// Constructor}}
+\DoxyCodeLine{17     SwitchRequest(\textcolor{keyword}{const} std::string \&upCodeStudent, \textcolor{keyword}{const} std::string \&uCCode1, \textcolor{keyword}{const} std::string \&uCCode2,}
+\DoxyCodeLine{18                   \textcolor{keyword}{const} std::string \&classCode1, \textcolor{keyword}{const} std::string \&classCode2);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{comment}{// Getters}}
+\DoxyCodeLine{21     std::string getUpCodeStudent() \textcolor{keyword}{const};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     std::string getUCCode1() \textcolor{keyword}{const};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     std::string getUCCode2() \textcolor{keyword}{const};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     std::string getClassCode1() \textcolor{keyword}{const};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     std::string getClassCode2() \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PROJAED\_SWITCHREQUEST\_H}}
+
+\end{DoxyCode}

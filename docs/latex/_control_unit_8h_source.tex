@@ -1,0 +1,123 @@
+\hypertarget{_control_unit_8h_source}{}\doxysection{Control\+Unit.\+h}
+\label{_control_unit_8h_source}\index{src/ControlUnit.h@{src/ControlUnit.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJAED\_CONTROLUNIT\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJAED\_CONTROLUNIT\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}studentGroup.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{student_8h}{student.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stack>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lesson_8h}{lesson.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}Request.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}AddRequest.h"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}RemoveRequest.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}SwitchRequest.h"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }ControlUnit \{}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{private}:}
+\DoxyCodeLine{25     \textcolor{keyword}{struct }MainKey \{}
+\DoxyCodeLine{26         \textcolor{keywordtype}{string} UcCode;}
+\DoxyCodeLine{27         \textcolor{keywordtype}{string} ClassCode;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} MainKey \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{30             \textcolor{keywordflow}{if} (UcCode != other.UcCode) \{}
+\DoxyCodeLine{31                 \textcolor{keywordflow}{return} UcCode < other.UcCode;}
+\DoxyCodeLine{32             \}}
+\DoxyCodeLine{33             \textcolor{keywordflow}{return} ClassCode < other.ClassCode;}
+\DoxyCodeLine{34         \}}
+\DoxyCodeLine{35     \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{string} filename;}
+\DoxyCodeLine{38     set<Student> StudentSet;}
+\DoxyCodeLine{39     vector<lesson> LessonVector;}
+\DoxyCodeLine{40     list <studentGroup> StudentGroupList;}
+\DoxyCodeLine{41     map<MainKey, studentGroup *> KeyToStudentGroup;}
+\DoxyCodeLine{42     map<MainKey, set<lesson *>> LessonMap;}
+\DoxyCodeLine{43     map<MainKey, int> SizeMap;}
+\DoxyCodeLine{44     deque<Request *> RequestsToProcess;}
+\DoxyCodeLine{45     stack<Request *> ProcessedRequests;}
+\DoxyCodeLine{46     \textcolor{keywordtype}{int} cap = 30;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 public :}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} Start(\textcolor{keywordtype}{string} filename);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} LoadClassesCSV();}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} LoadClassesPerUcCSV();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} LoadStudentsClassesCSV();}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} saveChanges();}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} DisplayStudentSchedule();}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} DisplayClassSchedule();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{int} StudentsInAtLeastNUcs(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{int} StudentsInAtMostNUcs(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{int} StudentsInUcs(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} courseStudents(\textcolor{keywordtype}{string} courseCode, function<\textcolor{keywordtype}{bool}(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})> func);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} yearStudents(\textcolor{keywordtype}{char} year, function<\textcolor{keywordtype}{bool}(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})> func);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} classStudents(\textcolor{keywordtype}{string} classCode, function<\textcolor{keywordtype}{bool}(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})> func);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} UCWithMostStudents();}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{comment}{//Helper Function}}
+\DoxyCodeLine{79     \textcolor{keywordtype}{int} NumBalanced(vector<studentGroup>, map<MainKey, int>);}
+\DoxyCodeLine{80     \textcolor{keywordtype}{bool} IsThereConflict(vector<lesson>);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{comment}{//REQUEST FUNCTIONS}}
+\DoxyCodeLine{83     \textcolor{keywordtype}{bool} processRequest(Request *request, \textcolor{keywordtype}{bool} bypassStack = \textcolor{keyword}{false});}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \textcolor{keywordtype}{void} processAddRequest(AddRequest *addRequest);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keywordtype}{void} processRemoveRequest(RemoveRequest *removeRequest);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} processSwitchRequest(SwitchRequest *switchRequest);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} processAllRequests();  \textcolor{comment}{//this method process all requests in the queue;}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} removeLastPendingRequest(); \textcolor{comment}{//this method removes the most recent request that hasn't been applied}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} undoRequest(\textcolor{keywordtype}{int} n); \textcolor{comment}{//this method removes last n applied request}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{keywordtype}{void} CheckIfThereAreConflicts();}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keywordtype}{void} createAdd();}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} createRemove();}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{keywordtype}{void} createSwitch();}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     \textcolor{keywordtype}{bool} CheckAdd(AddRequest *addrq);}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keywordtype}{bool} CheckRemove(RemoveRequest *remrq);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \textcolor{keywordtype}{bool} CheckSwitch(SwitchRequest *swrq);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{keywordtype}{string} getClassinUc(\textcolor{keywordtype}{string} upcode, \textcolor{keywordtype}{string} uccode);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{keywordtype}{void} clearMemory(); \textcolor{comment}{//this method clears the dynamic memory}}
+\DoxyCodeLine{114 \};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJAED\_CONTROLUNIT\_H}}
+
+\end{DoxyCode}

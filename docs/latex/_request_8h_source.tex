@@ -1,0 +1,47 @@
+\hypertarget{_request_8h_source}{}\doxysection{Request.\+h}
+\label{_request_8h_source}\index{src/Request.h@{src/Request.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJAED\_REQUEST\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJAED\_REQUEST\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{student_8h}{student.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}studentGroup.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }Request \{}
+\DoxyCodeLine{8 \textcolor{keyword}{private}:}
+\DoxyCodeLine{9     \textcolor{keyword}{static} \textcolor{keywordtype}{int} count;  \textcolor{comment}{// Declare a static member variable for request ID.}}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} requestId; \textcolor{comment}{//The ID that identifies each Request}}
+\DoxyCodeLine{11     \textcolor{keywordtype}{bool} processed;}
+\DoxyCodeLine{12     std::string type;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} \textcolor{keyword}{static} setCount() \{}
+\DoxyCodeLine{16         count = 0;}
+\DoxyCodeLine{17     \}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     Request(std::string type) \{}
+\DoxyCodeLine{20         count++;}
+\DoxyCodeLine{21         requestId = count;}
+\DoxyCodeLine{22         cout << \textcolor{stringliteral}{"{}request id is "{}} << requestId << \textcolor{stringliteral}{"{} and count is "{}} << count << endl;}
+\DoxyCodeLine{23         processed = \textcolor{keyword}{false};}
+\DoxyCodeLine{24         this-\/>type = type;}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} setProcessed(\textcolor{keywordtype}{bool} processed) \{}
+\DoxyCodeLine{28         this-\/>processed = processed;}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     std::string getType()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} type; \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{comment}{// Add a virtual function (it can be a pure virtual function).}}
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} dummy() \{}
+\DoxyCodeLine{35         \textcolor{comment}{//ALLOWS DOWNCASTING}}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} \string~Request() \{\};}
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PROJAED\_REQUEST\_H}}
+
+\end{DoxyCode}
