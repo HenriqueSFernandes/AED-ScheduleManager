@@ -1,7 +1,3 @@
-//
-// Created by kali on 10/10/23.
-//
-
 #ifndef PROJAED_SCHEDULE_H
 #define PROJAED_SCHEDULE_H
 

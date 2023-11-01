@@ -1,7 +1,3 @@
-//
-// Created by nowayjose on 20/10/2023.
-//
-
 #ifndef PROJAED_MENU_H
 #define PROJAED_MENU_H
 
@@ -29,11 +25,11 @@ public:
 
     void studentMenu();
 
-    void SeeStudentsInUc(function<bool(Student,Student)> comp);
+    void SeeStudentsInUc(function<bool(Student, Student)> comp);
 
-    void SeeStudentsInYear(function<bool(Student,Student)> comp);
+    void SeeStudentsInYear(function<bool(Student, Student)> comp);
 
-    void SeeStudentsInClass(function<bool(Student,Student)> comp);
+    void SeeStudentsInClass(function<bool(Student, Student)> comp);
 
     void createRequest();
 

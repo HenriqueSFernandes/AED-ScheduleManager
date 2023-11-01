@@ -3,12 +3,9 @@
 #include "ControlUnit.h"
 #include "student.h"
 #include "Schedule.h"
-#include <memory>
 #include <algorithm>
-#include <cstdlib>
 #include <climits>
 #include "RemoveRequest.h"
-#include <filesystem>
 
 using namespace std;
 

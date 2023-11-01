@@ -1,13 +1,7 @@
-//
-// Created by nowayjose on 28/10/2023.
-//
-
-
 #include "RemoveRequest.h"
 
 // Constructor
-RemoveRequest::RemoveRequest( const std::string &upCodeStudent, const std::string &uCCode,
-                             const std::string &classCode)
+RemoveRequest::RemoveRequest(const std::string &upCodeStudent, const std::string &uCCode, const std::string &classCode)
         : Request("remove"), upCodeStudent(upCodeStudent), uCCode(uCCode), classCode(classCode) {
 }
 

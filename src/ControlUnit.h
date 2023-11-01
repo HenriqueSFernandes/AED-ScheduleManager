@@ -33,7 +33,7 @@ private:
             return ClassCode < other.ClassCode;
         }
     };
-    
+
     string filename;
     vector<Student> StudentVector;
     vector<lesson> LessonVector;
@@ -77,7 +77,6 @@ public :
 
     //Helper Function
     int NumBalanced(vector<studentGroup>, map<MainKey, int>);
-
     bool IsThereConflict(vector<lesson>);
 
     //REQUEST FUNCTIONS

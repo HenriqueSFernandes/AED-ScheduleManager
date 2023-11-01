@@ -1,8 +1,3 @@
-//
-// Created by nowayjose on 28/10/2023.
-//
-
-
 #ifndef PROJAED_REMOVEREQUEST_H
 #define PROJAED_REMOVEREQUEST_H
 
@@ -18,7 +13,7 @@ private:
 
 public:
     // Constructor
-    RemoveRequest( const std::string &upCodeStudent, const std::string &uCCode,
+    RemoveRequest(const std::string &upCodeStudent, const std::string &uCCode,
                   const std::string &classCode);
 
     // Getters
