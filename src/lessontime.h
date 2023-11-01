@@ -18,7 +18,7 @@ public:
      * @brief Copy constructor.
      * @param time
      */
-    lessontime(double time);
+    explicit lessontime(double time);
 
     /**
      * @brief Default constructor (00:00)
@@ -36,7 +36,7 @@ public:
      * @brief Converts the time to a string.
      * @return A string representing the time.
      */
-    string displayHourFormat();
+    string displayHourFormat() const;
 
     /**
      * @brief Hour getter.
@@ -74,13 +74,7 @@ public:
 
     bool operator<=(const lessontime &other) const {
         // Compare two lessontime objects based on their hours and minutes
-        if (hour < other.hour) {
-            return true;
-        } else if (hour == other.hour && minute <= other.minute) {
-            return true;
-        }
-
-        return false;
+        return (hour < other.hour) || (hour == other.hour && minute <= other.minute);
     }
 
 private:

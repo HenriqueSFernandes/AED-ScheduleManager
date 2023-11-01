@@ -7,9 +7,7 @@
 class studentGroup {
 public:
     // Constructors
-    studentGroup() {
-
-    }
+    studentGroup() = default;
 
     studentGroup(const std::string &uccode, const std::string &classCode);
 

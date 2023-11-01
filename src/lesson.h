@@ -16,14 +16,14 @@ class lesson {
 public:
     /**
      * @brief Parameterized Constructor.
-     * @param uccode String representing the course.
-     * @param studentgroup String representing the class.
+     * @param ucCode String representing the course.
+     * @param studentGroup String representing the class.
      * @param weekday String representing the weekday.
      * @param startTime The time the lesson starts.
      * @param duration The duration of the lesson.
      * @param type The type of the lesson.
      */
-    lesson(const std::string &uccode, const std::string &studentgroup, const std::string &weekday, double startTime,
+    lesson(const std::string &ucCode, const std::string &studentGroup, const std::string &weekday, double startTime,
            double duration, const std::string &type);
 
     /**

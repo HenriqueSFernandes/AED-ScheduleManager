@@ -1,3 +1,4 @@
+/// @file student.h
 #ifndef PROJAED_STUDENT_H
 #define PROJAED_STUDENT_H
 
@@ -8,49 +9,96 @@
 
 using namespace std;
 
+/**
+ * @brief Class used to represent a student.
+ */
 class Student {
 public:
-    Student() {};
+    /**
+     * @brief Default constructor.
+     */
+    Student() = default;
 
+    /**
+     * @brief Parameterized constructor.
+     * @param studentId String representing the student ID.
+     * @param name String representing the name of the student.
+     * @param group A set with the classes the student has.
+     */
     Student(string studentId, string name, set<studentGroup> group);
 
+    /**
+     * @brief Gets the student ID.
+     * @return A string representing the student ID.
+     */
     std::string getStudentID() const;
 
+    /**
+     * @brief Gets all the classes the student belongs to.
+     * @return A set of classes that the student belongs to.
+     */
+    set<studentGroup> getStudentGroups() const;
+
+    /**
+     * @brief Gets the name of the student.
+     * @return A string representing the name of the student.
+     */
+    std::string getName() const;
+
+    /**
+     * @brief Sets the newName of the student.
+     * @param newName A string representing the newName of the student
+     */
+    void setName(const std::string &newName);
+
+    /**
+     * @brief Sets the student ID.
+     * @param studentId A string representing the new student ID.
+     */
     void setStudentID(const std::string &studentId);
 
-    void addStudentGroup(studentGroup GroupToAdd);
+    /**
+     * @brief Adds a new class to the student.
+     * @param GroupToAdd
+     */
+    void addStudentGroup(const studentGroup& GroupToAdd);
 
-    void removeGroup(studentGroup GroupToRemove);
+    /**
+     * @brief Removes a class from the student.
+     * @param GroupToRemove
+     */
+    void removeGroup(const studentGroup& GroupToRemove);
 
-    set<studentGroup> getStudentGroups() const;
+    /**
+     * @brief Detects if the student is enrolled in a certain course.
+     * @param uc String representing a course.
+     * @return Returns true if the student is enrolled in a certain course.
+     */
+    bool isInUC(const string& uc) const;
+
+    /**
+     * @brief Detects if the student is enrolled in a certain class from a couse.
+     * @param ucCode String representing a couse.
+     * @param studentGroup String representing a class.
+     * @return Returns true if the student is enrolled in a certain class form a course.
+     */
+
+    bool isInClass(const string& ucCode, const string& studentGroup) const;
 
     bool operator<(const Student &other) const {
         return studentID < other.studentID;
     }
 
     bool operator==(const Student &other) const {
-        // Implement your equality comparison logic here
-        // This function should not modify the state of the object.
-        // It should only compare the object's attributes.
         return (this->studentID == other.studentID) && (this->name == other.name);
     }
 
-    std::string getName() const;
-
-    void setName(const std::string &name);
-
     friend std::ostream &operator<<(std::ostream &os, const Student &student);
-
-    bool isinuc(string uc) const;
-
-    bool isinclass(string uc, string studgroup) const;
 
 private:
     std::string studentID;
     std::string name;
     std::set<studentGroup> StudentGroups;
-
-
 };
 
 
