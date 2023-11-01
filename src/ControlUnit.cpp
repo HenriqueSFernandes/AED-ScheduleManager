@@ -123,7 +123,7 @@ void ControlUnit::LoadStudentsClassesCSV() {
         getline(is, stCode, ',');
         if (prevStCode != stCode) {
             st_class = Student(prevStCode, stName, cpu);
-            StudentVector.push_back(st_class);
+            StudentVector.insert(st_class);
             cpu.clear();
             prevStCode = stCode;
         }
@@ -149,7 +149,7 @@ void ControlUnit::LoadStudentsClassesCSV() {
     }
 
     st_class = Student(prevStCode, stName, cpu);
-    StudentVector.push_back(st_class);
+    StudentVector.insert(st_class);
     inFile.close();
 
 
@@ -897,7 +897,7 @@ void ControlUnit::processAddRequest(AddRequest *addRequest) {
     cout << "hey i got the request" << upCode << "/" << classCode << "/" << ucCode;
 
 
-    for (auto &student: StudentVector) {
+    for (Student student: StudentVector) {
         if (student.getStudentID() == upCode) {
             student.addStudentGroup(studentGroup(ucCode, classCode));
             MainKey key = {ucCode, classCode};
@@ -917,7 +917,7 @@ void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
     string ucCode = removeRequest->getUCCode();
     cout << "hey i got the request" << upCode << "/" << classCode << "/" << ucCode;
 
-    for (auto &student: StudentVector) {
+    for (Student student: StudentVector) {
         if (student.getStudentID() == upCode) {
             student.removeGroup(studentGroup(ucCode, classCode));
             MainKey key = {ucCode, classCode};
