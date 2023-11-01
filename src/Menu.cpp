@@ -1,7 +1,3 @@
-//
-// Created by nowayjose on 20/10/2023.
-//
-
 #include <climits>
 #include <functional>
 #include "Menu.h"
@@ -58,6 +54,7 @@ void Menu::createMenu() {
             case 3:
                 run = false;
                 this->Control.saveChanges();
+                this->Control.clearMemory();
                 break;
             default:
                 cout << "Invalid option.\n";
@@ -105,7 +102,7 @@ void Menu::listingMenu() {
 }
 
 
-void Menu::SeeNumStudentsInNUCs(){
+void Menu::SeeNumStudentsInNUCs() {
     int option;
     while (true) {
         cout << "Choose the type of listing you want to see.\n";
@@ -139,7 +136,7 @@ void Menu::SeeNumStudentsInNUCs(){
 
 void Menu::requestMenu() {
     int option;
-    while (true){
+    while (true) {
         cout << "Choose the desired operation\n";
         cout << "1) Create request\n";
         cout << "2) Remove last pending request\n";
@@ -147,7 +144,7 @@ void Menu::requestMenu() {
         cout << "4) Undo last request\n";
         cout << "5) Go back\n";
         cin >> option;
-        switch (option){
+        switch (option) {
             case 1:
                 Menu::createRequest();
                 break;
@@ -201,7 +198,7 @@ void Menu::scheduleMenu() {
 
 void Menu::studentMenu() {
     int option;
-    function<bool(Student,Student)> func;
+    function<bool(Student, Student)> func;
     while (true) {
         cout << "Choose the type of student listing you want to see.\n";
         cout << "1) See all Students in an UC\n";
@@ -240,7 +237,7 @@ void Menu::studentMenu() {
 //Fu ver e vector tipon faço com vector na mesma a pesquisar por ordens dif?????
 // ou mudo para set
 //a notaçao dessa funcao e um quites estranha
-function<bool(Student,Student)> Menu::optionStudentMenu() {
+function<bool(Student, Student)> Menu::optionStudentMenu() {
     int option;
     while (true) {
         cout << "What's the order you want to see students in?" << endl;
@@ -293,6 +290,7 @@ void Menu::SeeNumStudentsAtLeastNUCs() {
     std::cout << "There are " << result << " students with at least " << n << " UCs\n";
 
 }
+
 void Menu::SeeNumStudentsAtMostNUCs() {
 
     std::cout << "Enter the N \n";
@@ -313,25 +311,25 @@ void Menu::SeeNumStudentsInExactNUCs() {
 
 }
 
-void Menu::SeeStudentsInUc(function<bool(Student,Student)> func) {
+void Menu::SeeStudentsInUc(function<bool(Student, Student)> func) {
     std::cout << "Enter the UC code of the UC you want to see Students\n";
     string uccode;
     cin >> uccode;
-    this->Control.courseStudents(uccode,func);
+    this->Control.courseStudents(uccode, func);
 }
 
-void Menu::SeeStudentsInYear(function<bool(Student,Student)> func) {
+void Menu::SeeStudentsInYear(function<bool(Student, Student)> func) {
     std::cout << "Enter the year you want students from:\n";
     char year;
     cin >> year;
-    this->Control.yearStudents(year,func);
+    this->Control.yearStudents(year, func);
 }
 
-void Menu::SeeStudentsInClass(function<bool(Student,Student)> func) {
+void Menu::SeeStudentsInClass(function<bool(Student, Student)> func) {
     std::cout << "Enter the class you want to see students from:\n";
     string classCode;
     cin >> classCode;
-    this->Control.classStudents(classCode,func);
+    this->Control.classStudents(classCode, func);
 }
 
 void Menu::SeeUcFromMostStudents() {
@@ -371,70 +369,4 @@ void Menu::createRequest() {
         break;
     }
 
-}
-
-
-//funções de teste, inutilizadas por enquanto (supostamente)
-void Menu::AdicionarAlunoATurmaImediatamente() {
-    cout << "upcode\n";
-    string upcode;
-    cin >> upcode;
-    cout << "classcode\n";
-    string classcode;
-    cin >> classcode;
-    cout << "uccode\n";
-    string uccode;
-    cin >> uccode;
-    Request *testrequest = new AddRequest(upcode, uccode, classcode);
-    this->Control.processRequest(testrequest);
-    cout << "verifica se deu\n";
-
-
-    this->Control.DisplayStudentSchedule();
-    Menu::AdicionarAlunoATurmaImediatamente();
-}
-
-void Menu::RemoverAlunoATurmaImediatamente() {
-    cout << "upcode\n";
-    string upcode;
-    cin >> upcode;
-    cout << "classcode\n";
-    string classcode;
-    cin >> classcode;
-    cout << "uccode\n";
-    string uccode;
-    cin >> uccode;
-    Request *testrequest = new RemoveRequest(upcode, uccode, classcode);
-    this->Control.processRequest(testrequest);
-    cout << "verifica se deu\n";
-
-
-    this->Control.DisplayStudentSchedule();
-    Menu::RemoverAlunoATurmaImediatamente();
-}
-
-
-void Menu::TrocarTurmaInstantaneamente() {
-    cout << "upcode\n";
-    string upcode;
-    cin >> upcode;
-    cout << "classcode1\n";
-    string classcode1;
-    cin >> classcode1;
-    cout << "uccode1\n";
-    string uccode1;
-    cin >> uccode1;
-    cout << "classcode2\n";
-    string classcode2;
-    cin >> classcode2;
-    cout << "uccode2\n";
-    string uccode2;
-    cin >> uccode2;
-    Request *testrequest = new SwitchRequest(upcode, uccode1, uccode2, classcode1, classcode2);
-    this->Control.processRequest(testrequest);
-    cout << "verifica se deu\n";
-
-
-    this->Control.DisplayStudentSchedule();
-    Menu::TrocarTurmaInstantaneamente();
 }

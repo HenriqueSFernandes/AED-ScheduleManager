@@ -1,4 +1,3 @@
-
 #include "studentGroup.h"
 #include <fstream>
 #include "ControlUnit.h"
@@ -100,7 +99,7 @@ void ControlUnit::LoadStudentsClassesCSV() {
     string line;
     string stCode, stName, ucCode, classCode;
     ifstream inFile;
-        inFile.open(filename);
+    inFile.open(filename);
     getline(inFile, line);
     //Reading the first line with actual data
     getline(inFile, line);
@@ -202,12 +201,12 @@ void ControlUnit::DisplayStudentSchedule() {
                 set<lesson *> Lectures = LessonMap[key];
                 for (auto element: Lectures) {
                     if (option == 1) {
-                        int width = 85; // Calculate the width based on the content length
+                        int width = 90; // Calculate the width based on the content length
                         std::string horizontalLine(width, '-');
 
                         std::cout << '+' << horizontalLine << '+' << std::endl;
 
-// Adjust the width for proper alignment
+                        // Adjust the width for proper alignment
                         std::cout << "    " << *element << std::endl;
 
                         std::cout << '+' << horizontalLine << '+' << std::endl << endl;
@@ -231,40 +230,7 @@ void ControlUnit::DisplayStudentSchedule() {
 
 
 }
-//ze
-//as drenas de visual tirei a olho mais ou menos depois se der tempo faço certo
-//Imaginem isto é CLASS POR UC N É LEGIT FULL CLASS
-/*void ControlUnit::DisplayClassSchedule(string classCode, string UcCode){
-    cout<<"Would you like the default Version or the Visual Version"<<endl;
-    cout<<"1) Default"<<endl;
-    cout<<"2) Visual"<<endl;
-    int option;
-    cin>>option;
-    vector<lesson> LessonsVector;
-    MainKey key={UcCode, classCode};
-    set<lesson*> LessonsSet=LessonMap[key];
-    for( auto lesson : LessonsSet){
-        LessonsVector.push_back(*lesson);
-        if(option==1){
-            int width = 80; // Calculate the width based on the content length
-            std::string horizontalLine(width, '-');
 
-            std::cout << '+' << horizontalLine << '+' << std::endl;
-            std::cout << "| " <<*lesson<<" |"<< std::endl;
-            std::cout << '+' << horizontalLine << '+' << std::endl;
-
-        }
-    }
-    if(option ==2){
-        Schedule ClassSchedule= Schedule(LessonsVector);
-        ClassSchedule.display();
-    }
-
-
-
-}*/
-//LEGIT FULL CLASS
-//TESTEI E MSM RESULTADO QUE A MAH
 void ControlUnit::DisplayClassSchedule() {
     cout << "Would you like the default Version or the Visual Version" << endl;
     cout << "1) Default" << endl;
@@ -867,7 +833,7 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
 }
 
 
-bool ControlUnit::processRequest(Request *request) {
+bool ControlUnit::processRequest(Request *request, bool bypassStack) {
     bool isvalid;
     if (request->getType() == "add") {
         //chamar checker de uc mais de 7
@@ -878,12 +844,14 @@ bool ControlUnit::processRequest(Request *request) {
         cout << "Detetado como add request" << endl;
         isvalid = CheckAdd(dynamic_cast<AddRequest *>(request));
         if (isvalid) {
-            ProcessedRequests.push(request);
             processAddRequest(dynamic_cast<AddRequest *>(request));
+            if (!bypassStack) {
+                ProcessedRequests.push(request);
+            }
             return true;
         } else {
+            delete request;
             return false;
-
         }
 
     } else if (request->getType() == "remove") {
@@ -893,8 +861,12 @@ bool ControlUnit::processRequest(Request *request) {
         isvalid = CheckRemove(dynamic_cast<RemoveRequest *>(request));
         if (isvalid) {
             processRemoveRequest(dynamic_cast<RemoveRequest *>(request));
+            if (!bypassStack) {
+                ProcessedRequests.push(request);
+            }
             return true;
         } else {
+            delete request;
             return false;
         }
 
@@ -907,12 +879,17 @@ bool ControlUnit::processRequest(Request *request) {
         isvalid = CheckSwitch(dynamic_cast<SwitchRequest *>(request));
         if (isvalid) {
             processSwitchRequest(dynamic_cast<SwitchRequest *>(request));
+            if (!bypassStack) {
+                ProcessedRequests.push(request);
+            }
             return true;
         } else {
+            delete request;
             cout << "Error in switch request" << endl;
             return false;
         }
-    }//then have
+    }
+    delete request;
     return false;
 }
 
@@ -935,8 +912,6 @@ void ControlUnit::processAddRequest(AddRequest *addRequest) {
             }
         }
     }
-
-
 }
 
 void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
@@ -964,6 +939,8 @@ void ControlUnit::processSwitchRequest(SwitchRequest *switchRequest) {
                                         switchRequest->getClassCode2());
     processRemoveRequest(RemReq);
     processAddRequest(AddReq);
+    delete RemReq;
+    delete AddReq;
 }
 
 //TESTAR
@@ -993,6 +970,7 @@ void ControlUnit::processAllRequests() {
             cin >> answer;
             if (answer == 2) {
                 while (!RequestsToProcess.empty()) {
+                    delete RequestsToProcess.front();
                     RequestsToProcess.pop_front();
                 }
             }
@@ -1017,17 +995,21 @@ void ControlUnit::undoRequest(int n) {
             auto *request2 = dynamic_cast<AddRequest *>(request);
             Request *request3 = new RemoveRequest(request2->getUpCodeStudent(), request2->getUCCode(),
                                                   request2->getClassCode());
-            processRequest(request3);
+            processRequest(request3, true);
+            delete request3;
         } else if (request->getType() == "remove") {
             auto *request2 = dynamic_cast<RemoveRequest *>(request);
             Request *request3 = new AddRequest(request2->getUpCodeStudent(), request2->getUCCode(),
                                                request2->getClassCode());
-            processRequest(request3);
+            processRequest(request3, true);
+            delete request3;
         } else if (request->getType() == "switch") {
             auto *request2 = dynamic_cast<SwitchRequest *>(request);
             Request *request3 = new SwitchRequest(request2->getUpCodeStudent(), request2->getUCCode2(),
                                                   request2->getUCCode1(), request2->getClassCode2(),
                                                   request2->getClassCode1());
+            processRequest(request3, true);
+            delete request3;
         } else {
             cout << "Unable to undo request\n";
         }
@@ -1038,7 +1020,26 @@ void ControlUnit::saveChanges() {
     fstream out("../data/students_classes_updated.csv", ios::out | ios::trunc);
     out << "StudentCode,StudentName,UcCode,ClassCode\r\n";
     for (Student s: StudentVector)
-        for (const auto& studentGroup : s.getStudentGroups())
-            out << s.getStudentID() << ',' << s.getName() << ',' << studentGroup.getUcCode() << ',' << studentGroup.getClassCode() << "\r\n";
+        for (const auto &studentGroup: s.getStudentGroups())
+            out << s.getStudentID() << ',' << s.getName() << ',' << studentGroup.getUcCode() << ','
+                << studentGroup.getClassCode() << "\r\n";
     out.close();
+}
+
+void ControlUnit::clearMemory() {
+    for (auto i: KeyToStudentGroup) {
+        delete i.second;
+    }
+    for (auto i: LessonMap) {
+        for (auto j: i.second) {
+            delete j;
+        }
+    }
+    for (auto i: RequestsToProcess) {
+        delete i;
+    }
+    while (!ProcessedRequests.empty()) {
+        delete ProcessedRequests.top();
+        ProcessedRequests.pop();
+    }
 }

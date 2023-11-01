@@ -1,7 +1,3 @@
-//
-// Created by nowayjose on 20/10/2023.
-//
-
 #ifndef PROJAED_CONTROLUNIT_H
 #define PROJAED_CONTROLUNIT_H
 
@@ -71,7 +67,6 @@ public :
 
     int StudentsInUcs(int n);
 
-    //por a receber comparacao (perguntada no menu) para dar display diferente ao criar set resultado
     void courseStudents(string courseCode, function<bool(Student, Student)> func);
 
     void yearStudents(char year, function<bool(Student, Student)> func);
@@ -85,8 +80,8 @@ public :
 
     bool IsThereConflict(vector<lesson>);
 
-    //REQUEST FUNCSTIONS
-    bool processRequest(Request *request);
+    //REQUEST FUNCTIONS
+    bool processRequest(Request *request, bool bypassStack = false);
 
     void processAddRequest(AddRequest *addRequest);
 
@@ -115,6 +110,8 @@ public :
     bool CheckSwitch(SwitchRequest *swrq);
 
     string getClassinUc(string upcode, string uccode);
+
+    void clearMemory(); //this method clears the dynamic memory
 };
 
 
