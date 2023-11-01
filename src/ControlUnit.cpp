@@ -982,7 +982,7 @@ void ControlUnit::removeLastPendingRequest() {
     RequestsToProcess.pop_back();
 }
 
-// Iterate over every applied request
+// Iterate over every applied request and undo it
 void ControlUnit::undoRequest(int n) {
     for (int i = 0; i < n; i++) {
         if (ProcessedRequests.empty()) {
@@ -1013,6 +1013,7 @@ void ControlUnit::undoRequest(int n) {
         } else {
             cout << "Unable to undo request\n";
         }
+        delete request;
     }
 }
 
