@@ -22,7 +22,7 @@ public:
 
     void removeGroup(studentGroup GroupToRemove);
 
-    set<studentGroup> getStudentGroups();
+    set<studentGroup> getStudentGroups() const;
 
     bool operator<(const Student &other) const {
         return studentID < other.studentID;
@@ -41,9 +41,9 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const Student &student);
 
-    bool isinuc(string uc);
+    bool isinuc(string uc) const;
 
-    bool isinclass(string uc, string studgroup);
+    bool isinclass(string uc, string studgroup) const;
 
 private:
     std::string studentID;

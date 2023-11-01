@@ -35,7 +35,7 @@ private:
     };
 
     string filename;
-    set<Student> StudentVector;
+    set<Student> StudentSet;
     vector<lesson> LessonVector;
     list <studentGroup> StudentGroupList;
     map<MainKey, studentGroup *> KeyToStudentGroup;

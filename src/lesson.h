@@ -6,6 +6,7 @@
 #include <ctime>
 #include "lessontime.h"
 #include <iostream>
+#include <map>
 
 class lesson {
 public:
@@ -25,13 +26,25 @@ public:
     const std::string &getType() const;
 
     friend std::ostream &operator<<(std::ostream &os, const lesson &lesson);
-
+    mutable std::map<std::string, int> dayMap = {{"Monday",    0},
+                                                 {"Tuesday",   1},
+                                                 {"Wednesday", 2},
+                                                 {"Thursday",  3},
+                                                 {"Friday",    4},
+                                                 {"Saturday",  5},
+                                                 {"Sunday",    6}};
     bool operator<(const lesson &other) const {
-        if (UcCode != other.getUccode()) {
-            return UcCode < other.getUccode();
-        } else {
-            return weekday < other.weekday;
+        if(dayMap[this->getWeekday()]<dayMap[other.getWeekday()]){
+            return true;
+        }else if(dayMap[this->getWeekday()]==dayMap[other.getWeekday()]){
+            if(this->getStartTime()<other.getStartTime()){
+                return true;
+            }
+            return false;
+
         }
+        return false;
+
     }
 
 private:
