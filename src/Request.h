@@ -34,6 +34,8 @@ public:
     virtual void dummy() {
         //ALLOWS DOWNCASTING
     }
+
+    virtual ~Request() {};
 };
 
 #endif // PROJAED_REQUEST_H

@@ -21,8 +21,6 @@ public:
 
     void SeeNumStudentsInNUCs();
 
-    void endMenu();
-
     void listingMenu();
 
     void requestMenu();
@@ -37,18 +35,9 @@ public:
 
     void SeeStudentsInClass(function<bool(Student,Student)> comp);
 
-    void AdicionarAlunoATurmaImediatamente();
-
     void createRequest();
 
-    void RemoverAlunoATurmaImediatamente();
-
-    void TrocarTurmaInstantaneamente();
-
     function<bool(Student, Student)> optionStudentMenu();
-
-    //TESTING
-    void Testing();
 
 private:
     ControlUnit Control;
