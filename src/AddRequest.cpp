@@ -1,12 +1,7 @@
-//
-// Created by nowayjose on 28/10/2023.
-//
-
 #include "AddRequest.h"
 
 // Constructor
-AddRequest::AddRequest(const std::string &upCodeStudent, const std::string &uCCode,
-                       const std::string &classCode)
+AddRequest::AddRequest(const std::string &upCodeStudent, const std::string &uCCode, const std::string &classCode)
         : Request("add"), upCodeStudent(upCodeStudent), uCCode(uCCode), classCode(classCode) {
 }
 

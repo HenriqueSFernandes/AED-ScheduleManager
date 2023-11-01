@@ -5,5 +5,3 @@ studentGroup::studentGroup(const std::string &uccode, const std::string &classCo
     this->UcCode = uccode;
     this->classCode = classCode;
 }
-
-// Getter for UcCode

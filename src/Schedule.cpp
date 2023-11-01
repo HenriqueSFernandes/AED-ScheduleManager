@@ -1,29 +1,14 @@
-//
-// Created by kali on 10/10/23.
-//
-
 #include "Schedule.h"
 #include <iostream>
-#include <iomanip>
 
-std::map<std::string, int> dayMap = {
-        {"Monday",    0},
-        {"Tuesday",   1},
-        {"Wednesday", 2},
-        {"Thursday",  3},
-        {"Friday",    4},
-        {"Saturday",  5},
-        {"Sunday",    6}
-};
-std::vector<std::string> dayVector = {
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-};
+std::map<std::string, int> dayMap = {{"Monday",    0},
+                                     {"Tuesday",   1},
+                                     {"Wednesday", 2},
+                                     {"Thursday",  3},
+                                     {"Friday",    4},
+                                     {"Saturday",  5},
+                                     {"Sunday",    6}};
+std::vector<std::string> dayVector = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
 Schedule::Schedule(vector<lesson> lessons) {
     this->lessons = lessons;

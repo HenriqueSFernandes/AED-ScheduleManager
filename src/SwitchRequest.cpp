@@ -1,13 +1,14 @@
-// SwitchRequest.cpp
-
 #include "SwitchRequest.h"
 
 // Constructor
-SwitchRequest::SwitchRequest( const std::string &upCodeStudent,
-                             const std::string &uCCode1, const std::string &uCCode2,
-                             const std::string &classCode1, const std::string &classCode2)
-        : Request("switch"), upCodeStudent(upCodeStudent), uCCode_1(uCCode1), uCCode_2(uCCode2), classCode_1(classCode1),
-          classCode_2(classCode2) {
+SwitchRequest::SwitchRequest(const std::string &upCodeStudent, const std::string &uCCode1, const std::string &uCCode2,
+                             const std::string &classCode1, const std::string &classCode2) : Request("switch"),
+                                                                                             upCodeStudent(
+                                                                                                     upCodeStudent),
+                                                                                             uCCode_1(uCCode1),
+                                                                                             uCCode_2(uCCode2),
+                                                                                             classCode_1(classCode1),
+                                                                                             classCode_2(classCode2) {
 }
 
 // Getters
