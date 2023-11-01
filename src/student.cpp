@@ -20,7 +20,7 @@ void Student::removeGroup(studentGroup GroupToRemove) {
     }
 }
 
-set<studentGroup> Student::getStudentGroups() {
+set<studentGroup> Student::getStudentGroups() const {
     return this->StudentGroups;
 }
 
@@ -54,7 +54,7 @@ std::ostream &operator<<(std::ostream &os, const Student &student) {
 }
 
 
-bool Student::isinuc(std::string uc) {
+bool Student::isinuc(string uc) const {
     for (auto group: StudentGroups) {
         if (group.getUcCode() == uc) {
             return true;
@@ -63,7 +63,7 @@ bool Student::isinuc(std::string uc) {
     return false;
 }
 
-bool Student::isinclass(std::string uc, std::string studgroup) {
+bool Student::isinclass(string uc, string studgroup) const {
     for (auto group: StudentGroups) {
         if (group.getClassCode() == studgroup and group.getUcCode() == uc) {
             return true;
