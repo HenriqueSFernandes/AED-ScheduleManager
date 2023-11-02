@@ -33,6 +33,7 @@ void ControlUnit::LoadClassesPerUcCSV() {
     string line;
     getline(classes_per_uc, line); // Ignore header
 
+    // Iterate over every line of the file, split the line, create a new class and append that class to the list of classes.
     while (getline(classes_per_uc, line)) {
         istringstream iss(line);
         getline(iss, ucCode, ',');
@@ -65,6 +66,7 @@ void ControlUnit::LoadClassesCSV() {
 
     getline(classes, line); // Ignore header
 
+    // Iterate over every line of the file, split the line, create a new lesson and add that lesson to the respective class.
     while (getline(classes, line)) {
         istringstream iss(line);
         getline(iss, classCode, ',');
@@ -74,26 +76,25 @@ void ControlUnit::LoadClassesCSV() {
         getline(iss, duration, ',');
         getline(iss, type, '\r');
 
-
+        // Create a new lesson and add it to the vector of all lessons.
         lesson *Lesson = new lesson(ucCode, classCode, weekday, stod(startTime), stod(duration), type);
         LessonVector.push_back(*Lesson);
 
         MainKey groupKey = {ucCode, classCode};
+        // If the lesson is the first lesson for that class add a new entry on the map.
         if (LessonMap.find(groupKey) == LessonMap.end()) {
             std::set<lesson *> newSet;
             newSet.insert(Lesson);
             LessonMap[groupKey] = newSet;
-
-        } else {
+        }
+        // Otherwise just insert the lesson on the map;
+        else {
             LessonMap[groupKey].insert(Lesson);
-
         }
     }
-
     classes.close();
 }
 
-// ppppppppp
 void ControlUnit::LoadStudentsClassesCSV() {
     string line;
     string studentID;
@@ -102,71 +103,70 @@ void ControlUnit::LoadStudentsClassesCSV() {
     string classCode;
     ifstream students_classes(filename);
 
-    if (!students_classes){
+    if (!students_classes) {
         cerr << "Failed to open file\n";
     }
 
     getline(students_classes, line); // Ignore header
 
+    // Start by getting the first student.
     getline(students_classes, line);
     istringstream iss(line);
-
     getline(iss, studentID, ',');
     getline(iss, name, ',');
     getline(iss, ucCode, ',');
     getline(iss, classCode, '\r');
-    string prevStCode = studentID;
-    set<studentGroup> cpu;
-    cpu.insert(studentGroup(ucCode, classCode));
+    set<studentGroup> classesPerStudent; // set to hold all the classes for the current student.
+    classesPerStudent.insert(studentGroup(ucCode, classCode));
 
-    Student st_class(prevStCode, name, cpu);
+    string previousStudentID = studentID;
+    string previousName = name;
+
     MainKey key = {ucCode, classCode};
+    // Update the map with the size of the classes.
     if (SizeMap.find(key) == SizeMap.end()) {
         SizeMap[key] = 1;
     } else {
         SizeMap[key]++;
     }
 
-
+    // Iterate over the rest of the file and split the line.
     while (getline(students_classes, line)) {
-        stringstream is(line);
-        getline(is, studentID, ',');
-        if (prevStCode != studentID) {
-            st_class = Student(prevStCode, name, cpu);
-            StudentSet.insert(st_class);
-            cpu.clear();
-            prevStCode = studentID;
-        }
-        getline(is, name, ',');
-        getline(is, ucCode, ',');
-        getline(is, classCode, '\r');
-        cpu.insert(studentGroup(ucCode, classCode));
+        istringstream iss(line);
+        getline(iss, studentID, ',');
+        getline(iss, name, ',');
+        getline(iss, ucCode, ',');
+        getline(iss, classCode, '\r');
         key = {ucCode, classCode};
+        // Update the map with the size of the classes.
         if (SizeMap.find(key) == SizeMap.end()) {
             SizeMap[key] = 1;
         } else {
             SizeMap[key]++;
         }
-
-
+        // If the student is the same as before just insert a new class in the set.
+        if (studentID == previousStudentID) {
+            classesPerStudent.insert(studentGroup(ucCode, classCode));
+        }
+        // Otherwise create the student with the classes found so far and insert that student into the set.
+        else {
+            Student student(previousStudentID, previousName, classesPerStudent);
+            StudentSet.insert(student);
+            classesPerStudent.clear();
+            classesPerStudent.insert(studentGroup(ucCode, classCode));
+            previousStudentID = studentID;
+            previousName = name;
+        }
     }
-    cpu.insert(studentGroup(ucCode, classCode));
-    key = {ucCode, classCode};
-    if (SizeMap.find(key) == SizeMap.end()) {
-        SizeMap[key] = 1;
-    } else {
-        SizeMap[key]++;
-    }
+    // Finally insert the last student into the set.
+    Student student(previousStudentID, previousName, classesPerStudent);
+    StudentSet.insert(student);
+    classesPerStudent.clear();
 
-    st_class = Student(prevStCode, name, cpu);
-    StudentSet.insert(st_class);
     students_classes.close();
-
-
 }
 
 
-//Deve dar confia
 void ControlUnit::DisplayStudentSchedule() {
     cout << "Would you like the default Version or the Visual Version" << endl;
     cout << "1) Default" << endl;

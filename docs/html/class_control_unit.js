@@ -16,7 +16,7 @@ var class_control_unit =
     [ "IsThereConflict", "class_control_unit.html#aa9d8dcb06d1c289d272bba0aabdefaab", null ],
     [ "LoadClassesCSV", "class_control_unit.html#aca5ddcdc893b2c5d279fcc6c737e4d5a", null ],
     [ "LoadClassesPerUcCSV", "class_control_unit.html#a98481fa708eefb5b4a3123312843bba5", null ],
-    [ "loadCSV", "class_control_unit.html#ab4a27afcf53205d66ba4ae0b1585aeba", null ],
+    [ "LoadCSV", "class_control_unit.html#a0960e2a3ea9c962d7c69259f62004b53", null ],
     [ "LoadStudentsClassesCSV", "class_control_unit.html#a2fa3112381692d9daa4876d706a5442e", null ],
     [ "NumBalanced", "class_control_unit.html#a21f0f5455651e5704f43a8fb97c36441", null ],
     [ "processAddRequest", "class_control_unit.html#ad7fce9a2ca5f917c9aa1d9cd01219087", null ],
