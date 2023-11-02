@@ -65,8 +65,11 @@ public :
      * @brief Loads the classes_per_uc.csv file (which has all the courses and classes).
      */
     void LoadClassesPerUcCSV();
+
     /**
-     * @brief deals with overlapping classes
+     * @brief Deals with overlaps in a schedule.
+     * @param lessons Vector with all the lessons.
+     * @return A 2d vector with the conflicts.
      */
     vector<vector<lesson>> formatConflicts(vector<lesson> &lessons);
 
@@ -190,8 +193,6 @@ public :
      * @param n Integer representing how many requests should be undone.
      */
     void undoRequest(int n); //this method removes last n applied request
-
-    void CheckIfThereAreConflicts();
 
     /**
      * @brief Creates a request of type add.
