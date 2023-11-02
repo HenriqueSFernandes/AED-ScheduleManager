@@ -166,9 +166,6 @@ void ControlUnit::LoadStudentsClassesCSV() {
     students_classes.close();
 }
 
-//Getting the schedule is O(log n + m * k ) where n is the total number of students, m is the number of student groups each student has k is the lessons in a student group
-//Basically O(log n) as the other input is constant for each student and very small compared to n
-//Aditionally after getting the schedule it has to be displayed and that takes time which is not taken into consideration given its small impact on the overall performance
 void ControlUnit::DisplayStudentSchedule() {
     cout << "Would you like the default Version or the Visual Version" << endl;
     cout << "1) Default" << endl;
@@ -241,7 +238,7 @@ void ControlUnit::DisplayStudentSchedule() {
 
 
 }
-// Getting the schedule is O(n) where n is the total number of studentGroups
+
 void ControlUnit::DisplayClassSchedule() {
     cout << "Would you like the default Version or the Visual Version" << endl;
     cout << "1) Default" << endl;
@@ -298,17 +295,9 @@ void ControlUnit::DisplayClassSchedule() {
         Schedule ClassSchedule = Schedule(LessonsVector);
         ClassSchedule.display();
     }
-
-
 }
-//removes overlaps and places inside a return vetor the classes that make up each conflict
-//O(n²)
-vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons){
-    //overLapVector stores the classes that are involved in a given conflict
-    vector<vector<lesson>> OverlapVector;
 
 // Removes overlaps and places inside a return vector the classes that make up each conflict.
-//O(n²)
 vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
     //overLapVector stores the classes that are involved in a given conflict.
     vector<vector<lesson>> OverlapVector;
@@ -317,7 +306,8 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
     for (int i = 0; i < lessons.size() - 1; i++) {
         for (int j = i + 1; j < lessons.size(); j++) {
 
-            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and  lessons[j].getStartTime() < lessons[i].getEndTime();
+            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and
+                           lessons[j].getStartTime() < lessons[i].getEndTime();
 
 
             bool sameDay = lessons[i].getWeekday() == lessons[j].getWeekday();
@@ -328,9 +318,9 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
                 if (start.getMinute() > 0) {
                     startnum += 0.5;
                 }
-                double endnum=end.getHour();
-                if(end.getMinute()>0){
-                    endnum+=0.5;
+                double endnum = end.getHour();
+                if (end.getMinute() > 0) {
+                    endnum += 0.5;
                 }
                 if (lessons[j].getUccode() == "Overlap") { // for multiple conflicts > 2 classes.
                     cout << "OVERLAP" << endl;
@@ -340,9 +330,9 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
                                           lessons[j].getType());
                     vector<lesson> lessonsInConflict = OverlapVector[numofconflit - 1];
                     lessonsInConflict.push_back(lessons[i]);
-                    lessons.erase(lessons.begin()+j);
-                    lessons.erase(lessons.begin()+i);
-                    OverlapVector[numofconflit-1]=lessonsInConflict;
+                    lessons.erase(lessons.begin() + j);
+                    lessons.erase(lessons.begin() + i);
+                    OverlapVector[numofconflit - 1] = lessonsInConflict;
                     lessons.push_back(dummy);
                 } else { //normal conflicts
                     numofconflit++;
@@ -354,8 +344,8 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
 
                     lessonsInConflict.push_back(lessons[i]);
                     lessonsInConflict.push_back(lessons[j]);
-                    lessons.erase(lessons.begin()+j);
-                    lessons.erase(lessons.begin()+i);
+                    lessons.erase(lessons.begin() + j);
+                    lessons.erase(lessons.begin() + i);
 
 
                     OverlapVector.push_back(lessonsInConflict);
@@ -369,7 +359,6 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
 }
 
 // Determines number of student in at least N ucs
-// O(n)
 int ControlUnit::StudentsInAtLeastNUcs(int n) {
 
     int NumberOfStudents = 0;
@@ -388,7 +377,6 @@ int ControlUnit::StudentsInAtLeastNUcs(int n) {
 }
 
 // Determines number of student in at most N ucs
-// O(n)
 int ControlUnit::StudentsInAtMostNUcs(int n) {
 
     int NumberOfStudents = 0;
@@ -409,7 +397,6 @@ int ControlUnit::StudentsInAtMostNUcs(int n) {
 }
 
 // Determines number of student in N ucs
-// O(n)
 int ControlUnit::StudentsInUcs(int n) {
 
     int NumberOfStudents = 0;
@@ -418,20 +405,16 @@ int ControlUnit::StudentsInUcs(int n) {
     for (auto student: this->StudentSet) {
         set<studentGroup> studentgroups = student.getStudentGroups();
 
-
         if (studentgroups.size() == n) {
             cout << student << endl;
             NumberOfStudents++;
         }
     }
     return NumberOfStudents;
-
-
 }
 
-
+// Outputs the students from a specific class.
 void ControlUnit::classStudents(string classCode, function<bool(Student, Student)> func) {
-    // Outputs the students from a specific class.
     set<studentGroup> groups;
     set<Student, decltype(func)> students(func);
     string ucCode;
@@ -483,8 +466,8 @@ void ControlUnit::classStudents(string classCode, function<bool(Student, Student
 
 }
 
+// Outputs the students in a specific course.
 void ControlUnit::courseStudents(string courseCode, function<bool(Student, Student)> func) {
-    // Outputs the students in a specific course.
     set<studentGroup> groups;
     set<Student, decltype(func)> students(func);
     bool notexist = true;
@@ -514,8 +497,8 @@ void ControlUnit::courseStudents(string courseCode, function<bool(Student, Stude
 
 }
 
+// Outputs the students in a specific year.
 void ControlUnit::yearStudents(char year, function<bool(Student, Student)> func) {
-    // Outputs the students in a specific year.
     set<studentGroup> groups;
     set<Student, decltype(func)> students(func);
     bool notexist = true;
@@ -545,8 +528,8 @@ void ControlUnit::yearStudents(char year, function<bool(Student, Student)> func)
 }
 
 
+// Displays the courses starting with the one with the most students.
 void ControlUnit::UCWithMostStudents() {
-    // Displays the courses starting with the one with the most students.
     set<studentGroup> groups;
     map<string, int> courseOccupation;
     // Iterate over every student and get the occupation.
@@ -571,13 +554,13 @@ void ControlUnit::UCWithMostStudents() {
     }
 }
 
+// Iterates over every class from a vector and checks the balance.
 int ControlUnit::NumBalanced(vector<studentGroup> groups, map<MainKey, int> myMap) {
 
     int cap = this->cap;
     int min = cap + 1;
     int max = -1;
 
-    // Iterates over every class from a vector and checks the balance.
     for (auto studentGroup: groups) {
         MainKey key = {studentGroup.getUcCode(), studentGroup.getClassCode()};
 
@@ -595,14 +578,14 @@ bool ControlUnit::IsThereConflict(vector<lesson> lessons) {
     // Iterates over every pair of lessons in the vector.
     for (int i = 0; i < lessons.size() - 1; i++) {
         for (int j = i + 1; j < lessons.size(); j++) {
-            // Checks if they overlap, are both pratical and if they are on the same day.
+            // Checks if they overlap, are both practical and if they are on the same day.
             bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and
                            lessons[j].getStartTime() < lessons[i].getEndTime();
 
-            bool bothPratical = (lessons[i].getType() == "TP" or lessons[i].getType() == "PL") and
-                                (lessons[j].getType() == "TP" or lessons[j].getType() == "PL");
+            bool bothPractical = (lessons[i].getType() == "TP" or lessons[i].getType() == "PL") and
+                                 (lessons[j].getType() == "TP" or lessons[j].getType() == "PL");
             bool sameDay = lessons[i].getWeekday() == lessons[j].getWeekday();
-            if (overLap and bothPratical and sameDay) {
+            if (overLap and bothPractical and sameDay) {
                 cout << lessons[i] << "/" << lessons[j] << endl;
                 return true;
             }
@@ -710,7 +693,7 @@ string ControlUnit::getClassInUc(string studentID, string ucCode) {
         return "invalidstudent";
     }
     // Iterate over every class of the student, if the course matches the desired course return the class.
-    for (const auto& studentGroup: student->getStudentGroups()) {
+    for (const auto &studentGroup: student->getStudentGroups()) {
         if (studentGroup.getUcCode() == ucCode) {
             return studentGroup.getClassCode();
         }
