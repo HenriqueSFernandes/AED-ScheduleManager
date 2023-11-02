@@ -2,6 +2,7 @@ var hierarchy =
 [
     [ "lesson", "classlesson.html", null ],
     [ "lessontime", "classlessontime.html", null ],
+    [ "Menu", "class_menu.html", null ],
     [ "Request", "class_request.html", [
       [ "AddRequest", "class_add_request.html", null ],
       [ "RemoveRequest", "class_remove_request.html", null ],

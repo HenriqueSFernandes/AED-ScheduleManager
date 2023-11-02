@@ -93,61 +93,80 @@ $(document).ready(function(){initNavTree('_menu_8h_source.html',''); initResizab
   <div class="headertitle"><div class="title">Menu.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROJAED_MENU_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROJAED_MENU_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;ControlUnit.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">class </span>Menu {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordtype">void</span> createMenu();</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">void</span> SeeStudentSchedule();</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> SeeClassSchedule();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> SeeNumStudentsAtLeastNUCs();</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> SeeNumStudentsAtMostNUCs();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> SeeNumStudentsInNUCs();</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> listingMenu();</div>
+<a href="_menu_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef PROJAED_MENU_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define PROJAED_MENU_H</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;ControlUnit.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_menu.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_menu.html">Menu</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4">createMenu</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#aa9f10ef3509c12ad06b5dd57954d6910">SeeStudentSchedule</a>();</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> requestMenu();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> scheduleMenu();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> studentMenu();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> SeeStudentsInUc(function&lt;<span class="keywordtype">bool</span>(<a class="code hl_class" href="class_student.html">Student</a>, <a class="code hl_class" href="class_student.html">Student</a>)&gt; comp);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> SeeStudentsInYear(function&lt;<span class="keywordtype">bool</span>(<a class="code hl_class" href="class_student.html">Student</a>, <a class="code hl_class" href="class_student.html">Student</a>)&gt; comp);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#ab3a007c897b85519dd6ed6fc895f406d">SeeClassSchedule</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a008b3d97730a151adf7598f2d31e9e05">SeeNumStudentsInExactNUCs</a>();</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> SeeStudentsInClass(function&lt;<span class="keywordtype">bool</span>(<a class="code hl_class" href="class_student.html">Student</a>, <a class="code hl_class" href="class_student.html">Student</a>)&gt; comp);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> createRequest();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    function&lt;bool(<a class="code hl_class" href="class_student.html">Student</a>, <a class="code hl_class" href="class_student.html">Student</a>)&gt; optionStudentMenu();</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    ControlUnit Control;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> SeeUcFromMostStudents();</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> SeeNumStudentsInExactNUCs();</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a8c0da428da25c2ba963484d6749fe5ac">SeeNumStudentsAtLeastNUCs</a>();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#ac0da908a0e0bccb055f9682288861faf">SeeNumStudentsAtMostNUCs</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a976e19892805e7229100fb5337c151a4">SeeUcFromMostStudents</a>();</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif </span><span class="comment">//PROJAED_MENU_H</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#ae7b81eec228f8d81e8a84477e34b8fe8">SeeNumStudentsInNUCs</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353">listingMenu</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a487b6f5a08f24a82956d18e9206ce605">requestMenu</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a8afd5d5427b0c4940fabdf4c7631ddbc">scheduleMenu</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a66828d2cad3aae2e602ad2454c8ea8d7">studentMenu</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a626e9d8417d0c75193231c3c2efca41c">SeeStudentsInUc</a>(function&lt;<span class="keywordtype">bool</span>(<a class="code hl_class" href="class_student.html">Student</a>, <a class="code hl_class" href="class_student.html">Student</a>)&gt; comp);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#af70fc139163bc8f3915a907c60b8e5b4">SeeStudentsInYear</a>(function&lt;<span class="keywordtype">bool</span>(<a class="code hl_class" href="class_student.html">Student</a>, <a class="code hl_class" href="class_student.html">Student</a>)&gt; comp);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#ad46178bce0aeaa6f983d21e31d1d613b">SeeStudentsInClass</a>(function&lt;<span class="keywordtype">bool</span>(<a class="code hl_class" href="class_student.html">Student</a>, <a class="code hl_class" href="class_student.html">Student</a>)&gt; comp);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#af9a13a54ee0c86143800abd5cd33b7ef">createRequest</a>();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    function&lt;bool(<a class="code hl_class" href="class_student.html">Student</a>, <a class="code hl_class" href="class_student.html">Student</a>)&gt; <a class="code hl_function" href="class_menu.html#a58e5d0f3b61542ebea7ff8c8fc9712b7">optionStudentMenu</a>();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    ControlUnit Control;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>};</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#endif </span><span class="comment">//PROJAED_MENU_H</span></div>
+<div class="ttc" id="aclass_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdoc">Class used to represent the menu the user uses to navigate.</div><div class="ttdef"><b>Definition:</b> Menu.h:10</div></div>
+<div class="ttc" id="aclass_menu_html_a008b3d97730a151adf7598f2d31e9e05"><div class="ttname"><a href="class_menu.html#a008b3d97730a151adf7598f2d31e9e05">Menu::SeeNumStudentsInExactNUCs</a></div><div class="ttdeci">void SeeNumStudentsInExactNUCs()</div><div class="ttdoc">Displays the student enrolled in exactly N courses.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:241</div></div>
+<div class="ttc" id="aclass_menu_html_a487b6f5a08f24a82956d18e9206ce605"><div class="ttname"><a href="class_menu.html#a487b6f5a08f24a82956d18e9206ce605">Menu::requestMenu</a></div><div class="ttdeci">void requestMenu()</div><div class="ttdoc">Enters the request menu, which allows the user to create, delete and manage requests.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:101</div></div>
+<div class="ttc" id="aclass_menu_html_a4cf70fb5ce8bc6bfcad587d74ff644d4"><div class="ttname"><a href="class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4">Menu::createMenu</a></div><div class="ttdeci">void createMenu()</div><div class="ttdoc">Creates the menu.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:6</div></div>
+<div class="ttc" id="aclass_menu_html_a58e5d0f3b61542ebea7ff8c8fc9712b7"><div class="ttname"><a href="class_menu.html#a58e5d0f3b61542ebea7ff8c8fc9712b7">Menu::optionStudentMenu</a></div><div class="ttdeci">function&lt; bool(Student, Student)&gt; optionStudentMenu()</div><div class="ttdoc">Allows the user to select different sorting options for displaying the students.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:181</div></div>
+<div class="ttc" id="aclass_menu_html_a626e9d8417d0c75193231c3c2efca41c"><div class="ttname"><a href="class_menu.html#a626e9d8417d0c75193231c3c2efca41c">Menu::SeeStudentsInUc</a></div><div class="ttdeci">void SeeStudentsInUc(function&lt; bool(Student, Student)&gt; comp)</div><div class="ttdoc">Lists all the students in a specific course.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:251</div></div>
+<div class="ttc" id="aclass_menu_html_a66828d2cad3aae2e602ad2454c8ea8d7"><div class="ttname"><a href="class_menu.html#a66828d2cad3aae2e602ad2454c8ea8d7">Menu::studentMenu</a></div><div class="ttdeci">void studentMenu()</div><div class="ttdoc">Enters the student menu, which allows the user to see all students from a year, course or class.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:150</div></div>
+<div class="ttc" id="aclass_menu_html_a8afd5d5427b0c4940fabdf4c7631ddbc"><div class="ttname"><a href="class_menu.html#a8afd5d5427b0c4940fabdf4c7631ddbc">Menu::scheduleMenu</a></div><div class="ttdeci">void scheduleMenu()</div><div class="ttdoc">Enters the schedule menu, which allows the user to see the schedule for a student or a class.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:130</div></div>
+<div class="ttc" id="aclass_menu_html_a8c0da428da25c2ba963484d6749fe5ac"><div class="ttname"><a href="class_menu.html#a8c0da428da25c2ba963484d6749fe5ac">Menu::SeeNumStudentsAtLeastNUCs</a></div><div class="ttdeci">void SeeNumStudentsAtLeastNUCs()</div><div class="ttdoc">Displays the students enrolled in at least N courses.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:221</div></div>
+<div class="ttc" id="aclass_menu_html_a976e19892805e7229100fb5337c151a4"><div class="ttname"><a href="class_menu.html#a976e19892805e7229100fb5337c151a4">Menu::SeeUcFromMostStudents</a></div><div class="ttdeci">void SeeUcFromMostStudents()</div><div class="ttdoc">Displays all the courses starting with the one with the most student.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:272</div></div>
+<div class="ttc" id="aclass_menu_html_aa9f10ef3509c12ad06b5dd57954d6910"><div class="ttname"><a href="class_menu.html#aa9f10ef3509c12ad06b5dd57954d6910">Menu::SeeStudentSchedule</a></div><div class="ttdeci">void SeeStudentSchedule()</div><div class="ttdoc">Displays the schedule of a student.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:208</div></div>
+<div class="ttc" id="aclass_menu_html_ab3a007c897b85519dd6ed6fc895f406d"><div class="ttname"><a href="class_menu.html#ab3a007c897b85519dd6ed6fc895f406d">Menu::SeeClassSchedule</a></div><div class="ttdeci">void SeeClassSchedule()</div><div class="ttdoc">Displays the schedule of a class.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:212</div></div>
+<div class="ttc" id="aclass_menu_html_ac0da908a0e0bccb055f9682288861faf"><div class="ttname"><a href="class_menu.html#ac0da908a0e0bccb055f9682288861faf">Menu::SeeNumStudentsAtMostNUCs</a></div><div class="ttdeci">void SeeNumStudentsAtMostNUCs()</div><div class="ttdoc">Displays the student enrolled in at most N courses.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:231</div></div>
+<div class="ttc" id="aclass_menu_html_ad46178bce0aeaa6f983d21e31d1d613b"><div class="ttname"><a href="class_menu.html#ad46178bce0aeaa6f983d21e31d1d613b">Menu::SeeStudentsInClass</a></div><div class="ttdeci">void SeeStudentsInClass(function&lt; bool(Student, Student)&gt; comp)</div><div class="ttdoc">Lists all the students in a specific class.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:265</div></div>
+<div class="ttc" id="aclass_menu_html_ae7b81eec228f8d81e8a84477e34b8fe8"><div class="ttname"><a href="class_menu.html#ae7b81eec228f8d81e8a84477e34b8fe8">Menu::SeeNumStudentsInNUCs</a></div><div class="ttdeci">void SeeNumStudentsInNUCs()</div><div class="ttdoc">Enters the submenu for listing the students in courses.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:77</div></div>
+<div class="ttc" id="aclass_menu_html_af1ba39157732b6b1015cfe7b5a5c3353"><div class="ttname"><a href="class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353">Menu::listingMenu</a></div><div class="ttdeci">void listingMenu()</div><div class="ttdoc">Enters the listing menu, which allows the user to list students, see schedules etc.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:50</div></div>
+<div class="ttc" id="aclass_menu_html_af70fc139163bc8f3915a907c60b8e5b4"><div class="ttname"><a href="class_menu.html#af70fc139163bc8f3915a907c60b8e5b4">Menu::SeeStudentsInYear</a></div><div class="ttdeci">void SeeStudentsInYear(function&lt; bool(Student, Student)&gt; comp)</div><div class="ttdoc">Lists all the students in a specific year.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:258</div></div>
+<div class="ttc" id="aclass_menu_html_af9a13a54ee0c86143800abd5cd33b7ef"><div class="ttname"><a href="class_menu.html#af9a13a54ee0c86143800abd5cd33b7ef">Menu::createRequest</a></div><div class="ttdeci">void createRequest()</div><div class="ttdoc">Enters the menu for creating request, allowing users to add, remove or switch classes.</div><div class="ttdef"><b>Definition:</b> Menu.cpp:277</div></div>
 <div class="ttc" id="aclass_student_html"><div class="ttname"><a href="class_student.html">Student</a></div><div class="ttdoc">Class used to represent a student.</div><div class="ttdef"><b>Definition:</b> student.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>Menu.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_menu_8h.html">Menu.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
