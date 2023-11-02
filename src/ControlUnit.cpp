@@ -11,13 +11,13 @@ using namespace std;
 
 void ControlUnit::Start(string filename) {
     this->filename = filename;
-    ControlUnit::LoadClassesCSV();
-    cout << "Loaded CLASSES" << endl;
     ControlUnit::LoadClassesPerUcCSV();
-    cout << "Loaded AULAS" << endl;
+    cout << "Loaded classes and courses." << endl;
+    ControlUnit::LoadClassesCSV();
+    cout << "Loaded lessons." << endl;
 
     ControlUnit::LoadStudentsClassesCSV();
-    cout << "Loaded ALUNOS" << endl;
+    cout << "Loaded students." << endl;
 }
 
 void ControlUnit::LoadClassesPerUcCSV() {
@@ -165,12 +165,12 @@ void ControlUnit::DisplayStudentSchedule() {
     cin >> option;
     std::cout << "Enter the UPCODE OF THE STUDENT" << endl;
     string upcode;
-    cin>>upcode;
-    Student dummyStudent(upcode,"",{});
-    while(StudentSet.find(dummyStudent)==StudentSet.end()){
-        cout<<"Invalid Student Code, please provide a new one."<<endl;
+    cin >> upcode;
+    Student dummyStudent(upcode, "", {});
+    while (StudentSet.find(dummyStudent) == StudentSet.end()) {
+        cout << "Invalid Student Code, please provide a new one." << endl;
         cin.clear();
-        cin>>upcode;
+        cin >> upcode;
         dummyStudent.setStudentID(upcode);
     }
     bool found = false;
@@ -197,7 +197,7 @@ void ControlUnit::DisplayStudentSchedule() {
 
     }
     if (option == 1) {
-        for( auto el : lessonSet ){
+        for (auto el: lessonSet) {
             int width = 90; // Calculate the width based on the content length
             std::string horizontalLine(width, '-');
 
@@ -248,11 +248,11 @@ void ControlUnit::DisplayClassSchedule() {
     }
     vector<lesson> LessonsVector;
     struct LessonComparator {
-        bool operator()(const lesson* lhs, const lesson* rhs) const {
-            return *lhs< *rhs;
+        bool operator()(const lesson *lhs, const lesson *rhs) const {
+            return *lhs < *rhs;
         }
     };
-    set<lesson *,LessonComparator> LessonsSet;
+    set<lesson *, LessonComparator> LessonsSet;
     for (auto studentGroup: StudentGroupList) {
         if (studentGroup.getClassCode() == classCode) {
 
@@ -273,7 +273,7 @@ void ControlUnit::DisplayClassSchedule() {
             std::string horizontalLine(width, '-');
 
             std::cout << '+' << horizontalLine << '+' << std::endl;
-            std::cout<<"    " << *lesson  << std::endl;
+            std::cout << "    " << *lesson << std::endl;
             std::cout << '+' << horizontalLine << '+' << std::endl;
 
         }
@@ -534,10 +534,10 @@ void ControlUnit::createAdd() {
 
     cout << "What's the ID of the student that you want to add to an UC:" << endl;
     cin >> id;
-    Student dummyStudent(id,"",{});
-    while(StudentSet.find(dummyStudent)==StudentSet.end()){
-        cout<<"Given student ID doesn't exist, please provide a new one."<<endl;
-        cin>>id;
+    Student dummyStudent(id, "", {});
+    while (StudentSet.find(dummyStudent) == StudentSet.end()) {
+        cout << "Given student ID doesn't exist, please provide a new one." << endl;
+        cin >> id;
         dummyStudent.setStudentID(id);
     }
     cout << "What UC do you want to add the student to:" << endl;
@@ -549,21 +549,20 @@ void ControlUnit::createAdd() {
 
 void ControlUnit::createRemove() {
     cout << "What's the ID of the student that you want to remove from an UC:" << endl;
-    string id;
-    string uc;
+    string upCode;
+    string ucCode;
     string studentgroup;
-    cin >> id;
-    Student dummyStudent(id,"",{});
-    while(StudentSet.find(dummyStudent)==StudentSet.end()){
-        cout<<"Given student ID doesn't exist, please provide a new one."<<endl;
-        cin>>id;
-        dummyStudent.setStudentID(id);
+    cin >> upCode;
+    Student dummyStudent(upCode, "", {});
+    while (StudentSet.find(dummyStudent) == StudentSet.end()) {
+        cout << "Given student ID doesn't exist, please provide a new one." << endl;
+        cin >> upCode;
+        dummyStudent.setStudentID(upCode);
     }
     cout << "What UC you want to remove the student from:" << endl;
-    cin >> uc;
-    cout << "What Class is he in in the specified Uc:" << endl;
-    cin >> studentgroup;
-    RequestsToProcess.push(new RemoveRequest(id, uc, studentgroup));
+    cin >> ucCode;
+    studentgroup = getClassinUc(upCode, ucCode);
+    RequestsToProcess.push(new RemoveRequest(upCode, ucCode, studentgroup));
 }
 
 void ControlUnit::createSwitch() {
@@ -575,10 +574,10 @@ void ControlUnit::createSwitch() {
     string studentgroup1;
     string studentgroup2;
     cin >> id;
-    Student dummyStudent(id,"",{});
-    while(StudentSet.find(dummyStudent)==StudentSet.end()){
-        cout<<"Given student ID doesn't exist, please provide a new one."<<endl;
-        cin>>id;
+    Student dummyStudent(id, "", {});
+    while (StudentSet.find(dummyStudent) == StudentSet.end()) {
+        cout << "Given student ID doesn't exist, please provide a new one." << endl;
+        cin >> id;
         dummyStudent.setStudentID(id);
     }
     while (true) {
@@ -647,7 +646,7 @@ bool ControlUnit::CheckAdd(AddRequest *addrq) {
     bool existsclass = KeyToStudentGroup.find(key) != KeyToStudentGroup.end();
     map<string, int> HaveISeenThisUc;
     vector<lesson> lessonVec;
-    Student dummyStudent(addrq->getUpCodeStudent(),"",{});
+    Student dummyStudent(addrq->getUpCodeStudent(), "", {});
     auto student = StudentSet.find(dummyStudent);
     if (student != StudentSet.end()) {
         studentExists = true;
@@ -700,7 +699,8 @@ bool ControlUnit::CheckAdd(AddRequest *addrq) {
     } else {
         validBalance = false;
     }
-    result = notmorethan7 and studentExists and NotInMoreTHanONeClass and respectsCap and existsclass and not IsThereConflict(lessonVec) and validBalance;
+    result = notmorethan7 and studentExists and NotInMoreTHanONeClass and respectsCap and existsclass and
+             not IsThereConflict(lessonVec) and validBalance;
     return result;
 }
 
@@ -754,7 +754,7 @@ bool ControlUnit::CheckRemove(RemoveRequest *remrq) {
 
 bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
     bool result;
-    Student dummyStudent(swrq->getUpCodeStudent(),"",{});
+    Student dummyStudent(swrq->getUpCodeStudent(), "", {});
     string upcode = swrq->getUpCodeStudent();
     bool studentExists = false;
     bool isinclass = true;
@@ -909,7 +909,7 @@ void ControlUnit::processAddRequest(AddRequest *addRequest) {
     string classCode = addRequest->getClassCode();
     string ucCode = addRequest->getUCCode();
     cout << "hey i got the request" << upCode << "/" << classCode << "/" << ucCode;
-    Student dummyStudent(addRequest->getUpCodeStudent(),"",{});
+    Student dummyStudent(addRequest->getUpCodeStudent(), "", {});
     auto student = StudentSet.find(dummyStudent);
     if (student != StudentSet.end()) {
         dummyStudent = *student;
@@ -931,10 +931,10 @@ void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
     string classCode = removeRequest->getClassCode();
     string ucCode = removeRequest->getUCCode();
     cout << "hey i got the request" << upCode << "/" << classCode << "/" << ucCode;
-    Student dummyStudent(removeRequest->getUpCodeStudent(),"",{});
+    Student dummyStudent(removeRequest->getUpCodeStudent(), "", {});
     auto student = StudentSet.find(dummyStudent);
-    if (student!=StudentSet.end()) {
-        dummyStudent= *student;
+    if (student != StudentSet.end()) {
+        dummyStudent = *student;
         StudentSet.erase(student);
         dummyStudent.removeGroup(studentGroup(ucCode, classCode));
         MainKey key = {ucCode, classCode};
@@ -943,7 +943,6 @@ void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
         StudentSet.insert(dummyStudent);
     }
 }
-
 
 
 void ControlUnit::processSwitchRequest(SwitchRequest *switchRequest) {
@@ -961,7 +960,7 @@ void ControlUnit::processSwitchRequest(SwitchRequest *switchRequest) {
 void ControlUnit::CheckIfThereAreConflicts() {
 
 
-    for (auto &studentGroup: StudentGroupList) { // Use a reference to avoid unnecessary copies
+    for (auto &studentGroup: StudentGroupList) {
         MainKey key = {studentGroup.getUcCode(), studentGroup.getClassCode()};
         cout << "student group" << studentGroup << "SIZE" << SizeMap[key] << endl;
     }
@@ -993,12 +992,13 @@ void ControlUnit::processAllRequests() {
 }
 
 void ControlUnit::removeLastPendingRequest() {
-    queue<Request*> temporaryQueue;
-    Request* request;
-    while (!RequestsToProcess.empty()){
+    // Create a new queue and move every element from the original queue to the new one except for the last one.
+    queue<Request *> temporaryQueue;
+    Request *request;
+    while (!RequestsToProcess.empty()) {
         request = RequestsToProcess.front();
         RequestsToProcess.pop();
-        if (!RequestsToProcess.empty()){
+        if (!RequestsToProcess.empty()) {
             temporaryQueue.push(request);
         }
     }
@@ -1060,7 +1060,7 @@ void ControlUnit::clearMemory() {
             delete j;
         }
     }
-    while(!RequestsToProcess.empty()){
+    while (!RequestsToProcess.empty()) {
         delete RequestsToProcess.front();
         RequestsToProcess.pop();
     }

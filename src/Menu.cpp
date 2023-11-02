@@ -25,7 +25,7 @@ void Menu::createMenu() {
         }
     }
     this->Control.Start(filename);
-    this->Control.CheckIfThereAreConflicts();
+    //this->Control.CheckIfThereAreConflicts();
     while (true) {
         std::cout << "Select an option:\n";
         std::cout << "1) Listing menu\n";
