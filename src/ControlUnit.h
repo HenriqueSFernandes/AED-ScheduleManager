@@ -54,7 +54,7 @@ public :
      * @brief Loads all the csv files.
      * @param studentFilename A string that represents the student csv, it can either be the original version or the updated version.
      */
-    void loadCSV(string studentFilename);
+    void LoadCSV(string studentFilename);
 
     /**
      *  @brief Loads the classes.csv file (which has all the lessons).
@@ -65,8 +65,13 @@ public :
      * @brief Loads the classes_per_uc.csv file (which has all the courses and classes).
      */
     void LoadClassesPerUcCSV();
+
     /**
-     * @brief deals with overlapping classes
+     * @brief Deals with overlaps in a schedule.
+     *
+     * Complexity is O(n²) where n is the number of lessons given as input.
+     * @param lessons Vector with all the lessons.
+     * @return A 2d vector with the conflicts.
      */
     vector<vector<lesson>> formatConflicts(vector<lesson> &lessons);
 
@@ -82,16 +87,24 @@ public :
 
     /**
      * @brief Displays the schedule of a student.
+     *
+     * Getting the schedule is O(log n + m * k ) where n is the total number of students, m is the number of student groups each student has k is the lessons in a student group.
+     * Basically O(log n) as the other input is almost constant for each student and very small compared to n.
+     * Aditionally after getting the schedule it has to be displayed and that takes time which is not taken into consideration given its small impact on the overall performance.
      */
     void DisplayStudentSchedule();
 
     /**
      * @brief Displays the schedule of a class.
+     *
+     * Getting the schedule is O(n) where n is the total number of studentGroups.
      */
     void DisplayClassSchedule();
 
     /**
      * @brief Displays the students enrolled in at least N courses.
+     *
+     * Complexity is O(n) where n is the total number of students.
      * @param n Integer representing the minimum amount of courses.
      * @return Integer representing the amount of students enrolled in at least N courses.
      */
@@ -99,6 +112,8 @@ public :
 
     /**
      * @brief Displays the students enrolled in at most N courses.
+     *
+     * Complexity is O(n) where n is the total number of students.
      * @param n Integer representing the maximum amount of courses.
      * @return Integer representing the amount of students enrolled in at most N courses.
      */
@@ -106,6 +121,8 @@ public :
 
     /**
      * @brief Displays the students enrolled in exactly N courses.
+     *
+     * Complexity is O(n) where n is the total number of students.
      * @param n Integer representing the amount of courses.
      * @return Integer representing the amount of students enrolled in N courses.
      */
@@ -139,12 +156,16 @@ public :
 
     /**
      * @brief Checks the balance of the classes.
+     *
+     * Complexity is O(n) where n is the student groups given as input
      * @return Returns the maximum difference between the amount of students in each class.
      */
     int NumBalanced(vector<studentGroup>, map<MainKey, int>);
 
     /**
      * @brief Detects conflicts in a schedule.
+     *
+     * Complexity is O(n²) where n is the number of lessons given as input
      * @return Boolean that represents the existence of conflicts.
      */
     bool IsThereConflict(vector<lesson>);
@@ -190,8 +211,6 @@ public :
      * @param n Integer representing how many requests should be undone.
      */
     void undoRequest(int n); //this method removes last n applied request
-
-    void CheckIfThereAreConflicts();
 
     /**
      * @brief Creates a request of type add.

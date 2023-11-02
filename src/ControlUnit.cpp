@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void ControlUnit::loadCSV(string studentFilename) {
+void ControlUnit::LoadCSV(string studentFilename) {
     this->filename = studentFilename;
     ControlUnit::LoadClassesPerUcCSV();
     cout << "Loaded classes and courses." << endl;
@@ -21,219 +21,216 @@ void ControlUnit::loadCSV(string studentFilename) {
 }
 
 void ControlUnit::LoadClassesPerUcCSV() {
-    //ppppppppppppppp
-    string line;
-    string ucCode, classCode;
-    ifstream inFile("../data/classes_per_uc.csv");
+    string ucCode;
+    string classCode;
+    ifstream classes_per_uc("../data/classes_per_uc.csv");
 
-    if (!inFile) {
-        cerr << "Failed to open file" << endl;
+    if (!classes_per_uc) {
+        cerr << "Failed to open file\n";
         return;
     }
 
-    getline(inFile, line); // Read and discard the header line
+    string line;
+    getline(classes_per_uc, line); // Ignore header
 
-    while (getline(inFile, line)) {
-        stringstream is(line);
-        getline(is, ucCode, ',');
-        getline(is, classCode, '\r');
+    // Iterate over every line of the file, split the line, create a new class and append that class to the list of classes.
+    while (getline(classes_per_uc, line)) {
+        istringstream iss(line);
+        getline(iss, ucCode, ',');
+        getline(iss, classCode, '\r');
 
         studentGroup *group = new studentGroup(ucCode, classCode);
-        //cout << *group << endl;
         StudentGroupList.push_back(*group);
 
         MainKey groupKey = {ucCode, classCode};
         KeyToStudentGroup[groupKey] = group;
     }
 
-    inFile.close();
+    classes_per_uc.close();
 }
 
 void ControlUnit::LoadClassesCSV() {
-    //ppppppppppppppppppppppp
     string line;
-    string ClassCode, UcCode, Weekday, StartHour, Duration, Type;
-    ifstream inFile("../data/classes.csv");
+    string classCode;
+    string ucCode;
+    string weekday;
+    string startTime;
+    string duration;
+    string type;
+    ifstream classes("../data/classes.csv");
 
-    if (!inFile) {
-        cerr << "Failed to open file" << endl;
+    if (!classes) {
+        cerr << "Failed to open file\n";
         return;
     }
 
-    getline(inFile, line); // Read and discard the header line
+    getline(classes, line); // Ignore header
 
-    while (getline(inFile, line)) {
-        stringstream is(line);
-        getline(is, ClassCode, ',');
-        getline(is, UcCode, ',');
-        getline(is, Weekday, ',');
-        getline(is, StartHour, ',');
-        getline(is, Duration, ',');
-        getline(is, Type, '\r');
+    // Iterate over every line of the file, split the line, create a new lesson and add that lesson to the respective class.
+    while (getline(classes, line)) {
+        istringstream iss(line);
+        getline(iss, classCode, ',');
+        getline(iss, ucCode, ',');
+        getline(iss, weekday, ',');
+        getline(iss, startTime, ',');
+        getline(iss, duration, ',');
+        getline(iss, type, '\r');
 
-
-        lesson *Lesson = new lesson(UcCode, ClassCode, Weekday, stod(StartHour), stod(Duration), Type);
-        //cout << *Lesson << endl;
+        // Create a new lesson and add it to the vector of all lessons.
+        lesson *Lesson = new lesson(ucCode, classCode, weekday, stod(startTime), stod(duration), type);
         LessonVector.push_back(*Lesson);
 
-        MainKey groupKey = {UcCode, ClassCode};
+        MainKey groupKey = {ucCode, classCode};
+        // If the lesson is the first lesson for that class add a new entry on the map.
         if (LessonMap.find(groupKey) == LessonMap.end()) {
-            std::set<lesson *> newSet;
+            set<lesson *> newSet;
             newSet.insert(Lesson);
             LessonMap[groupKey] = newSet;
-
-        } else {
+        }
+            // Otherwise just insert the lesson on the map;
+        else {
             LessonMap[groupKey].insert(Lesson);
-
         }
     }
-
-    inFile.close();
+    classes.close();
 }
 
-// ppppppppp
 void ControlUnit::LoadStudentsClassesCSV() {
     string line;
-    string stCode, stName, ucCode, classCode;
-    ifstream inFile;
-    inFile.open(filename);
-    getline(inFile, line);
-    //Reading the first line with actual data
-    getline(inFile, line);
-    stringstream is(line);
-    getline(is, stCode, ',');
-    getline(is, stName, ',');
-    getline(is, ucCode, ',');
-    getline(is, classCode, '\r');
-    string prevStCode = stCode;
-    set<studentGroup> cpu;
-    cpu.insert(studentGroup(ucCode, classCode));
+    string studentID;
+    string name;
+    string ucCode;
+    string classCode;
+    ifstream students_classes(filename);
 
-    Student st_class(prevStCode, stName, cpu);
+    if (!students_classes) {
+        cerr << "Failed to open file\n";
+    }
+
+    getline(students_classes, line); // Ignore header
+
+    // Start by getting the first student.
+    getline(students_classes, line);
+    istringstream iss(line);
+    getline(iss, studentID, ',');
+    getline(iss, name, ',');
+    getline(iss, ucCode, ',');
+    getline(iss, classCode, '\r');
+    set<studentGroup> classesPerStudent; // set to hold all the classes for the current student.
+    classesPerStudent.insert(studentGroup(ucCode, classCode));
+
+    string previousStudentID = studentID;
+    string previousName = name;
+
     MainKey key = {ucCode, classCode};
+    // Update the map with the size of the classes.
     if (SizeMap.find(key) == SizeMap.end()) {
         SizeMap[key] = 1;
     } else {
         SizeMap[key]++;
     }
 
-
-    while (getline(inFile, line)) {
-        stringstream is(line);
-        getline(is, stCode, ',');
-        if (prevStCode != stCode) {
-            st_class = Student(prevStCode, stName, cpu);
-            StudentSet.insert(st_class);
-            cpu.clear();
-            prevStCode = stCode;
-        }
-        getline(is, stName, ',');
-        getline(is, ucCode, ',');
-        getline(is, classCode, '\r');
-        cpu.insert(studentGroup(ucCode, classCode));
+    // Iterate over the rest of the file and split the line.
+    while (getline(students_classes, line)) {
+        istringstream iss(line);
+        getline(iss, studentID, ',');
+        getline(iss, name, ',');
+        getline(iss, ucCode, ',');
+        getline(iss, classCode, '\r');
         key = {ucCode, classCode};
+        // Update the map with the size of the classes.
         if (SizeMap.find(key) == SizeMap.end()) {
             SizeMap[key] = 1;
         } else {
             SizeMap[key]++;
         }
-
-
+        // If the student is the same as before just insert a new class in the set.
+        if (studentID == previousStudentID) {
+            classesPerStudent.insert(studentGroup(ucCode, classCode));
+        }
+            // Otherwise create the student with the classes found so far and insert that student into the set.
+        else {
+            Student student(previousStudentID, previousName, classesPerStudent);
+            StudentSet.insert(student);
+            classesPerStudent.clear();
+            classesPerStudent.insert(studentGroup(ucCode, classCode));
+            previousStudentID = studentID;
+            previousName = name;
+        }
     }
-    cpu.insert(studentGroup(ucCode, classCode));
-    key = {ucCode, classCode};
-    if (SizeMap.find(key) == SizeMap.end()) {
-        SizeMap[key] = 1;
-    } else {
-        SizeMap[key]++;
-    }
+    // Finally insert the last student into the set.
+    Student student(previousStudentID, previousName, classesPerStudent);
+    StudentSet.insert(student);
+    classesPerStudent.clear();
 
-    st_class = Student(prevStCode, stName, cpu);
-    StudentSet.insert(st_class);
-    inFile.close();
-
-
+    students_classes.close();
 }
 
-
-//Deve dar confia
 void ControlUnit::DisplayStudentSchedule() {
     cout << "Would you like the default Version or the Visual Version" << endl;
     cout << "1) Default" << endl;
     cout << "2) Visual" << endl;
     int option;
     cin >> option;
-    std::cout << "Enter the UPCODE OF THE STUDENT" << endl;
-    string upcode;
-    cin >> upcode;
-    Student dummyStudent(upcode, "", {});
-    while (StudentSet.find(dummyStudent) == StudentSet.end()) {
+    cout << "Enter the UPCODE OF THE STUDENT" << endl;
+    string studentId;
+    cin >> studentId;
+    Student dummyStudent(studentId, "", {});
+    auto student = StudentSet.find(dummyStudent);
+
+    // Find a valid student.
+    while (student == StudentSet.end()) {
         cout << "Invalid Student Code, please provide a new one." << endl;
         cin.clear();
-        cin >> upcode;
-        dummyStudent.setStudentID(upcode);
+        cin >> studentId;
+        dummyStudent.setStudentID(studentId);
+        student = StudentSet.find(dummyStudent);
     }
-    bool found = false;
     set<lesson> lessonSet;
     vector<lesson> myVec;
-    auto student = StudentSet.find(dummyStudent);
-    if (student != StudentSet.end()) {
-        set<studentGroup> studentgroups = student->getStudentGroups();
-        for (auto el: studentgroups) {
+    set<studentGroup> studentGroups = student->getStudentGroups();
+    // Iterate over every class of the student.
+    for (const auto &studentGroup: studentGroups) {
+        MainKey key = {studentGroup.getUcCode(), studentGroup.getClassCode()};
 
+        // Iterate over every lesson and add it to the set.
+        set<lesson *> Lectures = LessonMap[key];
+        for (auto element: Lectures) {
+
+            lessonSet.insert(*element);
+            myVec.push_back(*element);
         }
-        for (auto studentgroup: studentgroups) {
-            MainKey key = {studentgroup.getUcCode(), studentgroup.getClassCode()};
-
-            set<lesson *> Lectures = LessonMap[key];
-            for (auto element: Lectures) {
-
-                found = true;
-                lessonSet.insert(*element);
-                myVec.push_back(*element);
-            }
-
-        }
-
     }
-    cout << "Displaying schedule for student " << student->getName()  << " " << student->getStudentID() << ".\n";
+    cout << "Displaying schedule for student " << student->getName() << " " << student->getStudentID() << ".\n";
     if (option == 1) {
-        for (auto el: lessonSet) {
-            int width = 90; // Calculate the width based on the content length
-            std::string horizontalLine(width, '-');
+        // Display the schedule in a list format.
+        for (const auto &lesson: lessonSet) {
+            int width = 90;
+            string horizontalLine(width, '-');
 
-            std::cout << '+' << horizontalLine << '+' << std::endl;
-
-            // Adjust the width for proper alignment
-            std::cout << "    " << el << std::endl;
-
-            std::cout << '+' << horizontalLine << '+' << std::endl << endl;
+            cout << '+' << horizontalLine << '+' << endl;
+            cout << "    " << lesson << endl;
+            cout << '+' << horizontalLine << '+' << endl << endl;
         }
-
-
-    }
-    if (option == 2 and found) {
-        cout << " is there conflict" << IsThereConflict(myVec) << endl;
-        vector<vector<lesson> >overlapsVector;
-        overlapsVector=formatConflicts(myVec);
+    } else if (option == 2) {
+        // Display the schedule in a visual way.
+        vector<vector<lesson> > overlapsVector;
+        overlapsVector = formatConflicts(myVec); // Check for overlaps.
         Schedule StudentSchedule = Schedule(myVec);
         StudentSchedule.display();
-        int num=1;
-        for( auto overlap : overlapsVector){
-            int width = 108; // Calculate the width based on the content length
-            std::string horizontalLine(width, '-');
+        int num = 1;
+        for (auto overlap: overlapsVector) {
+            int width = 108;
+            string horizontalLine(width, '-');
 
-            std::cout << '+' << horizontalLine << '+' << std::endl;
-            std::cout<<"    " << "Overlap"<<" # "<<num<< std::endl;
-            std::cout << '+' << horizontalLine << '+' << std::endl;
+            cout << '+' << horizontalLine << '+' << endl;
+            cout << "    " << "Overlap" << " # " << num << endl;
+            cout << '+' << horizontalLine << '+' << endl;
 
-
-            for( auto lesson: overlap){
-                cout<<" "<<lesson<<endl;
-                std::cout << '-' << horizontalLine << '-' << std::endl;
+            for (auto lesson: overlap) {
+                cout << " " << lesson << endl;
+                cout << '-' << horizontalLine << '-' << endl;
             }
-
-
             num++;
         }
 
@@ -248,25 +245,22 @@ void ControlUnit::DisplayClassSchedule() {
     cout << "2) Visual" << endl;
     int option;
     cin >> option;
-    std::cout << "Enter the Class Code" << endl;
+    cout << "Enter the Class Code" << endl;
     string classCode;
 
-    bool valid = false;
-    while (not valid) {
+    // Find the class.
+    bool found = false;
+    while (!found) {
         cin >> classCode;
-        valid = classCode.length() == 7 && isdigit(classCode[0]) && classCode.substr(1, 4) == "LEIC" &&
-                isdigit(classCode[5]) && isdigit(classCode[6]);
-        //estava a dar problema de n limpar o cin resolvi com PPPPPPP da Mah atenção
-        if (not valid) {
-            std::cout
-                    << "Invalid input. Try Again class is of the form {NUMBER]{LEIC}{NUMBER}{NUMBER} for instance 3LEIC05"
-                    << std::endl;
-        } else { break; }
-
-
-        cin.ignore(INT_MAX, '\n');
-        cin.clear();
-
+        for (auto i: StudentGroupList) {
+            if (i.getClassCode() == classCode) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            cout << "Invalid class, please provide a new one.\n";
+        }
     }
     vector<lesson> LessonsVector;
     struct LessonComparator {
@@ -274,29 +268,26 @@ void ControlUnit::DisplayClassSchedule() {
             return *lhs < *rhs;
         }
     };
+    // Store the lessons in a set.
     set<lesson *, LessonComparator> LessonsSet;
     for (auto studentGroup: StudentGroupList) {
         if (studentGroup.getClassCode() == classCode) {
-
-
             MainKey key = {studentGroup.getUcCode(), classCode};
-
             LessonsSet.insert(LessonMap[key].begin(), LessonMap[key].end());
-
         }
     }
 
-
+    // Iterate over every lesson and display the schedule.
     for (auto lesson: LessonsSet) {
 
         LessonsVector.push_back(*lesson);
         if (option == 1) {
             int width = 90; // Calculate the width based on the content length
-            std::string horizontalLine(width, '-');
+            string horizontalLine(width, '-');
 
-            std::cout << '+' << horizontalLine << '+' << std::endl;
-            std::cout << "    " << *lesson << std::endl;
-            std::cout << '+' << horizontalLine << '+' << std::endl;
+            cout << '+' << horizontalLine << '+' << endl;
+            cout << "    " << *lesson << endl;
+            cout << '+' << horizontalLine << '+' << endl;
 
         }
     }
@@ -304,80 +295,75 @@ void ControlUnit::DisplayClassSchedule() {
         Schedule ClassSchedule = Schedule(LessonsVector);
         ClassSchedule.display();
     }
-
-
 }
-vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons){
-    cout<<"HERE"<<endl;
+
+// Removes overlaps and places inside a return vector the classes that make up each conflict.
+vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
+    //overLapVector stores the classes that are involved in a given conflict.
     vector<vector<lesson>> OverlapVector;
-    int numofconflit=0;
+
+    int numofconflit = 0;
     for (int i = 0; i < lessons.size() - 1; i++) {
         for (int j = i + 1; j < lessons.size(); j++) {
 
-            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and  lessons[j].getStartTime() < lessons[i].getEndTime();
+            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and
+                           lessons[j].getStartTime() < lessons[i].getEndTime();
 
 
             bool sameDay = lessons[i].getWeekday() == lessons[j].getWeekday();
-            if (overLap and sameDay) {
-
-                cout<<"HIT HIT HIT HIT"<<endl;
-                cout<<"element 1"<<lessons[i]<<endl;
-                cout<<"element 2"<<lessons[j]<<endl;
-
-                lessontime start=min(lessons[i].getStartTime(),lessons[j].getStartTime());
-                lessontime end= max(lessons[i].getEndTime(),lessons[j].getEndTime());
-                double startnum=start.getHour();
-                if(start.getMinute()>0){
-                    startnum+=0.5;
+            if (overLap and sameDay) { // there is an overlap if the hours overlap and they are in the same day.
+                lessontime start = min(lessons[i].getStartTime(), lessons[j].getStartTime());
+                lessontime end = max(lessons[i].getEndTime(), lessons[j].getEndTime());
+                double startnum = start.getHour();
+                if (start.getMinute() > 0) {
+                    startnum += 0.5;
                 }
-                double endnum=end.getHour();
-                if(end.getMinute()>0){
-                    endnum+=0.5;
+                double endnum = end.getHour();
+                if (end.getMinute() > 0) {
+                    endnum += 0.5;
                 }
-                if(lessons[j].getUccode()=="Overlap"){
-                    cout<<"OVERLAP"<<endl;
-                    cout<<"CONFLICT NUM "<<numofconflit<<endl;
-
-                    lesson dummy= lesson("Overlap","Overlap",lessons[j].getWeekday(),startnum,endnum-startnum, lessons[j].getType());
-                    //lesson(const std::string &uccode, const std::string &studentgroup, const std::string &weekday, double startTime,
-                    //           double duration, const std::string &type);
-                    vector<lesson> lessonsInConflict=OverlapVector[numofconflit-1];
+                if (lessons[j].getUccode() == "Overlap") { // for multiple conflicts > 2 classes.
+                    cout << "OVERLAP" << endl;
+                    cout << "CONFLICT NUM " << numofconflit << endl;
+                    //dummy is a fake class that represents a conflict.
+                    lesson dummy = lesson("Overlap", "Overlap", lessons[j].getWeekday(), startnum, endnum - startnum,
+                                          lessons[j].getType());
+                    vector<lesson> lessonsInConflict = OverlapVector[numofconflit - 1];
                     lessonsInConflict.push_back(lessons[i]);
-                    lessons.erase(lessons.begin()+j);
-                    lessons.erase(lessons.begin()+i);
-                    OverlapVector[numofconflit-1]=lessonsInConflict;
+                    lessons.erase(lessons.begin() + j);
+                    lessons.erase(lessons.begin() + i);
+                    OverlapVector[numofconflit - 1] = lessonsInConflict;
                     lessons.push_back(dummy);
-                }else{
+                } else { //normal conflicts
                     numofconflit++;
-                    lesson dummy= lesson("Overlap","Overlap",lessons[i].getWeekday(),startnum,endnum-startnum, to_string(numofconflit));
-                    //lesson(const std::string &uccode, const std::string &studentgroup, const std::string &weekday, double startTime,
-                    //           double duration, const std::string &type);
+                    //dummy is a fake class that represents a conflict.
+                    lesson dummy = lesson("Overlap", "Overlap", lessons[i].getWeekday(), startnum, endnum - startnum,
+                                          to_string(numofconflit));
+
                     vector<lesson> lessonsInConflict;
+
                     lessonsInConflict.push_back(lessons[i]);
                     lessonsInConflict.push_back(lessons[j]);
-                    lessons.erase(lessons.begin()+j);
-                    lessons.erase(lessons.begin()+i);
+                    lessons.erase(lessons.begin() + j);
+                    lessons.erase(lessons.begin() + i);
 
 
                     OverlapVector.push_back(lessonsInConflict);
+
                     lessons.push_back(dummy);
                 }
-
-
             }
         }
-
-
     }
-
     return OverlapVector;
 }
 
-// Escolher se deixo ali o cout ou n
+// Determines number of student in at least N ucs
 int ControlUnit::StudentsInAtLeastNUcs(int n) {
 
     int NumberOfStudents = 0;
 
+    // Iterate over every student, if the student is enrolled in more than n courses then output it.
     for (auto student: this->StudentSet) {
         set<studentGroup> studentgroups = student.getStudentGroups();
 
@@ -388,14 +374,14 @@ int ControlUnit::StudentsInAtLeastNUcs(int n) {
         }
     }
     return NumberOfStudents;
-
-
 }
 
+// Determines number of student in at most N ucs
 int ControlUnit::StudentsInAtMostNUcs(int n) {
 
     int NumberOfStudents = 0;
 
+    // Iterate over every student, if the student is enrolled in less than n courses then output it.
     for (auto student: this->StudentSet) {
         set<studentGroup> studentgroups = student.getStudentGroups();
 
@@ -410,13 +396,14 @@ int ControlUnit::StudentsInAtMostNUcs(int n) {
 
 }
 
+// Determines number of student in N ucs
 int ControlUnit::StudentsInUcs(int n) {
 
     int NumberOfStudents = 0;
 
+    // Iterate over every student, if the student is enrolled in n courses then output it.
     for (auto student: this->StudentSet) {
         set<studentGroup> studentgroups = student.getStudentGroups();
-
 
         if (studentgroups.size() == n) {
             cout << student << endl;
@@ -424,11 +411,9 @@ int ControlUnit::StudentsInUcs(int n) {
         }
     }
     return NumberOfStudents;
-
-
 }
 
-
+// Outputs the students from a specific class.
 void ControlUnit::classStudents(string classCode, function<bool(Student, Student)> func) {
     set<studentGroup> groups;
     set<Student, decltype(func)> students(func);
@@ -481,6 +466,7 @@ void ControlUnit::classStudents(string classCode, function<bool(Student, Student
 
 }
 
+// Outputs the students in a specific course.
 void ControlUnit::courseStudents(string courseCode, function<bool(Student, Student)> func) {
     set<studentGroup> groups;
     set<Student, decltype(func)> students(func);
@@ -511,6 +497,7 @@ void ControlUnit::courseStudents(string courseCode, function<bool(Student, Stude
 
 }
 
+// Outputs the students in a specific year.
 void ControlUnit::yearStudents(char year, function<bool(Student, Student)> func) {
     set<studentGroup> groups;
     set<Student, decltype(func)> students(func);
@@ -541,20 +528,23 @@ void ControlUnit::yearStudents(char year, function<bool(Student, Student)> func)
 }
 
 
+// Displays the courses starting with the one with the most students.
 void ControlUnit::UCWithMostStudents() {
     set<studentGroup> groups;
-    map<string, int> ucs;
+    map<string, int> courseOccupation;
+    // Iterate over every student and get the occupation.
     for (auto student: StudentSet) {
         groups = student.getStudentGroups();
         for (auto group: groups) {
-            if (ucs.find(group.getUcCode()) == ucs.end()) {
-                ucs[group.getUcCode()] = 1;
+            if (courseOccupation.find(group.getUcCode()) == courseOccupation.end()) {
+                courseOccupation[group.getUcCode()] = 1;
             } else {
-                ucs[group.getUcCode()] += 1;
+                courseOccupation[group.getUcCode()] += 1;
             }
         }
     }
-    vector<pair<string, int>> ucsvec(ucs.begin(), ucs.end());
+    // Create and sort a vector with the courses.
+    vector<pair<string, int>> ucsvec(courseOccupation.begin(), courseOccupation.end());
     sort(ucsvec.begin(), ucsvec.end(), [](const pair<string, int> &a, const pair<string, int> &b) {
         return a.second > b.second;
     });
@@ -564,7 +554,7 @@ void ControlUnit::UCWithMostStudents() {
     }
 }
 
-//helper functions
+// Iterates over every class from a vector and checks the balance.
 int ControlUnit::NumBalanced(vector<studentGroup> groups, map<MainKey, int> myMap) {
 
     int cap = this->cap;
@@ -572,8 +562,6 @@ int ControlUnit::NumBalanced(vector<studentGroup> groups, map<MainKey, int> myMa
     int max = -1;
 
     for (auto studentGroup: groups) {
-
-
         MainKey key = {studentGroup.getUcCode(), studentGroup.getClassCode()};
 
         int size = myMap[key];
@@ -586,30 +574,25 @@ int ControlUnit::NumBalanced(vector<studentGroup> groups, map<MainKey, int> myMa
     return max - min;
 }
 
-//helper functions
 bool ControlUnit::IsThereConflict(vector<lesson> lessons) {
-
+    // Iterates over every pair of lessons in the vector.
     for (int i = 0; i < lessons.size() - 1; i++) {
         for (int j = i + 1; j < lessons.size(); j++) {
-            bool overLap =  lessons[i].getStartTime() < lessons[j].getEndTime() and  lessons[j].getStartTime() < lessons[i].getEndTime();
+            // Checks if they overlap, are both practical and if they are on the same day.
+            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and
+                           lessons[j].getStartTime() < lessons[i].getEndTime();
 
-            bool bothPratical = (lessons[i].getType() == "TP" or lessons[i].getType() == "PL") and
-                                (lessons[j].getType() == "TP" or lessons[j].getType() == "PL");
+            bool bothPractical = (lessons[i].getType() == "TP" or lessons[i].getType() == "PL") and
+                                 (lessons[j].getType() == "TP" or lessons[j].getType() == "PL");
             bool sameDay = lessons[i].getWeekday() == lessons[j].getWeekday();
-            if (overLap and bothPratical and sameDay) {
+            if (overLap and bothPractical and sameDay) {
                 cout << lessons[i] << "/" << lessons[j] << endl;
                 return true;
             }
         }
-
-
     }
     return false;
-
-
 }
-//
-//FUNCOES PARA REQUEST
 
 void ControlUnit::createAdd() {
     string id;
@@ -705,57 +688,60 @@ void ControlUnit::createSwitch() {
 }
 
 string ControlUnit::getClassInUc(string studentID, string ucCode) {
-    for (auto student: StudentSet) {
-        if (student.getStudentID() == studentID) {
-            for (auto sg: student.getStudentGroups()) {
-                if (sg.getUcCode() == ucCode) {
-                    return sg.getClassCode();
-
-                }
-            }
-            return "false";
+    auto student = StudentSet.find(Student(studentID, "", {}));
+    if (student == StudentSet.end()) {
+        return "invalidstudent";
+    }
+    // Iterate over every class of the student, if the course matches the desired course return the class.
+    for (const auto &studentGroup: student->getStudentGroups()) {
+        if (studentGroup.getUcCode() == ucCode) {
+            return studentGroup.getClassCode();
         }
     }
-    return "nostudent";
-
+    return "invalidcourse";
 }
 
+// Checks if the request is possible.
 bool ControlUnit::CheckAdd(AddRequest *addrq) {
     bool result = true;
-    string upcode = addrq->getStudentID();
-    bool notmorethan7 = true;
+    string studentId = addrq->getStudentID();
+    bool notMoreThan7 = true;
     bool studentExists = false;
-    bool NotInMoreTHanONeClass = true;
+    bool notInMoreThanOneClass = true;
+
     MainKey key = {addrq->getUCCode(), addrq->getClassCode()};
-    bool existsclass = KeyToStudentGroup.find(key) != KeyToStudentGroup.end();
+    bool classExists = KeyToStudentGroup.find(key) != KeyToStudentGroup.end();
+
     map<string, int> HaveISeenThisUc;
     vector<lesson> lessonVec;
-    Student dummyStudent(addrq->getStudentID(), "", {});
-    auto student = StudentSet.find(dummyStudent);
+
+    // Checks if the student exists and if already has one class regarding the chosen course.
+    auto student = StudentSet.find(Student(addrq->getStudentID(), "", {}));
     if (student != StudentSet.end()) {
         studentExists = true;
-        NotInMoreTHanONeClass = !student->isInUC(addrq->getUCCode());
+        notInMoreThanOneClass = !student->isInUC(addrq->getUCCode());
 
+        // Retrieve lessons associated with the student's current classes.
         for (auto studentGroup: student->getStudentGroups()) {
-
-
             MainKey key = {studentGroup.getUcCode(), studentGroup.getClassCode()};
             set<lesson *> lessonSet = LessonMap[key];
             for (auto lesson: lessonSet) {
                 lessonVec.push_back(*lesson);
             }
         }
+        // Checks if the student has 7 or more courses.
         if (student->getStudentGroups().size() >= 7) {
-            notmorethan7 = false;
+            notMoreThan7 = false;
         }
     }
 
-    vector<studentGroup> mysgs;
+    vector<studentGroup> classes;
 
     map<MainKey, int> dummyMap = SizeMap;
+    // Iterate over all classes to find the ones related to the chosen course.
     for (auto sg: StudentGroupList) {
         if (sg.getUcCode() == addrq->getUCCode()) {
-            mysgs.push_back(sg);
+            classes.push_back(sg);
 
             if (sg.getClassCode() == addrq->getClassCode()) {
                 MainKey key = {sg.getUcCode(), sg.getClassCode()};
@@ -763,98 +749,104 @@ bool ControlUnit::CheckAdd(AddRequest *addrq) {
             }
         }
     }
+
     key = {addrq->getUCCode(), addrq->getClassCode()};
-    int oldBalance = NumBalanced(mysgs, SizeMap);
+    int oldBalance = NumBalanced(classes, SizeMap);
     set<lesson *> lessonSet = LessonMap[key];
-    int newbalance = NumBalanced(mysgs, dummyMap);
+    int newbalance = NumBalanced(classes, dummyMap);
+
     for (auto lesson: lessonSet) {
         lessonVec.push_back(*lesson);
     }
     int classSize = SizeMap[key];
+
+    // Checks if the class size exceeds maximum capacity.
     bool respectsCap = true;
     if (classSize >= cap) {
         respectsCap = false;
     }
 
     bool validBalance;
+    // Checks if the balance is 4 or better or if it's better than the old balance.
     if (newbalance <= 4 or newbalance <= oldBalance) {
-        //Se balanço menor ou igual a 4 ou não piorar
         validBalance = true;
     } else {
         validBalance = false;
     }
-    result = notmorethan7 and studentExists and NotInMoreTHanONeClass and respectsCap and existsclass and
+    result = notMoreThan7 and studentExists and notInMoreThanOneClass and respectsCap and classExists and
              not IsThereConflict(lessonVec) and validBalance;
     return result;
 }
 
 
 bool ControlUnit::CheckRemove(RemoveRequest *remrq) {
-    //Falta o isbalnced
     bool result = true;
 
-    string upcode = remrq->getStudentID();
-    bool notlessthan0 = true;
+    string studentID = remrq->getStudentID();
+    bool notLessThan0 = true;
     bool studentExists = false;
-    bool isinclass = true;
-    Student dummyStudent(remrq->getStudentID(), "", {});
-    auto student = StudentSet.find(dummyStudent);
+    bool isInClass = true;
+    auto student = StudentSet.find(Student(remrq->getStudentID(), "", {}));
+    // Checks if the student exists and if he has at least 2 courses.
     if (student != StudentSet.end()) {
         studentExists = true;
         if (student->getStudentGroups().size() <= 1) {
-            notlessthan0 = false;
+            notLessThan0 = false;
         }
-        isinclass = student->isInClass(remrq->getUCCode(), remrq->getClassCode());
+        isInClass = student->isInClass(remrq->getUCCode(), remrq->getClassCode());
 
     }
 
-    vector<studentGroup> mysgs;
+    vector<studentGroup> classes;
 
     map<MainKey, int> dummyMap = SizeMap;
-    for (auto sg: StudentGroupList) {
-        if (sg.getUcCode() == remrq->getUCCode()) {
-            mysgs.push_back(sg);
+    // Gets all the classes related to the chosen course.
+    for (auto studentGroup: StudentGroupList) {
+        if (studentGroup.getUcCode() == remrq->getUCCode()) {
+            classes.push_back(studentGroup);
 
-            if (sg.getClassCode() == remrq->getClassCode()) {
-                MainKey key = {sg.getUcCode(), sg.getClassCode()};
+            if (studentGroup.getClassCode() == remrq->getClassCode()) {
+                MainKey key = {studentGroup.getUcCode(), studentGroup.getClassCode()};
                 dummyMap[key]--;
             }
         }
     }
     MainKey key = {remrq->getUCCode(), remrq->getClassCode()};
-    int oldBalance = NumBalanced(mysgs, SizeMap);
-    int newbalance = NumBalanced(mysgs, dummyMap);
+    int oldBalance = NumBalanced(classes, SizeMap);
+    int newbalance = NumBalanced(classes, dummyMap);
     bool validBalance;
+    // Checks if the balance is 4 or better or if it's better than the old balance.
     if (newbalance <= 4 or newbalance <= oldBalance) {
-        //Se balanço menor ou igual a 4 ou não piorar
         validBalance = true;
     } else {
         validBalance = false;
     }
-    result = (notlessthan0 and studentExists and isinclass and validBalance);
+    result = (notLessThan0 and studentExists and isInClass and validBalance);
     return result;
 }
 
-
 bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
     bool result;
-    Student dummyStudent(swrq->getStudentID(), "", {});
-    string upcode = swrq->getStudentID();
+    string studentID = swrq->getStudentID();
     bool studentExists = false;
-    bool isinclass = true;
-    bool respectscap = true;
-    bool NotInMoreThan1Group = true;
-    MainKey key = {swrq->getUCCode2(), swrq->getClassCode2()};
-    bool existsclass = KeyToStudentGroup.find(key) != KeyToStudentGroup.end();
-    vector<lesson> mylessons;
-    auto student = StudentSet.find(dummyStudent);
+    bool isInClass = true;
+    bool respectsCap = true;
+    bool notInMoreThan1Class = true;
 
+    MainKey key = {swrq->getUCCode2(), swrq->getClassCode2()};
+    bool classExists = KeyToStudentGroup.find(key) != KeyToStudentGroup.end();
+    vector<lesson> mylessons;
+
+    auto student = StudentSet.find(Student(swrq->getStudentID(), "", {}));
+
+    // Checks if the student exists and if he is part of the given class.
     if (student != StudentSet.end()) {
         studentExists = true;
-        isinclass = student->isInClass(swrq->getUCCode1(), swrq->getClassCode1());
+        isInClass = student->isInClass(swrq->getUCCode1(), swrq->getClassCode1());
         if (swrq->getUCCode1() != swrq->getUCCode2()) {
-            NotInMoreThan1Group = !student->isInUC(swrq->getUCCode2());
+            notInMoreThan1Class = !student->isInUC(swrq->getUCCode2());
         }
+        // Gets current lessons.
         for (auto sg: student->getStudentGroups()) {
             MainKey key = {sg.getUcCode(), sg.getClassCode()};
             if (sg.getUcCode() + sg.getClassCode() != swrq->getUCCode1() + swrq->getClassCode1()) {
@@ -864,6 +856,7 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
                 }
             }
         }
+        // Gets new lessons.
         MainKey key = {swrq->getUCCode2(), swrq->getClassCode2()};
         set<lesson *> lessonSet = LessonMap[key];
         for (auto les: lessonSet) {
@@ -875,18 +868,18 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
     key = {swrq->getUCCode2(), swrq->getClassCode2()};
     int classSize = SizeMap[key];
     if (classSize >= cap) {
-        respectscap = false;
+        respectsCap = false;
     }
 
     bool validBalanceRem;
     bool validBalanceAdd;
 
-    vector<studentGroup> mysgsUc1;
-    vector<studentGroup> mysgsUc2;
+    vector<studentGroup> oldClasses;
+    vector<studentGroup> newClasses;
     map<MainKey, int> dummyMap = SizeMap;
     for (auto sg: StudentGroupList) {
         if (sg.getUcCode() == swrq->getUCCode1()) {
-            mysgsUc1.push_back(sg);
+            oldClasses.push_back(sg);
 
             if (sg.getClassCode() == swrq->getClassCode1()) {
                 MainKey key = {sg.getUcCode(), sg.getClassCode()};
@@ -894,7 +887,7 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
             }
         }
         if (sg.getUcCode() == swrq->getUCCode2()) {
-            mysgsUc2.push_back(sg);
+            newClasses.push_back(sg);
 
             if (sg.getClassCode() == swrq->getClassCode2()) {
                 MainKey key = {sg.getUcCode(), sg.getClassCode()};
@@ -903,25 +896,25 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
         }
     }
 
-    int oldBalance1 = NumBalanced(mysgsUc1, SizeMap);
-    int newbalance1 = NumBalanced(mysgsUc1, dummyMap);
+    int oldBalance1 = NumBalanced(oldClasses, SizeMap);
+    int newbalance1 = NumBalanced(oldClasses, dummyMap);
 
+    // Checks if the balance is 4 or better or if it's better than the old balance.
     if (newbalance1 <= 4 or newbalance1 <= oldBalance1) {
-        //Se balanço menor ou igual a 4 ou não piorar
         validBalanceRem = true;
     } else {
         validBalanceRem = false;
     }
-    int oldBalance2 = NumBalanced(mysgsUc2, SizeMap);
-    int newbalance2 = NumBalanced(mysgsUc2, dummyMap);
+    int oldBalance2 = NumBalanced(newClasses, SizeMap);
+    int newbalance2 = NumBalanced(newClasses, dummyMap);
+    // Checks if the balance is 4 or better or if it's better than the old balance.
     if (newbalance2 <= 4 or newbalance2 <= oldBalance2) {
-        //Se balanço menor ou igual a 4 ou não piorar
         validBalanceAdd = true;
     } else {
         validBalanceAdd = false;
     }
 
-    result = (existsclass and studentExists and isinclass and respectscap and NotInMoreThan1Group and !conflict and
+    result = (classExists and studentExists and isInClass and respectsCap and notInMoreThan1Class and !conflict and
               validBalanceAdd and validBalanceRem);
     return result;
 
@@ -930,13 +923,8 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
 
 bool ControlUnit::processRequest(Request *request, bool bypassStack) {
     bool isvalid;
+    // Get type of request and process it.
     if (request->getType() == "add") {
-        //chamar checker de uc mais de 7
-        //ver se turma nao ultrapassa cap
-        // ver se nao ha conflito de horario
-        // ver se nao esta em mais do que uma turma na uc
-        //ver balanço
-        cout << "Detetado como add request" << endl;
         isvalid = CheckAdd(dynamic_cast<AddRequest *>(request));
         if (isvalid) {
             processAddRequest(dynamic_cast<AddRequest *>(request));
@@ -950,9 +938,6 @@ bool ControlUnit::processRequest(Request *request, bool bypassStack) {
         }
 
     } else if (request->getType() == "remove") {
-        //ver se ele esta na cadeira e na turma
-        //ver balanço
-        cout << "Detetado como remove request" << endl;
         isvalid = CheckRemove(dynamic_cast<RemoveRequest *>(request));
         if (isvalid) {
             processRemoveRequest(dynamic_cast<RemoveRequest *>(request));
@@ -966,11 +951,6 @@ bool ControlUnit::processRequest(Request *request, bool bypassStack) {
         }
 
     } else if (request->getType() == "switch") {
-        //ver se existe vaga na que tu vais
-        //ver a cap
-        // ver se nao ha confito
-        // ver balanço
-        cout << "Detetado como switch request" << endl;
         isvalid = CheckSwitch(dynamic_cast<SwitchRequest *>(request));
         if (isvalid) {
             processSwitchRequest(dynamic_cast<SwitchRequest *>(request));
@@ -992,7 +972,6 @@ void ControlUnit::processAddRequest(AddRequest *addRequest) {
     string upCode = addRequest->getStudentID();
     string classCode = addRequest->getClassCode();
     string ucCode = addRequest->getUCCode();
-    cout << "hey i got the request" << upCode << "/" << classCode << "/" << ucCode;
     Student dummyStudent(addRequest->getStudentID(), "", {});
     auto student = StudentSet.find(dummyStudent);
     if (student != StudentSet.end()) {
@@ -1014,7 +993,6 @@ void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
     string upCode = removeRequest->getStudentID();
     string classCode = removeRequest->getClassCode();
     string ucCode = removeRequest->getUCCode();
-    cout << "hey i got the request" << upCode << "/" << classCode << "/" << ucCode;
     Student dummyStudent(removeRequest->getStudentID(), "", {});
     auto student = StudentSet.find(dummyStudent);
     if (student != StudentSet.end()) {
@@ -1039,17 +1017,6 @@ void ControlUnit::processSwitchRequest(SwitchRequest *switchRequest) {
     delete RemReq;
     delete AddReq;
 }
-
-//TESTAR
-void ControlUnit::CheckIfThereAreConflicts() {
-
-
-    for (auto &studentGroup: StudentGroupList) {
-        MainKey key = {studentGroup.getUcCode(), studentGroup.getClassCode()};
-        cout << "student group" << studentGroup << "SIZE" << SizeMap[key] << endl;
-    }
-}
-
 
 void ControlUnit::processAllRequests() {
     if (RequestsToProcess.empty()) {
@@ -1128,6 +1095,7 @@ void ControlUnit::undoRequest(int n) {
 void ControlUnit::saveChanges() {
     fstream out("../data/students_classes_updated.csv", ios::out | ios::trunc);
     out << "StudentCode,StudentName,UcCode,ClassCode\r\n";
+    // Iterate over every student and write the respective classes to the file.
     for (Student s: StudentSet)
         for (const auto &studentGroup: s.getStudentGroups())
             out << s.getStudentID() << ',' << s.getName() << ',' << studentGroup.getUcCode() << ','

@@ -5,6 +5,6 @@ var searchData=
   ['listingmenu_2',['listingMenu',['../class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353',1,'Menu']]],
   ['loadclassescsv_3',['LoadClassesCSV',['../class_control_unit.html#aca5ddcdc893b2c5d279fcc6c737e4d5a',1,'ControlUnit']]],
   ['loadclassesperuccsv_4',['LoadClassesPerUcCSV',['../class_control_unit.html#a98481fa708eefb5b4a3123312843bba5',1,'ControlUnit']]],
-  ['loadcsv_5',['loadCSV',['../class_control_unit.html#ab4a27afcf53205d66ba4ae0b1585aeba',1,'ControlUnit']]],
+  ['loadcsv_5',['LoadCSV',['../class_control_unit.html#a0960e2a3ea9c962d7c69259f62004b53',1,'ControlUnit']]],
   ['loadstudentsclassescsv_6',['LoadStudentsClassesCSV',['../class_control_unit.html#a2fa3112381692d9daa4876d706a5442e',1,'ControlUnit']]]
 ];
