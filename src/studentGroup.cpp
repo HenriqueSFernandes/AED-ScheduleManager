@@ -1,7 +1,7 @@
 #include "studentGroup.h"
 
 // Constructor
-studentGroup::studentGroup(const std::string &uccode, const std::string &classCode) {
-    this->UcCode = uccode;
+studentGroup::studentGroup(const std::string &ucCode, const std::string &classCode) {
+    this->UcCode = ucCode;
     this->classCode = classCode;
 }

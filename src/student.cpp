@@ -1,17 +1,18 @@
 #include "student.h"
+#include <utility>
+#include <algorithm>
 
 Student::Student(string studentId, string name, set<studentGroup> group) {
-    this->studentID = studentId;
-    this->name = name;
-    this->StudentGroups = group;
+    this->studentID = std::move(studentId);
+    this->name = std::move(name);
+    this->StudentGroups = std::move(group);
 }
 
-void Student::addStudentGroup(studentGroup GroupToAdd) {
+void Student::addStudentGroup(const studentGroup &GroupToAdd) {
     this->StudentGroups.insert(GroupToAdd);
 }
 
-void Student::removeGroup(studentGroup GroupToRemove) {
-    cout << "Chamado o remove group" << endl;
+void Student::removeGroup(const studentGroup &GroupToRemove) {
     for (auto &sg: StudentGroups) {
         if (sg.getUcCode() == GroupToRemove.getUcCode() and sg.getClassCode() == GroupToRemove.getClassCode()) {
             this->StudentGroups.erase(sg);
@@ -29,24 +30,24 @@ void removeGroup();
 set<studentGroup> getStudentGroups();
 
 // Getter and Setter implementations
-std::string Student::getStudentID() const {
+string Student::getStudentID() const {
     return studentID;
 }
 
-void Student::setStudentID(const std::string &studentId) {
+void Student::setStudentID(const string &studentId) {
     studentID = studentId;
 }
 
-std::string Student::getName() const {
+string Student::getName() const {
     return name;
 }
 
-void Student::setName(const std::string &name) {
-    this->name = name;
+void Student::setName(const string &newName) {
+    this->name = newName;
 }
 
 // Overload the << operator to output Student objects
-std::ostream &operator<<(std::ostream &os, const Student &student) {
+ostream &operator<<(ostream &os, const Student &student) {
     os << "Student ID: " << student.getStudentID() << "\n";
     os << "Name: " << student.getName() << "\n";
 
@@ -54,21 +55,16 @@ std::ostream &operator<<(std::ostream &os, const Student &student) {
 }
 
 
-bool Student::isinuc(string uc) const {
-    for (auto group: StudentGroups) {
-        if (group.getUcCode() == uc) {
-            return true;
+bool Student::isInUC(const string &uc) const {
+    return any_of(StudentGroups.begin(), StudentGroups.end(),
+        [&uc](auto group) {
+            return group.getUcCode() == uc;
         }
-    }
-    return false;
+    );
 }
 
-bool Student::isinclass(string uc, string studgroup) const {
-    for (auto group: StudentGroups) {
-        if (group.getClassCode() == studgroup and group.getUcCode() == uc) {
-            return true;
-        }
-
-    }
-    return false;
+bool Student::isInClass(const string &ucCode, const string &studentGroup) const {
+    return any_of(StudentGroups.begin(), StudentGroups.end(), [&ucCode, &studentGroup](auto group) {
+        return group.getClassCode() == studentGroup && group.getUcCode() == ucCode;
+    });
 }

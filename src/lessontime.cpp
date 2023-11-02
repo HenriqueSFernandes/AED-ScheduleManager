@@ -24,7 +24,7 @@ std::ostream &operator<<(std::ostream &os, const lessontime &t) {
     return os;
 }
 
-std::string lessontime::displayHourFormat() {
+std::string lessontime::displayHourFormat() const {
     std::stringstream ss;
     ss << std::setw(2) << std::setfill('0') << hour << ":" << std::setw(2) << std::setfill('0') << minute;
     return ss.str();

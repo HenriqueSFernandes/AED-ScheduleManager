@@ -1,0 +1,38 @@
+\hypertarget{_switch_request_8h_source}{}\doxysection{Switch\+Request.\+h}
+\label{_switch_request_8h_source}\index{src/SwitchRequest.h@{src/SwitchRequest.h}}
+\mbox{\hyperlink{_switch_request_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef PROJAED\_SWITCHREQUEST\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define PROJAED\_SWITCHREQUEST\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_request_8h}{Request.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_switch_request}{SwitchRequest}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_request}{Request}} \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     std::string studentID;}
+\DoxyCodeLine{14     std::string ucCode1;}
+\DoxyCodeLine{15     std::string ucCode2;}
+\DoxyCodeLine{16     std::string classCode1;}
+\DoxyCodeLine{17     std::string classCode2;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_switch_request_af4ad299661aaa07ec003f8b34ae969d0}{SwitchRequest}}(\textcolor{keyword}{const} std::string \&studentID, \textcolor{keyword}{const} std::string \&ucCode1, \textcolor{keyword}{const} std::string \&ucCode2,}
+\DoxyCodeLine{29                   \textcolor{keyword}{const} std::string \&classCode1, \textcolor{keyword}{const} std::string \&classCode2);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{35     std::string \mbox{\hyperlink{class_switch_request_a663728c675735d1ec38039c76833365d}{getStudentID}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{41     std::string \mbox{\hyperlink{class_switch_request_a3d324de71e953e8f913dacf1ed38d7be}{getUCCode1}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{47     std::string \mbox{\hyperlink{class_switch_request_aeb419b74fba465da8274314e287c8cce}{getUCCode2}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{53     std::string \mbox{\hyperlink{class_switch_request_ae6406b56b79ccbf584915a5b0cdc6a29}{getClassCode1}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{59     std::string \mbox{\hyperlink{class_switch_request_a19d8125d008414c9ccac5348754ec352}{getClassCode2}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PROJAED\_SWITCHREQUEST\_H}}
+
+\end{DoxyCode}

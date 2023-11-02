@@ -1,0 +1,59 @@
+\hypertarget{student_8h_source}{}\doxysection{student.\+h}
+\label{student_8h_source}\index{src/student.h@{src/student.h}}
+\mbox{\hyperlink{student_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef PROJAED\_STUDENT\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define PROJAED\_STUDENT\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{student_group_8h}{studentGroup.h}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_student}{Student}} \{}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_student_ad1acbcd2c458613945d4bf4618d1ae47}{Student}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{28     \mbox{\hyperlink{class_student_ad1acbcd2c458613945d4bf4618d1ae47}{Student}}(\textcolor{keywordtype}{string} studentId, \textcolor{keywordtype}{string} name, set<studentGroup> group);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{34     std::string \mbox{\hyperlink{class_student_a703e8d2004faa7e2569ef2f8bb320f2d}{getStudentID}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{40     set<studentGroup> \mbox{\hyperlink{class_student_ad3420b04fc1bb5dcc413bfa771db896d}{getStudentGroups}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{46     std::string \mbox{\hyperlink{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}{getName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_add287224cef065944df9da7e8f38c116}{setName}}(\textcolor{keyword}{const} std::string \&newName);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_aa061a0b43cd8c617edf76a28c31b5300}{setStudentID}}(\textcolor{keyword}{const} std::string \&studentId);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_a98446a5a0ac3c689799f68205a5ab054}{addStudentGroup}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstudent_group}{studentGroup}}\& GroupToAdd);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_a63083726dbf48d8e100c00f404e917b1}{removeGroup}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstudent_group}{studentGroup}}\& GroupToRemove);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_student_a4a7094e40aa97136142c79438e174b7c}{isInUC}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& uc) \textcolor{keyword}{const};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_student_aa54f74ba5d636a30d3e8f9b7026c46ef}{isInClass}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& ucCode, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& \mbox{\hyperlink{classstudent_group}{studentGroup}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{class_student}{Student}} \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{89         \textcolor{keywordflow}{return} studentID < other.studentID;}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{class_student}{Student}} \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{93         \textcolor{keywordflow}{return} (this-\/>studentID == other.studentID) \&\& (this-\/>name == other.name);}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} \mbox{\hyperlink{class_student}{Student}} \&student);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{private}:}
+\DoxyCodeLine{99     std::string studentID;}
+\DoxyCodeLine{100     std::string name;}
+\DoxyCodeLine{101     std::set<studentGroup> StudentGroups;}
+\DoxyCodeLine{102 \};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJAED\_STUDENT\_H}}
+
+\end{DoxyCode}
