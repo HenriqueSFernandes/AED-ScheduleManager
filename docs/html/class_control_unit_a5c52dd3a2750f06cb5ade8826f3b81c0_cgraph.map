@@ -1,0 +1,10 @@
+<map id="ControlUnit::DisplayStudentSchedule" name="ControlUnit::DisplayStudentSchedule">
+<area shape="rect" id="node1" title="Displays the schedule of a student." alt="" coords="5,74,208,115"/>
+<area shape="rect" id="node2" href="$class_schedule.html#aaba95c9d8cb40ef1ebba8a82a2ea0ac8" title="Displays the schedule." alt="" coords="291,5,427,32"/>
+<area shape="rect" id="node4" href="$class_control_unit.html#a81922c2ec63d63c3d9bb2f7109b8587e" title="Deals with overlaps in a schedule." alt="" coords="257,56,461,83"/>
+<area shape="rect" id="node7" href="$classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7" title="Gets the class code." alt="" coords="256,107,463,133"/>
+<area shape="rect" id="node8" href="$classstudent_group.html#ad7c965a71b623d190fe73f2e95204478" title="Gets the course code." alt="" coords="265,157,454,184"/>
+<area shape="rect" id="node3" href="$classlessontime.html#ab5f9e3946d2d4db1460615c2b8fc2c93" title="Converts the time to a string." alt="" coords="511,5,737,32"/>
+<area shape="rect" id="node5" href="$classlessontime.html#ace6faca730eaaf9023ab8d8950986cfc" title="Hour getter." alt="" coords="547,56,701,83"/>
+<area shape="rect" id="node6" href="$classlessontime.html#afeb4c44a5ff994ca386d031ea4334c50" title="Minutes getter." alt="" coords="540,107,708,133"/>
+</map>

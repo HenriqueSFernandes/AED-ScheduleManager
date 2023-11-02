@@ -1,0 +1,7 @@
+<map id="ControlUnit::createRemove" name="ControlUnit::createRemove">
+<area shape="rect" id="node1" title="Creates a request of type remove." alt="" coords="5,56,204,83"/>
+<area shape="rect" id="node2" href="$class_control_unit.html#ad0d79a6b6abb4f167252f203c65ab6dc" title="Gets the class of a student knowing the course." alt="" coords="252,31,441,57"/>
+<area shape="rect" id="node5" href="$class_student.html#aa061a0b43cd8c617edf76a28c31b5300" title="Sets the student ID." alt="" coords="265,81,429,108"/>
+<area shape="rect" id="node3" href="$classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7" title="Gets the class code." alt="" coords="489,5,696,32"/>
+<area shape="rect" id="node4" href="$classstudent_group.html#ad7c965a71b623d190fe73f2e95204478" title="Gets the course code." alt="" coords="498,56,687,83"/>
+</map>

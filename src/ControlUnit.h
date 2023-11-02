@@ -128,7 +128,7 @@ public :
      * @param n Integer representing the amount of courses.
      * @return Integer representing the amount of students enrolled in N courses.
      */
-    int StudentsInUcs(int n);
+    int StudentsInExactNUcs(int n);
 
     /**
      * @brief Displays the students enrolled in a specific course.

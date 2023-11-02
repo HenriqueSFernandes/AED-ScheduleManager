@@ -1,0 +1,7 @@
+<map id="ControlUnit::StudentsInExactNUcs" name="ControlUnit::StudentsInExactNUcs">
+<area shape="rect" id="node1" title="Displays the students enrolled in exactly N courses." alt="" coords="972,5,1215,32"/>
+<area shape="rect" id="node2" href="$class_menu.html#a008b3d97730a151adf7598f2d31e9e05" title="Displays the student enrolled in exactly N courses." alt="" coords="661,5,924,32"/>
+<area shape="rect" id="node3" href="$class_menu.html#ae7b81eec228f8d81e8a84477e34b8fe8" title="Enters the submenu for listing the students in courses." alt="" coords="387,5,613,32"/>
+<area shape="rect" id="node4" href="$class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353" title="Enters the listing menu, which allows the user to list students, see schedules etc." alt="" coords="196,5,339,32"/>
+<area shape="rect" id="node5" href="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4" title="Creates the menu." alt="" coords="5,5,148,32"/>
+</map>

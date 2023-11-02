@@ -1,0 +1,14 @@
+digraph "ControlUnit::LoadCSV"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ControlUnit::LoadCSV",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Loads all the csv files."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ControlUnit::LoadClassesCSV",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#aca5ddcdc893b2c5d279fcc6c737e4d5a",tooltip="Loads the classes.csv file (which has all the lessons)."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ControlUnit::LoadClasses\lPerUcCSV",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#a98481fa708eefb5b4a3123312843bba5",tooltip="Loads the classes_per_uc.csv file (which has all the courses and classes)."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="ControlUnit::LoadStudents\lClassesCSV",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#a2fa3112381692d9daa4876d706a5442e",tooltip="Load students_classes.csv or student_classes_updated.csv, depending on the option chose."];
+}

@@ -1,0 +1,22 @@
+digraph "Schedule::Schedule"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Schedule::Schedule",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Parameterized constructor."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="lesson::getDuration",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlesson.html#af384c28e18a6c30669b295801330d810",tooltip="Gets the duration of the lesson."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="lessontime::getHour",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlessontime.html#ace6faca730eaaf9023ab8d8950986cfc",tooltip="Hour getter."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="lessontime::getMinute",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlessontime.html#afeb4c44a5ff994ca386d031ea4334c50",tooltip="Minutes getter."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="lesson::getStartTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlesson.html#a0186115102100636a4c69cffd891dad8",tooltip="Gets the time the lesson starts."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="lesson::getType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlesson.html#adf20c1b1799c88b25cf90fc7959489f9",tooltip="Gets the type of the lesson."];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="lesson::getUccode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlesson.html#a527cfd5a2dee6d476b2552de7764d224",tooltip="Gets the course code of the lesson."];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="lesson::getWeekday",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlesson.html#a0f81c69fa8107ca20eb40e59f9acb670",tooltip="Gets the lesson's weekday."];
+}

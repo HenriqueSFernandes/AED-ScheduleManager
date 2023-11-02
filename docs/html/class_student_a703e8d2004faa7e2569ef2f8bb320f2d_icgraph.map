@@ -1,0 +1,7 @@
+<map id="Student::getStudentID" name="Student::getStudentID">
+<area shape="rect" id="node1" title="Gets the student ID." alt="" coords="827,5,992,32"/>
+<area shape="rect" id="node2" href="$class_menu.html#a58e5d0f3b61542ebea7ff8c8fc9712b7" title="Allows the user to select different sorting options for displaying the students." alt="" coords="585,5,779,32"/>
+<area shape="rect" id="node3" href="$class_menu.html#a66828d2cad3aae2e602ad2454c8ea8d7" title="Enters the student menu, which allows the user to see all students from a year, course or class." alt="" coords="387,5,537,32"/>
+<area shape="rect" id="node4" href="$class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353" title="Enters the listing menu, which allows the user to list students, see schedules etc." alt="" coords="196,5,339,32"/>
+<area shape="rect" id="node5" href="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4" title="Creates the menu." alt="" coords="5,5,148,32"/>
+</map>

@@ -1,0 +1,16 @@
+digraph "ControlUnit::processAddRequest"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ControlUnit::processAddRequest",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Processes a request of type add."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Student::addStudentGroup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_student.html#a98446a5a0ac3c689799f68205a5ab054",tooltip="Adds a new class to the student."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="AddRequest::getClassCode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_add_request.html#af21b3550aff2b33a116dc1d8fae878e8",tooltip="Gets the class code."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="AddRequest::getStudentID",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_add_request.html#a8bf91870fe4add6e62dfb894acec4c2d",tooltip="Gets the student ID."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="AddRequest::getUCCode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_add_request.html#a115958c760847c2f820a412c7893f8cb",tooltip="Gets the course code."];
+}

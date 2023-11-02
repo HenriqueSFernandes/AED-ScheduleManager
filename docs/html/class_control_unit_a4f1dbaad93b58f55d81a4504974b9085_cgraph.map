@@ -1,0 +1,4 @@
+<map id="ControlUnit::createAdd" name="ControlUnit::createAdd">
+<area shape="rect" id="node1" title="Creates a request of type add." alt="" coords="5,5,176,32"/>
+<area shape="rect" id="node2" href="$class_student.html#aa061a0b43cd8c617edf76a28c31b5300" title="Sets the student ID." alt="" coords="224,5,388,32"/>
+</map>

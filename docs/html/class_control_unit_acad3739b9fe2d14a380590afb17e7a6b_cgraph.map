@@ -1,0 +1,4 @@
+<map id="ControlUnit::yearStudents" name="ControlUnit::yearStudents">
+<area shape="rect" id="node1" title="Displays the students from a specific year." alt="" coords="5,5,196,32"/>
+<area shape="rect" id="node2" href="$class_student.html#ad3420b04fc1bb5dcc413bfa771db896d" title="Gets all the classes the student belongs to." alt="" coords="244,5,441,32"/>
+</map>

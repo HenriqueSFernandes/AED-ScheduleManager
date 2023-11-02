@@ -1,0 +1,9 @@
+<map id="ControlUnit::CheckRemove" name="ControlUnit::CheckRemove">
+<area shape="rect" id="node1" title="Checks if the request is possible." alt="" coords="5,132,204,159"/>
+<area shape="rect" id="node2" href="$class_remove_request.html#a236ae23e1cfadd5487837620ec99ca62" title="Gets the class code." alt="" coords="252,5,479,32"/>
+<area shape="rect" id="node3" href="$classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7" title="Gets the class code." alt="" coords="527,183,733,209"/>
+<area shape="rect" id="node4" href="$class_remove_request.html#aabf0af724fe92030946ed4ed027cf0ec" title="Gets the student ID." alt="" coords="254,107,477,133"/>
+<area shape="rect" id="node5" href="$class_remove_request.html#a0d704514e2c62900d719ed4045479ec0" title="Gets the course code." alt="" coords="260,157,471,184"/>
+<area shape="rect" id="node6" href="$classstudent_group.html#ad7c965a71b623d190fe73f2e95204478" title="Gets the course code." alt="" coords="535,245,725,272"/>
+<area shape="rect" id="node7" href="$class_control_unit.html#a21f0f5455651e5704f43a8fb97c36441" title="Checks the balance of the classes." alt="" coords="268,208,463,235"/>
+</map>

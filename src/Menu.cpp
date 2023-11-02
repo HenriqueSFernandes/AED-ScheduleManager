@@ -224,7 +224,7 @@ void Menu::SeeNumStudentsInExactNUCs() {
     std::cout << "Enter the N \n";
     int n;
     cin >> n;
-    int result = this->Control.StudentsInUcs(n);
+    int result = this->Control.StudentsInExactNUcs(n);
     std::cout << "There are " << result << " students with at least " << n << " UCs\n";
 }
 

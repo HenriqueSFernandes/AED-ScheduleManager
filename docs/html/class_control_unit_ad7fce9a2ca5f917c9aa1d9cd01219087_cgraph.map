@@ -1,0 +1,7 @@
+<map id="ControlUnit::processAddRequest" name="ControlUnit::processAddRequest">
+<area shape="rect" id="node1" title="Processes a request of type add." alt="" coords="5,81,237,108"/>
+<area shape="rect" id="node2" href="$class_student.html#a98446a5a0ac3c689799f68205a5ab054" title="Adds a new class to the student." alt="" coords="287,5,481,32"/>
+<area shape="rect" id="node3" href="$class_add_request.html#af21b3550aff2b33a116dc1d8fae878e8" title="Gets the class code." alt="" coords="285,56,483,83"/>
+<area shape="rect" id="node4" href="$class_add_request.html#a8bf91870fe4add6e62dfb894acec4c2d" title="Gets the student ID." alt="" coords="287,107,481,133"/>
+<area shape="rect" id="node5" href="$class_add_request.html#a115958c760847c2f820a412c7893f8cb" title="Gets the course code." alt="" coords="293,157,475,184"/>
+</map>

@@ -1,0 +1,22 @@
+digraph "Student::setStudentID"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Student::setStudentID",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Sets the student ID."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ControlUnit::createAdd",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#a4f1dbaad93b58f55d81a4504974b9085",tooltip="Creates a request of type add."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Menu::createRequest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#af9a13a54ee0c86143800abd5cd33b7ef",tooltip="Enters the menu for creating request, allowing users to add, remove or switch classes."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Menu::requestMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a487b6f5a08f24a82956d18e9206ce605",tooltip="Enters the request menu, which allows the user to create, delete and manage requests."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Menu::createMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4",tooltip="Creates the menu."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="ControlUnit::createRemove",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#a754727b2d57e9fc6fa65ec69d236ffe5",tooltip="Creates a request of type remove."];
+  Node6 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="ControlUnit::createSwitch",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#ad24faea65b96b338b009177f7f3d599f",tooltip="Creates a request of type switch."];
+  Node7 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

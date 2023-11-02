@@ -1,0 +1,16 @@
+digraph "ControlUnit::createRemove"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ControlUnit::createRemove",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Creates a request of type remove."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ControlUnit::getClassInUc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#ad0d79a6b6abb4f167252f203c65ab6dc",tooltip="Gets the class of a student knowing the course."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="studentGroup::getClassCode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7",tooltip="Gets the class code."];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="studentGroup::getUcCode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstudent_group.html#ad7c965a71b623d190fe73f2e95204478",tooltip="Gets the course code."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Student::setStudentID",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_student.html#aa061a0b43cd8c617edf76a28c31b5300",tooltip="Sets the student ID."];
+}

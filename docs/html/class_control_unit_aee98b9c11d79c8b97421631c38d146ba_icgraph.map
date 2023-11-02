@@ -1,0 +1,8 @@
+<map id="ControlUnit::CheckAdd" name="ControlUnit::CheckAdd">
+<area shape="rect" id="node1" title="Checks if the request is possible." alt="" coords="928,31,1097,57"/>
+<area shape="rect" id="node2" href="$class_control_unit.html#a2924882271e16a46a93b019ba709bf66" title="Processes a request." alt="" coords="673,31,880,57"/>
+<area shape="rect" id="node3" href="$class_control_unit.html#ab0d8364a1205dd97ce8e23246c92c79a" title="Processes all the requests awaiting to be processed." alt="" coords="395,5,625,32"/>
+<area shape="rect" id="node6" href="$class_control_unit.html#a516424b32fb1e9b17cdd12f797ee784d" title="Undoes the N most recent applied request." alt="" coords="415,56,605,83"/>
+<area shape="rect" id="node4" href="$class_menu.html#a487b6f5a08f24a82956d18e9206ce605" title="Enters the request menu, which allows the user to create, delete and manage requests." alt="" coords="196,31,347,57"/>
+<area shape="rect" id="node5" href="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4" title="Creates the menu." alt="" coords="5,31,148,57"/>
+</map>

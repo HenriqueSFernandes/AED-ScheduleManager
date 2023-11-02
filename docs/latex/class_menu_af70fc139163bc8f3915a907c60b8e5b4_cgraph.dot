@@ -1,0 +1,12 @@
+digraph "Menu::SeeStudentsInYear"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Menu::SeeStudentsInYear",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Lists all the students in a specific year."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ControlUnit::yearStudents",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#acad3739b9fe2d14a380590afb17e7a6b",tooltip="Displays the students from a specific year."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Student::getStudentGroups",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_student.html#ad3420b04fc1bb5dcc413bfa771db896d",tooltip="Gets all the classes the student belongs to."];
+}

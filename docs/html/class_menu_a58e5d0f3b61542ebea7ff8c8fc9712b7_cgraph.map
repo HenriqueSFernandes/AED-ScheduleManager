@@ -1,0 +1,5 @@
+<map id="Menu::optionStudentMenu" name="Menu::optionStudentMenu">
+<area shape="rect" id="node1" title="Allows the user to select different sorting options for displaying the students." alt="" coords="5,31,199,57"/>
+<area shape="rect" id="node2" href="$class_student.html#a1df6c28e6416e20d338b9ff11bdc1e04" title="Gets the name of the student." alt="" coords="259,5,399,32"/>
+<area shape="rect" id="node3" href="$class_student.html#a703e8d2004faa7e2569ef2f8bb320f2d" title="Gets the student ID." alt="" coords="247,56,412,83"/>
+</map>

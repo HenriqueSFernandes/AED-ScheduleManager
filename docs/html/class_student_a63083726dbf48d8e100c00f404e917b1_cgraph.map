@@ -1,0 +1,5 @@
+<map id="Student::removeGroup" name="Student::removeGroup">
+<area shape="rect" id="node1" title="Removes a class from the student." alt="" coords="5,31,175,57"/>
+<area shape="rect" id="node2" href="$classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7" title="Gets the class code." alt="" coords="223,5,429,32"/>
+<area shape="rect" id="node3" href="$classstudent_group.html#ad7c965a71b623d190fe73f2e95204478" title="Gets the course code." alt="" coords="231,56,421,83"/>
+</map>

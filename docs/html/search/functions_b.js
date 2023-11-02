@@ -22,6 +22,6 @@ var searchData=
   ['studentmenu_19',['studentMenu',['../class_menu.html#a66828d2cad3aae2e602ad2454c8ea8d7',1,'Menu']]],
   ['studentsinatleastnucs_20',['StudentsInAtLeastNUcs',['../class_control_unit.html#a0ef689e620a95451eefa8e79ec7f0c27',1,'ControlUnit']]],
   ['studentsinatmostnucs_21',['StudentsInAtMostNUcs',['../class_control_unit.html#a74d26657d23d65400b23b2b21c5dcdec',1,'ControlUnit']]],
-  ['studentsinucs_22',['StudentsInUcs',['../class_control_unit.html#a1fb8c509bbdd9251e0928c1a985b18dd',1,'ControlUnit']]],
+  ['studentsinexactnucs_22',['StudentsInExactNUcs',['../class_control_unit.html#ad87c7524437200f295856007e34136c6',1,'ControlUnit']]],
   ['switchrequest_23',['SwitchRequest',['../class_switch_request.html#af4ad299661aaa07ec003f8b34ae969d0',1,'SwitchRequest']]]
 ];

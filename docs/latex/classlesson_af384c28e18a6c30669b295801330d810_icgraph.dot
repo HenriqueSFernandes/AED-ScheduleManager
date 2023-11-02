@@ -1,0 +1,10 @@
+digraph "lesson::getDuration"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="lesson::getDuration",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Gets the duration of the lesson."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Schedule::Schedule",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_schedule.html#a0be056764a504da0dd223d75829a65eb",tooltip="Parameterized constructor."];
+}

@@ -1,0 +1,12 @@
+<map id="Student::getStudentGroups" name="Student::getStudentGroups">
+<area shape="rect" id="node1" title="Gets all the classes the student belongs to." alt="" coords="1080,56,1277,83"/>
+<area shape="rect" id="node2" href="$class_control_unit.html#aa69207511a13ce82ad5ba68c5fd2ca4b" title="Displays the students from a specific class." alt="" coords="833,5,1027,32"/>
+<area shape="rect" id="node7" href="$class_control_unit.html#ae4534630678efed0e019664047ccbaf9" title="Displays the students enrolled in a specific course." alt="" coords="828,56,1032,83"/>
+<area shape="rect" id="node9" href="$class_control_unit.html#acad3739b9fe2d14a380590afb17e7a6b" title="Displays the students from a specific year." alt="" coords="835,107,1025,133"/>
+<area shape="rect" id="node3" href="$class_menu.html#ad46178bce0aeaa6f983d21e31d1d613b" title="Lists all the students in a specific class." alt="" coords="585,5,780,32"/>
+<area shape="rect" id="node4" href="$class_menu.html#a66828d2cad3aae2e602ad2454c8ea8d7" title="Enters the student menu, which allows the user to see all students from a year, course or class." alt="" coords="387,56,537,83"/>
+<area shape="rect" id="node5" href="$class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353" title="Enters the listing menu, which allows the user to list students, see schedules etc." alt="" coords="196,56,339,83"/>
+<area shape="rect" id="node6" href="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4" title="Creates the menu." alt="" coords="5,56,148,83"/>
+<area shape="rect" id="node8" href="$class_menu.html#a626e9d8417d0c75193231c3c2efca41c" title="Lists all the students in a specific course." alt="" coords="595,56,771,83"/>
+<area shape="rect" id="node10" href="$class_menu.html#af70fc139163bc8f3915a907c60b8e5b4" title="Lists all the students in a specific year." alt="" coords="589,107,776,133"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="lessontime::getHour" name="lessontime::getHour">
+<area shape="rect" id="node1" title="Hour getter." alt="" coords="1344,38,1499,65"/>
+<area shape="rect" id="node2" href="$class_control_unit.html#a81922c2ec63d63c3d9bb2f7109b8587e" title="Deals with overlaps in a schedule." alt="" coords="1092,13,1296,39"/>
+<area shape="rect" id="node8" href="$class_schedule.html#a0be056764a504da0dd223d75829a65eb" title="Parameterized constructor." alt="" coords="1120,63,1268,90"/>
+<area shape="rect" id="node3" href="$class_control_unit.html#a5c52dd3a2750f06cb5ade8826f3b81c0" title="Displays the schedule of a student." alt="" coords="841,5,1044,47"/>
+<area shape="rect" id="node4" href="$class_menu.html#aa9f10ef3509c12ad06b5dd57954d6910" title="Displays the schedule of a student." alt="" coords="595,13,793,39"/>
+<area shape="rect" id="node5" href="$class_menu.html#a8afd5d5427b0c4940fabdf4c7631ddbc" title="Enters the schedule menu, which allows the user to see the schedule for a student or a class." alt="" coords="387,13,547,39"/>
+<area shape="rect" id="node6" href="$class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353" title="Enters the listing menu, which allows the user to list students, see schedules etc." alt="" coords="196,13,339,39"/>
+<area shape="rect" id="node7" href="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4" title="Creates the menu." alt="" coords="5,13,148,39"/>
+</map>

@@ -28,7 +28,7 @@ var class_control_unit =
     [ "saveChanges", "class_control_unit.html#ab4b432f7eadc39d3d6cae8349e56194d", null ],
     [ "StudentsInAtLeastNUcs", "class_control_unit.html#a0ef689e620a95451eefa8e79ec7f0c27", null ],
     [ "StudentsInAtMostNUcs", "class_control_unit.html#a74d26657d23d65400b23b2b21c5dcdec", null ],
-    [ "StudentsInUcs", "class_control_unit.html#a1fb8c509bbdd9251e0928c1a985b18dd", null ],
+    [ "StudentsInExactNUcs", "class_control_unit.html#ad87c7524437200f295856007e34136c6", null ],
     [ "UCWithMostStudents", "class_control_unit.html#a4e84e6a7a2f7df4b70c21eaf88376a89", null ],
     [ "undoRequest", "class_control_unit.html#a516424b32fb1e9b17cdd12f797ee784d", null ],
     [ "yearStudents", "class_control_unit.html#acad3739b9fe2d14a380590afb17e7a6b", null ]

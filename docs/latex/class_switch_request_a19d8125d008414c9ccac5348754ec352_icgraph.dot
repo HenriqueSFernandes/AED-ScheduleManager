@@ -1,0 +1,24 @@
+digraph "SwitchRequest::getClassCode2"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="SwitchRequest::getClassCode2",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Gets the new class code."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ControlUnit::CheckSwitch",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#af5a3f6ddaf797f640f51a718d3d998bf",tooltip="Checks if the request is possible."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ControlUnit::processRequest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#a2924882271e16a46a93b019ba709bf66",tooltip="Processes a request."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="ControlUnit::processAllRequests",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#ab0d8364a1205dd97ce8e23246c92c79a",tooltip="Processes all the requests awaiting to be processed."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Menu::requestMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a487b6f5a08f24a82956d18e9206ce605",tooltip="Enters the request menu, which allows the user to create, delete and manage requests."];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Menu::createMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4",tooltip="Creates the menu."];
+  Node3 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="ControlUnit::undoRequest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#a516424b32fb1e9b17cdd12f797ee784d",tooltip="Undoes the N most recent applied request."];
+  Node7 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="ControlUnit::processSwitch\lRequest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#a9cb160b5255192632fb43668fe8758e4",tooltip="Processes a request of type switch."];
+  Node8 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

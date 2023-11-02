@@ -1,0 +1,6 @@
+<map id="Request" name="Request">
+<area shape="rect" id="node1" title="Class used to represent a generic request." alt="" coords="157,5,231,32"/>
+<area shape="rect" id="node2" href="$class_add_request.html" title="Request of type add." alt="" coords="5,80,105,107"/>
+<area shape="rect" id="node3" href="$class_remove_request.html" title="Request of type remove." alt="" coords="129,80,259,107"/>
+<area shape="rect" id="node4" href="$class_switch_request.html" title="Request of type switch." alt="" coords="283,80,401,107"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="ControlUnit::CheckSwitch" name="ControlUnit::CheckSwitch">
+<area shape="rect" id="node1" title="Checks if the request is possible." alt="" coords="5,157,192,184"/>
+<area shape="rect" id="node2" href="$class_switch_request.html#ae6406b56b79ccbf584915a5b0cdc6a29" title="Gets the current class code." alt="" coords="240,5,463,32"/>
+<area shape="rect" id="node3" href="$class_switch_request.html#a19d8125d008414c9ccac5348754ec352" title="Gets the new class code." alt="" coords="240,56,463,83"/>
+<area shape="rect" id="node4" href="$class_switch_request.html#a663728c675735d1ec38039c76833365d" title="Gets the student ID." alt="" coords="246,107,457,133"/>
+<area shape="rect" id="node5" href="$class_switch_request.html#a3d324de71e953e8f913dacf1ed38d7be" title="Gets the current course code." alt="" coords="248,157,455,184"/>
+<area shape="rect" id="node6" href="$class_switch_request.html#aeb419b74fba465da8274314e287c8cce" title="Gets the new course code." alt="" coords="248,208,455,235"/>
+<area shape="rect" id="node7" href="$class_control_unit.html#aa9d8dcb06d1c289d272bba0aabdefaab" title="Detects conflicts in a schedule." alt="" coords="251,259,452,285"/>
+<area shape="rect" id="node8" href="$class_control_unit.html#a21f0f5455651e5704f43a8fb97c36441" title="Checks the balance of the classes." alt="" coords="254,309,449,336"/>
+<area shape="rect" id="node9" href="$classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7" title="Gets the class code." alt="" coords="511,284,717,311"/>
+<area shape="rect" id="node10" href="$classstudent_group.html#ad7c965a71b623d190fe73f2e95204478" title="Gets the course code." alt="" coords="519,335,709,361"/>
+</map>

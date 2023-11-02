@@ -1,0 +1,16 @@
+digraph "ControlUnit::StudentsInExactNUcs"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ControlUnit::StudentsInExactNUcs",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Displays the students enrolled in exactly N courses."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Menu::SeeNumStudentsInExactNUCs",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a008b3d97730a151adf7598f2d31e9e05",tooltip="Displays the student enrolled in exactly N courses."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Menu::SeeNumStudentsInNUCs",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#ae7b81eec228f8d81e8a84477e34b8fe8",tooltip="Enters the submenu for listing the students in courses."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Menu::listingMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353",tooltip="Enters the listing menu, which allows the user to list students, see schedules etc."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Menu::createMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4",tooltip="Creates the menu."];
+}

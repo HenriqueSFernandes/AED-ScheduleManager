@@ -1,0 +1,28 @@
+<map id="ControlUnit::processAllRequests" name="ControlUnit::processAllRequests">
+<area shape="rect" id="node1" title="Processes all the requests awaiting to be processed." alt="" coords="5,364,236,391"/>
+<area shape="rect" id="node2" href="$class_control_unit.html#a2924882271e16a46a93b019ba709bf66" title="Processes a request." alt="" coords="284,364,491,391"/>
+<area shape="rect" id="node3" href="$class_control_unit.html#aee98b9c11d79c8b97421631c38d146ba" title="Checks if the request is possible." alt="" coords="815,107,985,133"/>
+<area shape="rect" id="node11" href="$class_control_unit.html#ad99952f3adb654a83fc003e9d6eeff8f" title="Checks if the request is possible." alt="" coords="801,579,999,605"/>
+<area shape="rect" id="node15" href="$class_control_unit.html#af5a3f6ddaf797f640f51a718d3d998bf" title="Checks if the request is possible." alt="" coords="544,305,731,332"/>
+<area shape="rect" id="node21" href="$class_request.html#a6af392e1e3f3c2fcb2acefc07524c4c4" title="Gets the type of the request." alt="" coords="570,524,705,551"/>
+<area shape="rect" id="node22" href="$class_control_unit.html#ad7fce9a2ca5f917c9aa1d9cd01219087" title="Processes a request of type add." alt="" coords="784,157,1016,184"/>
+<area shape="rect" id="node24" href="$class_control_unit.html#a44bc485af0cde28556e02a2ba72ba20d" title="Processes a request of type remove." alt="" coords="796,513,1004,554"/>
+<area shape="rect" id="node26" href="$class_control_unit.html#a9cb160b5255192632fb43668fe8758e4" title="Processes a request of type switch." alt="" coords="539,357,736,398"/>
+<area shape="rect" id="node4" href="$class_add_request.html#af21b3550aff2b33a116dc1d8fae878e8" title="Gets the class code." alt="" coords="1079,157,1276,184"/>
+<area shape="rect" id="node5" href="$classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7" title="Gets the class code." alt="" coords="1339,361,1545,388"/>
+<area shape="rect" id="node6" href="$class_add_request.html#a8bf91870fe4add6e62dfb894acec4c2d" title="Gets the student ID." alt="" coords="1081,208,1274,235"/>
+<area shape="rect" id="node7" href="$class_add_request.html#a115958c760847c2f820a412c7893f8cb" title="Gets the course code." alt="" coords="1087,259,1268,285"/>
+<area shape="rect" id="node8" href="$classstudent_group.html#ad7c965a71b623d190fe73f2e95204478" title="Gets the course code." alt="" coords="1347,412,1537,439"/>
+<area shape="rect" id="node9" href="$class_control_unit.html#aa9d8dcb06d1c289d272bba0aabdefaab" title="Detects conflicts in a schedule." alt="" coords="1077,5,1278,32"/>
+<area shape="rect" id="node10" href="$class_control_unit.html#a21f0f5455651e5704f43a8fb97c36441" title="Checks the balance of the classes." alt="" coords="1080,361,1275,388"/>
+<area shape="rect" id="node12" href="$class_remove_request.html#a236ae23e1cfadd5487837620ec99ca62" title="Gets the class code." alt="" coords="1064,568,1291,595"/>
+<area shape="rect" id="node13" href="$class_remove_request.html#aabf0af724fe92030946ed4ed027cf0ec" title="Gets the student ID." alt="" coords="1066,467,1289,493"/>
+<area shape="rect" id="node14" href="$class_remove_request.html#a0d704514e2c62900d719ed4045479ec0" title="Gets the course code." alt="" coords="1072,517,1283,544"/>
+<area shape="rect" id="node16" href="$class_switch_request.html#ae6406b56b79ccbf584915a5b0cdc6a29" title="Gets the current class code." alt="" coords="789,309,1011,336"/>
+<area shape="rect" id="node17" href="$class_switch_request.html#a19d8125d008414c9ccac5348754ec352" title="Gets the new class code." alt="" coords="789,411,1011,437"/>
+<area shape="rect" id="node18" href="$class_switch_request.html#a663728c675735d1ec38039c76833365d" title="Gets the student ID." alt="" coords="795,461,1005,488"/>
+<area shape="rect" id="node19" href="$class_switch_request.html#a3d324de71e953e8f913dacf1ed38d7be" title="Gets the current course code." alt="" coords="797,259,1003,285"/>
+<area shape="rect" id="node20" href="$class_switch_request.html#aeb419b74fba465da8274314e287c8cce" title="Gets the new course code." alt="" coords="797,360,1003,387"/>
+<area shape="rect" id="node23" href="$class_student.html#a98446a5a0ac3c689799f68205a5ab054" title="Adds a new class to the student." alt="" coords="1081,309,1274,336"/>
+<area shape="rect" id="node25" href="$class_student.html#a63083726dbf48d8e100c00f404e917b1" title="Removes a class from the student." alt="" coords="1093,412,1262,439"/>
+</map>

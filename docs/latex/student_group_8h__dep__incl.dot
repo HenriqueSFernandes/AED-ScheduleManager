@@ -1,0 +1,27 @@
+digraph "src/studentGroup.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="src/studentGroup.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="src/ControlUnit.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_control_unit_8h.html",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="src/Menu.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_menu_8h.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="src/Request.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_request_8h.html",tooltip=" "];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="src/AddRequest.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_add_request_8h.html",tooltip=" "];
+  Node5 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="src/RemoveRequest.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_remove_request_8h.html",tooltip=" "];
+  Node6 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="src/SwitchRequest.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_switch_request_8h.html",tooltip=" "];
+  Node7 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="src/student.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$student_8h.html",tooltip=" "];
+  Node8 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

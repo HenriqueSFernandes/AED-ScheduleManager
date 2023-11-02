@@ -1,0 +1,11 @@
+<map id="lessontime::displayHourFormat" name="lessontime::displayHourFormat">
+<area shape="rect" id="node1" title="Converts the time to a string." alt="" coords="1276,46,1503,73"/>
+<area shape="rect" id="node2" href="$class_schedule.html#aaba95c9d8cb40ef1ebba8a82a2ea0ac8" title="Displays the schedule." alt="" coords="1092,46,1228,73"/>
+<area shape="rect" id="node3" href="$class_control_unit.html#a060eca73f85969895ea2a9a8d45c6242" title="Displays the schedule of a class." alt="" coords="849,5,1037,47"/>
+<area shape="rect" id="node8" href="$class_control_unit.html#a5c52dd3a2750f06cb5ade8826f3b81c0" title="Displays the schedule of a student." alt="" coords="841,71,1044,112"/>
+<area shape="rect" id="node4" href="$class_menu.html#ab3a007c897b85519dd6ed6fc895f406d" title="Displays the schedule of a class." alt="" coords="602,17,786,43"/>
+<area shape="rect" id="node5" href="$class_menu.html#a8afd5d5427b0c4940fabdf4c7631ddbc" title="Enters the schedule menu, which allows the user to see the schedule for a student or a class." alt="" coords="387,46,547,73"/>
+<area shape="rect" id="node6" href="$class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353" title="Enters the listing menu, which allows the user to list students, see schedules etc." alt="" coords="196,46,339,73"/>
+<area shape="rect" id="node7" href="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4" title="Creates the menu." alt="" coords="5,46,148,73"/>
+<area shape="rect" id="node9" href="$class_menu.html#aa9f10ef3509c12ad06b5dd57954d6910" title="Displays the schedule of a student." alt="" coords="595,71,793,98"/>
+</map>

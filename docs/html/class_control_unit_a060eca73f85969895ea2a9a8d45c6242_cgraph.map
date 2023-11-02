@@ -1,0 +1,7 @@
+<map id="ControlUnit::DisplayClassSchedule" name="ControlUnit::DisplayClassSchedule">
+<area shape="rect" id="node1" title="Displays the schedule of a class." alt="" coords="5,49,193,90"/>
+<area shape="rect" id="node2" href="$class_schedule.html#aaba95c9d8cb40ef1ebba8a82a2ea0ac8" title="Displays the schedule." alt="" coords="277,5,413,32"/>
+<area shape="rect" id="node4" href="$classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7" title="Gets the class code." alt="" coords="241,56,448,83"/>
+<area shape="rect" id="node5" href="$classstudent_group.html#ad7c965a71b623d190fe73f2e95204478" title="Gets the course code." alt="" coords="250,107,439,133"/>
+<area shape="rect" id="node3" href="$classlessontime.html#ab5f9e3946d2d4db1460615c2b8fc2c93" title="Converts the time to a string." alt="" coords="496,5,723,32"/>
+</map>

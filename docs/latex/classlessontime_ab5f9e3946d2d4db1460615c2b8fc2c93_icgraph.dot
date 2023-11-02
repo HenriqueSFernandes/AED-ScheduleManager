@@ -1,0 +1,25 @@
+digraph "lessontime::displayHourFormat"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="lessontime::displayHourFormat",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Converts the time to a string."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Schedule::display",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_schedule.html#aaba95c9d8cb40ef1ebba8a82a2ea0ac8",tooltip="Displays the schedule."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ControlUnit::DisplayClass\lSchedule",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#a060eca73f85969895ea2a9a8d45c6242",tooltip="Displays the schedule of a class."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Menu::SeeClassSchedule",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#ab3a007c897b85519dd6ed6fc895f406d",tooltip="Displays the schedule of a class."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Menu::scheduleMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a8afd5d5427b0c4940fabdf4c7631ddbc",tooltip="Enters the schedule menu, which allows the user to see the schedule for a student or a class."];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Menu::listingMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353",tooltip="Enters the listing menu, which allows the user to list students, see schedules etc."];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Menu::createMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4",tooltip="Creates the menu."];
+  Node2 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="ControlUnit::DisplayStudent\lSchedule",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#a5c52dd3a2750f06cb5ade8826f3b81c0",tooltip="Displays the schedule of a student."];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Menu::SeeStudentSchedule",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_menu.html#aa9f10ef3509c12ad06b5dd57954d6910",tooltip="Displays the schedule of a student."];
+  Node9 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

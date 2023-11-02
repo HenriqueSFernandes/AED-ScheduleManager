@@ -1,0 +1,7 @@
+<map id="ControlUnit::createSwitch" name="ControlUnit::createSwitch">
+<area shape="rect" id="node1" title="Creates a request of type switch." alt="" coords="5,56,193,83"/>
+<area shape="rect" id="node2" href="$class_control_unit.html#ad0d79a6b6abb4f167252f203c65ab6dc" title="Gets the class of a student knowing the course." alt="" coords="241,31,431,57"/>
+<area shape="rect" id="node5" href="$class_student.html#aa061a0b43cd8c617edf76a28c31b5300" title="Sets the student ID." alt="" coords="254,81,418,108"/>
+<area shape="rect" id="node3" href="$classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7" title="Gets the class code." alt="" coords="479,5,685,32"/>
+<area shape="rect" id="node4" href="$classstudent_group.html#ad7c965a71b623d190fe73f2e95204478" title="Gets the course code." alt="" coords="487,56,677,83"/>
+</map>

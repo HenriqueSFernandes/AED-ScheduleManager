@@ -1,0 +1,7 @@
+<map id="ControlUnit::StudentsInAtMostNUcs" name="ControlUnit::StudentsInAtMostNUcs">
+<area shape="rect" id="node1" title="Displays the students enrolled in at most N courses." alt="" coords="969,5,1156,47"/>
+<area shape="rect" id="node2" href="$class_menu.html#ac0da908a0e0bccb055f9682288861faf" title="Displays the student enrolled in at most N courses." alt="" coords="661,13,921,39"/>
+<area shape="rect" id="node3" href="$class_menu.html#ae7b81eec228f8d81e8a84477e34b8fe8" title="Enters the submenu for listing the students in courses." alt="" coords="387,13,613,39"/>
+<area shape="rect" id="node4" href="$class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353" title="Enters the listing menu, which allows the user to list students, see schedules etc." alt="" coords="196,13,339,39"/>
+<area shape="rect" id="node5" href="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4" title="Creates the menu." alt="" coords="5,13,148,39"/>
+</map>

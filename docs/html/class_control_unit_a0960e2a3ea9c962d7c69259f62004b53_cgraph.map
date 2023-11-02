@@ -1,0 +1,6 @@
+<map id="ControlUnit::LoadCSV" name="ControlUnit::LoadCSV">
+<area shape="rect" id="node1" title="Loads all the csv files." alt="" coords="5,64,167,91"/>
+<area shape="rect" id="node2" href="$class_control_unit.html#aca5ddcdc893b2c5d279fcc6c737e4d5a" title="Loads the classes.csv file (which has all the lessons)." alt="" coords="215,5,425,32"/>
+<area shape="rect" id="node3" href="$class_control_unit.html#a98481fa708eefb5b4a3123312843bba5" title="Loads the classes_per_uc.csv file (which has all the courses and classes)." alt="" coords="227,57,413,98"/>
+<area shape="rect" id="node4" href="$class_control_unit.html#a2fa3112381692d9daa4876d706a5442e" title="Load students_classes.csv or student_classes_updated.csv, depending on the option chose." alt="" coords="224,122,416,163"/>
+</map>

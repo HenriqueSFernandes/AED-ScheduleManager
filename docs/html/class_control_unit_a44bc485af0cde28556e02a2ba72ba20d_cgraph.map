@@ -1,0 +1,9 @@
+<map id="ControlUnit::processRemoveRequest" name="ControlUnit::processRemoveRequest">
+<area shape="rect" id="node1" title="Processes a request of type remove." alt="" coords="5,74,213,115"/>
+<area shape="rect" id="node2" href="$class_remove_request.html#a236ae23e1cfadd5487837620ec99ca62" title="Gets the class code." alt="" coords="261,5,488,32"/>
+<area shape="rect" id="node3" href="$class_remove_request.html#aabf0af724fe92030946ed4ed027cf0ec" title="Gets the student ID." alt="" coords="263,56,486,83"/>
+<area shape="rect" id="node4" href="$class_remove_request.html#a0d704514e2c62900d719ed4045479ec0" title="Gets the course code." alt="" coords="269,107,480,133"/>
+<area shape="rect" id="node5" href="$class_student.html#a63083726dbf48d8e100c00f404e917b1" title="Removes a class from the student." alt="" coords="290,157,459,184"/>
+<area shape="rect" id="node6" href="$classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7" title="Gets the class code." alt="" coords="536,132,743,159"/>
+<area shape="rect" id="node7" href="$classstudent_group.html#ad7c965a71b623d190fe73f2e95204478" title="Gets the course code." alt="" coords="545,183,734,209"/>
+</map>

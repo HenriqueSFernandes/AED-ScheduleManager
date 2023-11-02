@@ -397,7 +397,7 @@ int ControlUnit::StudentsInAtMostNUcs(int n) {
 }
 
 // Determines number of student in N ucs
-int ControlUnit::StudentsInUcs(int n) {
+int ControlUnit::StudentsInExactNUcs(int n) {
 
     int NumberOfStudents = 0;
 

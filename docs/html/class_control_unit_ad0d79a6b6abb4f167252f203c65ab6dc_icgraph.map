@@ -1,0 +1,8 @@
+<map id="ControlUnit::getClassInUc" name="ControlUnit::getClassInUc">
+<area shape="rect" id="node1" title="Gets the class of a student knowing the course." alt="" coords="849,31,1039,57"/>
+<area shape="rect" id="node2" href="$class_control_unit.html#a754727b2d57e9fc6fa65ec69d236ffe5" title="Creates a request of type remove." alt="" coords="603,5,801,32"/>
+<area shape="rect" id="node6" href="$class_control_unit.html#ad24faea65b96b338b009177f7f3d599f" title="Creates a request of type switch." alt="" coords="608,56,796,83"/>
+<area shape="rect" id="node3" href="$class_menu.html#af9a13a54ee0c86143800abd5cd33b7ef" title="Enters the menu for creating request, allowing users to add, remove or switch classes." alt="" coords="395,31,555,57"/>
+<area shape="rect" id="node4" href="$class_menu.html#a487b6f5a08f24a82956d18e9206ce605" title="Enters the request menu, which allows the user to create, delete and manage requests." alt="" coords="196,31,347,57"/>
+<area shape="rect" id="node5" href="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4" title="Creates the menu." alt="" coords="5,31,148,57"/>
+</map>

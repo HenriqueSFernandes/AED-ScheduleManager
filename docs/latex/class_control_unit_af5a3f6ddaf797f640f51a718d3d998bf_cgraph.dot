@@ -1,0 +1,26 @@
+digraph "ControlUnit::CheckSwitch"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ControlUnit::CheckSwitch",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Checks if the request is possible."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="SwitchRequest::getClassCode1",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_switch_request.html#ae6406b56b79ccbf584915a5b0cdc6a29",tooltip="Gets the current class code."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="SwitchRequest::getClassCode2",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_switch_request.html#a19d8125d008414c9ccac5348754ec352",tooltip="Gets the new class code."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="SwitchRequest::getStudentID",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_switch_request.html#a663728c675735d1ec38039c76833365d",tooltip="Gets the student ID."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="SwitchRequest::getUCCode1",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_switch_request.html#a3d324de71e953e8f913dacf1ed38d7be",tooltip="Gets the current course code."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="SwitchRequest::getUCCode2",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_switch_request.html#aeb419b74fba465da8274314e287c8cce",tooltip="Gets the new course code."];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="ControlUnit::IsThereConflict",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#aa9d8dcb06d1c289d272bba0aabdefaab",tooltip="Detects conflicts in a schedule."];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="ControlUnit::NumBalanced",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_control_unit.html#a21f0f5455651e5704f43a8fb97c36441",tooltip="Checks the balance of the classes."];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="studentGroup::getClassCode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7",tooltip="Gets the class code."];
+  Node8 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="studentGroup::getUcCode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstudent_group.html#ad7c965a71b623d190fe73f2e95204478",tooltip="Gets the course code."];
+}

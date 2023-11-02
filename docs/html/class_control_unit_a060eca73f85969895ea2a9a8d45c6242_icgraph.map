@@ -1,0 +1,7 @@
+<map id="ControlUnit::DisplayClassSchedule" name="ControlUnit::DisplayClassSchedule">
+<area shape="rect" id="node1" title="Displays the schedule of a class." alt="" coords="827,5,1015,47"/>
+<area shape="rect" id="node2" href="$class_menu.html#ab3a007c897b85519dd6ed6fc895f406d" title="Displays the schedule of a class." alt="" coords="595,13,779,39"/>
+<area shape="rect" id="node3" href="$class_menu.html#a8afd5d5427b0c4940fabdf4c7631ddbc" title="Enters the schedule menu, which allows the user to see the schedule for a student or a class." alt="" coords="387,13,547,39"/>
+<area shape="rect" id="node4" href="$class_menu.html#af1ba39157732b6b1015cfe7b5a5c3353" title="Enters the listing menu, which allows the user to list students, see schedules etc." alt="" coords="196,13,339,39"/>
+<area shape="rect" id="node5" href="$class_menu.html#a4cf70fb5ce8bc6bfcad587d74ff644d4" title="Creates the menu." alt="" coords="5,13,148,39"/>
+</map>
