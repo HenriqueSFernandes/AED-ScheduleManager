@@ -544,7 +544,7 @@ void ControlUnit::createAdd() {
     cin >> uc;
     cout << "What Class of the UC you want to add the student into:" << endl;
     cin >> studentgroup;
-    RequestsToProcess.push_back(new AddRequest(id, uc, studentgroup));
+    RequestsToProcess.push(new AddRequest(id, uc, studentgroup));
 }
 
 void ControlUnit::createRemove() {
@@ -563,7 +563,7 @@ void ControlUnit::createRemove() {
     cin >> uc;
     cout << "What Class is he in in the specified Uc:" << endl;
     cin >> studentgroup;
-    RequestsToProcess.push_back(new RemoveRequest(id, uc, studentgroup));
+    RequestsToProcess.push(new RemoveRequest(id, uc, studentgroup));
 }
 
 void ControlUnit::createSwitch() {
@@ -618,7 +618,7 @@ void ControlUnit::createSwitch() {
     }
     cout << "What class do you want to go to?";
     cin >> studentgroup2;
-    RequestsToProcess.push_back(new SwitchRequest(id, uc1, uc2, studentgroup1, studentgroup2));
+    RequestsToProcess.push(new SwitchRequest(id, uc1, uc2, studentgroup1, studentgroup2));
 }
 
 string ControlUnit::getClassinUc(string upcode, string uccode) {
@@ -975,7 +975,7 @@ void ControlUnit::processAllRequests() {
     // Iterate over every request in order
     while (!RequestsToProcess.empty()) {
         Request *request = RequestsToProcess.front();
-        RequestsToProcess.pop_front();
+        RequestsToProcess.pop();
         if (!processRequest(request)) {
             // If it isn't valid then ask to ignore only that request or ignore every request
             cout
@@ -985,7 +985,7 @@ void ControlUnit::processAllRequests() {
             if (answer == 2) {
                 while (!RequestsToProcess.empty()) {
                     delete RequestsToProcess.front();
-                    RequestsToProcess.pop_front();
+                    RequestsToProcess.pop();
                 }
             }
         }
@@ -993,7 +993,17 @@ void ControlUnit::processAllRequests() {
 }
 
 void ControlUnit::removeLastPendingRequest() {
-    RequestsToProcess.pop_back();
+    queue<Request*> temporaryQueue;
+    Request* request;
+    while (!RequestsToProcess.empty()){
+        request = RequestsToProcess.front();
+        RequestsToProcess.pop();
+        if (!RequestsToProcess.empty()){
+            temporaryQueue.push(request);
+        }
+    }
+    delete request;
+    RequestsToProcess = temporaryQueue;
 }
 
 // Iterate over every applied request and undo it
@@ -1050,8 +1060,9 @@ void ControlUnit::clearMemory() {
             delete j;
         }
     }
-    for (auto i: RequestsToProcess) {
-        delete i;
+    while(!RequestsToProcess.empty()){
+        delete RequestsToProcess.front();
+        RequestsToProcess.pop();
     }
     while (!ProcessedRequests.empty()) {
         delete ProcessedRequests.top();

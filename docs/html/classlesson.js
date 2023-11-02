@@ -1,6 +1,6 @@
 var classlesson =
 [
-    [ "lesson", "classlesson.html#a6d39cea092355da169a76eb3b710b289", null ],
+    [ "lesson", "classlesson.html#a583146234daf3825246e5aed86e7d222", null ],
     [ "getDuration", "classlesson.html#af384c28e18a6c30669b295801330d810", null ],
     [ "getEndTime", "classlesson.html#ac30a319ba307601e1ba1260591d17215", null ],
     [ "getStartTime", "classlesson.html#a0186115102100636a4c69cffd891dad8", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['addstudentgroup_0',['addStudentGroup',['../class_student.html#a126ececb9fa08b66c0a5794739c66805',1,'Student']]]
+  ['addstudentgroup_0',['addStudentGroup',['../class_student.html#a98446a5a0ac3c689799f68205a5ab054',1,'Student']]]
 ];

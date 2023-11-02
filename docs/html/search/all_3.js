@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['isinclass_0',['isInClass',['../class_student.html#ae58b2cf232d0a305c6b767256ca622e9',1,'Student']]],
-  ['isinuc_1',['isInUC',['../class_student.html#ae8187d6467f3ebc287d99df8ac6da3d5',1,'Student']]]
+  ['isinclass_0',['isInClass',['../class_student.html#aa54f74ba5d636a30d3e8f9b7026c46ef',1,'Student']]],
+  ['isinuc_1',['isInUC',['../class_student.html#a4a7094e40aa97136142c79438e174b7c',1,'Student']]]
 ];

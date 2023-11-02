@@ -1,0 +1,93 @@
+\begin{theindex}
+
+  \item {addStudentGroup}
+    \subitem {Student}, \hyperpage{11}
+
+  \indexspace
+
+  \item {displayHourFormat}
+    \subitem {lessontime}, \hyperpage{9}
+
+  \indexspace
+
+  \item {getDuration}
+    \subitem {lesson}, \hyperpage{6}
+  \item {getEndTime}
+    \subitem {lesson}, \hyperpage{6}
+  \item {getHour}
+    \subitem {lessontime}, \hyperpage{9}
+  \item {getMinute}
+    \subitem {lessontime}, \hyperpage{9}
+  \item {getName}
+    \subitem {Student}, \hyperpage{11}
+  \item {getStartTime}
+    \subitem {lesson}, \hyperpage{6}
+  \item {getStudentGroups}
+    \subitem {Student}, \hyperpage{11}
+  \item {getStudentID}
+    \subitem {Student}, \hyperpage{11}
+  \item {getType}
+    \subitem {lesson}, \hyperpage{7}
+  \item {getUccode}
+    \subitem {lesson}, \hyperpage{7}
+  \item {getWeekday}
+    \subitem {lesson}, \hyperpage{7}
+
+  \indexspace
+
+  \item {isInClass}
+    \subitem {Student}, \hyperpage{12}
+  \item {isInUC}
+    \subitem {Student}, \hyperpage{12}
+
+  \indexspace
+
+  \item {lesson}, \hyperpage{5}
+    \subitem {getDuration}, \hyperpage{6}
+    \subitem {getEndTime}, \hyperpage{6}
+    \subitem {getStartTime}, \hyperpage{6}
+    \subitem {getType}, \hyperpage{7}
+    \subitem {getUccode}, \hyperpage{7}
+    \subitem {getWeekday}, \hyperpage{7}
+    \subitem {lesson}, \hyperpage{5}
+  \item {lessontime}, \hyperpage{8}
+    \subitem {displayHourFormat}, \hyperpage{9}
+    \subitem {getHour}, \hyperpage{9}
+    \subitem {getMinute}, \hyperpage{9}
+    \subitem {lessontime}, \hyperpage{8}
+
+  \indexspace
+
+  \item {removeGroup}
+    \subitem {Student}, \hyperpage{12}
+
+  \indexspace
+
+  \item {setName}
+    \subitem {Student}, \hyperpage{13}
+  \item {setStudentID}
+    \subitem {Student}, \hyperpage{13}
+  \item {src/AddRequest.h}, \hyperpage{15}
+  \item {src/ControlUnit.h}, \hyperpage{15}
+  \item {src/lesson.h}, \hyperpage{17}
+  \item {src/lessontime.h}, \hyperpage{18}
+  \item {src/Menu.h}, \hyperpage{19}
+  \item {src/RemoveRequest.h}, \hyperpage{20}
+  \item {src/Request.h}, \hyperpage{20}
+  \item {src/Schedule.h}, \hyperpage{21}
+  \item {src/student.h}, \hyperpage{21}
+  \item {src/studentGroup.h}, \hyperpage{22}
+  \item {src/SwitchRequest.h}, \hyperpage{23}
+  \item {Student}, \hyperpage{10}
+    \subitem {addStudentGroup}, \hyperpage{11}
+    \subitem {getName}, \hyperpage{11}
+    \subitem {getStudentGroups}, \hyperpage{11}
+    \subitem {getStudentID}, \hyperpage{11}
+    \subitem {isInClass}, \hyperpage{12}
+    \subitem {isInUC}, \hyperpage{12}
+    \subitem {removeGroup}, \hyperpage{12}
+    \subitem {setName}, \hyperpage{13}
+    \subitem {setStudentID}, \hyperpage{13}
+    \subitem {Student}, \hyperpage{10}
+
+\end{theindex}

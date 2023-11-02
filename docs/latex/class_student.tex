@@ -12,28 +12,28 @@ Class used to represent a student.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_student_af9168cedbfa5565cf0b20c1a9d3f5c9d}\label{class_student_af9168cedbfa5565cf0b20c1a9d3f5c9d}} 
-{\bfseries Student} ()
+\mbox{\Hypertarget{class_student_ad1acbcd2c458613945d4bf4618d1ae47}\label{class_student_ad1acbcd2c458613945d4bf4618d1ae47}} 
+{\bfseries Student} ()=default
 \begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_student_adb31d1d0a15d674d92d8dcdefd4e660b}{Student}} (string student\+Id, string name, set$<$ student\+Group $>$ group)
 \begin{DoxyCompactList}\small\item\em Parameterized constructor. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{class_student_aa23a5caf2b0e59dbd9834cdd7f3f37a0}{get\+Student\+ID}} () const
+std\+::string \mbox{\hyperlink{class_student_a703e8d2004faa7e2569ef2f8bb320f2d}{get\+Student\+ID}} () const
 \begin{DoxyCompactList}\small\item\em Gets the student ID. \end{DoxyCompactList}\item 
 set$<$ student\+Group $>$ \mbox{\hyperlink{class_student_ad3420b04fc1bb5dcc413bfa771db896d}{get\+Student\+Groups}} () const
 \begin{DoxyCompactList}\small\item\em Gets all the classes the student belongs to. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{class_student_af2b671e64af8a240f59652414a8b8047}{get\+Name}} () const
+std\+::string \mbox{\hyperlink{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}{get\+Name}} () const
 \begin{DoxyCompactList}\small\item\em Gets the name of the student. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_student_a489c963162c2b5798154a3217815cfc8}{set\+Name}} (const std\+::string \&name)
-\begin{DoxyCompactList}\small\item\em Sets the name of the student. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_student_add287224cef065944df9da7e8f38c116}{set\+Name}} (const std\+::string \&new\+Name)
+\begin{DoxyCompactList}\small\item\em Sets the new\+Name of the student. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_student_aa061a0b43cd8c617edf76a28c31b5300}{set\+Student\+ID}} (const std\+::string \&student\+Id)
 \begin{DoxyCompactList}\small\item\em Sets the student ID. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_student_a126ececb9fa08b66c0a5794739c66805}{add\+Student\+Group}} (student\+Group Group\+To\+Add)
+void \mbox{\hyperlink{class_student_a98446a5a0ac3c689799f68205a5ab054}{add\+Student\+Group}} (const student\+Group \&Group\+To\+Add)
 \begin{DoxyCompactList}\small\item\em Adds a new class to the student. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_student_a77616da1750d6197c7c28f50aa12e522}{remove\+Group}} (student\+Group Group\+To\+Remove)
+void \mbox{\hyperlink{class_student_a63083726dbf48d8e100c00f404e917b1}{remove\+Group}} (const student\+Group \&Group\+To\+Remove)
 \begin{DoxyCompactList}\small\item\em Removes a class from the student. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_student_ae8187d6467f3ebc287d99df8ac6da3d5}{is\+In\+UC}} (string uc) const
+bool \mbox{\hyperlink{class_student_a4a7094e40aa97136142c79438e174b7c}{is\+In\+UC}} (const string \&uc) const
 \begin{DoxyCompactList}\small\item\em Detects if the student is enrolled in a certain course. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_student_ae58b2cf232d0a305c6b767256ca622e9}{is\+In\+Class}} (string uc, string studgroup) const
+bool \mbox{\hyperlink{class_student_aa54f74ba5d636a30d3e8f9b7026c46ef}{is\+In\+Class}} (const string \&uc\+Code, const string \&student\+Group) const
 \begin{DoxyCompactList}\small\item\em Detects if the student is enrolled in a certain class from a couse. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -63,11 +63,11 @@ Parameterized constructor.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_student_a126ececb9fa08b66c0a5794739c66805}\label{class_student_a126ececb9fa08b66c0a5794739c66805}} 
+\mbox{\Hypertarget{class_student_a98446a5a0ac3c689799f68205a5ab054}\label{class_student_a98446a5a0ac3c689799f68205a5ab054}} 
 \index{Student@{Student}!addStudentGroup@{addStudentGroup}}
 \index{addStudentGroup@{addStudentGroup}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{addStudentGroup()}{addStudentGroup()}}
-{\footnotesize\ttfamily void Student\+::add\+Student\+Group (\begin{DoxyParamCaption}\item[{student\+Group}]{Group\+To\+Add }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Student\+::add\+Student\+Group (\begin{DoxyParamCaption}\item[{const student\+Group \&}]{Group\+To\+Add }\end{DoxyParamCaption})}
 
 
 
@@ -78,11 +78,11 @@ Adds a new class to the student.
 {\em Group\+To\+Add} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_student_af2b671e64af8a240f59652414a8b8047}\label{class_student_af2b671e64af8a240f59652414a8b8047}} 
+\mbox{\Hypertarget{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}\label{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}} 
 \index{Student@{Student}!getName@{getName}}
 \index{getName@{getName}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{getName()}{getName()}}
-{\footnotesize\ttfamily std\+::string Student\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily string Student\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -104,11 +104,11 @@ Gets all the classes the student belongs to.
 \begin{DoxyReturn}{Returns}
 A set of classes that the student belongs to. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_student_aa23a5caf2b0e59dbd9834cdd7f3f37a0}\label{class_student_aa23a5caf2b0e59dbd9834cdd7f3f37a0}} 
+\mbox{\Hypertarget{class_student_a703e8d2004faa7e2569ef2f8bb320f2d}\label{class_student_a703e8d2004faa7e2569ef2f8bb320f2d}} 
 \index{Student@{Student}!getStudentID@{getStudentID}}
 \index{getStudentID@{getStudentID}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{getStudentID()}{getStudentID()}}
-{\footnotesize\ttfamily std\+::string Student\+::get\+Student\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily string Student\+::get\+Student\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -117,11 +117,11 @@ Gets the student ID.
 \begin{DoxyReturn}{Returns}
 A string representing the student ID. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_student_ae58b2cf232d0a305c6b767256ca622e9}\label{class_student_ae58b2cf232d0a305c6b767256ca622e9}} 
+\mbox{\Hypertarget{class_student_aa54f74ba5d636a30d3e8f9b7026c46ef}\label{class_student_aa54f74ba5d636a30d3e8f9b7026c46ef}} 
 \index{Student@{Student}!isInClass@{isInClass}}
 \index{isInClass@{isInClass}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{isInClass()}{isInClass()}}
-{\footnotesize\ttfamily bool Student\+::is\+In\+Class (\begin{DoxyParamCaption}\item[{string}]{uc,  }\item[{string}]{studgroup }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Student\+::is\+In\+Class (\begin{DoxyParamCaption}\item[{const string \&}]{uc\+Code,  }\item[{const string \&}]{student\+Group }\end{DoxyParamCaption}) const}
 
 
 
@@ -129,19 +129,19 @@ Detects if the student is enrolled in a certain class from a couse.
 
 
 \begin{DoxyParams}{Parameters}
-{\em uc} & String representing a couse. \\
+{\em uc\+Code} & String representing a couse. \\
 \hline
-{\em studgroup} & String representing a class. \\
+{\em student\+Group} & String representing a class. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Returns true if the student is enrolled in a certain class form a course. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_student_ae8187d6467f3ebc287d99df8ac6da3d5}\label{class_student_ae8187d6467f3ebc287d99df8ac6da3d5}} 
+\mbox{\Hypertarget{class_student_a4a7094e40aa97136142c79438e174b7c}\label{class_student_a4a7094e40aa97136142c79438e174b7c}} 
 \index{Student@{Student}!isInUC@{isInUC}}
 \index{isInUC@{isInUC}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{isInUC()}{isInUC()}}
-{\footnotesize\ttfamily bool Student\+::is\+In\+UC (\begin{DoxyParamCaption}\item[{string}]{uc }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Student\+::is\+In\+UC (\begin{DoxyParamCaption}\item[{const string \&}]{uc }\end{DoxyParamCaption}) const}
 
 
 
@@ -155,11 +155,11 @@ Detects if the student is enrolled in a certain course.
 \begin{DoxyReturn}{Returns}
 Returns true if the student is enrolled in a certain course. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_student_a77616da1750d6197c7c28f50aa12e522}\label{class_student_a77616da1750d6197c7c28f50aa12e522}} 
+\mbox{\Hypertarget{class_student_a63083726dbf48d8e100c00f404e917b1}\label{class_student_a63083726dbf48d8e100c00f404e917b1}} 
 \index{Student@{Student}!removeGroup@{removeGroup}}
 \index{removeGroup@{removeGroup}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{removeGroup()}{removeGroup()}}
-{\footnotesize\ttfamily void Student\+::remove\+Group (\begin{DoxyParamCaption}\item[{student\+Group}]{Group\+To\+Remove }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Student\+::remove\+Group (\begin{DoxyParamCaption}\item[{const student\+Group \&}]{Group\+To\+Remove }\end{DoxyParamCaption})}
 
 
 
@@ -170,19 +170,19 @@ Removes a class from the student.
 {\em Group\+To\+Remove} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_student_a489c963162c2b5798154a3217815cfc8}\label{class_student_a489c963162c2b5798154a3217815cfc8}} 
+\mbox{\Hypertarget{class_student_add287224cef065944df9da7e8f38c116}\label{class_student_add287224cef065944df9da7e8f38c116}} 
 \index{Student@{Student}!setName@{setName}}
 \index{setName@{setName}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{setName()}{setName()}}
-{\footnotesize\ttfamily void Student\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Student\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{new\+Name }\end{DoxyParamCaption})}
 
 
 
-Sets the name of the student. 
+Sets the new\+Name of the student. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em name} & A string representing the name of the student \\
+{\em new\+Name} & A string representing the new\+Name of the student \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_student_aa061a0b43cd8c617edf76a28c31b5300}\label{class_student_aa061a0b43cd8c617edf76a28c31b5300}} 
