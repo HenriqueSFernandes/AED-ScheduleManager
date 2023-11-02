@@ -334,12 +334,15 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons){
                 if(end.getMinute()>0){
                     endnum+=0.5;
                 }
-                if(lessons[i].getUccode()=="Overlap"){
-                    lesson dummy= lesson("Overlap","Overlap",lessons[i].getWeekday(),startnum,endnum-startnum, lessons[i].getType());
+                if(lessons[j].getUccode()=="Overlap"){
+                    cout<<"OVERLAP"<<endl;
+                    cout<<"CONFLICT NUM "<<numofconflit<<endl;
+
+                    lesson dummy= lesson("Overlap","Overlap",lessons[j].getWeekday(),startnum,endnum-startnum, lessons[j].getType());
                     //lesson(const std::string &uccode, const std::string &studentgroup, const std::string &weekday, double startTime,
                     //           double duration, const std::string &type);
                     vector<lesson> lessonsInConflict=OverlapVector[numofconflit-1];
-                    lessonsInConflict.push_back(lessons[j]);
+                    lessonsInConflict.push_back(lessons[i]);
                     lessons.erase(lessons.begin()+j);
                     lessons.erase(lessons.begin()+i);
                     OverlapVector[numofconflit-1]=lessonsInConflict;
