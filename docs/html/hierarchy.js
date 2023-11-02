@@ -9,6 +9,7 @@ var hierarchy =
       [ "RemoveRequest", "class_remove_request.html", null ],
       [ "SwitchRequest", "class_switch_request.html", null ]
     ] ],
+    [ "Schedule", "class_schedule.html", null ],
     [ "Student", "class_student.html", null ],
     [ "studentGroup", "classstudent_group.html", null ]
 ];

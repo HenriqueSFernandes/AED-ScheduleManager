@@ -7,7 +7,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "Menu.h", "_menu_8h.html", "_menu_8h" ],
     [ "RemoveRequest.h", "_remove_request_8h_source.html", null ],
     [ "Request.h", "_request_8h.html", "_request_8h" ],
-    [ "Schedule.h", "_schedule_8h_source.html", null ],
+    [ "Schedule.h", "_schedule_8h.html", "_schedule_8h" ],
     [ "student.h", "student_8h.html", "student_8h" ],
     [ "studentGroup.h", "student_group_8h.html", "student_group_8h" ],
     [ "SwitchRequest.h", "_switch_request_8h.html", "_switch_request_8h" ]
