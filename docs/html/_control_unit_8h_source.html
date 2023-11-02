@@ -25,6 +25,12 @@
     <script type="text/javascript">
         DoxygenAwesomeDarkModeToggle.init()
     </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Remove hyperlink from class title
+            $(".title").find("a").contents().unwrap();
+        });
+    </script>
 </head>
 <body>
     <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -93,7 +99,7 @@ $(document).ready(function(){initNavTree('_control_unit_8h_source.html',''); ini
   <div class="headertitle"><div class="title">ControlUnit.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="_control_unit_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef PROJAED_CONTROLUNIT_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define PROJAED_CONTROLUNIT_H</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -111,7 +117,7 @@ $(document).ready(function(){initNavTree('_control_unit_8h_source.html',''); ini
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="lesson_8h.html">lesson.h</a>&quot;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_request_8h.html">Request.h</a>&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_add_request_8h.html">AddRequest.h</a>&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;RemoveRequest.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="_remove_request_8h.html">RemoveRequest.h</a>&quot;</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="_switch_request_8h.html">SwitchRequest.h</a>&quot;</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_control_unit.html">   25</a></span><span class="keyword">class </span><a class="code hl_class" href="class_control_unit.html">ControlUnit</a> {</div>
@@ -210,10 +216,11 @@ $(document).ready(function(){initNavTree('_control_unit_8h_source.html',''); ini
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="preprocessor">#endif </span><span class="comment">//PROJAED_CONTROLUNIT_H</span></div>
 <div class="ttc" id="a_add_request_8h_html"><div class="ttname"><a href="_add_request_8h.html">AddRequest.h</a></div></div>
+<div class="ttc" id="a_remove_request_8h_html"><div class="ttname"><a href="_remove_request_8h.html">RemoveRequest.h</a></div></div>
 <div class="ttc" id="a_request_8h_html"><div class="ttname"><a href="_request_8h.html">Request.h</a></div></div>
 <div class="ttc" id="a_switch_request_8h_html"><div class="ttname"><a href="_switch_request_8h.html">SwitchRequest.h</a></div></div>
 <div class="ttc" id="aclass_add_request_html"><div class="ttname"><a href="class_add_request.html">AddRequest</a></div><div class="ttdoc">Request of type add.</div><div class="ttdef"><b>Definition:</b> AddRequest.h:11</div></div>
-<div class="ttc" id="aclass_control_unit_html"><div class="ttname"><a href="class_control_unit.html">ControlUnit</a></div><div class="ttdoc">ControlUnit.h.</div><div class="ttdef"><b>Definition:</b> ControlUnit.h:25</div></div>
+<div class="ttc" id="aclass_control_unit_html"><div class="ttname"><a href="class_control_unit.html">ControlUnit</a></div><div class="ttdoc">Class used to handle the core functions of the program.</div><div class="ttdef"><b>Definition:</b> ControlUnit.h:25</div></div>
 <div class="ttc" id="aclass_control_unit_html_a060eca73f85969895ea2a9a8d45c6242"><div class="ttname"><a href="class_control_unit.html#a060eca73f85969895ea2a9a8d45c6242">ControlUnit::DisplayClassSchedule</a></div><div class="ttdeci">void DisplayClassSchedule()</div><div class="ttdoc">Displays the schedule of a class.</div><div class="ttdef"><b>Definition:</b> ControlUnit.cpp:224</div></div>
 <div class="ttc" id="aclass_control_unit_html_a0ef689e620a95451eefa8e79ec7f0c27"><div class="ttname"><a href="class_control_unit.html#a0ef689e620a95451eefa8e79ec7f0c27">ControlUnit::StudentsInAtLeastNUcs</a></div><div class="ttdeci">int StudentsInAtLeastNUcs(int n)</div><div class="ttdoc">Displays the students enrolled in at least N courses.</div><div class="ttdef"><b>Definition:</b> ControlUnit.cpp:291</div></div>
 <div class="ttc" id="aclass_control_unit_html_a1fb8c509bbdd9251e0928c1a985b18dd"><div class="ttname"><a href="class_control_unit.html#a1fb8c509bbdd9251e0928c1a985b18dd">ControlUnit::StudentsInUcs</a></div><div class="ttdeci">int StudentsInUcs(int n)</div><div class="ttdoc">Displays the students enrolled in exactly N courses.</div><div class="ttdef"><b>Definition:</b> ControlUnit.cpp:327</div></div>
@@ -245,7 +252,7 @@ $(document).ready(function(){initNavTree('_control_unit_8h_source.html',''); ini
 <div class="ttc" id="aclass_control_unit_html_ae4534630678efed0e019664047ccbaf9"><div class="ttname"><a href="class_control_unit.html#ae4534630678efed0e019664047ccbaf9">ControlUnit::courseStudents</a></div><div class="ttdeci">void courseStudents(string courseCode, function&lt; bool(Student, Student)&gt; func)</div><div class="ttdoc">Displays the students enrolled in a specific course.</div><div class="ttdef"><b>Definition:</b> ControlUnit.cpp:398</div></div>
 <div class="ttc" id="aclass_control_unit_html_aee98b9c11d79c8b97421631c38d146ba"><div class="ttname"><a href="class_control_unit.html#aee98b9c11d79c8b97421631c38d146ba">ControlUnit::CheckAdd</a></div><div class="ttdeci">bool CheckAdd(AddRequest *addrq)</div><div class="ttdoc">Checks if the request is possible.</div><div class="ttdef"><b>Definition:</b> ControlUnit.cpp:640</div></div>
 <div class="ttc" id="aclass_control_unit_html_af5a3f6ddaf797f640f51a718d3d998bf"><div class="ttname"><a href="class_control_unit.html#af5a3f6ddaf797f640f51a718d3d998bf">ControlUnit::CheckSwitch</a></div><div class="ttdeci">bool CheckSwitch(SwitchRequest *swrq)</div><div class="ttdoc">Checks if the request is possible.</div><div class="ttdef"><b>Definition:</b> ControlUnit.cpp:756</div></div>
-<div class="ttc" id="aclass_remove_request_html"><div class="ttname"><a href="class_remove_request.html">RemoveRequest</a></div><div class="ttdoc">Request of type remove.</div><div class="ttdef"><b>Definition:</b> RemoveRequest.h:10</div></div>
+<div class="ttc" id="aclass_remove_request_html"><div class="ttname"><a href="class_remove_request.html">RemoveRequest</a></div><div class="ttdoc">Request of type remove.</div><div class="ttdef"><b>Definition:</b> RemoveRequest.h:11</div></div>
 <div class="ttc" id="aclass_request_html"><div class="ttname"><a href="class_request.html">Request</a></div><div class="ttdoc">Class used to represent a generic request.</div><div class="ttdef"><b>Definition:</b> Request.h:11</div></div>
 <div class="ttc" id="aclass_student_html"><div class="ttname"><a href="class_student.html">Student</a></div><div class="ttdoc">Class used to represent a student.</div><div class="ttdef"><b>Definition:</b> student.h:15</div></div>
 <div class="ttc" id="aclass_switch_request_html"><div class="ttname"><a href="class_switch_request.html">SwitchRequest</a></div><div class="ttdoc">Request of type switch.</div><div class="ttdef"><b>Definition:</b> SwitchRequest.h:11</div></div>
@@ -257,7 +264,7 @@ $(document).ready(function(){initNavTree('_control_unit_8h_source.html',''); ini
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>ControlUnit.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_control_unit_8h.html">ControlUnit.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>

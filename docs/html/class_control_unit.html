@@ -25,6 +25,12 @@
     <script type="text/javascript">
         DoxygenAwesomeDarkModeToggle.init()
     </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Remove hyperlink from class title
+            $(".title").find("a").contents().unwrap();
+        });
+    </script>
 </head>
 <body>
     <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -97,7 +103,7 @@ $(document).ready(function(){initNavTree('class_control_unit.html',''); initResi
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="_control_unit_8h_source.html">ControlUnit.h</a>.  
+<p>Class used to handle the core functions of the program.  
  <a href="class_control_unit.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_control_unit_8h_source.html">ControlUnit.h</a>&gt;</code></p>
@@ -212,8 +218,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 <tr class="separator:a903d061dd69d145767e6c7a709f2c5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="_control_unit_8h_source.html">ControlUnit.h</a>. </p>
-<p >Class used to handle the core functions of the program. </p>
+<div class="textblock"><p >Class used to handle the core functions of the program. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aee98b9c11d79c8b97421631c38d146ba" name="aee98b9c11d79c8b97421631c38d146ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee98b9c11d79c8b97421631c38d146ba">&#9670;&nbsp;</a></span>CheckAdd()</h2>

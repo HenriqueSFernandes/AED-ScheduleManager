@@ -1,4 +1,4 @@
-/// @brief ControlUnit.h
+/// @file ControlUnit.h
 #ifndef PROJAED_CONTROLUNIT_H
 #define PROJAED_CONTROLUNIT_H
 

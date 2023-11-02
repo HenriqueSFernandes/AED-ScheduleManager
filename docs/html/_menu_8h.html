@@ -25,6 +25,12 @@
     <script type="text/javascript">
         DoxygenAwesomeDarkModeToggle.init()
     </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Remove hyperlink from class title
+            $(".title").find("a").contents().unwrap();
+        });
+    </script>
 </head>
 <body>
     <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -95,7 +101,7 @@ $(document).ready(function(){initNavTree('_menu_8h.html',''); initResizable(); }
   <div class="headertitle"><div class="title">Menu.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;ControlUnit.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_control_unit_8h_source.html">ControlUnit.h</a>&quot;</code><br />
 </div>
 <p><a href="_menu_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
