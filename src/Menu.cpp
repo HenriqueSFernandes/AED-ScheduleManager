@@ -25,7 +25,6 @@ void Menu::createMenu() {
         }
     }
     this->Control.LoadCSV(filename);
-    //this->Control.CheckIfThereAreConflicts();
     while (true) {
         std::cout << "Select an option:\n";
         std::cout << "1) Listing menu\n";
@@ -173,11 +172,6 @@ void Menu::studentMenu() {
     }
 }
 
-//teu se calhar so aquele da contagem de alunos em n cadeiras
-//eu so vou fazer o meu set com resultado ter ordens diferentes, pois dps o cout fica sempre por ordem do set res
-//Fu ver e vector tipon faço com vector na mesma a pesquisar por ordens dif?????
-// ou mudo para set
-//a notaçao dessa funcao e um quites estranha
 function<bool(Student, Student)> Menu::optionStudentMenu() {
     string option;
     while (true) {
@@ -207,49 +201,38 @@ void Menu::SeeStudentSchedule() {
 }
 
 void Menu::SeeClassSchedule() {
-
-    //std::cout<<"Enter the Uc Code"<<endl;
-    //string ucCode;
-    //cin>>ucCode;
-    //this->Control.DisplayClassSchedule(classCode,ucCode);
     this->Control.DisplayClassSchedule();
 }
 
 void Menu::SeeNumStudentsAtLeastNUCs() {
-
     std::cout << "Enter the N \n";
     int n;
     cin >> n;
     int result = this->Control.StudentsInAtLeastNUcs(n);
     std::cout << "There are " << result << " students with at least " << n << " UCs\n";
-
 }
 
 void Menu::SeeNumStudentsAtMostNUCs() {
-
     std::cout << "Enter the N \n";
     int n;
     cin >> n;
     int result = this->Control.StudentsInAtMostNUcs(n);
     std::cout << "There are " << result << " students with at least " << n << " UCs\n";
-
 }
 
 void Menu::SeeNumStudentsInExactNUCs() {
-
     std::cout << "Enter the N \n";
     int n;
     cin >> n;
     int result = this->Control.StudentsInUcs(n);
     std::cout << "There are " << result << " students with at least " << n << " UCs\n";
-
 }
 
 void Menu::SeeStudentsInUc(function<bool(Student, Student)> func) {
     std::cout << "Enter the UC code of the UC you want to see Students\n";
-    string uccode;
-    cin >> uccode;
-    this->Control.courseStudents(uccode, func);
+    string courseCode;
+    cin >> courseCode;
+    this->Control.courseStudents(courseCode, func);
 }
 
 void Menu::SeeStudentsInYear(function<bool(Student, Student)> func) {
@@ -282,7 +265,6 @@ void Menu::createRequest() {
 
         std::cin >> option;
 
-
         if (option == "1") {
             this->Control.createAdd();
         } else if (option == "2") {
@@ -295,6 +277,4 @@ void Menu::createRequest() {
             cout << "Invalid option.\n";
         }
     }
-
-
 }

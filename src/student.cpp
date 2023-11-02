@@ -46,7 +46,6 @@ void Student::setName(const string &newName) {
     this->name = newName;
 }
 
-// Overload the << operator to output Student objects
 ostream &operator<<(ostream &os, const Student &student) {
     os << "Student ID: " << student.getStudentID() << "\n";
     os << "Name: " << student.getName() << "\n";

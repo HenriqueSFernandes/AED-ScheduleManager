@@ -701,42 +701,47 @@ string ControlUnit::getClassInUc(string studentID, string ucCode) {
     return "invalidcourse";
 }
 
+// Checks if the request is possible.
 bool ControlUnit::CheckAdd(AddRequest *addrq) {
     bool result = true;
-    string upcode = addrq->getStudentID();
-    bool notmorethan7 = true;
+    string studentId = addrq->getStudentID();
+    bool notMoreThan7 = true;
     bool studentExists = false;
-    bool NotInMoreTHanONeClass = true;
+    bool notInMoreThanOneClass = true;
+
     MainKey key = {addrq->getUCCode(), addrq->getClassCode()};
-    bool existsclass = KeyToStudentGroup.find(key) != KeyToStudentGroup.end();
+    bool classExists = KeyToStudentGroup.find(key) != KeyToStudentGroup.end();
+
     map<string, int> HaveISeenThisUc;
     vector<lesson> lessonVec;
-    Student dummyStudent(addrq->getStudentID(), "", {});
-    auto student = StudentSet.find(dummyStudent);
+
+    // Checks if the student exists and if already has one class regarding the chosen course.
+    auto student = StudentSet.find(Student(addrq->getStudentID(), "", {}));
     if (student != StudentSet.end()) {
         studentExists = true;
-        NotInMoreTHanONeClass = !student->isInUC(addrq->getUCCode());
+        notInMoreThanOneClass = !student->isInUC(addrq->getUCCode());
 
+        // Retrieve lessons associated with the student's current classes.
         for (auto studentGroup: student->getStudentGroups()) {
-
-
             MainKey key = {studentGroup.getUcCode(), studentGroup.getClassCode()};
             set<lesson *> lessonSet = LessonMap[key];
             for (auto lesson: lessonSet) {
                 lessonVec.push_back(*lesson);
             }
         }
+        // Checks if the student has 7 or more courses.
         if (student->getStudentGroups().size() >= 7) {
-            notmorethan7 = false;
+            notMoreThan7 = false;
         }
     }
 
-    vector<studentGroup> mysgs;
+    vector<studentGroup> classes;
 
     map<MainKey, int> dummyMap = SizeMap;
+    // Iterate over all classes to find the ones related to the chosen course.
     for (auto sg: StudentGroupList) {
         if (sg.getUcCode() == addrq->getUCCode()) {
-            mysgs.push_back(sg);
+            classes.push_back(sg);
 
             if (sg.getClassCode() == addrq->getClassCode()) {
                 MainKey key = {sg.getUcCode(), sg.getClassCode()};
@@ -744,98 +749,104 @@ bool ControlUnit::CheckAdd(AddRequest *addrq) {
             }
         }
     }
+
     key = {addrq->getUCCode(), addrq->getClassCode()};
-    int oldBalance = NumBalanced(mysgs, SizeMap);
+    int oldBalance = NumBalanced(classes, SizeMap);
     set<lesson *> lessonSet = LessonMap[key];
-    int newbalance = NumBalanced(mysgs, dummyMap);
+    int newbalance = NumBalanced(classes, dummyMap);
+
     for (auto lesson: lessonSet) {
         lessonVec.push_back(*lesson);
     }
     int classSize = SizeMap[key];
+
+    // Checks if the class size exceeds maximum capacity.
     bool respectsCap = true;
     if (classSize >= cap) {
         respectsCap = false;
     }
 
     bool validBalance;
+    // Checks if the balance is 4 or better or if it's better than the old balance.
     if (newbalance <= 4 or newbalance <= oldBalance) {
-        //Se balanço menor ou igual a 4 ou não piorar
         validBalance = true;
     } else {
         validBalance = false;
     }
-    result = notmorethan7 and studentExists and NotInMoreTHanONeClass and respectsCap and existsclass and
+    result = notMoreThan7 and studentExists and notInMoreThanOneClass and respectsCap and classExists and
              not IsThereConflict(lessonVec) and validBalance;
     return result;
 }
 
 
 bool ControlUnit::CheckRemove(RemoveRequest *remrq) {
-    //Falta o isbalnced
     bool result = true;
 
-    string upcode = remrq->getStudentID();
-    bool notlessthan0 = true;
+    string studentID = remrq->getStudentID();
+    bool notLessThan0 = true;
     bool studentExists = false;
-    bool isinclass = true;
-    Student dummyStudent(remrq->getStudentID(), "", {});
-    auto student = StudentSet.find(dummyStudent);
+    bool isInClass = true;
+    auto student = StudentSet.find(Student(remrq->getStudentID(), "", {}));
+    // Checks if the student exists and if he has at least 2 courses.
     if (student != StudentSet.end()) {
         studentExists = true;
         if (student->getStudentGroups().size() <= 1) {
-            notlessthan0 = false;
+            notLessThan0 = false;
         }
-        isinclass = student->isInClass(remrq->getUCCode(), remrq->getClassCode());
+        isInClass = student->isInClass(remrq->getUCCode(), remrq->getClassCode());
 
     }
 
-    vector<studentGroup> mysgs;
+    vector<studentGroup> classes;
 
     map<MainKey, int> dummyMap = SizeMap;
-    for (auto sg: StudentGroupList) {
-        if (sg.getUcCode() == remrq->getUCCode()) {
-            mysgs.push_back(sg);
+    // Gets all the classes related to the chosen course.
+    for (auto studentGroup: StudentGroupList) {
+        if (studentGroup.getUcCode() == remrq->getUCCode()) {
+            classes.push_back(studentGroup);
 
-            if (sg.getClassCode() == remrq->getClassCode()) {
-                MainKey key = {sg.getUcCode(), sg.getClassCode()};
+            if (studentGroup.getClassCode() == remrq->getClassCode()) {
+                MainKey key = {studentGroup.getUcCode(), studentGroup.getClassCode()};
                 dummyMap[key]--;
             }
         }
     }
     MainKey key = {remrq->getUCCode(), remrq->getClassCode()};
-    int oldBalance = NumBalanced(mysgs, SizeMap);
-    int newbalance = NumBalanced(mysgs, dummyMap);
+    int oldBalance = NumBalanced(classes, SizeMap);
+    int newbalance = NumBalanced(classes, dummyMap);
     bool validBalance;
+    // Checks if the balance is 4 or better or if it's better than the old balance.
     if (newbalance <= 4 or newbalance <= oldBalance) {
-        //Se balanço menor ou igual a 4 ou não piorar
         validBalance = true;
     } else {
         validBalance = false;
     }
-    result = (notlessthan0 and studentExists and isinclass and validBalance);
+    result = (notLessThan0 and studentExists and isInClass and validBalance);
     return result;
 }
 
-
 bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
     bool result;
-    Student dummyStudent(swrq->getStudentID(), "", {});
-    string upcode = swrq->getStudentID();
+    string studentID = swrq->getStudentID();
     bool studentExists = false;
-    bool isinclass = true;
-    bool respectscap = true;
-    bool NotInMoreThan1Group = true;
-    MainKey key = {swrq->getUCCode2(), swrq->getClassCode2()};
-    bool existsclass = KeyToStudentGroup.find(key) != KeyToStudentGroup.end();
-    vector<lesson> mylessons;
-    auto student = StudentSet.find(dummyStudent);
+    bool isInClass = true;
+    bool respectsCap = true;
+    bool notInMoreThan1Class = true;
 
+    MainKey key = {swrq->getUCCode2(), swrq->getClassCode2()};
+    bool classExists = KeyToStudentGroup.find(key) != KeyToStudentGroup.end();
+    vector<lesson> mylessons;
+
+    auto student = StudentSet.find(Student(swrq->getStudentID(), "", {}));
+
+    // Checks if the student exists and if he is part of the given class.
     if (student != StudentSet.end()) {
         studentExists = true;
-        isinclass = student->isInClass(swrq->getUCCode1(), swrq->getClassCode1());
+        isInClass = student->isInClass(swrq->getUCCode1(), swrq->getClassCode1());
         if (swrq->getUCCode1() != swrq->getUCCode2()) {
-            NotInMoreThan1Group = !student->isInUC(swrq->getUCCode2());
+            notInMoreThan1Class = !student->isInUC(swrq->getUCCode2());
         }
+        // Gets current lessons.
         for (auto sg: student->getStudentGroups()) {
             MainKey key = {sg.getUcCode(), sg.getClassCode()};
             if (sg.getUcCode() + sg.getClassCode() != swrq->getUCCode1() + swrq->getClassCode1()) {
@@ -845,6 +856,7 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
                 }
             }
         }
+        // Gets new lessons.
         MainKey key = {swrq->getUCCode2(), swrq->getClassCode2()};
         set<lesson *> lessonSet = LessonMap[key];
         for (auto les: lessonSet) {
@@ -856,18 +868,18 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
     key = {swrq->getUCCode2(), swrq->getClassCode2()};
     int classSize = SizeMap[key];
     if (classSize >= cap) {
-        respectscap = false;
+        respectsCap = false;
     }
 
     bool validBalanceRem;
     bool validBalanceAdd;
 
-    vector<studentGroup> mysgsUc1;
-    vector<studentGroup> mysgsUc2;
+    vector<studentGroup> oldClasses;
+    vector<studentGroup> newClasses;
     map<MainKey, int> dummyMap = SizeMap;
     for (auto sg: StudentGroupList) {
         if (sg.getUcCode() == swrq->getUCCode1()) {
-            mysgsUc1.push_back(sg);
+            oldClasses.push_back(sg);
 
             if (sg.getClassCode() == swrq->getClassCode1()) {
                 MainKey key = {sg.getUcCode(), sg.getClassCode()};
@@ -875,7 +887,7 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
             }
         }
         if (sg.getUcCode() == swrq->getUCCode2()) {
-            mysgsUc2.push_back(sg);
+            newClasses.push_back(sg);
 
             if (sg.getClassCode() == swrq->getClassCode2()) {
                 MainKey key = {sg.getUcCode(), sg.getClassCode()};
@@ -884,25 +896,25 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
         }
     }
 
-    int oldBalance1 = NumBalanced(mysgsUc1, SizeMap);
-    int newbalance1 = NumBalanced(mysgsUc1, dummyMap);
+    int oldBalance1 = NumBalanced(oldClasses, SizeMap);
+    int newbalance1 = NumBalanced(oldClasses, dummyMap);
 
+    // Checks if the balance is 4 or better or if it's better than the old balance.
     if (newbalance1 <= 4 or newbalance1 <= oldBalance1) {
-        //Se balanço menor ou igual a 4 ou não piorar
         validBalanceRem = true;
     } else {
         validBalanceRem = false;
     }
-    int oldBalance2 = NumBalanced(mysgsUc2, SizeMap);
-    int newbalance2 = NumBalanced(mysgsUc2, dummyMap);
+    int oldBalance2 = NumBalanced(newClasses, SizeMap);
+    int newbalance2 = NumBalanced(newClasses, dummyMap);
+    // Checks if the balance is 4 or better or if it's better than the old balance.
     if (newbalance2 <= 4 or newbalance2 <= oldBalance2) {
-        //Se balanço menor ou igual a 4 ou não piorar
         validBalanceAdd = true;
     } else {
         validBalanceAdd = false;
     }
 
-    result = (existsclass and studentExists and isinclass and respectscap and NotInMoreThan1Group and !conflict and
+    result = (classExists and studentExists and isInClass and respectsCap and notInMoreThan1Class and !conflict and
               validBalanceAdd and validBalanceRem);
     return result;
 
@@ -911,13 +923,8 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
 
 bool ControlUnit::processRequest(Request *request, bool bypassStack) {
     bool isvalid;
+    // Get type of request and process it.
     if (request->getType() == "add") {
-        //chamar checker de uc mais de 7
-        //ver se turma nao ultrapassa cap
-        // ver se nao ha conflito de horario
-        // ver se nao esta em mais do que uma turma na uc
-        //ver balanço
-        cout << "Detetado como add request" << endl;
         isvalid = CheckAdd(dynamic_cast<AddRequest *>(request));
         if (isvalid) {
             processAddRequest(dynamic_cast<AddRequest *>(request));
@@ -931,9 +938,6 @@ bool ControlUnit::processRequest(Request *request, bool bypassStack) {
         }
 
     } else if (request->getType() == "remove") {
-        //ver se ele esta na cadeira e na turma
-        //ver balanço
-        cout << "Detetado como remove request" << endl;
         isvalid = CheckRemove(dynamic_cast<RemoveRequest *>(request));
         if (isvalid) {
             processRemoveRequest(dynamic_cast<RemoveRequest *>(request));
@@ -947,11 +951,6 @@ bool ControlUnit::processRequest(Request *request, bool bypassStack) {
         }
 
     } else if (request->getType() == "switch") {
-        //ver se existe vaga na que tu vais
-        //ver a cap
-        // ver se nao ha confito
-        // ver balanço
-        cout << "Detetado como switch request" << endl;
         isvalid = CheckSwitch(dynamic_cast<SwitchRequest *>(request));
         if (isvalid) {
             processSwitchRequest(dynamic_cast<SwitchRequest *>(request));
@@ -973,7 +972,6 @@ void ControlUnit::processAddRequest(AddRequest *addRequest) {
     string upCode = addRequest->getStudentID();
     string classCode = addRequest->getClassCode();
     string ucCode = addRequest->getUCCode();
-    cout << "hey i got the request" << upCode << "/" << classCode << "/" << ucCode;
     Student dummyStudent(addRequest->getStudentID(), "", {});
     auto student = StudentSet.find(dummyStudent);
     if (student != StudentSet.end()) {
@@ -995,7 +993,6 @@ void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
     string upCode = removeRequest->getStudentID();
     string classCode = removeRequest->getClassCode();
     string ucCode = removeRequest->getUCCode();
-    cout << "hey i got the request" << upCode << "/" << classCode << "/" << ucCode;
     Student dummyStudent(removeRequest->getStudentID(), "", {});
     auto student = StudentSet.find(dummyStudent);
     if (student != StudentSet.end()) {
@@ -1098,6 +1095,7 @@ void ControlUnit::undoRequest(int n) {
 void ControlUnit::saveChanges() {
     fstream out("../data/students_classes_updated.csv", ios::out | ios::trunc);
     out << "StudentCode,StudentName,UcCode,ClassCode\r\n";
+    // Iterate over every student and write the respective classes to the file.
     for (Student s: StudentSet)
         for (const auto &studentGroup: s.getStudentGroups())
             out << s.getStudentID() << ',' << s.getName() << ',' << studentGroup.getUcCode() << ','

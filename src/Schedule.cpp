@@ -27,11 +27,11 @@ Schedule::Schedule(vector<lesson> lessons) {
         }
         int cellWidth = 15;
         int numRows = size * 3;
-        std::string contentCadeira = lesson.getUccode();
-        std::string contentType = lesson.getType();
+        std::string courseCode = lesson.getUccode();
+        std::string lessonType = lesson.getType();
 
 
-        std::string cellContent = "| " + contentCadeira + "-" + contentType;
+        std::string cellContent = "| " + courseCode + "-" + lessonType;
         while (cellContent.size() < cellWidth - 2) {
             cellContent += " ";
         }
