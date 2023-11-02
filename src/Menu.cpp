@@ -24,7 +24,7 @@ void Menu::createMenu() {
             cout << "Invalid option, choose again.\n";
         }
     }
-    this->Control.loadCSV(filename);
+    this->Control.LoadCSV(filename);
     //this->Control.CheckIfThereAreConflicts();
     while (true) {
         std::cout << "Select an option:\n";
@@ -186,7 +186,6 @@ function<bool(Student, Student)> Menu::optionStudentMenu() {
         cout << "2) UP code descending\n";
         cout << "3) Alphabetical ascending\n";
         cout << "4) Alphabetical descending\n";
-        cout << "5) Go back\n";
         cin >> option;
         if (option == "1") {
             return [](Student a, Student b) { return a.getStudentID() < b.getStudentID(); };
@@ -196,8 +195,6 @@ function<bool(Student, Student)> Menu::optionStudentMenu() {
             return [](Student a, Student b) { return a.getName() < b.getName(); };
         } else if (option == "4") {
             return [](Student a, Student b) { return a.getName() > b.getName(); };
-        } else if (option == "5") {
-            break;
         } else {
             cout << "Invalid option." << endl;
         }

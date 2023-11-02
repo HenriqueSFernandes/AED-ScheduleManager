@@ -54,7 +54,7 @@ public :
      * @brief Loads all the csv files.
      * @param studentFilename A string that represents the student csv, it can either be the original version or the updated version.
      */
-    void loadCSV(string studentFilename);
+    void LoadCSV(string studentFilename);
 
     /**
      *  @brief Loads the classes.csv file (which has all the lessons).

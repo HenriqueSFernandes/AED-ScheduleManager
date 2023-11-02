@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void ControlUnit::loadCSV(string studentFilename) {
+void ControlUnit::LoadCSV(string studentFilename) {
     this->filename = studentFilename;
     ControlUnit::LoadClassesPerUcCSV();
     cout << "Loaded classes and courses." << endl;
@@ -21,62 +21,64 @@ void ControlUnit::loadCSV(string studentFilename) {
 }
 
 void ControlUnit::LoadClassesPerUcCSV() {
-    //ppppppppppppppp
-    string line;
-    string ucCode, classCode;
-    ifstream inFile("../data/classes_per_uc.csv");
+    string ucCode;
+    string classCode;
+    ifstream classes_per_uc("../data/classes_per_uc.csv");
 
-    if (!inFile) {
-        cerr << "Failed to open file" << endl;
+    if (!classes_per_uc) {
+        cerr << "Failed to open file\n";
         return;
     }
 
-    getline(inFile, line); // Read and discard the header line
+    string line;
+    getline(classes_per_uc, line); // Ignore header
 
-    while (getline(inFile, line)) {
-        stringstream is(line);
-        getline(is, ucCode, ',');
-        getline(is, classCode, '\r');
+    while (getline(classes_per_uc, line)) {
+        istringstream iss(line);
+        getline(iss, ucCode, ',');
+        getline(iss, classCode, '\r');
 
         studentGroup *group = new studentGroup(ucCode, classCode);
-        //cout << *group << endl;
         StudentGroupList.push_back(*group);
 
         MainKey groupKey = {ucCode, classCode};
         KeyToStudentGroup[groupKey] = group;
     }
 
-    inFile.close();
+    classes_per_uc.close();
 }
 
 void ControlUnit::LoadClassesCSV() {
-    //ppppppppppppppppppppppp
     string line;
-    string ClassCode, UcCode, Weekday, StartHour, Duration, Type;
-    ifstream inFile("../data/classes.csv");
+    string classCode;
+    string ucCode;
+    string weekday;
+    string startTime;
+    string duration;
+    string type;
+    ifstream classes("../data/classes.csv");
 
-    if (!inFile) {
-        cerr << "Failed to open file" << endl;
+    if (!classes) {
+        cerr << "Failed to open file\n";
         return;
     }
 
-    getline(inFile, line); // Read and discard the header line
+    getline(classes, line); // Ignore header
 
-    while (getline(inFile, line)) {
-        stringstream is(line);
-        getline(is, ClassCode, ',');
-        getline(is, UcCode, ',');
-        getline(is, Weekday, ',');
-        getline(is, StartHour, ',');
-        getline(is, Duration, ',');
-        getline(is, Type, '\r');
+    while (getline(classes, line)) {
+        istringstream iss(line);
+        getline(iss, classCode, ',');
+        getline(iss, ucCode, ',');
+        getline(iss, weekday, ',');
+        getline(iss, startTime, ',');
+        getline(iss, duration, ',');
+        getline(iss, type, '\r');
 
 
-        lesson *Lesson = new lesson(UcCode, ClassCode, Weekday, stod(StartHour), stod(Duration), Type);
-        //cout << *Lesson << endl;
+        lesson *Lesson = new lesson(ucCode, classCode, weekday, stod(startTime), stod(duration), type);
         LessonVector.push_back(*Lesson);
 
-        MainKey groupKey = {UcCode, ClassCode};
+        MainKey groupKey = {ucCode, classCode};
         if (LessonMap.find(groupKey) == LessonMap.end()) {
             std::set<lesson *> newSet;
             newSet.insert(Lesson);
@@ -88,28 +90,36 @@ void ControlUnit::LoadClassesCSV() {
         }
     }
 
-    inFile.close();
+    classes.close();
 }
 
 // ppppppppp
 void ControlUnit::LoadStudentsClassesCSV() {
     string line;
-    string stCode, stName, ucCode, classCode;
-    ifstream inFile;
-    inFile.open(filename);
-    getline(inFile, line);
-    //Reading the first line with actual data
-    getline(inFile, line);
-    stringstream is(line);
-    getline(is, stCode, ',');
-    getline(is, stName, ',');
-    getline(is, ucCode, ',');
-    getline(is, classCode, '\r');
-    string prevStCode = stCode;
+    string studentID;
+    string name;
+    string ucCode;
+    string classCode;
+    ifstream students_classes(filename);
+
+    if (!students_classes){
+        cerr << "Failed to open file\n";
+    }
+
+    getline(students_classes, line); // Ignore header
+
+    getline(students_classes, line);
+    istringstream iss(line);
+
+    getline(iss, studentID, ',');
+    getline(iss, name, ',');
+    getline(iss, ucCode, ',');
+    getline(iss, classCode, '\r');
+    string prevStCode = studentID;
     set<studentGroup> cpu;
     cpu.insert(studentGroup(ucCode, classCode));
 
-    Student st_class(prevStCode, stName, cpu);
+    Student st_class(prevStCode, name, cpu);
     MainKey key = {ucCode, classCode};
     if (SizeMap.find(key) == SizeMap.end()) {
         SizeMap[key] = 1;
@@ -118,16 +128,16 @@ void ControlUnit::LoadStudentsClassesCSV() {
     }
 
 
-    while (getline(inFile, line)) {
+    while (getline(students_classes, line)) {
         stringstream is(line);
-        getline(is, stCode, ',');
-        if (prevStCode != stCode) {
-            st_class = Student(prevStCode, stName, cpu);
+        getline(is, studentID, ',');
+        if (prevStCode != studentID) {
+            st_class = Student(prevStCode, name, cpu);
             StudentSet.insert(st_class);
             cpu.clear();
-            prevStCode = stCode;
+            prevStCode = studentID;
         }
-        getline(is, stName, ',');
+        getline(is, name, ',');
         getline(is, ucCode, ',');
         getline(is, classCode, '\r');
         cpu.insert(studentGroup(ucCode, classCode));
@@ -148,9 +158,9 @@ void ControlUnit::LoadStudentsClassesCSV() {
         SizeMap[key]++;
     }
 
-    st_class = Student(prevStCode, stName, cpu);
+    st_class = Student(prevStCode, name, cpu);
     StudentSet.insert(st_class);
-    inFile.close();
+    students_classes.close();
 
 
 }
@@ -196,7 +206,7 @@ void ControlUnit::DisplayStudentSchedule() {
         }
 
     }
-    cout << "Displaying schedule for student " << student->getName()  << " " << student->getStudentID() << ".\n";
+    cout << "Displaying schedule for student " << student->getName() << " " << student->getStudentID() << ".\n";
     if (option == 1) {
         for (auto el: lessonSet) {
             int width = 90; // Calculate the width based on the content length
@@ -214,22 +224,22 @@ void ControlUnit::DisplayStudentSchedule() {
     }
     if (option == 2 and found) {
         cout << " is there conflict" << IsThereConflict(myVec) << endl;
-        vector<vector<lesson> >overlapsVector;
-        overlapsVector=formatConflicts(myVec);
+        vector<vector<lesson> > overlapsVector;
+        overlapsVector = formatConflicts(myVec);
         Schedule StudentSchedule = Schedule(myVec);
         StudentSchedule.display();
-        int num=1;
-        for( auto overlap : overlapsVector){
+        int num = 1;
+        for (auto overlap: overlapsVector) {
             int width = 108; // Calculate the width based on the content length
             std::string horizontalLine(width, '-');
 
             std::cout << '+' << horizontalLine << '+' << std::endl;
-            std::cout<<"    " << "Overlap"<<" # "<<num<< std::endl;
+            std::cout << "    " << "Overlap" << " # " << num << std::endl;
             std::cout << '+' << horizontalLine << '+' << std::endl;
 
 
-            for( auto lesson: overlap){
-                cout<<" "<<lesson<<endl;
+            for (auto lesson: overlap) {
+                cout << " " << lesson << endl;
                 std::cout << '-' << horizontalLine << '-' << std::endl;
             }
 
@@ -307,56 +317,60 @@ void ControlUnit::DisplayClassSchedule() {
 
 
 }
-vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons){
-    cout<<"HERE"<<endl;
+
+vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
+    cout << "HERE" << endl;
     vector<vector<lesson>> OverlapVector;
-    int numofconflit=0;
+    int numofconflit = 0;
     for (int i = 0; i < lessons.size() - 1; i++) {
         for (int j = i + 1; j < lessons.size(); j++) {
 
-            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and  lessons[j].getStartTime() < lessons[i].getEndTime();
+            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and
+                           lessons[j].getStartTime() < lessons[i].getEndTime();
 
 
             bool sameDay = lessons[i].getWeekday() == lessons[j].getWeekday();
             if (overLap and sameDay) {
 
-                cout<<"HIT HIT HIT HIT"<<endl;
-                cout<<"element 1"<<lessons[i]<<endl;
-                cout<<"element 2"<<lessons[j]<<endl;
+                cout << "HIT HIT HIT HIT" << endl;
+                cout << "element 1" << lessons[i] << endl;
+                cout << "element 2" << lessons[j] << endl;
 
-                lessontime start=min(lessons[i].getStartTime(),lessons[j].getStartTime());
-                lessontime end= max(lessons[i].getEndTime(),lessons[j].getEndTime());
-                double startnum=start.getHour();
-                if(start.getMinute()>0){
-                    startnum+=0.5;
+                lessontime start = min(lessons[i].getStartTime(), lessons[j].getStartTime());
+                lessontime end = max(lessons[i].getEndTime(), lessons[j].getEndTime());
+                double startnum = start.getHour();
+                if (start.getMinute() > 0) {
+                    startnum += 0.5;
                 }
-                double endnum=end.getHour();
-                if(end.getMinute()>0){
-                    endnum+=0.5;
+                double endnum = end.getHour();
+                if (end.getMinute() > 0) {
+                    endnum += 0.5;
                 }
-                if(lessons[j].getUccode()=="Overlap"){
-                    cout<<"OVERLAP"<<endl;
-                    cout<<"CONFLICT NUM "<<numofconflit<<endl;
+                if (lessons[j].getUccode() == "Overlap") {
+                    cout << "OVERLAP" << endl;
+                    cout << "CONFLICT NUM " << numofconflit << endl;
 
-                    lesson dummy= lesson("Overlap","Overlap",lessons[j].getWeekday(),startnum,endnum-startnum, lessons[j].getType());
+                    lesson dummy = lesson("Overlap", "Overlap", lessons[j].getWeekday(), startnum, endnum - startnum,
+                                          lessons[j].getType());
                     //lesson(const std::string &uccode, const std::string &studentgroup, const std::string &weekday, double startTime,
                     //           double duration, const std::string &type);
-                    vector<lesson> lessonsInConflict=OverlapVector[numofconflit-1];
+                    vector<lesson> lessonsInConflict = OverlapVector[numofconflit - 1];
                     lessonsInConflict.push_back(lessons[i]);
-                    lessons.erase(lessons.begin()+j);
-                    lessons.erase(lessons.begin()+i);
-                    OverlapVector[numofconflit-1]=lessonsInConflict;
+                    lessons.erase(lessons.begin() + j);
+                    lessons.erase(lessons.begin() + i);
+                    OverlapVector[numofconflit - 1] = lessonsInConflict;
                     lessons.push_back(dummy);
-                }else{
+                } else {
                     numofconflit++;
-                    lesson dummy= lesson("Overlap","Overlap",lessons[i].getWeekday(),startnum,endnum-startnum, to_string(numofconflit));
+                    lesson dummy = lesson("Overlap", "Overlap", lessons[i].getWeekday(), startnum, endnum - startnum,
+                                          to_string(numofconflit));
                     //lesson(const std::string &uccode, const std::string &studentgroup, const std::string &weekday, double startTime,
                     //           double duration, const std::string &type);
                     vector<lesson> lessonsInConflict;
                     lessonsInConflict.push_back(lessons[i]);
                     lessonsInConflict.push_back(lessons[j]);
-                    lessons.erase(lessons.begin()+j);
-                    lessons.erase(lessons.begin()+i);
+                    lessons.erase(lessons.begin() + j);
+                    lessons.erase(lessons.begin() + i);
 
 
                     OverlapVector.push_back(lessonsInConflict);
@@ -591,7 +605,8 @@ bool ControlUnit::IsThereConflict(vector<lesson> lessons) {
 
     for (int i = 0; i < lessons.size() - 1; i++) {
         for (int j = i + 1; j < lessons.size(); j++) {
-            bool overLap =  lessons[i].getStartTime() < lessons[j].getEndTime() and  lessons[j].getStartTime() < lessons[i].getEndTime();
+            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and
+                           lessons[j].getStartTime() < lessons[i].getEndTime();
 
             bool bothPratical = (lessons[i].getType() == "TP" or lessons[i].getType() == "PL") and
                                 (lessons[j].getType() == "TP" or lessons[j].getType() == "PL");
