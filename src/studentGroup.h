@@ -1,20 +1,39 @@
+/// @file studentGroup.h
 #ifndef STUDENTGROUP_H
 #define STUDENTGROUP_H
 
 #include <iostream>
 #include <string>
 
+/**
+ * @brief Class used to represent a class (group of students).
+ */
 class studentGroup {
 public:
-    // Constructors
+    /**
+     * @brief Default constructor.
+     */
     studentGroup() = default;
 
-    studentGroup(const std::string &uccode, const std::string &classCode);
+    /**
+     * @brief Parameterized constructor.
+     * @param ucCode String representing the course code.
+     * @param classCode String representing the class code.
+     */
+    studentGroup(const std::string &ucCode, const std::string &classCode);
 
+    /**
+     * @brief Gets the class code.
+     * @return A string representing the class code.
+     */
     const std::string &getClassCode() const {
         return classCode;
     }
 
+    /**
+     * @brief Gets the course code.
+     * @return A string representing the course code.
+     */
     const std::string &getUcCode() const {
         return UcCode;
     }

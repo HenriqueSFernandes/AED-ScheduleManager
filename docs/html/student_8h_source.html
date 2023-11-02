@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('student_8h_source.html',''); initResiz
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;set&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;tuple&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;studentGroup.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="student_group_8h.html">studentGroup.h</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
@@ -120,13 +120,13 @@ $(document).ready(function(){initNavTree('student_8h_source.html',''); initResiz
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_student.html#aa061a0b43cd8c617edf76a28c31b5300">setStudentID</a>(<span class="keyword">const</span> std::string &amp;studentId);</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_student.html#a98446a5a0ac3c689799f68205a5ab054">addStudentGroup</a>(<span class="keyword">const</span> studentGroup&amp; GroupToAdd);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_student.html#a98446a5a0ac3c689799f68205a5ab054">addStudentGroup</a>(<span class="keyword">const</span> <a class="code hl_class" href="classstudent_group.html">studentGroup</a>&amp; GroupToAdd);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_student.html#a63083726dbf48d8e100c00f404e917b1">removeGroup</a>(<span class="keyword">const</span> studentGroup&amp; GroupToRemove);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_student.html#a63083726dbf48d8e100c00f404e917b1">removeGroup</a>(<span class="keyword">const</span> <a class="code hl_class" href="classstudent_group.html">studentGroup</a>&amp; GroupToRemove);</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_student.html#a4a7094e40aa97136142c79438e174b7c">isInUC</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; uc) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_student.html#aa54f74ba5d636a30d3e8f9b7026c46ef">isInClass</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; ucCode, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; studentGroup) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_student.html#aa54f74ba5d636a30d3e8f9b7026c46ef">isInClass</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; ucCode, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code hl_class" href="classstudent_group.html">studentGroup</a>) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code hl_class" href="class_student.html">Student</a> &amp;other)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">return</span> studentID &lt; other.studentID;</div>
@@ -157,6 +157,8 @@ $(document).ready(function(){initNavTree('student_8h_source.html',''); initResiz
 <div class="ttc" id="aclass_student_html_ad1acbcd2c458613945d4bf4618d1ae47"><div class="ttname"><a href="class_student.html#ad1acbcd2c458613945d4bf4618d1ae47">Student::Student</a></div><div class="ttdeci">Student()=default</div><div class="ttdoc">Default constructor.</div></div>
 <div class="ttc" id="aclass_student_html_ad3420b04fc1bb5dcc413bfa771db896d"><div class="ttname"><a href="class_student.html#ad3420b04fc1bb5dcc413bfa771db896d">Student::getStudentGroups</a></div><div class="ttdeci">set&lt; studentGroup &gt; getStudentGroups() const</div><div class="ttdoc">Gets all the classes the student belongs to.</div><div class="ttdef"><b>Definition:</b> student.cpp:24</div></div>
 <div class="ttc" id="aclass_student_html_add287224cef065944df9da7e8f38c116"><div class="ttname"><a href="class_student.html#add287224cef065944df9da7e8f38c116">Student::setName</a></div><div class="ttdeci">void setName(const std::string &amp;newName)</div><div class="ttdoc">Sets the newName of the student.</div><div class="ttdef"><b>Definition:</b> student.cpp:45</div></div>
+<div class="ttc" id="aclassstudent_group_html"><div class="ttname"><a href="classstudent_group.html">studentGroup</a></div><div class="ttdoc">Class used to represent a class (group of students).</div><div class="ttdef"><b>Definition:</b> studentGroup.h:11</div></div>
+<div class="ttc" id="astudent_group_8h_html"><div class="ttname"><a href="student_group_8h.html">studentGroup.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,48 +1,48 @@
 \hypertarget{student_group_8h_source}{}\doxysection{student\+Group.\+h}
 \label{student_group_8h_source}\index{src/studentGroup.h@{src/studentGroup.h}}
-
+\mbox{\hyperlink{student_group_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STUDENTGROUP\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STUDENTGROUP\_H}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{class }studentGroup \{}
-\DoxyCodeLine{8 \textcolor{keyword}{public}:}
-\DoxyCodeLine{9     \textcolor{comment}{// Constructors}}
-\DoxyCodeLine{10     studentGroup() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12     studentGroup(\textcolor{keyword}{const} std::string \&uccode, \textcolor{keyword}{const} std::string \&classCode);}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14     \textcolor{keyword}{const} std::string \&getClassCode()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{15         \textcolor{keywordflow}{return} classCode;}
-\DoxyCodeLine{16     \}}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef STUDENTGROUP\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define STUDENTGROUP\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classstudent_group}{studentGroup}} \{}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{classstudent_group_aaada77eb8eb7cc3a379498f39b07cd95}{studentGroup}}() = \textcolor{keywordflow}{default};}
 \DoxyCodeLine{17 }
-\DoxyCodeLine{18     \textcolor{keyword}{const} std::string \&getUcCode()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{19         \textcolor{keywordflow}{return} UcCode;}
-\DoxyCodeLine{20     \}}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} studentGroup \&other)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{23         \textcolor{comment}{// Define a comparison logic here based on your criteria.}}
-\DoxyCodeLine{24         \textcolor{comment}{// For example, you can compare based on class code or other fields.}}
-\DoxyCodeLine{25         \textcolor{keywordflow}{return} this-\/>classCode + this-\/>UcCode < other.classCode + other.UcCode;}
-\DoxyCodeLine{26     \}}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28     \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} studentGroup \&group) \{}
-\DoxyCodeLine{29         os << \textcolor{stringliteral}{"{}UcCode: "{}} << group.UcCode << \textcolor{stringliteral}{"{}, Class Code: "{}} << group.classCode;}
-\DoxyCodeLine{30         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{23     \mbox{\hyperlink{classstudent_group_aaada77eb8eb7cc3a379498f39b07cd95}{studentGroup}}(\textcolor{keyword}{const} std::string \&ucCode, \textcolor{keyword}{const} std::string \&classCode);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{29     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classstudent_group_a378caaf4944f9c41e164c729e9dacaf7}{getClassCode}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{30         \textcolor{keywordflow}{return} classCode;}
 \DoxyCodeLine{31     \}}
 \DoxyCodeLine{32 }
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34 \textcolor{keyword}{private}:}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36     std::string classCode;}
-\DoxyCodeLine{37     std::string UcCode;}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40 \};}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{37     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classstudent_group_ad7c965a71b623d190fe73f2e95204478}{getUcCode}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{38         \textcolor{keywordflow}{return} UcCode;}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{classstudent_group}{studentGroup}} \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{42         \textcolor{comment}{// Define a comparison logic here based on your criteria.}}
+\DoxyCodeLine{43         \textcolor{comment}{// For example, you can compare based on class code or other fields.}}
+\DoxyCodeLine{44         \textcolor{keywordflow}{return} this-\/>classCode + this-\/>UcCode < other.classCode + other.UcCode;}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} \mbox{\hyperlink{classstudent_group}{studentGroup}} \&group) \{}
+\DoxyCodeLine{48         os << \textcolor{stringliteral}{"{}UcCode: "{}} << group.UcCode << \textcolor{stringliteral}{"{}, Class Code: "{}} << group.classCode;}
+\DoxyCodeLine{49         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{private}:}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     std::string classCode;}
+\DoxyCodeLine{56     std::string UcCode;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

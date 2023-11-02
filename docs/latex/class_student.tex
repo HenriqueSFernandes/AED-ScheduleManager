@@ -15,11 +15,11 @@ Class used to represent a student.
 \mbox{\Hypertarget{class_student_ad1acbcd2c458613945d4bf4618d1ae47}\label{class_student_ad1acbcd2c458613945d4bf4618d1ae47}} 
 {\bfseries Student} ()=default
 \begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_student_adb31d1d0a15d674d92d8dcdefd4e660b}{Student}} (string student\+Id, string name, set$<$ student\+Group $>$ group)
+\mbox{\hyperlink{class_student_adb31d1d0a15d674d92d8dcdefd4e660b}{Student}} (string student\+Id, string name, set$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$ group)
 \begin{DoxyCompactList}\small\item\em Parameterized constructor. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_student_a703e8d2004faa7e2569ef2f8bb320f2d}{get\+Student\+ID}} () const
 \begin{DoxyCompactList}\small\item\em Gets the student ID. \end{DoxyCompactList}\item 
-set$<$ student\+Group $>$ \mbox{\hyperlink{class_student_ad3420b04fc1bb5dcc413bfa771db896d}{get\+Student\+Groups}} () const
+set$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$ \mbox{\hyperlink{class_student_ad3420b04fc1bb5dcc413bfa771db896d}{get\+Student\+Groups}} () const
 \begin{DoxyCompactList}\small\item\em Gets all the classes the student belongs to. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}{get\+Name}} () const
 \begin{DoxyCompactList}\small\item\em Gets the name of the student. \end{DoxyCompactList}\item 
@@ -27,13 +27,13 @@ void \mbox{\hyperlink{class_student_add287224cef065944df9da7e8f38c116}{set\+Name
 \begin{DoxyCompactList}\small\item\em Sets the new\+Name of the student. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_student_aa061a0b43cd8c617edf76a28c31b5300}{set\+Student\+ID}} (const std\+::string \&student\+Id)
 \begin{DoxyCompactList}\small\item\em Sets the student ID. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_student_a98446a5a0ac3c689799f68205a5ab054}{add\+Student\+Group}} (const student\+Group \&Group\+To\+Add)
+void \mbox{\hyperlink{class_student_a98446a5a0ac3c689799f68205a5ab054}{add\+Student\+Group}} (const \mbox{\hyperlink{classstudent_group}{student\+Group}} \&Group\+To\+Add)
 \begin{DoxyCompactList}\small\item\em Adds a new class to the student. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_student_a63083726dbf48d8e100c00f404e917b1}{remove\+Group}} (const student\+Group \&Group\+To\+Remove)
+void \mbox{\hyperlink{class_student_a63083726dbf48d8e100c00f404e917b1}{remove\+Group}} (const \mbox{\hyperlink{classstudent_group}{student\+Group}} \&Group\+To\+Remove)
 \begin{DoxyCompactList}\small\item\em Removes a class from the student. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_student_a4a7094e40aa97136142c79438e174b7c}{is\+In\+UC}} (const string \&uc) const
 \begin{DoxyCompactList}\small\item\em Detects if the student is enrolled in a certain course. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_student_aa54f74ba5d636a30d3e8f9b7026c46ef}{is\+In\+Class}} (const string \&uc\+Code, const string \&student\+Group) const
+bool \mbox{\hyperlink{class_student_aa54f74ba5d636a30d3e8f9b7026c46ef}{is\+In\+Class}} (const string \&uc\+Code, const string \&\mbox{\hyperlink{classstudent_group}{student\+Group}}) const
 \begin{DoxyCompactList}\small\item\em Detects if the student is enrolled in a certain class from a couse. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -45,7 +45,7 @@ Class used to represent a student.
 \index{Student@{Student}!Student@{Student}}
 \index{Student@{Student}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{Student()}{Student()}}
-{\footnotesize\ttfamily Student\+::\+Student (\begin{DoxyParamCaption}\item[{string}]{student\+Id,  }\item[{string}]{name,  }\item[{set$<$ student\+Group $>$}]{group }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Student\+::\+Student (\begin{DoxyParamCaption}\item[{string}]{student\+Id,  }\item[{string}]{name,  }\item[{set$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$}]{group }\end{DoxyParamCaption})}
 
 
 
@@ -67,7 +67,7 @@ Parameterized constructor.
 \index{Student@{Student}!addStudentGroup@{addStudentGroup}}
 \index{addStudentGroup@{addStudentGroup}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{addStudentGroup()}{addStudentGroup()}}
-{\footnotesize\ttfamily void Student\+::add\+Student\+Group (\begin{DoxyParamCaption}\item[{const student\+Group \&}]{Group\+To\+Add }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Student\+::add\+Student\+Group (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classstudent_group}{student\+Group}} \&}]{Group\+To\+Add }\end{DoxyParamCaption})}
 
 
 
@@ -95,7 +95,7 @@ A string representing the name of the student.
 \index{Student@{Student}!getStudentGroups@{getStudentGroups}}
 \index{getStudentGroups@{getStudentGroups}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{getStudentGroups()}{getStudentGroups()}}
-{\footnotesize\ttfamily set$<$ student\+Group $>$ Student\+::get\+Student\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily set$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$ Student\+::get\+Student\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -131,7 +131,7 @@ Detects if the student is enrolled in a certain class from a couse.
 \begin{DoxyParams}{Parameters}
 {\em uc\+Code} & String representing a couse. \\
 \hline
-{\em student\+Group} & String representing a class. \\
+{\em \mbox{\hyperlink{classstudent_group}{student\+Group}}} & String representing a class. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -159,7 +159,7 @@ Returns true if the student is enrolled in a certain course.
 \index{Student@{Student}!removeGroup@{removeGroup}}
 \index{removeGroup@{removeGroup}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{removeGroup()}{removeGroup()}}
-{\footnotesize\ttfamily void Student\+::remove\+Group (\begin{DoxyParamCaption}\item[{const student\+Group \&}]{Group\+To\+Remove }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Student\+::remove\+Group (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classstudent_group}{student\+Group}} \&}]{Group\+To\+Remove }\end{DoxyParamCaption})}
 
 
 

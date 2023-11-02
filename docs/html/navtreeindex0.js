@@ -36,6 +36,11 @@ var NAVTREEINDEX0 =
 "classlessontime.html#ace6faca730eaaf9023ab8d8950986cfc":[0,0,1,4],
 "classlessontime.html#aefd56f6592294baed59d7f164cf08242":[0,0,1,1],
 "classlessontime.html#afeb4c44a5ff994ca386d031ea4334c50":[0,0,1,5],
+"classstudent_group.html":[0,0,3],
+"classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7":[0,0,3,2],
+"classstudent_group.html#a6e2bee808d62d0713c1983dee8bf7116":[0,0,3,1],
+"classstudent_group.html#aaada77eb8eb7cc3a379498f39b07cd95":[0,0,3,0],
+"classstudent_group.html#ad7c965a71b623d190fe73f2e95204478":[0,0,3,3],
 "dir_68267d1309a1af8e8297ef4c3efbcdba.html":[1,0,0],
 "files.html":[1,0],
 "functions.html":[0,2,0],
@@ -48,5 +53,6 @@ var NAVTREEINDEX0 =
 "pages.html":[],
 "student_8h.html":[1,0,0,8],
 "student_8h_source.html":[1,0,0,8],
+"student_group_8h.html":[1,0,0,9],
 "student_group_8h_source.html":[1,0,0,9]
 };
