@@ -299,72 +299,66 @@ void ControlUnit::DisplayClassSchedule() {
 
 
 }
-//removes overlaps and places inside a return vetor the classes that make up each conflict
+
+// Removes overlaps and places inside a return vector the classes that make up each conflict.
 //O(n²)
-vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons){
-    //overLapVector stores the classes that are involved in a given conflict
+vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
+    //overLapVector stores the classes that are involved in a given conflict.
     vector<vector<lesson>> OverlapVector;
 
-    int numofconflit=0;
+    int numofconflit = 0;
     for (int i = 0; i < lessons.size() - 1; i++) {
         for (int j = i + 1; j < lessons.size(); j++) {
 
-            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and  lessons[j].getStartTime() < lessons[i].getEndTime();
+            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and
+                           lessons[j].getStartTime() < lessons[i].getEndTime();
 
 
             bool sameDay = lessons[i].getWeekday() == lessons[j].getWeekday();
-            if (overLap and sameDay) { // there is a overlap if the hours overlap and they are in the same day
-
-                cout<<"HIT HIT HIT HIT"<<endl;
-                cout<<"element 1"<<lessons[i]<<endl;
-                cout<<"element 2"<<lessons[j]<<endl;
-
-                lessontime start=min(lessons[i].getStartTime(),lessons[j].getStartTime());
-                lessontime end= max(lessons[i].getEndTime(),lessons[j].getEndTime());
-                double startnum=start.getHour();
-                if(start.getMinute()>0){
-                    startnum+=0.5;
+            if (overLap and sameDay) { // there is an overlap if the hours overlap and they are in the same day.
+                lessontime start = min(lessons[i].getStartTime(), lessons[j].getStartTime());
+                lessontime end = max(lessons[i].getEndTime(), lessons[j].getEndTime());
+                double startnum = start.getHour();
+                if (start.getMinute() > 0) {
+                    startnum += 0.5;
                 }
-                double endnum=end.getHour();
-                if(end.getMinute()>0){
-                    endnum+=0.5;
+                double endnum = end.getHour();
+                if (end.getMinute() > 0) {
+                    endnum += 0.5;
                 }
-                if(lessons[j].getUccode()=="Overlap"){ // for multiple conflicts > 2 classes
-                    cout<<"OVERLAP"<<endl;
-                    cout<<"CONFLICT NUM "<<numofconflit<<endl;
-                    //dummy is a fake class that represents a conflict
-                    lesson dummy= lesson("Overlap","Overlap",lessons[j].getWeekday(),startnum,endnum-startnum, lessons[j].getType());
-                    vector<lesson> lessonsInConflict=OverlapVector[numofconflit-1];
+                if (lessons[j].getUccode() == "Overlap") { // for multiple conflicts > 2 classes.
+                    cout << "OVERLAP" << endl;
+                    cout << "CONFLICT NUM " << numofconflit << endl;
+                    //dummy is a fake class that represents a conflict.
+                    lesson dummy = lesson("Overlap", "Overlap", lessons[j].getWeekday(), startnum, endnum - startnum,
+                                          lessons[j].getType());
+                    vector<lesson> lessonsInConflict = OverlapVector[numofconflit - 1];
                     lessonsInConflict.push_back(lessons[i]);
-                    lessons.erase(lessons.begin()+j);
-                    lessons.erase(lessons.begin()+i);
-                    OverlapVector[numofconflit-1]=lessonsInConflict;
+                    lessons.erase(lessons.begin() + j);
+                    lessons.erase(lessons.begin() + i);
+                    OverlapVector[numofconflit - 1] = lessonsInConflict;
                     lessons.push_back(dummy);
-                }else{ //normal conflicts
+                } else { //normal conflicts
                     numofconflit++;
-                    //dummy is a fake class that represents a conflict
-                    lesson dummy= lesson("Overlap","Overlap",lessons[i].getWeekday(),startnum,endnum-startnum, to_string(numofconflit));
+                    //dummy is a fake class that represents a conflict.
+                    lesson dummy = lesson("Overlap", "Overlap", lessons[i].getWeekday(), startnum, endnum - startnum,
+                                          to_string(numofconflit));
 
                     vector<lesson> lessonsInConflict;
 
                     lessonsInConflict.push_back(lessons[i]);
                     lessonsInConflict.push_back(lessons[j]);
-                    lessons.erase(lessons.begin()+j);
-                    lessons.erase(lessons.begin()+i);
+                    lessons.erase(lessons.begin() + j);
+                    lessons.erase(lessons.begin() + i);
 
 
                     OverlapVector.push_back(lessonsInConflict);
 
                     lessons.push_back(dummy);
                 }
-
-
             }
         }
-
-
     }
-
     return OverlapVector;
 }
 
@@ -386,6 +380,7 @@ int ControlUnit::StudentsInAtLeastNUcs(int n) {
     }
     return NumberOfStudents;
 }
+
 // Determines number of student in at most N ucs
 // O(n)
 int ControlUnit::StudentsInAtMostNUcs(int n) {
@@ -406,6 +401,7 @@ int ControlUnit::StudentsInAtMostNUcs(int n) {
 
 
 }
+
 // Determines number of student in N ucs
 // O(n)
 int ControlUnit::StudentsInUcs(int n) {
@@ -703,19 +699,17 @@ void ControlUnit::createSwitch() {
 }
 
 string ControlUnit::getClassInUc(string studentID, string ucCode) {
-    for (auto student: StudentSet) {
-        if (student.getStudentID() == studentID) {
-            for (auto sg: student.getStudentGroups()) {
-                if (sg.getUcCode() == ucCode) {
-                    return sg.getClassCode();
-
-                }
-            }
-            return "false";
+    auto student = StudentSet.find(Student(studentID, "", {}));
+    if (student == StudentSet.end()) {
+        return "invalidstudent";
+    }
+    // Iterate over every class of the student, if the course matches the desired course return the class.
+    for (const auto& studentGroup: student->getStudentGroups()) {
+        if (studentGroup.getUcCode() == ucCode) {
+            return studentGroup.getClassCode();
         }
     }
-    return "nostudent";
-
+    return "invalidcourse";
 }
 
 bool ControlUnit::CheckAdd(AddRequest *addrq) {
