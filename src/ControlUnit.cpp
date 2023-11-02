@@ -286,6 +286,68 @@ void ControlUnit::DisplayClassSchedule() {
 
 
 }
+vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons){
+    cout<<"HERE"<<endl;
+    vector<vector<lesson>> OverlapVector;
+    int numofconflit=0;
+    for (int i = 0; i < lessons.size() - 1; i++) {
+        for (int j = i + 1; j < lessons.size(); j++) {
+
+            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and  lessons[j].getStartTime() < lessons[i].getEndTime();
+
+
+            bool sameDay = lessons[i].getWeekday() == lessons[j].getWeekday();
+            if (overLap and sameDay) {
+
+                cout<<"HIT HIT HIT HIT"<<endl;
+                cout<<"element 1"<<lessons[i]<<endl;
+                cout<<"element 2"<<lessons[j]<<endl;
+
+                lessontime start=min(lessons[i].getStartTime(),lessons[j].getStartTime());
+                lessontime end= max(lessons[i].getEndTime(),lessons[j].getEndTime());
+                double startnum=start.getHour();
+                if(start.getMinute()>0){
+                    startnum+=0.5;
+                }
+                double endnum=end.getHour();
+                if(end.getMinute()>0){
+                    endnum+=0.5;
+                }
+                if(lessons[i].getUccode()=="Overlap"){
+                    lesson dummy= lesson("Overlap","Overlap",lessons[i].getWeekday(),startnum,endnum-startnum, lessons[i].getType());
+                    //lesson(const std::string &uccode, const std::string &studentgroup, const std::string &weekday, double startTime,
+                    //           double duration, const std::string &type);
+                    vector<lesson> lessonsInConflict=OverlapVector[numofconflit-1];
+                    lessonsInConflict.push_back(lessons[j]);
+                    lessons.erase(lessons.begin()+j);
+                    lessons.erase(lessons.begin()+i);
+                    OverlapVector[numofconflit-1]=lessonsInConflict;
+                    lessons.push_back(dummy);
+                }else{
+                    numofconflit++;
+                    lesson dummy= lesson("Overlap","Overlap",lessons[i].getWeekday(),startnum,endnum-startnum, to_string(numofconflit));
+                    //lesson(const std::string &uccode, const std::string &studentgroup, const std::string &weekday, double startTime,
+                    //           double duration, const std::string &type);
+                    vector<lesson> lessonsInConflict;
+                    lessonsInConflict.push_back(lessons[i]);
+                    lessonsInConflict.push_back(lessons[j]);
+                    lessons.erase(lessons.begin()+j);
+                    lessons.erase(lessons.begin()+i);
+
+
+                    OverlapVector.push_back(lessonsInConflict);
+                    lessons.push_back(dummy);
+                }
+
+
+            }
+        }
+
+
+    }
+
+    return OverlapVector;
+}
 
 // Escolher se deixo ali o cout ou n
 int ControlUnit::StudentsInAtLeastNUcs(int n) {

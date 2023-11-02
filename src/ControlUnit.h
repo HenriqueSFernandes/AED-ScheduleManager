@@ -65,6 +65,10 @@ public :
      * @brief Loads the classes_per_uc.csv file (which has all the courses and classes).
      */
     void LoadClassesPerUcCSV();
+    /**
+     * @brief deals with overlapping classes
+     */
+    vector<vector<lesson>> formatConflicts(vector<lesson> &lessons);
 
     /**
      * @brief Load students_classes.csv or student_classes_updated.csv, depending on the option chose.
