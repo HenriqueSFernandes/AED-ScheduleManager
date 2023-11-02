@@ -214,8 +214,29 @@ void ControlUnit::DisplayStudentSchedule() {
     }
     if (option == 2 and found) {
         cout << " is there conflict" << IsThereConflict(myVec) << endl;
+        vector<vector<lesson> >overlapsVector;
+        overlapsVector=formatConflicts(myVec);
         Schedule StudentSchedule = Schedule(myVec);
         StudentSchedule.display();
+        int num=1;
+        for( auto overlap : overlapsVector){
+            int width = 108; // Calculate the width based on the content length
+            std::string horizontalLine(width, '-');
+
+            std::cout << '+' << horizontalLine << '+' << std::endl;
+            std::cout<<"    " << "Overlap"<<" # "<<num<< std::endl;
+            std::cout << '+' << horizontalLine << '+' << std::endl;
+
+
+            for( auto lesson: overlap){
+                cout<<" "<<lesson<<endl;
+                std::cout << '-' << horizontalLine << '-' << std::endl;
+            }
+
+
+            num++;
+        }
+
     }
 
 
@@ -567,10 +588,7 @@ bool ControlUnit::IsThereConflict(vector<lesson> lessons) {
 
     for (int i = 0; i < lessons.size() - 1; i++) {
         for (int j = i + 1; j < lessons.size(); j++) {
-            bool overLap = ((lessons[i].getStartTime() <= lessons[j].getStartTime() and
-                             lessons[j].getEndTime() <= lessons[i].getEndTime()) or
-                            (lessons[j].getStartTime() <= lessons[i].getStartTime() and
-                             lessons[i].getEndTime() <= lessons[j].getEndTime()));
+            bool overLap =  lessons[i].getStartTime() < lessons[j].getEndTime() and  lessons[j].getStartTime() < lessons[i].getEndTime();
 
             bool bothPratical = (lessons[i].getType() == "TP" or lessons[i].getType() == "PL") and
                                 (lessons[j].getType() == "TP" or lessons[j].getType() == "PL");
