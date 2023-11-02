@@ -67,6 +67,11 @@ public :
     void LoadClassesPerUcCSV();
 
     /**
+     * @brief Load students_classes.csv or student_classes_updated.csv, depending on the option chose.
+     */
+    void LoadStudentsClassesCSV();
+
+    /**
      * @brief Deals with overlaps in a schedule.
      *
      * Complexity is O(n²) where n is the number of lessons given as input.
@@ -74,14 +79,11 @@ public :
      * @return A 2d vector with the conflicts.
      */
     vector<vector<lesson>> formatConflicts(vector<lesson> &lessons);
-
-    /**
-     * @brief Load students_classes.csv or student_classes_updated.csv, depending on the option chose.
-     */
-    void LoadStudentsClassesCSV();
-
+    
     /**
      * @brief Saves the changes made, updating the file students_classes_updated.csv.
+     *
+     * Complexity is O(n * k) where n is the number of students and k is the number of classes for each student
      */
     void saveChanges();
 
@@ -130,6 +132,8 @@ public :
 
     /**
      * @brief Displays the students enrolled in a specific course.
+     *
+     * Complexity is O(n * k) where n is the number of students and k is the number of classes for each student
      * @param courseCode String representing the course code.
      * @param func Boolean function used to sort students.
      */
@@ -137,6 +141,8 @@ public :
 
     /**
      * @brief Displays the students from a specific year.
+     *
+     * Complexity is O(n * k) where n is the number of students and k is the number of classes for each student
      * @param year Char representing the year,
      * @param func Boolean function used to sort students.
      */
@@ -144,6 +150,8 @@ public :
 
     /**
      * @brief Displays the students from a specific class.
+     *
+     * Complexity is O(n * k) where n is the number of students and k is the number of classes for each student
      * @param classCode String representing the class code.
      * @param func Boolean function used to sort students.
      */
@@ -151,6 +159,8 @@ public :
 
     /**
      * @brief Displays all the courses starting with the one with the most student.
+     *
+     * Complexity is O(n * k) where n is the number of students and k is the number of classes for each student
      */
     void UCWithMostStudents();
 
@@ -180,55 +190,75 @@ public :
 
     /**
      * @brief Processes a request of type add.
+     *
+     * Complexity is O(log n) where n is the amount of students.
      * @param addRequest The request to be processed.
      */
     void processAddRequest(AddRequest *addRequest);
 
     /**
      * @brief Processes a request of type remove.
+     *
+     * Complexity is O(log n) where n is the amount of students.
      * @param removeRequest The request to be processed.
      */
     void processRemoveRequest(RemoveRequest *removeRequest);
 
     /**
      * @brief Processes a request of type switch.
+     *
+     * Complexity is O(log n) where n is the amount of students.
      * @param switchRequest The request to be processed.
      */
     void processSwitchRequest(SwitchRequest *switchRequest);
 
     /**
      * @brief Processes all the requests awaiting to be processed.
+     *
+     * Complexity is O(log n * k) where n is the amount of students and k is the amount of requests awaiting to be processed..
      */
     void processAllRequests();
 
     /**
      * @brief Removes the most recent request that hasn't been applied.
+     *
+     * Complexity is O(n) where n is the amount of requests awaiting to be processed..
      */
     void removeLastPendingRequest();
 
     /**
      * @brief Undoes the N most recent applied request.
+     *
+     * Complexity is O(log n * k) where n is the amount of students and k is the amount of requests that need to be undone..
      * @param n Integer representing how many requests should be undone.
      */
     void undoRequest(int n); //this method removes last n applied request
 
     /**
      * @brief Creates a request of type add.
+     *
+     * Complexity is O(log n) where n is the amount of students.
      */
     void createAdd();
 
     /**
      * @brief Creates a request of type remove.
+     *
+     * Complexity is O(log n) where n is the amount of students.
      */
     void createRemove();
 
     /**
      * @brief Creates a request of type switch.
+     *
+     * Complexity is O(log²(n) * k) where n is the amount of students and k is the amount of classes of that student.
      */
     void createSwitch();
 
     /**
      * @brief Checks if the request is possible.
+     *
+     * Complexity is O(log n * k + m) where n is the amount of students, k is the amount of classes of that student and m is the amount of classes related to the course.
      * @param addrq Request to be analysed.
      * @return Boolean representing if the request is possible or not.
      */
@@ -236,6 +266,8 @@ public :
 
     /**
      * @brief Checks if the request is possible.
+     *
+     * Complexity is O(log n * k) where n is the amount of students and k is the amount of classes of that student.
      * @param remrq Request to be analysed.
      * @return Boolean representing if the request is possible or not.
      */
@@ -243,6 +275,8 @@ public :
 
     /**
      * @brief Checks if the request is possible.
+     *
+     * Complexity is O(log n ) where n is the amount of students.
      * @param swrq Request to be analysed.
      * @return Boolean representing if the request is possible or not.
      */
@@ -250,6 +284,8 @@ public :
 
     /**
      * @brief Gets the class of a student knowing the course.
+     *
+     * Complexity is O(log n * k) where n is the amount of students and k is the amount of classes of that student.
      * @param studentID String representing the student ID.
      * @param ucCode String representing the course code.
      * @return String representing the class code.
@@ -257,7 +293,9 @@ public :
     string getClassInUc(string studentID, string ucCode);
 
     /**
-     * @brief Frees all the dynamic memory
+     * @brief Frees all the dynamic memory.
+     *
+     * Complexity is O(n) where n is the amount of classes plus the amount of lessons.
      */
     void clearMemory();
 };

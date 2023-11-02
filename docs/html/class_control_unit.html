@@ -121,16 +121,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadClassesCSV</b> ()
 void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadClassesPerUcCSV</b> ()</td></tr>
 <tr class="memdesc:a98481fa708eefb5b4a3123312843bba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the classes_per_uc.csv file (which has all the courses and classes). <br /></td></tr>
 <tr class="separator:a98481fa708eefb5b4a3123312843bba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81922c2ec63d63c3d9bb2f7109b8587e"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; <a class="el" href="classlesson.html">lesson</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#a81922c2ec63d63c3d9bb2f7109b8587e">formatConflicts</a> (vector&lt; <a class="el" href="classlesson.html">lesson</a> &gt; &amp;lessons)</td></tr>
-<tr class="memdesc:a81922c2ec63d63c3d9bb2f7109b8587e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deals with overlaps in a schedule.  <a href="class_control_unit.html#a81922c2ec63d63c3d9bb2f7109b8587e">More...</a><br /></td></tr>
-<tr class="separator:a81922c2ec63d63c3d9bb2f7109b8587e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fa3112381692d9daa4876d706a5442e"><td class="memItemLeft" align="right" valign="top"><a id="a2fa3112381692d9daa4876d706a5442e" name="a2fa3112381692d9daa4876d706a5442e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadStudentsClassesCSV</b> ()</td></tr>
 <tr class="memdesc:a2fa3112381692d9daa4876d706a5442e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load students_classes.csv or student_classes_updated.csv, depending on the option chose. <br /></td></tr>
 <tr class="separator:a2fa3112381692d9daa4876d706a5442e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4b432f7eadc39d3d6cae8349e56194d"><td class="memItemLeft" align="right" valign="top"><a id="ab4b432f7eadc39d3d6cae8349e56194d" name="ab4b432f7eadc39d3d6cae8349e56194d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>saveChanges</b> ()</td></tr>
-<tr class="memdesc:ab4b432f7eadc39d3d6cae8349e56194d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the changes made, updating the file students_classes_updated.csv. <br /></td></tr>
+<tr class="memitem:a81922c2ec63d63c3d9bb2f7109b8587e"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; <a class="el" href="classlesson.html">lesson</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#a81922c2ec63d63c3d9bb2f7109b8587e">formatConflicts</a> (vector&lt; <a class="el" href="classlesson.html">lesson</a> &gt; &amp;lessons)</td></tr>
+<tr class="memdesc:a81922c2ec63d63c3d9bb2f7109b8587e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deals with overlaps in a schedule.  <a href="class_control_unit.html#a81922c2ec63d63c3d9bb2f7109b8587e">More...</a><br /></td></tr>
+<tr class="separator:a81922c2ec63d63c3d9bb2f7109b8587e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4b432f7eadc39d3d6cae8349e56194d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#ab4b432f7eadc39d3d6cae8349e56194d">saveChanges</a> ()</td></tr>
+<tr class="memdesc:ab4b432f7eadc39d3d6cae8349e56194d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the changes made, updating the file students_classes_updated.csv.  <a href="class_control_unit.html#ab4b432f7eadc39d3d6cae8349e56194d">More...</a><br /></td></tr>
 <tr class="separator:ab4b432f7eadc39d3d6cae8349e56194d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c52dd3a2750f06cb5ade8826f3b81c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#a5c52dd3a2750f06cb5ade8826f3b81c0">DisplayStudentSchedule</a> ()</td></tr>
 <tr class="memdesc:a5c52dd3a2750f06cb5ade8826f3b81c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the schedule of a student.  <a href="class_control_unit.html#a5c52dd3a2750f06cb5ade8826f3b81c0">More...</a><br /></td></tr>
@@ -156,9 +155,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>saveChanges</b> ()</t
 <tr class="memitem:aa69207511a13ce82ad5ba68c5fd2ca4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#aa69207511a13ce82ad5ba68c5fd2ca4b">classStudents</a> (string classCode, function&lt; bool(<a class="el" href="class_student.html">Student</a>, <a class="el" href="class_student.html">Student</a>)&gt; func)</td></tr>
 <tr class="memdesc:aa69207511a13ce82ad5ba68c5fd2ca4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the students from a specific class.  <a href="class_control_unit.html#aa69207511a13ce82ad5ba68c5fd2ca4b">More...</a><br /></td></tr>
 <tr class="separator:aa69207511a13ce82ad5ba68c5fd2ca4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e84e6a7a2f7df4b70c21eaf88376a89"><td class="memItemLeft" align="right" valign="top"><a id="a4e84e6a7a2f7df4b70c21eaf88376a89" name="a4e84e6a7a2f7df4b70c21eaf88376a89"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UCWithMostStudents</b> ()</td></tr>
-<tr class="memdesc:a4e84e6a7a2f7df4b70c21eaf88376a89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays all the courses starting with the one with the most student. <br /></td></tr>
+<tr class="memitem:a4e84e6a7a2f7df4b70c21eaf88376a89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#a4e84e6a7a2f7df4b70c21eaf88376a89">UCWithMostStudents</a> ()</td></tr>
+<tr class="memdesc:a4e84e6a7a2f7df4b70c21eaf88376a89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays all the courses starting with the one with the most student.  <a href="class_control_unit.html#a4e84e6a7a2f7df4b70c21eaf88376a89">More...</a><br /></td></tr>
 <tr class="separator:a4e84e6a7a2f7df4b70c21eaf88376a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21f0f5455651e5704f43a8fb97c36441"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#a21f0f5455651e5704f43a8fb97c36441">NumBalanced</a> (vector&lt; <a class="el" href="classstudent_group.html">studentGroup</a> &gt;, map&lt; MainKey, int &gt;)</td></tr>
 <tr class="memdesc:a21f0f5455651e5704f43a8fb97c36441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the balance of the classes.  <a href="class_control_unit.html#a21f0f5455651e5704f43a8fb97c36441">More...</a><br /></td></tr>
@@ -178,28 +176,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>UCWithMostStudents</b
 <tr class="memitem:a9cb160b5255192632fb43668fe8758e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#a9cb160b5255192632fb43668fe8758e4">processSwitchRequest</a> (<a class="el" href="class_switch_request.html">SwitchRequest</a> *switchRequest)</td></tr>
 <tr class="memdesc:a9cb160b5255192632fb43668fe8758e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a request of type switch.  <a href="class_control_unit.html#a9cb160b5255192632fb43668fe8758e4">More...</a><br /></td></tr>
 <tr class="separator:a9cb160b5255192632fb43668fe8758e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0d8364a1205dd97ce8e23246c92c79a"><td class="memItemLeft" align="right" valign="top"><a id="ab0d8364a1205dd97ce8e23246c92c79a" name="ab0d8364a1205dd97ce8e23246c92c79a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>processAllRequests</b> ()</td></tr>
-<tr class="memdesc:ab0d8364a1205dd97ce8e23246c92c79a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes all the requests awaiting to be processed. <br /></td></tr>
+<tr class="memitem:ab0d8364a1205dd97ce8e23246c92c79a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#ab0d8364a1205dd97ce8e23246c92c79a">processAllRequests</a> ()</td></tr>
+<tr class="memdesc:ab0d8364a1205dd97ce8e23246c92c79a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes all the requests awaiting to be processed.  <a href="class_control_unit.html#ab0d8364a1205dd97ce8e23246c92c79a">More...</a><br /></td></tr>
 <tr class="separator:ab0d8364a1205dd97ce8e23246c92c79a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25a226b8e6f3d5531d2cb07145f44cfa"><td class="memItemLeft" align="right" valign="top"><a id="a25a226b8e6f3d5531d2cb07145f44cfa" name="a25a226b8e6f3d5531d2cb07145f44cfa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeLastPendingRequest</b> ()</td></tr>
-<tr class="memdesc:a25a226b8e6f3d5531d2cb07145f44cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the most recent request that hasn't been applied. <br /></td></tr>
+<tr class="memitem:a25a226b8e6f3d5531d2cb07145f44cfa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#a25a226b8e6f3d5531d2cb07145f44cfa">removeLastPendingRequest</a> ()</td></tr>
+<tr class="memdesc:a25a226b8e6f3d5531d2cb07145f44cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the most recent request that hasn't been applied.  <a href="class_control_unit.html#a25a226b8e6f3d5531d2cb07145f44cfa">More...</a><br /></td></tr>
 <tr class="separator:a25a226b8e6f3d5531d2cb07145f44cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a516424b32fb1e9b17cdd12f797ee784d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#a516424b32fb1e9b17cdd12f797ee784d">undoRequest</a> (int n)</td></tr>
 <tr class="memdesc:a516424b32fb1e9b17cdd12f797ee784d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Undoes the N most recent applied request.  <a href="class_control_unit.html#a516424b32fb1e9b17cdd12f797ee784d">More...</a><br /></td></tr>
 <tr class="separator:a516424b32fb1e9b17cdd12f797ee784d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f1dbaad93b58f55d81a4504974b9085"><td class="memItemLeft" align="right" valign="top"><a id="a4f1dbaad93b58f55d81a4504974b9085" name="a4f1dbaad93b58f55d81a4504974b9085"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>createAdd</b> ()</td></tr>
-<tr class="memdesc:a4f1dbaad93b58f55d81a4504974b9085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a request of type add. <br /></td></tr>
+<tr class="memitem:a4f1dbaad93b58f55d81a4504974b9085"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#a4f1dbaad93b58f55d81a4504974b9085">createAdd</a> ()</td></tr>
+<tr class="memdesc:a4f1dbaad93b58f55d81a4504974b9085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a request of type add.  <a href="class_control_unit.html#a4f1dbaad93b58f55d81a4504974b9085">More...</a><br /></td></tr>
 <tr class="separator:a4f1dbaad93b58f55d81a4504974b9085"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a754727b2d57e9fc6fa65ec69d236ffe5"><td class="memItemLeft" align="right" valign="top"><a id="a754727b2d57e9fc6fa65ec69d236ffe5" name="a754727b2d57e9fc6fa65ec69d236ffe5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>createRemove</b> ()</td></tr>
-<tr class="memdesc:a754727b2d57e9fc6fa65ec69d236ffe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a request of type remove. <br /></td></tr>
+<tr class="memitem:a754727b2d57e9fc6fa65ec69d236ffe5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#a754727b2d57e9fc6fa65ec69d236ffe5">createRemove</a> ()</td></tr>
+<tr class="memdesc:a754727b2d57e9fc6fa65ec69d236ffe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a request of type remove.  <a href="class_control_unit.html#a754727b2d57e9fc6fa65ec69d236ffe5">More...</a><br /></td></tr>
 <tr class="separator:a754727b2d57e9fc6fa65ec69d236ffe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad24faea65b96b338b009177f7f3d599f"><td class="memItemLeft" align="right" valign="top"><a id="ad24faea65b96b338b009177f7f3d599f" name="ad24faea65b96b338b009177f7f3d599f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>createSwitch</b> ()</td></tr>
-<tr class="memdesc:ad24faea65b96b338b009177f7f3d599f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a request of type switch. <br /></td></tr>
+<tr class="memitem:ad24faea65b96b338b009177f7f3d599f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#ad24faea65b96b338b009177f7f3d599f">createSwitch</a> ()</td></tr>
+<tr class="memdesc:ad24faea65b96b338b009177f7f3d599f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a request of type switch.  <a href="class_control_unit.html#ad24faea65b96b338b009177f7f3d599f">More...</a><br /></td></tr>
 <tr class="separator:ad24faea65b96b338b009177f7f3d599f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee98b9c11d79c8b97421631c38d146ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#aee98b9c11d79c8b97421631c38d146ba">CheckAdd</a> (<a class="el" href="class_add_request.html">AddRequest</a> *addrq)</td></tr>
 <tr class="memdesc:aee98b9c11d79c8b97421631c38d146ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the request is possible.  <a href="class_control_unit.html#aee98b9c11d79c8b97421631c38d146ba">More...</a><br /></td></tr>
@@ -213,9 +206,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>createSwitch</b> ()</
 <tr class="memitem:ad0d79a6b6abb4f167252f203c65ab6dc"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#ad0d79a6b6abb4f167252f203c65ab6dc">getClassInUc</a> (string studentID, string ucCode)</td></tr>
 <tr class="memdesc:ad0d79a6b6abb4f167252f203c65ab6dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the class of a student knowing the course.  <a href="class_control_unit.html#ad0d79a6b6abb4f167252f203c65ab6dc">More...</a><br /></td></tr>
 <tr class="separator:ad0d79a6b6abb4f167252f203c65ab6dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a903d061dd69d145767e6c7a709f2c5b1"><td class="memItemLeft" align="right" valign="top"><a id="a903d061dd69d145767e6c7a709f2c5b1" name="a903d061dd69d145767e6c7a709f2c5b1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</td></tr>
-<tr class="memdesc:a903d061dd69d145767e6c7a709f2c5b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all the dynamic memory. <br /></td></tr>
+<tr class="memitem:a903d061dd69d145767e6c7a709f2c5b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_control_unit.html#a903d061dd69d145767e6c7a709f2c5b1">clearMemory</a> ()</td></tr>
+<tr class="memdesc:a903d061dd69d145767e6c7a709f2c5b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all the dynamic memory.  <a href="class_control_unit.html#a903d061dd69d145767e6c7a709f2c5b1">More...</a><br /></td></tr>
 <tr class="separator:a903d061dd69d145767e6c7a709f2c5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -238,7 +230,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 </div><div class="memdoc">
 
 <p>Checks if the request is possible. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Complexity is O(log n * k + m) where n is the amount of students, k is the amount of classes of that student and m is the amount of classes related to the course. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addrq</td><td><a class="el" href="class_request.html" title="Class used to represent a generic request.">Request</a> to be analysed. </td></tr>
   </table>
@@ -265,7 +257,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 </div><div class="memdoc">
 
 <p>Checks if the request is possible. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Complexity is O(log n * k) where n is the amount of students and k is the amount of classes of that student. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">remrq</td><td><a class="el" href="class_request.html" title="Class used to represent a generic request.">Request</a> to be analysed. </td></tr>
   </table>
@@ -292,7 +284,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 </div><div class="memdoc">
 
 <p>Checks if the request is possible. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Complexity is O(log n ) where n is the amount of students. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">swrq</td><td><a class="el" href="class_request.html" title="Class used to represent a generic request.">Request</a> to be analysed. </td></tr>
   </table>
@@ -329,13 +321,33 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 </div><div class="memdoc">
 
 <p>Displays the students from a specific class. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Complexity is O(n * k) where n is the number of students and k is the number of classes for each student </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">classCode</td><td>String representing the class code. </td></tr>
     <tr><td class="paramname">func</td><td>Boolean function used to sort students. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a903d061dd69d145767e6c7a709f2c5b1" name="a903d061dd69d145767e6c7a709f2c5b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a903d061dd69d145767e6c7a709f2c5b1">&#9670;&nbsp;</a></span>clearMemory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ControlUnit::clearMemory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Frees all the dynamic memory. </p>
+<p >Complexity is O(n) where n is the amount of classes plus the amount of lessons. </p>
 
 </div>
 </div>
@@ -366,13 +378,73 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 </div><div class="memdoc">
 
 <p>Displays the students enrolled in a specific course. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Complexity is O(n * k) where n is the number of students and k is the number of classes for each student </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">courseCode</td><td>String representing the course code. </td></tr>
     <tr><td class="paramname">func</td><td>Boolean function used to sort students. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a4f1dbaad93b58f55d81a4504974b9085" name="a4f1dbaad93b58f55d81a4504974b9085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f1dbaad93b58f55d81a4504974b9085">&#9670;&nbsp;</a></span>createAdd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ControlUnit::createAdd </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a request of type add. </p>
+<p >Complexity is O(log n) where n is the amount of students. </p>
+
+</div>
+</div>
+<a id="a754727b2d57e9fc6fa65ec69d236ffe5" name="a754727b2d57e9fc6fa65ec69d236ffe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a754727b2d57e9fc6fa65ec69d236ffe5">&#9670;&nbsp;</a></span>createRemove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ControlUnit::createRemove </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a request of type remove. </p>
+<p >Complexity is O(log n) where n is the amount of students. </p>
+
+</div>
+</div>
+<a id="ad24faea65b96b338b009177f7f3d599f" name="ad24faea65b96b338b009177f7f3d599f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad24faea65b96b338b009177f7f3d599f">&#9670;&nbsp;</a></span>createSwitch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ControlUnit::createSwitch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a request of type switch. </p>
+<p >Complexity is O(log²(n) * k) where n is the amount of students and k is the amount of classes of that student. </p>
 
 </div>
 </div>
@@ -470,7 +542,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 </div><div class="memdoc">
 
 <p>Gets the class of a student knowing the course. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Complexity is O(log n * k) where n is the amount of students and k is the amount of classes of that student. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">studentID</td><td>String representing the student ID. </td></tr>
     <tr><td class="paramname">ucCode</td><td>String representing the course code. </td></tr>
@@ -491,7 +563,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
           <td class="memname">bool ControlUnit::IsThereConflict </td>
           <td>(</td>
           <td class="paramtype">vector&lt; <a class="el" href="classlesson.html">lesson</a> &gt;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>lessons</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -538,13 +610,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
           <td class="memname">int ControlUnit::NumBalanced </td>
           <td>(</td>
           <td class="paramtype">vector&lt; <a class="el" href="classstudent_group.html">studentGroup</a> &gt;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>groups</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">map&lt; MainKey, int &gt;&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>myMap</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -576,12 +648,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 </div><div class="memdoc">
 
 <p>Processes a request of type add. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Complexity is O(log n) where n is the amount of students. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addRequest</td><td>The request to be processed. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ab0d8364a1205dd97ce8e23246c92c79a" name="ab0d8364a1205dd97ce8e23246c92c79a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0d8364a1205dd97ce8e23246c92c79a">&#9670;&nbsp;</a></span>processAllRequests()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ControlUnit::processAllRequests </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Processes all the requests awaiting to be processed. </p>
+<p >Complexity is O(log n * k) where n is the amount of students and k is the amount of requests awaiting to be processed.. </p>
 
 </div>
 </div>
@@ -602,7 +694,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 </div><div class="memdoc">
 
 <p>Processes a request of type remove. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Complexity is O(log n) where n is the amount of students. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">removeRequest</td><td>The request to be processed. </td></tr>
   </table>
@@ -666,12 +758,52 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 </div><div class="memdoc">
 
 <p>Processes a request of type switch. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Complexity is O(log n) where n is the amount of students. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">switchRequest</td><td>The request to be processed. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a25a226b8e6f3d5531d2cb07145f44cfa" name="a25a226b8e6f3d5531d2cb07145f44cfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25a226b8e6f3d5531d2cb07145f44cfa">&#9670;&nbsp;</a></span>removeLastPendingRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ControlUnit::removeLastPendingRequest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes the most recent request that hasn't been applied. </p>
+<p >Complexity is O(n) where n is the amount of requests awaiting to be processed.. </p>
+
+</div>
+</div>
+<a id="ab4b432f7eadc39d3d6cae8349e56194d" name="ab4b432f7eadc39d3d6cae8349e56194d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4b432f7eadc39d3d6cae8349e56194d">&#9670;&nbsp;</a></span>saveChanges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ControlUnit::saveChanges </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves the changes made, updating the file students_classes_updated.csv. </p>
+<p >Complexity is O(n * k) where n is the number of students and k is the number of classes for each student </p>
 
 </div>
 </div>
@@ -756,6 +888,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 
 </div>
 </div>
+<a id="a4e84e6a7a2f7df4b70c21eaf88376a89" name="a4e84e6a7a2f7df4b70c21eaf88376a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e84e6a7a2f7df4b70c21eaf88376a89">&#9670;&nbsp;</a></span>UCWithMostStudents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ControlUnit::UCWithMostStudents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays all the courses starting with the one with the most student. </p>
+<p >Complexity is O(n * k) where n is the number of students and k is the number of classes for each student </p>
+
+</div>
+</div>
 <a id="a516424b32fb1e9b17cdd12f797ee784d" name="a516424b32fb1e9b17cdd12f797ee784d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a516424b32fb1e9b17cdd12f797ee784d">&#9670;&nbsp;</a></span>undoRequest()</h2>
 
@@ -773,7 +925,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 </div><div class="memdoc">
 
 <p>Undoes the N most recent applied request. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Complexity is O(log n * k) where n is the amount of students and k is the amount of requests that need to be undone.. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>Integer representing how many requests should be undone. </td></tr>
   </table>
@@ -809,7 +961,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearMemory</b> ()</t
 </div><div class="memdoc">
 
 <p>Displays the students from a specific year. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Complexity is O(n * k) where n is the number of students and k is the number of classes for each student </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">year</td><td>Char representing the year, </td></tr>
     <tr><td class="paramname">func</td><td>Boolean function used to sort students. </td></tr>

@@ -77,12 +77,13 @@ public:
     bool isInUC(const string& uc) const;
 
     /**
-     * @brief Detects if the student is enrolled in a certain class from a couse.
-     * @param ucCode String representing a couse.
+     * @brief Detects if the student is enrolled in a certain class from a course.
+     *
+     * Complexity is O(n) where n is the amount of class the student has.
+     * @param ucCode String representing a course.
      * @param studentGroup String representing a class.
      * @return Returns true if the student is enrolled in a certain class form a course.
      */
-
     bool isInClass(const string& ucCode, const string& studentGroup) const;
 
     bool operator<(const Student &other) const {
