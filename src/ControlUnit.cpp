@@ -196,6 +196,7 @@ void ControlUnit::DisplayStudentSchedule() {
         }
 
     }
+    cout << "Displaying schedule for student " << student->getName()  << " " << student->getStudentID() << ".\n";
     if (option == 1) {
         for (auto el: lessonSet) {
             int width = 90; // Calculate the width based on the content length
