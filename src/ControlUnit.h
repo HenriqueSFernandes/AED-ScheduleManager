@@ -67,7 +67,7 @@ public :
     void LoadClassesPerUcCSV();
 
     /**
-     * @brief Deals with overlaps in a schedule.
+     * @brief Removes overlapping lessons and stores the overlaps in a vector.
      * @param lessons Vector with all the lessons.
      * @return A 2d vector with the conflicts.
      */
