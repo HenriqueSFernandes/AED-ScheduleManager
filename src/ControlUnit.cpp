@@ -166,7 +166,9 @@ void ControlUnit::LoadStudentsClassesCSV() {
     students_classes.close();
 }
 
-
+//Getting the schedule is O(log n + m * k ) where n is the total number of students, m is the number of student groups each student has k is the lessons in a student group
+//Basically O(log n) as the other input is constant for each student and very small compared to n
+//Aditionally after getting the schedule it has to be displayed and that takes time which is not taken into consideration given its small impact on the overall performance
 void ControlUnit::DisplayStudentSchedule() {
     cout << "Would you like the default Version or the Visual Version" << endl;
     cout << "1) Default" << endl;
@@ -239,7 +241,7 @@ void ControlUnit::DisplayStudentSchedule() {
 
 
 }
-
+// Getting the schedule is O(n) where n is the total number of studentGroups
 void ControlUnit::DisplayClassSchedule() {
     cout << "Would you like the default Version or the Visual Version" << endl;
     cout << "1) Default" << endl;
@@ -299,6 +301,11 @@ void ControlUnit::DisplayClassSchedule() {
 
 
 }
+//removes overlaps and places inside a return vetor the classes that make up each conflict
+//O(n²)
+vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons){
+    //overLapVector stores the classes that are involved in a given conflict
+    vector<vector<lesson>> OverlapVector;
 
 // Removes overlaps and places inside a return vector the classes that make up each conflict.
 //O(n²)
@@ -310,8 +317,7 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
     for (int i = 0; i < lessons.size() - 1; i++) {
         for (int j = i + 1; j < lessons.size(); j++) {
 
-            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and
-                           lessons[j].getStartTime() < lessons[i].getEndTime();
+            bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and  lessons[j].getStartTime() < lessons[i].getEndTime();
 
 
             bool sameDay = lessons[i].getWeekday() == lessons[j].getWeekday();
@@ -322,9 +328,9 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
                 if (start.getMinute() > 0) {
                     startnum += 0.5;
                 }
-                double endnum = end.getHour();
-                if (end.getMinute() > 0) {
-                    endnum += 0.5;
+                double endnum=end.getHour();
+                if(end.getMinute()>0){
+                    endnum+=0.5;
                 }
                 if (lessons[j].getUccode() == "Overlap") { // for multiple conflicts > 2 classes.
                     cout << "OVERLAP" << endl;
@@ -334,9 +340,9 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
                                           lessons[j].getType());
                     vector<lesson> lessonsInConflict = OverlapVector[numofconflit - 1];
                     lessonsInConflict.push_back(lessons[i]);
-                    lessons.erase(lessons.begin() + j);
-                    lessons.erase(lessons.begin() + i);
-                    OverlapVector[numofconflit - 1] = lessonsInConflict;
+                    lessons.erase(lessons.begin()+j);
+                    lessons.erase(lessons.begin()+i);
+                    OverlapVector[numofconflit-1]=lessonsInConflict;
                     lessons.push_back(dummy);
                 } else { //normal conflicts
                     numofconflit++;
@@ -348,8 +354,8 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
 
                     lessonsInConflict.push_back(lessons[i]);
                     lessonsInConflict.push_back(lessons[j]);
-                    lessons.erase(lessons.begin() + j);
-                    lessons.erase(lessons.begin() + i);
+                    lessons.erase(lessons.begin()+j);
+                    lessons.erase(lessons.begin()+i);
 
 
                     OverlapVector.push_back(lessonsInConflict);
