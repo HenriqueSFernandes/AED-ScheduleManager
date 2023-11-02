@@ -1,17 +1,17 @@
 #include "AddRequest.h"
 
 // Constructor
-AddRequest::AddRequest(const std::string &upCodeStudent, const std::string &uCCode, const std::string &classCode)
-        : Request("add"), upCodeStudent(upCodeStudent), uCCode(uCCode), classCode(classCode) {
+AddRequest::AddRequest(const std::string &studentID, const std::string &ucCode, const std::string &classCode)
+        : Request("add"), studentID(studentID), ucCode(ucCode), classCode(classCode) {
 }
 
 // Getters
-std::string AddRequest::getUpCodeStudent() const {
-    return upCodeStudent;
+std::string AddRequest::getStudentID() const {
+    return studentID;
 }
 
 std::string AddRequest::getUCCode() const {
-    return uCCode;
+    return ucCode;
 }
 
 std::string AddRequest::getClassCode() const {
@@ -19,12 +19,12 @@ std::string AddRequest::getClassCode() const {
 }
 
 // Setters
-void AddRequest::setUpCodeStudent(const std::string &upCodeStudent) {
-    this->upCodeStudent = upCodeStudent;
+void AddRequest::setStudentID(const std::string &studentID) {
+    this->studentID = studentID;
 }
 
-void AddRequest::setUCCode(const std::string &uCCode) {
-    this->uCCode = uCCode;
+void AddRequest::setUCCode(const std::string &ucCode) {
+    this->ucCode = ucCode;
 }
 
 void AddRequest::setClassCode(const std::string &classCode) {

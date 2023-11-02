@@ -1,17 +1,17 @@
 #include "RemoveRequest.h"
 
 // Constructor
-RemoveRequest::RemoveRequest(const std::string &upCodeStudent, const std::string &uCCode, const std::string &classCode)
-        : Request("remove"), upCodeStudent(upCodeStudent), uCCode(uCCode), classCode(classCode) {
+RemoveRequest::RemoveRequest(const std::string &studentID, const std::string &ucCode, const std::string &classCode)
+        : Request("remove"), studentID(studentID), ucCode(ucCode), classCode(classCode) {
 }
 
 // Getters
-std::string RemoveRequest::getUpCodeStudent() const {
-    return upCodeStudent;
+std::string RemoveRequest::getStudentID() const {
+    return studentID;
 }
 
 std::string RemoveRequest::getUCCode() const {
-    return uCCode;
+    return ucCode;
 }
 
 std::string RemoveRequest::getClassCode() const {
@@ -19,12 +19,12 @@ std::string RemoveRequest::getClassCode() const {
 }
 
 // Setters
-void RemoveRequest::setUpCodeStudent(const std::string &upCodeStudent) {
-    this->upCodeStudent = upCodeStudent;
+void RemoveRequest::setStudentID(const std::string &studentID) {
+    this->studentID = studentID;
 }
 
-void RemoveRequest::setUCCode(const std::string &uCCode) {
-    this->uCCode = uCCode;
+void RemoveRequest::setUCCode(const std::string &ucCode) {
+    this->ucCode = ucCode;
 }
 
 void RemoveRequest::setClassCode(const std::string &classCode) {

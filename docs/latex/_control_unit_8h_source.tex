@@ -17,10 +17,10 @@
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stack>}}
 \DoxyCodeLine{14 \textcolor{preprocessor}{\#include <functional>}}
 \DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lesson_8h}{lesson.h}}"{}}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}Request.h"{}}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}AddRequest.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_request_8h}{Request.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_add_request_8h}{AddRequest.h}}"{}}}
 \DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}RemoveRequest.h"{}}}
-\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}SwitchRequest.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_switch_request_8h}{SwitchRequest.h}}"{}}}
 \DoxyCodeLine{20 }
 \DoxyCodeLine{21 \textcolor{keyword}{class }ControlUnit \{}
 \DoxyCodeLine{22 }
@@ -84,13 +84,13 @@
 \DoxyCodeLine{80     \textcolor{keywordtype}{bool} IsThereConflict(vector<lesson>);}
 \DoxyCodeLine{81 }
 \DoxyCodeLine{82     \textcolor{comment}{//REQUEST FUNCTIONS}}
-\DoxyCodeLine{83     \textcolor{keywordtype}{bool} processRequest(Request *request, \textcolor{keywordtype}{bool} bypassStack = \textcolor{keyword}{false});}
+\DoxyCodeLine{83     \textcolor{keywordtype}{bool} processRequest(\mbox{\hyperlink{class_request}{Request}} *request, \textcolor{keywordtype}{bool} bypassStack = \textcolor{keyword}{false});}
 \DoxyCodeLine{84 }
-\DoxyCodeLine{85     \textcolor{keywordtype}{void} processAddRequest(AddRequest *addRequest);}
+\DoxyCodeLine{85     \textcolor{keywordtype}{void} processAddRequest(\mbox{\hyperlink{class_add_request}{AddRequest}} *addRequest);}
 \DoxyCodeLine{86 }
-\DoxyCodeLine{87     \textcolor{keywordtype}{void} processRemoveRequest(RemoveRequest *removeRequest);}
+\DoxyCodeLine{87     \textcolor{keywordtype}{void} processRemoveRequest(\mbox{\hyperlink{class_remove_request}{RemoveRequest}} *removeRequest);}
 \DoxyCodeLine{88 }
-\DoxyCodeLine{89     \textcolor{keywordtype}{void} processSwitchRequest(SwitchRequest *switchRequest);}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} processSwitchRequest(\mbox{\hyperlink{class_switch_request}{SwitchRequest}} *switchRequest);}
 \DoxyCodeLine{90 }
 \DoxyCodeLine{91     \textcolor{keywordtype}{void} processAllRequests();  \textcolor{comment}{//this method process all requests in the queue;}}
 \DoxyCodeLine{92 }
@@ -106,11 +106,11 @@
 \DoxyCodeLine{102 }
 \DoxyCodeLine{103     \textcolor{keywordtype}{void} createSwitch();}
 \DoxyCodeLine{104 }
-\DoxyCodeLine{105     \textcolor{keywordtype}{bool} CheckAdd(AddRequest *addrq);}
+\DoxyCodeLine{105     \textcolor{keywordtype}{bool} CheckAdd(\mbox{\hyperlink{class_add_request}{AddRequest}} *addrq);}
 \DoxyCodeLine{106 }
-\DoxyCodeLine{107     \textcolor{keywordtype}{bool} CheckRemove(RemoveRequest *remrq);}
+\DoxyCodeLine{107     \textcolor{keywordtype}{bool} CheckRemove(\mbox{\hyperlink{class_remove_request}{RemoveRequest}} *remrq);}
 \DoxyCodeLine{108 }
-\DoxyCodeLine{109     \textcolor{keywordtype}{bool} CheckSwitch(SwitchRequest *swrq);}
+\DoxyCodeLine{109     \textcolor{keywordtype}{bool} CheckSwitch(\mbox{\hyperlink{class_switch_request}{SwitchRequest}} *swrq);}
 \DoxyCodeLine{110 }
 \DoxyCodeLine{111     \textcolor{keywordtype}{string} getClassinUc(\textcolor{keywordtype}{string} upcode, \textcolor{keywordtype}{string} uccode);}
 \DoxyCodeLine{112 }

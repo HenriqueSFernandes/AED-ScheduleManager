@@ -639,7 +639,7 @@ string ControlUnit::getClassinUc(string upcode, string uccode) {
 
 bool ControlUnit::CheckAdd(AddRequest *addrq) {
     bool result = true;
-    string upcode = addrq->getUpCodeStudent();
+    string upcode = addrq->getStudentID();
     bool notmorethan7 = true;
     bool studentExists = false;
     bool NotInMoreTHanONeClass = true;
@@ -647,7 +647,7 @@ bool ControlUnit::CheckAdd(AddRequest *addrq) {
     bool existsclass = KeyToStudentGroup.find(key) != KeyToStudentGroup.end();
     map<string, int> HaveISeenThisUc;
     vector<lesson> lessonVec;
-    Student dummyStudent(addrq->getUpCodeStudent(), "", {});
+    Student dummyStudent(addrq->getStudentID(), "", {});
     auto student = StudentSet.find(dummyStudent);
     if (student != StudentSet.end()) {
         studentExists = true;
@@ -710,11 +710,11 @@ bool ControlUnit::CheckRemove(RemoveRequest *remrq) {
     //Falta o isbalnced
     bool result = true;
 
-    string upcode = remrq->getUpCodeStudent();
+    string upcode = remrq->getStudentID();
     bool notlessthan0 = true;
     bool studentExists = false;
     bool isinclass = true;
-    Student dummyStudent(remrq->getUpCodeStudent(), "", {});
+    Student dummyStudent(remrq->getStudentID(), "", {});
     auto student = StudentSet.find(dummyStudent);
     if (student != StudentSet.end()) {
         studentExists = true;
@@ -755,8 +755,8 @@ bool ControlUnit::CheckRemove(RemoveRequest *remrq) {
 
 bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
     bool result;
-    Student dummyStudent(swrq->getUpCodeStudent(), "", {});
-    string upcode = swrq->getUpCodeStudent();
+    Student dummyStudent(swrq->getStudentID(), "", {});
+    string upcode = swrq->getStudentID();
     bool studentExists = false;
     bool isinclass = true;
     bool respectscap = true;
@@ -906,11 +906,11 @@ bool ControlUnit::processRequest(Request *request, bool bypassStack) {
 }
 
 void ControlUnit::processAddRequest(AddRequest *addRequest) {
-    string upCode = addRequest->getUpCodeStudent();
+    string upCode = addRequest->getStudentID();
     string classCode = addRequest->getClassCode();
     string ucCode = addRequest->getUCCode();
     cout << "hey i got the request" << upCode << "/" << classCode << "/" << ucCode;
-    Student dummyStudent(addRequest->getUpCodeStudent(), "", {});
+    Student dummyStudent(addRequest->getStudentID(), "", {});
     auto student = StudentSet.find(dummyStudent);
     if (student != StudentSet.end()) {
         dummyStudent = *student;
@@ -928,11 +928,11 @@ void ControlUnit::processAddRequest(AddRequest *addRequest) {
 }
 
 void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
-    string upCode = removeRequest->getUpCodeStudent();
+    string upCode = removeRequest->getStudentID();
     string classCode = removeRequest->getClassCode();
     string ucCode = removeRequest->getUCCode();
     cout << "hey i got the request" << upCode << "/" << classCode << "/" << ucCode;
-    Student dummyStudent(removeRequest->getUpCodeStudent(), "", {});
+    Student dummyStudent(removeRequest->getStudentID(), "", {});
     auto student = StudentSet.find(dummyStudent);
     if (student != StudentSet.end()) {
         dummyStudent = *student;
@@ -947,9 +947,9 @@ void ControlUnit::processRemoveRequest(RemoveRequest *removeRequest) {
 
 
 void ControlUnit::processSwitchRequest(SwitchRequest *switchRequest) {
-    RemoveRequest *RemReq = new RemoveRequest(switchRequest->getUpCodeStudent(), switchRequest->getUCCode1(),
+    RemoveRequest *RemReq = new RemoveRequest(switchRequest->getStudentID(), switchRequest->getUCCode1(),
                                               switchRequest->getClassCode1());
-    AddRequest *AddReq = new AddRequest(switchRequest->getUpCodeStudent(), switchRequest->getUCCode2(),
+    AddRequest *AddReq = new AddRequest(switchRequest->getStudentID(), switchRequest->getUCCode2(),
                                         switchRequest->getClassCode2());
     processRemoveRequest(RemReq);
     processAddRequest(AddReq);
@@ -1018,19 +1018,19 @@ void ControlUnit::undoRequest(int n) {
         ProcessedRequests.pop();
         if (request->getType() == "add") {
             auto *request2 = dynamic_cast<AddRequest *>(request);
-            Request *request3 = new RemoveRequest(request2->getUpCodeStudent(), request2->getUCCode(),
+            Request *request3 = new RemoveRequest(request2->getStudentID(), request2->getUCCode(),
                                                   request2->getClassCode());
             processRequest(request3, true);
             delete request3;
         } else if (request->getType() == "remove") {
             auto *request2 = dynamic_cast<RemoveRequest *>(request);
-            Request *request3 = new AddRequest(request2->getUpCodeStudent(), request2->getUCCode(),
+            Request *request3 = new AddRequest(request2->getStudentID(), request2->getUCCode(),
                                                request2->getClassCode());
             processRequest(request3, true);
             delete request3;
         } else if (request->getType() == "switch") {
             auto *request2 = dynamic_cast<SwitchRequest *>(request);
-            Request *request3 = new SwitchRequest(request2->getUpCodeStudent(), request2->getUCCode2(),
+            Request *request3 = new SwitchRequest(request2->getStudentID(), request2->getUCCode2(),
                                                   request2->getUCCode1(), request2->getClassCode2(),
                                                   request2->getClassCode1());
             processRequest(request3, true);

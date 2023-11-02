@@ -97,36 +97,43 @@ $(document).ready(function(){initNavTree('_remove_request_8h_source.html',''); i
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROJAED_REMOVEREQUEST_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Request.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_request_8h.html">Request.h</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">class </span>RemoveRequest : <span class="keyword">public</span> Request {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    std::string upCodeStudent;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    std::string uCCode;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    std::string classCode;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">// Constructor</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    RemoveRequest(<span class="keyword">const</span> std::string &amp;upCodeStudent, <span class="keyword">const</span> std::string &amp;uCCode,</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>                  <span class="keyword">const</span> std::string &amp;classCode);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">// Getters</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::string getUpCodeStudent() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::string getUCCode() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::string getClassCode() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// Setters</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> setUpCodeStudent(<span class="keyword">const</span> std::string &amp;upCodeStudent);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> setUCCode(<span class="keyword">const</span> std::string &amp;uCCode);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> setClassCode(<span class="keyword">const</span> std::string &amp;classCode);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif </span><span class="comment">//PROJAED_REMOVEREQUEST_H</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_remove_request.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_remove_request.html">RemoveRequest</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_request.html">Request</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    std::string studentID;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    std::string ucCode;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::string classCode;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_function" href="class_remove_request.html#a3f7673d7094fe8f200d6064ade5c0bf5">RemoveRequest</a>(<span class="keyword">const</span> std::string &amp;studentID, <span class="keyword">const</span> std::string &amp;ucCode,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                  <span class="keyword">const</span> std::string &amp;classCode);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::string <a class="code hl_function" href="class_remove_request.html#aabf0af724fe92030946ed4ed027cf0ec">getStudentID</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::string <a class="code hl_function" href="class_remove_request.html#a0d704514e2c62900d719ed4045479ec0">getUCCode</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    std::string <a class="code hl_function" href="class_remove_request.html#a236ae23e1cfadd5487837620ec99ca62">getClassCode</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_remove_request.html#a9f46afdf2d494dcb5cddb43ff89fa1de">setStudentID</a>(<span class="keyword">const</span> std::string &amp;studentID);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_remove_request.html#a4feff91912b592afed813b1992666457">setUCCode</a>(<span class="keyword">const</span> std::string &amp;ucCode);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_remove_request.html#a216341f2e46a0d80dfdee357532a7f81">setClassCode</a>(<span class="keyword">const</span> std::string &amp;classCode);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span><span class="comment">//PROJAED_REMOVEREQUEST_H</span></div>
+<div class="ttc" id="a_request_8h_html"><div class="ttname"><a href="_request_8h.html">Request.h</a></div></div>
+<div class="ttc" id="aclass_remove_request_html"><div class="ttname"><a href="class_remove_request.html">RemoveRequest</a></div><div class="ttdoc">Request of type remove.</div><div class="ttdef"><b>Definition:</b> RemoveRequest.h:10</div></div>
+<div class="ttc" id="aclass_remove_request_html_a0d704514e2c62900d719ed4045479ec0"><div class="ttname"><a href="class_remove_request.html#a0d704514e2c62900d719ed4045479ec0">RemoveRequest::getUCCode</a></div><div class="ttdeci">std::string getUCCode() const</div><div class="ttdoc">Gets the course code.</div><div class="ttdef"><b>Definition:</b> RemoveRequest.cpp:13</div></div>
+<div class="ttc" id="aclass_remove_request_html_a216341f2e46a0d80dfdee357532a7f81"><div class="ttname"><a href="class_remove_request.html#a216341f2e46a0d80dfdee357532a7f81">RemoveRequest::setClassCode</a></div><div class="ttdeci">void setClassCode(const std::string &amp;classCode)</div><div class="ttdoc">Sets a new class code.</div><div class="ttdef"><b>Definition:</b> RemoveRequest.cpp:30</div></div>
+<div class="ttc" id="aclass_remove_request_html_a236ae23e1cfadd5487837620ec99ca62"><div class="ttname"><a href="class_remove_request.html#a236ae23e1cfadd5487837620ec99ca62">RemoveRequest::getClassCode</a></div><div class="ttdeci">std::string getClassCode() const</div><div class="ttdoc">Gets the class code.</div><div class="ttdef"><b>Definition:</b> RemoveRequest.cpp:17</div></div>
+<div class="ttc" id="aclass_remove_request_html_a3f7673d7094fe8f200d6064ade5c0bf5"><div class="ttname"><a href="class_remove_request.html#a3f7673d7094fe8f200d6064ade5c0bf5">RemoveRequest::RemoveRequest</a></div><div class="ttdeci">RemoveRequest(const std::string &amp;studentID, const std::string &amp;ucCode, const std::string &amp;classCode)</div><div class="ttdoc">Parameterized constructor.</div><div class="ttdef"><b>Definition:</b> RemoveRequest.cpp:4</div></div>
+<div class="ttc" id="aclass_remove_request_html_a4feff91912b592afed813b1992666457"><div class="ttname"><a href="class_remove_request.html#a4feff91912b592afed813b1992666457">RemoveRequest::setUCCode</a></div><div class="ttdeci">void setUCCode(const std::string &amp;ucCode)</div><div class="ttdoc">Sets a new couse code.</div><div class="ttdef"><b>Definition:</b> RemoveRequest.cpp:26</div></div>
+<div class="ttc" id="aclass_remove_request_html_a9f46afdf2d494dcb5cddb43ff89fa1de"><div class="ttname"><a href="class_remove_request.html#a9f46afdf2d494dcb5cddb43ff89fa1de">RemoveRequest::setStudentID</a></div><div class="ttdeci">void setStudentID(const std::string &amp;studentID)</div><div class="ttdoc">Sets a new student ID.</div><div class="ttdef"><b>Definition:</b> RemoveRequest.cpp:22</div></div>
+<div class="ttc" id="aclass_remove_request_html_aabf0af724fe92030946ed4ed027cf0ec"><div class="ttname"><a href="class_remove_request.html#aabf0af724fe92030946ed4ed027cf0ec">RemoveRequest::getStudentID</a></div><div class="ttdeci">std::string getStudentID() const</div><div class="ttdoc">Gets the student ID.</div><div class="ttdef"><b>Definition:</b> RemoveRequest.cpp:9</div></div>
+<div class="ttc" id="aclass_request_html"><div class="ttname"><a href="class_request.html">Request</a></div><div class="ttdoc">Class used to represent a generic request.</div><div class="ttdef"><b>Definition:</b> Request.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
