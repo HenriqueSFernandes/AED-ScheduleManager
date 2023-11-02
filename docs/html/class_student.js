@@ -1,14 +1,14 @@
 var class_student =
 [
-    [ "Student", "class_student.html#af9168cedbfa5565cf0b20c1a9d3f5c9d", null ],
+    [ "Student", "class_student.html#ad1acbcd2c458613945d4bf4618d1ae47", null ],
     [ "Student", "class_student.html#adb31d1d0a15d674d92d8dcdefd4e660b", null ],
-    [ "addStudentGroup", "class_student.html#a126ececb9fa08b66c0a5794739c66805", null ],
-    [ "getName", "class_student.html#af2b671e64af8a240f59652414a8b8047", null ],
+    [ "addStudentGroup", "class_student.html#a98446a5a0ac3c689799f68205a5ab054", null ],
+    [ "getName", "class_student.html#a1df6c28e6416e20d338b9ff11bdc1e04", null ],
     [ "getStudentGroups", "class_student.html#ad3420b04fc1bb5dcc413bfa771db896d", null ],
-    [ "getStudentID", "class_student.html#aa23a5caf2b0e59dbd9834cdd7f3f37a0", null ],
-    [ "isInClass", "class_student.html#ae58b2cf232d0a305c6b767256ca622e9", null ],
-    [ "isInUC", "class_student.html#ae8187d6467f3ebc287d99df8ac6da3d5", null ],
-    [ "removeGroup", "class_student.html#a77616da1750d6197c7c28f50aa12e522", null ],
-    [ "setName", "class_student.html#a489c963162c2b5798154a3217815cfc8", null ],
+    [ "getStudentID", "class_student.html#a703e8d2004faa7e2569ef2f8bb320f2d", null ],
+    [ "isInClass", "class_student.html#aa54f74ba5d636a30d3e8f9b7026c46ef", null ],
+    [ "isInUC", "class_student.html#a4a7094e40aa97136142c79438e174b7c", null ],
+    [ "removeGroup", "class_student.html#a63083726dbf48d8e100c00f404e917b1", null ],
+    [ "setName", "class_student.html#add287224cef065944df9da7e8f38c116", null ],
     [ "setStudentID", "class_student.html#aa061a0b43cd8c617edf76a28c31b5300", null ]
 ];

@@ -11,40 +11,38 @@
 \DoxyCodeLine{7 \textcolor{keyword}{class }studentGroup \{}
 \DoxyCodeLine{8 \textcolor{keyword}{public}:}
 \DoxyCodeLine{9     \textcolor{comment}{// Constructors}}
-\DoxyCodeLine{10     studentGroup() \{}
+\DoxyCodeLine{10     studentGroup() = \textcolor{keywordflow}{default};}
 \DoxyCodeLine{11 }
-\DoxyCodeLine{12     \}}
+\DoxyCodeLine{12     studentGroup(\textcolor{keyword}{const} std::string \&uccode, \textcolor{keyword}{const} std::string \&classCode);}
 \DoxyCodeLine{13 }
-\DoxyCodeLine{14     studentGroup(\textcolor{keyword}{const} std::string \&uccode, \textcolor{keyword}{const} std::string \&classCode);}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16     \textcolor{keyword}{const} std::string \&getClassCode()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{17         \textcolor{keywordflow}{return} classCode;}
-\DoxyCodeLine{18     \}}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20     \textcolor{keyword}{const} std::string \&getUcCode()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{21         \textcolor{keywordflow}{return} UcCode;}
-\DoxyCodeLine{22     \}}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} studentGroup \&other)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{25         \textcolor{comment}{// Define a comparison logic here based on your criteria.}}
-\DoxyCodeLine{26         \textcolor{comment}{// For example, you can compare based on class code or other fields.}}
-\DoxyCodeLine{27         \textcolor{keywordflow}{return} this-\/>classCode + this-\/>UcCode < other.classCode + other.UcCode;}
-\DoxyCodeLine{28     \}}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30     \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} studentGroup \&group) \{}
-\DoxyCodeLine{31         os << \textcolor{stringliteral}{"{}UcCode: "{}} << group.UcCode << \textcolor{stringliteral}{"{}, Class Code: "{}} << group.classCode;}
-\DoxyCodeLine{32         \textcolor{keywordflow}{return} os;}
-\DoxyCodeLine{33     \}}
-\DoxyCodeLine{34 }
+\DoxyCodeLine{14     \textcolor{keyword}{const} std::string \&getClassCode()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{15         \textcolor{keywordflow}{return} classCode;}
+\DoxyCodeLine{16     \}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{const} std::string \&getUcCode()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} UcCode;}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} studentGroup \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{23         \textcolor{comment}{// Define a comparison logic here based on your criteria.}}
+\DoxyCodeLine{24         \textcolor{comment}{// For example, you can compare based on class code or other fields.}}
+\DoxyCodeLine{25         \textcolor{keywordflow}{return} this-\/>classCode + this-\/>UcCode < other.classCode + other.UcCode;}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} studentGroup \&group) \{}
+\DoxyCodeLine{29         os << \textcolor{stringliteral}{"{}UcCode: "{}} << group.UcCode << \textcolor{stringliteral}{"{}, Class Code: "{}} << group.classCode;}
+\DoxyCodeLine{30         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{private}:}
 \DoxyCodeLine{35 }
-\DoxyCodeLine{36 \textcolor{keyword}{private}:}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38     std::string classCode;}
-\DoxyCodeLine{39     std::string UcCode;}
-\DoxyCodeLine{40 }
+\DoxyCodeLine{36     std::string classCode;}
+\DoxyCodeLine{37     std::string UcCode;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \};}
 \DoxyCodeLine{41 }
-\DoxyCodeLine{42 \};}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

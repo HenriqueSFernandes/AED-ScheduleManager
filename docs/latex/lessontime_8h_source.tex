@@ -15,13 +15,13 @@
 \DoxyCodeLine{11 \textcolor{keyword}{using namespace }std;}
 \DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classlessontime}{lessontime}} \{}
 \DoxyCodeLine{16 \textcolor{keyword}{public}:}
-\DoxyCodeLine{21     \mbox{\hyperlink{classlessontime_aefd56f6592294baed59d7f164cf08242}{lessontime}}(\textcolor{keywordtype}{double} time);}
+\DoxyCodeLine{21     \textcolor{keyword}{explicit} \mbox{\hyperlink{classlessontime_aefd56f6592294baed59d7f164cf08242}{lessontime}}(\textcolor{keywordtype}{double} time);}
 \DoxyCodeLine{22 }
 \DoxyCodeLine{26     \mbox{\hyperlink{classlessontime_aefd56f6592294baed59d7f164cf08242}{lessontime}}();}
 \DoxyCodeLine{27 }
 \DoxyCodeLine{33     \mbox{\hyperlink{classlessontime_aefd56f6592294baed59d7f164cf08242}{lessontime}}(\textcolor{keywordtype}{int} hour, \textcolor{keywordtype}{int} minutes);}
 \DoxyCodeLine{34 }
-\DoxyCodeLine{39     \textcolor{keywordtype}{string} \mbox{\hyperlink{classlessontime_a5908e00d3e925552fea6c9ee772903b8}{displayHourFormat}}();}
+\DoxyCodeLine{39     \textcolor{keywordtype}{string} \mbox{\hyperlink{classlessontime_ab5f9e3946d2d4db1460615c2b8fc2c93}{displayHourFormat}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{40 }
 \DoxyCodeLine{45     \textcolor{keywordtype}{int} \mbox{\hyperlink{classlessontime_ace6faca730eaaf9023ab8d8950986cfc}{getHour}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{46 }
@@ -51,21 +51,15 @@
 \DoxyCodeLine{74 }
 \DoxyCodeLine{75     \textcolor{keywordtype}{bool} operator<=(\textcolor{keyword}{const} \mbox{\hyperlink{classlessontime}{lessontime}} \&other)\textcolor{keyword}{ const }\{}
 \DoxyCodeLine{76         \textcolor{comment}{// Compare two lessontime objects based on their hours and minutes}}
-\DoxyCodeLine{77         \textcolor{keywordflow}{if} (hour < other.hour) \{}
-\DoxyCodeLine{78             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{79         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (hour == other.hour \&\& minute <= other.minute) \{}
-\DoxyCodeLine{80             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{81         \}}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{83         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{84     \}}
+\DoxyCodeLine{77         \textcolor{keywordflow}{return} (hour < other.hour) || (hour == other.hour \&\& minute <= other.minute);}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{keyword}{private}:}
+\DoxyCodeLine{81     \textcolor{keywordtype}{int} hour;}
+\DoxyCodeLine{82     \textcolor{keywordtype}{int} minute;}
+\DoxyCodeLine{83 \};}
+\DoxyCodeLine{84 }
 \DoxyCodeLine{85 }
-\DoxyCodeLine{86 \textcolor{keyword}{private}:}
-\DoxyCodeLine{87     \textcolor{keywordtype}{int} hour;}
-\DoxyCodeLine{88     \textcolor{keywordtype}{int} minute;}
-\DoxyCodeLine{89 \};}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{91 }
-\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJAED\_LESSONTIME\_H}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJAED\_LESSONTIME\_H}}
 
 \end{DoxyCode}

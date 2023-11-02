@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['removegroup_0',['removeGroup',['../class_student.html#a77616da1750d6197c7c28f50aa12e522',1,'Student']]]
+  ['removegroup_0',['removeGroup',['../class_student.html#a63083726dbf48d8e100c00f404e917b1',1,'Student']]]
 ];

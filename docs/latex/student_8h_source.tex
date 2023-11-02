@@ -15,27 +15,27 @@
 \DoxyCodeLine{11 }
 \DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_student}{Student}} \{}
 \DoxyCodeLine{16 \textcolor{keyword}{public}:}
-\DoxyCodeLine{20     \mbox{\hyperlink{class_student_af9168cedbfa5565cf0b20c1a9d3f5c9d}{Student}}() \{\};}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_student_ad1acbcd2c458613945d4bf4618d1ae47}{Student}}() = \textcolor{keywordflow}{default};}
 \DoxyCodeLine{21 }
-\DoxyCodeLine{28     \mbox{\hyperlink{class_student_af9168cedbfa5565cf0b20c1a9d3f5c9d}{Student}}(\textcolor{keywordtype}{string} studentId, \textcolor{keywordtype}{string} name, set<studentGroup> group);}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_student_ad1acbcd2c458613945d4bf4618d1ae47}{Student}}(\textcolor{keywordtype}{string} studentId, \textcolor{keywordtype}{string} name, set<studentGroup> group);}
 \DoxyCodeLine{29 }
-\DoxyCodeLine{34     std::string \mbox{\hyperlink{class_student_aa23a5caf2b0e59dbd9834cdd7f3f37a0}{getStudentID}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{34     std::string \mbox{\hyperlink{class_student_a703e8d2004faa7e2569ef2f8bb320f2d}{getStudentID}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{35 }
 \DoxyCodeLine{40     set<studentGroup> \mbox{\hyperlink{class_student_ad3420b04fc1bb5dcc413bfa771db896d}{getStudentGroups}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{41 }
-\DoxyCodeLine{46     std::string \mbox{\hyperlink{class_student_af2b671e64af8a240f59652414a8b8047}{getName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{46     std::string \mbox{\hyperlink{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}{getName}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{47 }
-\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_a489c963162c2b5798154a3217815cfc8}{setName}}(\textcolor{keyword}{const} std::string \&name);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_add287224cef065944df9da7e8f38c116}{setName}}(\textcolor{keyword}{const} std::string \&newName);}
 \DoxyCodeLine{53 }
 \DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_aa061a0b43cd8c617edf76a28c31b5300}{setStudentID}}(\textcolor{keyword}{const} std::string \&studentId);}
 \DoxyCodeLine{59 }
-\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_a126ececb9fa08b66c0a5794739c66805}{addStudentGroup}}(studentGroup GroupToAdd);}
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_a98446a5a0ac3c689799f68205a5ab054}{addStudentGroup}}(\textcolor{keyword}{const} studentGroup\& GroupToAdd);}
 \DoxyCodeLine{65 }
-\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_a77616da1750d6197c7c28f50aa12e522}{removeGroup}}(studentGroup GroupToRemove);}
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_student_a63083726dbf48d8e100c00f404e917b1}{removeGroup}}(\textcolor{keyword}{const} studentGroup\& GroupToRemove);}
 \DoxyCodeLine{71 }
-\DoxyCodeLine{77     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_student_ae8187d6467f3ebc287d99df8ac6da3d5}{isInUC}}(\textcolor{keywordtype}{string} uc) \textcolor{keyword}{const};}
+\DoxyCodeLine{77     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_student_a4a7094e40aa97136142c79438e174b7c}{isInUC}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& uc) \textcolor{keyword}{const};}
 \DoxyCodeLine{78 }
-\DoxyCodeLine{86     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_student_ae58b2cf232d0a305c6b767256ca622e9}{isInClass}}(\textcolor{keywordtype}{string} uc, \textcolor{keywordtype}{string} studgroup) \textcolor{keyword}{const};}
+\DoxyCodeLine{86     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_student_aa54f74ba5d636a30d3e8f9b7026c46ef}{isInClass}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& ucCode, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& studentGroup) \textcolor{keyword}{const};}
 \DoxyCodeLine{87 }
 \DoxyCodeLine{88     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{class_student}{Student}} \&other)\textcolor{keyword}{ const }\{}
 \DoxyCodeLine{89         \textcolor{keywordflow}{return} studentID < other.studentID;}

@@ -9,7 +9,7 @@
 #include "student.h"
 #include <set>
 #include <list>
-#include <deque>
+#include <queue>
 #include <stack>
 #include <functional>
 #include "lesson.h"
@@ -41,7 +41,7 @@ private:
     map<MainKey, studentGroup *> KeyToStudentGroup;
     map<MainKey, set<lesson *>> LessonMap;
     map<MainKey, int> SizeMap;
-    deque<Request *> RequestsToProcess;
+    queue<Request *> RequestsToProcess;
     stack<Request *> ProcessedRequests;
     int cap = 30;
 
