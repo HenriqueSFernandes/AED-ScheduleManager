@@ -9,8 +9,8 @@
 
 using namespace std;
 
-void ControlUnit::Start(string filename) {
-    this->filename = filename;
+void ControlUnit::loadCSV(string studentFilename) {
+    this->filename = studentFilename;
     ControlUnit::LoadClassesPerUcCSV();
     cout << "Loaded classes and courses." << endl;
     ControlUnit::LoadClassesCSV();
@@ -562,7 +562,7 @@ void ControlUnit::createRemove() {
     }
     cout << "What UC you want to remove the student from:" << endl;
     cin >> ucCode;
-    studentgroup = getClassinUc(upCode, ucCode);
+    studentgroup = getClassInUc(upCode, ucCode);
     RequestsToProcess.push(new RemoveRequest(upCode, ucCode, studentgroup));
 }
 
@@ -590,11 +590,11 @@ void ControlUnit::createSwitch() {
             case 1:
                 cout << "What UC do you want to leave?" << endl;
                 cin >> uc1;
-                studentgroup1 = getClassinUc(id, uc1);
+                studentgroup1 = getClassInUc(id, uc1);
                 while (studentgroup1 == "false") {
                     cout << "Student not in given UC please give another one." << endl;
                     cin >> uc1;
-                    studentgroup1 = getClassinUc(id, uc1);
+                    studentgroup1 = getClassInUc(id, uc1);
                 }
                 cout << "What UC do you want to join?" << endl;
                 cin >> uc2;
@@ -602,11 +602,11 @@ void ControlUnit::createSwitch() {
             case 2:
                 cout << "What UC do you want to swap classes?" << endl;
                 cin >> uc1;
-                studentgroup1 = getClassinUc(id, uc1);
+                studentgroup1 = getClassInUc(id, uc1);
                 while (studentgroup1 == "false") {
                     cout << "Student not in given UC please give another one." << endl;
                     cin >> uc1;
-                    studentgroup1 = getClassinUc(id, uc1);
+                    studentgroup1 = getClassInUc(id, uc1);
                 }
                 uc2 = uc1;
                 break;
@@ -621,11 +621,11 @@ void ControlUnit::createSwitch() {
     RequestsToProcess.push(new SwitchRequest(id, uc1, uc2, studentgroup1, studentgroup2));
 }
 
-string ControlUnit::getClassinUc(string upcode, string uccode) {
+string ControlUnit::getClassInUc(string studentID, string ucCode) {
     for (auto student: StudentSet) {
-        if (student.getStudentID() == upcode) {
+        if (student.getStudentID() == studentID) {
             for (auto sg: student.getStudentGroups()) {
-                if (sg.getUcCode() == uccode) {
+                if (sg.getUcCode() == ucCode) {
                     return sg.getClassCode();
 
                 }

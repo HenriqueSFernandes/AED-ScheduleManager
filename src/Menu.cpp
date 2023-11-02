@@ -24,7 +24,7 @@ void Menu::createMenu() {
             cout << "Invalid option, choose again.\n";
         }
     }
-    this->Control.Start(filename);
+    this->Control.loadCSV(filename);
     //this->Control.CheckIfThereAreConflicts();
     while (true) {
         std::cout << "Select an option:\n";

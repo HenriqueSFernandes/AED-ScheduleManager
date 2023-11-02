@@ -1,0 +1,403 @@
+\hypertarget{class_control_unit}{}\doxysection{Control\+Unit Class Reference}
+\label{class_control_unit}\index{ControlUnit@{ControlUnit}}
+
+
+\mbox{\hyperlink{_control_unit_8h_source}{Control\+Unit.\+h}}.  
+
+
+
+
+{\ttfamily \#include $<$Control\+Unit.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_control_unit_ab4a27afcf53205d66ba4ae0b1585aeba}{load\+CSV}} (string student\+Filename)
+\begin{DoxyCompactList}\small\item\em Loads all the csv files. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_aca5ddcdc893b2c5d279fcc6c737e4d5a}\label{class_control_unit_aca5ddcdc893b2c5d279fcc6c737e4d5a}} 
+void {\bfseries Load\+Classes\+CSV} ()
+\begin{DoxyCompactList}\small\item\em Loads the classes.\+csv file (which has all the lessons). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_a98481fa708eefb5b4a3123312843bba5}\label{class_control_unit_a98481fa708eefb5b4a3123312843bba5}} 
+void {\bfseries Load\+Classes\+Per\+Uc\+CSV} ()
+\begin{DoxyCompactList}\small\item\em Loads the classes\+\_\+per\+\_\+uc.\+csv file (which has all the courses and classes). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_a2fa3112381692d9daa4876d706a5442e}\label{class_control_unit_a2fa3112381692d9daa4876d706a5442e}} 
+void {\bfseries Load\+Students\+Classes\+CSV} ()
+\begin{DoxyCompactList}\small\item\em Load students\+\_\+classes.\+csv or student\+\_\+classes\+\_\+updated.\+csv, depending on the option chose. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_ab4b432f7eadc39d3d6cae8349e56194d}\label{class_control_unit_ab4b432f7eadc39d3d6cae8349e56194d}} 
+void {\bfseries save\+Changes} ()
+\begin{DoxyCompactList}\small\item\em Saves the changes made, updating the file students\+\_\+classes\+\_\+updated.\+csv. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_a5c52dd3a2750f06cb5ade8826f3b81c0}\label{class_control_unit_a5c52dd3a2750f06cb5ade8826f3b81c0}} 
+void {\bfseries Display\+Student\+Schedule} ()
+\begin{DoxyCompactList}\small\item\em Displays the schedule of a student. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_a060eca73f85969895ea2a9a8d45c6242}\label{class_control_unit_a060eca73f85969895ea2a9a8d45c6242}} 
+void {\bfseries Display\+Class\+Schedule} ()
+\begin{DoxyCompactList}\small\item\em Displays the schedule of a class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_control_unit_a0ef689e620a95451eefa8e79ec7f0c27}{Students\+In\+At\+Least\+NUcs}} (int n)
+\begin{DoxyCompactList}\small\item\em Displays the students enrolled in at least N courses. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_control_unit_a74d26657d23d65400b23b2b21c5dcdec}{Students\+In\+At\+Most\+NUcs}} (int n)
+\begin{DoxyCompactList}\small\item\em Displays the students enrolled in at most N courses. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_control_unit_a1fb8c509bbdd9251e0928c1a985b18dd}{Students\+In\+Ucs}} (int n)
+\begin{DoxyCompactList}\small\item\em Displays the students enrolled in exactly N courses. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_unit_ae4534630678efed0e019664047ccbaf9}{course\+Students}} (string course\+Code, function$<$ bool(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})$>$ func)
+\begin{DoxyCompactList}\small\item\em Displays the students enrolled in a specific course. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_unit_acad3739b9fe2d14a380590afb17e7a6b}{year\+Students}} (char year, function$<$ bool(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})$>$ func)
+\begin{DoxyCompactList}\small\item\em Displays the students from a specific year. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_unit_aa69207511a13ce82ad5ba68c5fd2ca4b}{class\+Students}} (string class\+Code, function$<$ bool(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})$>$ func)
+\begin{DoxyCompactList}\small\item\em Displays the students from a specific class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_a4e84e6a7a2f7df4b70c21eaf88376a89}\label{class_control_unit_a4e84e6a7a2f7df4b70c21eaf88376a89}} 
+void {\bfseries UCWith\+Most\+Students} ()
+\begin{DoxyCompactList}\small\item\em Displays all the courses starting with the one with the most student. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_control_unit_a21f0f5455651e5704f43a8fb97c36441}{Num\+Balanced}} (vector$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$, map$<$ Main\+Key, int $>$)
+\begin{DoxyCompactList}\small\item\em Checks the balance of the classes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_control_unit_aa9d8dcb06d1c289d272bba0aabdefaab}{Is\+There\+Conflict}} (vector$<$ \mbox{\hyperlink{classlesson}{lesson}} $>$)
+\begin{DoxyCompactList}\small\item\em Detects conflicts in a schedule. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_control_unit_a2924882271e16a46a93b019ba709bf66}{process\+Request}} (\mbox{\hyperlink{class_request}{Request}} $\ast$request, bool bypass\+Stack=false)
+\begin{DoxyCompactList}\small\item\em Processes a request. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_unit_ad7fce9a2ca5f917c9aa1d9cd01219087}{process\+Add\+Request}} (\mbox{\hyperlink{class_add_request}{Add\+Request}} $\ast$add\+Request)
+\begin{DoxyCompactList}\small\item\em Processes a request of type add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_unit_a44bc485af0cde28556e02a2ba72ba20d}{process\+Remove\+Request}} (\mbox{\hyperlink{class_remove_request}{Remove\+Request}} $\ast$remove\+Request)
+\begin{DoxyCompactList}\small\item\em Processes a request of type remove. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_unit_a9cb160b5255192632fb43668fe8758e4}{process\+Switch\+Request}} (\mbox{\hyperlink{class_switch_request}{Switch\+Request}} $\ast$switch\+Request)
+\begin{DoxyCompactList}\small\item\em Processes a request of type switch. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_ab0d8364a1205dd97ce8e23246c92c79a}\label{class_control_unit_ab0d8364a1205dd97ce8e23246c92c79a}} 
+void {\bfseries process\+All\+Requests} ()
+\begin{DoxyCompactList}\small\item\em Processes all the requests awaiting to be processed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_a25a226b8e6f3d5531d2cb07145f44cfa}\label{class_control_unit_a25a226b8e6f3d5531d2cb07145f44cfa}} 
+void {\bfseries remove\+Last\+Pending\+Request} ()
+\begin{DoxyCompactList}\small\item\em Removes the most recent request that hasn\textquotesingle{}t been applied. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_unit_a516424b32fb1e9b17cdd12f797ee784d}{undo\+Request}} (int n)
+\begin{DoxyCompactList}\small\item\em Undoes the N most recent applied request. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_a4f1dbaad93b58f55d81a4504974b9085}\label{class_control_unit_a4f1dbaad93b58f55d81a4504974b9085}} 
+void {\bfseries create\+Add} ()
+\begin{DoxyCompactList}\small\item\em Creates a request of type add. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_a754727b2d57e9fc6fa65ec69d236ffe5}\label{class_control_unit_a754727b2d57e9fc6fa65ec69d236ffe5}} 
+void {\bfseries create\+Remove} ()
+\begin{DoxyCompactList}\small\item\em Creates a request of type remove. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_ad24faea65b96b338b009177f7f3d599f}\label{class_control_unit_ad24faea65b96b338b009177f7f3d599f}} 
+void {\bfseries create\+Switch} ()
+\begin{DoxyCompactList}\small\item\em Creates a request of type switch. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_control_unit_aee98b9c11d79c8b97421631c38d146ba}{Check\+Add}} (\mbox{\hyperlink{class_add_request}{Add\+Request}} $\ast$addrq)
+\begin{DoxyCompactList}\small\item\em Checks if the request is possible. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_control_unit_ad99952f3adb654a83fc003e9d6eeff8f}{Check\+Remove}} (\mbox{\hyperlink{class_remove_request}{Remove\+Request}} $\ast$remrq)
+\begin{DoxyCompactList}\small\item\em Checks if the request is possible. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_control_unit_af5a3f6ddaf797f640f51a718d3d998bf}{Check\+Switch}} (\mbox{\hyperlink{class_switch_request}{Switch\+Request}} $\ast$swrq)
+\begin{DoxyCompactList}\small\item\em Checks if the request is possible. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_control_unit_ad0d79a6b6abb4f167252f203c65ab6dc}{get\+Class\+In\+Uc}} (string student\+ID, string uc\+Code)
+\begin{DoxyCompactList}\small\item\em Gets the class of a student knowing the course. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_a903d061dd69d145767e6c7a709f2c5b1}\label{class_control_unit_a903d061dd69d145767e6c7a709f2c5b1}} 
+void {\bfseries clear\+Memory} ()
+\begin{DoxyCompactList}\small\item\em Frees all the dynamic memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{_control_unit_8h_source}{Control\+Unit.\+h}}. 
+
+Class used to handle the core functions of the program. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_control_unit_aee98b9c11d79c8b97421631c38d146ba}\label{class_control_unit_aee98b9c11d79c8b97421631c38d146ba}} 
+\index{ControlUnit@{ControlUnit}!CheckAdd@{CheckAdd}}
+\index{CheckAdd@{CheckAdd}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{CheckAdd()}{CheckAdd()}}
+{\footnotesize\ttfamily bool Control\+Unit\+::\+Check\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_add_request}{Add\+Request}} $\ast$}]{addrq }\end{DoxyParamCaption})}
+
+
+
+Checks if the request is possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addrq} & \mbox{\hyperlink{class_request}{Request}} to be analysed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean representing if the request is possible or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_control_unit_ad99952f3adb654a83fc003e9d6eeff8f}\label{class_control_unit_ad99952f3adb654a83fc003e9d6eeff8f}} 
+\index{ControlUnit@{ControlUnit}!CheckRemove@{CheckRemove}}
+\index{CheckRemove@{CheckRemove}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{CheckRemove()}{CheckRemove()}}
+{\footnotesize\ttfamily bool Control\+Unit\+::\+Check\+Remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_remove_request}{Remove\+Request}} $\ast$}]{remrq }\end{DoxyParamCaption})}
+
+
+
+Checks if the request is possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em remrq} & \mbox{\hyperlink{class_request}{Request}} to be analysed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean representing if the request is possible or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_control_unit_af5a3f6ddaf797f640f51a718d3d998bf}\label{class_control_unit_af5a3f6ddaf797f640f51a718d3d998bf}} 
+\index{ControlUnit@{ControlUnit}!CheckSwitch@{CheckSwitch}}
+\index{CheckSwitch@{CheckSwitch}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{CheckSwitch()}{CheckSwitch()}}
+{\footnotesize\ttfamily bool Control\+Unit\+::\+Check\+Switch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_switch_request}{Switch\+Request}} $\ast$}]{swrq }\end{DoxyParamCaption})}
+
+
+
+Checks if the request is possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em swrq} & \mbox{\hyperlink{class_request}{Request}} to be analysed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean representing if the request is possible or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_control_unit_aa69207511a13ce82ad5ba68c5fd2ca4b}\label{class_control_unit_aa69207511a13ce82ad5ba68c5fd2ca4b}} 
+\index{ControlUnit@{ControlUnit}!classStudents@{classStudents}}
+\index{classStudents@{classStudents}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{classStudents()}{classStudents()}}
+{\footnotesize\ttfamily void Control\+Unit\+::class\+Students (\begin{DoxyParamCaption}\item[{string}]{class\+Code,  }\item[{function$<$ bool(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})$>$}]{func }\end{DoxyParamCaption})}
+
+
+
+Displays the students from a specific class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Code} & String representing the class code. \\
+\hline
+{\em func} & Boolean function used to sort students. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_control_unit_ae4534630678efed0e019664047ccbaf9}\label{class_control_unit_ae4534630678efed0e019664047ccbaf9}} 
+\index{ControlUnit@{ControlUnit}!courseStudents@{courseStudents}}
+\index{courseStudents@{courseStudents}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{courseStudents()}{courseStudents()}}
+{\footnotesize\ttfamily void Control\+Unit\+::course\+Students (\begin{DoxyParamCaption}\item[{string}]{course\+Code,  }\item[{function$<$ bool(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})$>$}]{func }\end{DoxyParamCaption})}
+
+
+
+Displays the students enrolled in a specific course. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em course\+Code} & String representing the course code. \\
+\hline
+{\em func} & Boolean function used to sort students. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_control_unit_ad0d79a6b6abb4f167252f203c65ab6dc}\label{class_control_unit_ad0d79a6b6abb4f167252f203c65ab6dc}} 
+\index{ControlUnit@{ControlUnit}!getClassInUc@{getClassInUc}}
+\index{getClassInUc@{getClassInUc}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{getClassInUc()}{getClassInUc()}}
+{\footnotesize\ttfamily string Control\+Unit\+::get\+Class\+In\+Uc (\begin{DoxyParamCaption}\item[{string}]{student\+ID,  }\item[{string}]{uc\+Code }\end{DoxyParamCaption})}
+
+
+
+Gets the class of a student knowing the course. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+ID} & String representing the student ID. \\
+\hline
+{\em uc\+Code} & String representing the course code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String representing the class code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_control_unit_aa9d8dcb06d1c289d272bba0aabdefaab}\label{class_control_unit_aa9d8dcb06d1c289d272bba0aabdefaab}} 
+\index{ControlUnit@{ControlUnit}!IsThereConflict@{IsThereConflict}}
+\index{IsThereConflict@{IsThereConflict}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{IsThereConflict()}{IsThereConflict()}}
+{\footnotesize\ttfamily bool Control\+Unit\+::\+Is\+There\+Conflict (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classlesson}{lesson}} $>$}]{lessons }\end{DoxyParamCaption})}
+
+
+
+Detects conflicts in a schedule. 
+
+\begin{DoxyReturn}{Returns}
+Boolean that represents the existence of conflicts. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_control_unit_ab4a27afcf53205d66ba4ae0b1585aeba}\label{class_control_unit_ab4a27afcf53205d66ba4ae0b1585aeba}} 
+\index{ControlUnit@{ControlUnit}!loadCSV@{loadCSV}}
+\index{loadCSV@{loadCSV}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{loadCSV()}{loadCSV()}}
+{\footnotesize\ttfamily void Control\+Unit\+::load\+CSV (\begin{DoxyParamCaption}\item[{string}]{student\+Filename }\end{DoxyParamCaption})}
+
+
+
+Loads all the csv files. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Filename} & A string that represents the student csv, it can eitheir be the original version or the updated version. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_control_unit_a21f0f5455651e5704f43a8fb97c36441}\label{class_control_unit_a21f0f5455651e5704f43a8fb97c36441}} 
+\index{ControlUnit@{ControlUnit}!NumBalanced@{NumBalanced}}
+\index{NumBalanced@{NumBalanced}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{NumBalanced()}{NumBalanced()}}
+{\footnotesize\ttfamily int Control\+Unit\+::\+Num\+Balanced (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$}]{groups,  }\item[{map$<$ Main\+Key, int $>$}]{my\+Map }\end{DoxyParamCaption})}
+
+
+
+Checks the balance of the classes. 
+
+\begin{DoxyReturn}{Returns}
+Returns the maximum difference between the amount of students in each class. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_control_unit_ad7fce9a2ca5f917c9aa1d9cd01219087}\label{class_control_unit_ad7fce9a2ca5f917c9aa1d9cd01219087}} 
+\index{ControlUnit@{ControlUnit}!processAddRequest@{processAddRequest}}
+\index{processAddRequest@{processAddRequest}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{processAddRequest()}{processAddRequest()}}
+{\footnotesize\ttfamily void Control\+Unit\+::process\+Add\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_add_request}{Add\+Request}} $\ast$}]{add\+Request }\end{DoxyParamCaption})}
+
+
+
+Processes a request of type add. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em add\+Request} & The request to be processed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_control_unit_a44bc485af0cde28556e02a2ba72ba20d}\label{class_control_unit_a44bc485af0cde28556e02a2ba72ba20d}} 
+\index{ControlUnit@{ControlUnit}!processRemoveRequest@{processRemoveRequest}}
+\index{processRemoveRequest@{processRemoveRequest}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{processRemoveRequest()}{processRemoveRequest()}}
+{\footnotesize\ttfamily void Control\+Unit\+::process\+Remove\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_remove_request}{Remove\+Request}} $\ast$}]{remove\+Request }\end{DoxyParamCaption})}
+
+
+
+Processes a request of type remove. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em remove\+Request} & The request to be processed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_control_unit_a2924882271e16a46a93b019ba709bf66}\label{class_control_unit_a2924882271e16a46a93b019ba709bf66}} 
+\index{ControlUnit@{ControlUnit}!processRequest@{processRequest}}
+\index{processRequest@{processRequest}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{processRequest()}{processRequest()}}
+{\footnotesize\ttfamily bool Control\+Unit\+::process\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_request}{Request}} $\ast$}]{request,  }\item[{bool}]{bypass\+Stack = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Processes a request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & \mbox{\hyperlink{class_request}{Request}} to be processed. \\
+\hline
+{\em bypass\+Stack} & A boolean that states if the request should bypass the stack (true if the request is an undo of a previous request). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean that represents if the request was processed successfully. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_control_unit_a9cb160b5255192632fb43668fe8758e4}\label{class_control_unit_a9cb160b5255192632fb43668fe8758e4}} 
+\index{ControlUnit@{ControlUnit}!processSwitchRequest@{processSwitchRequest}}
+\index{processSwitchRequest@{processSwitchRequest}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{processSwitchRequest()}{processSwitchRequest()}}
+{\footnotesize\ttfamily void Control\+Unit\+::process\+Switch\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_switch_request}{Switch\+Request}} $\ast$}]{switch\+Request }\end{DoxyParamCaption})}
+
+
+
+Processes a request of type switch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em switch\+Request} & The request to be processed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_control_unit_a0ef689e620a95451eefa8e79ec7f0c27}\label{class_control_unit_a0ef689e620a95451eefa8e79ec7f0c27}} 
+\index{ControlUnit@{ControlUnit}!StudentsInAtLeastNUcs@{StudentsInAtLeastNUcs}}
+\index{StudentsInAtLeastNUcs@{StudentsInAtLeastNUcs}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{StudentsInAtLeastNUcs()}{StudentsInAtLeastNUcs()}}
+{\footnotesize\ttfamily int Control\+Unit\+::\+Students\+In\+At\+Least\+NUcs (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Displays the students enrolled in at least N courses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Integer representing the minimum amount of courses. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer representing the amount of students enrolled in at least N courses. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_control_unit_a74d26657d23d65400b23b2b21c5dcdec}\label{class_control_unit_a74d26657d23d65400b23b2b21c5dcdec}} 
+\index{ControlUnit@{ControlUnit}!StudentsInAtMostNUcs@{StudentsInAtMostNUcs}}
+\index{StudentsInAtMostNUcs@{StudentsInAtMostNUcs}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{StudentsInAtMostNUcs()}{StudentsInAtMostNUcs()}}
+{\footnotesize\ttfamily int Control\+Unit\+::\+Students\+In\+At\+Most\+NUcs (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Displays the students enrolled in at most N courses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Integer representing the maximum amount of courses. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer representing the amount of students enrolled in at most N courses. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_control_unit_a1fb8c509bbdd9251e0928c1a985b18dd}\label{class_control_unit_a1fb8c509bbdd9251e0928c1a985b18dd}} 
+\index{ControlUnit@{ControlUnit}!StudentsInUcs@{StudentsInUcs}}
+\index{StudentsInUcs@{StudentsInUcs}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{StudentsInUcs()}{StudentsInUcs()}}
+{\footnotesize\ttfamily int Control\+Unit\+::\+Students\+In\+Ucs (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Displays the students enrolled in exactly N courses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Integer representing the amount of courses. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer representing the amount of students enrolle in N courses. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_control_unit_a516424b32fb1e9b17cdd12f797ee784d}\label{class_control_unit_a516424b32fb1e9b17cdd12f797ee784d}} 
+\index{ControlUnit@{ControlUnit}!undoRequest@{undoRequest}}
+\index{undoRequest@{undoRequest}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{undoRequest()}{undoRequest()}}
+{\footnotesize\ttfamily void Control\+Unit\+::undo\+Request (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Undoes the N most recent applied request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Integer representing how many requests should be undone. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_control_unit_acad3739b9fe2d14a380590afb17e7a6b}\label{class_control_unit_acad3739b9fe2d14a380590afb17e7a6b}} 
+\index{ControlUnit@{ControlUnit}!yearStudents@{yearStudents}}
+\index{yearStudents@{yearStudents}!ControlUnit@{ControlUnit}}
+\doxysubsubsection{\texorpdfstring{yearStudents()}{yearStudents()}}
+{\footnotesize\ttfamily void Control\+Unit\+::year\+Students (\begin{DoxyParamCaption}\item[{char}]{year,  }\item[{function$<$ bool(\mbox{\hyperlink{class_student}{Student}}, \mbox{\hyperlink{class_student}{Student}})$>$}]{func }\end{DoxyParamCaption})}
+
+
+
+Displays the students from a specific year. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & Char representing the year, \\
+\hline
+{\em func} & Boolean function used to sort students. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Control\+Unit.\+h\item 
+src/Control\+Unit.\+cpp\end{DoxyCompactItemize}

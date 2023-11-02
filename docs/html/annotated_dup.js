@@ -1,6 +1,7 @@
 var annotated_dup =
 [
     [ "AddRequest", "class_add_request.html", "class_add_request" ],
+    [ "ControlUnit", "class_control_unit.html", "class_control_unit" ],
     [ "lesson", "classlesson.html", "classlesson" ],
     [ "lessontime", "classlessontime.html", "classlessontime" ],
     [ "Menu", "class_menu.html", "class_menu" ],

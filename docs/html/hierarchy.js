@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "ControlUnit", "class_control_unit.html", null ],
     [ "lesson", "classlesson.html", null ],
     [ "lessontime", "classlessontime.html", null ],
     [ "Menu", "class_menu.html", null ],
