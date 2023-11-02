@@ -1,22 +1,4 @@
 var searchData=
 [
-  ['getclasscode_0',['getClassCode',['../class_remove_request.html#a236ae23e1cfadd5487837620ec99ca62',1,'RemoveRequest::getClassCode()'],['../classstudent_group.html#a378caaf4944f9c41e164c729e9dacaf7',1,'studentGroup::getClassCode()'],['../class_add_request.html#af21b3550aff2b33a116dc1d8fae878e8',1,'AddRequest::getClassCode()']]],
-  ['getclasscode1_1',['getClassCode1',['../class_switch_request.html#ae6406b56b79ccbf584915a5b0cdc6a29',1,'SwitchRequest']]],
-  ['getclasscode2_2',['getClassCode2',['../class_switch_request.html#a19d8125d008414c9ccac5348754ec352',1,'SwitchRequest']]],
-  ['getclassinuc_3',['getClassInUc',['../class_control_unit.html#ad0d79a6b6abb4f167252f203c65ab6dc',1,'ControlUnit']]],
-  ['getduration_4',['getDuration',['../classlesson.html#af384c28e18a6c30669b295801330d810',1,'lesson']]],
-  ['getendtime_5',['getEndTime',['../classlesson.html#ac30a319ba307601e1ba1260591d17215',1,'lesson']]],
-  ['gethour_6',['getHour',['../classlessontime.html#ace6faca730eaaf9023ab8d8950986cfc',1,'lessontime']]],
-  ['getminute_7',['getMinute',['../classlessontime.html#afeb4c44a5ff994ca386d031ea4334c50',1,'lessontime']]],
-  ['getname_8',['getName',['../class_student.html#a1df6c28e6416e20d338b9ff11bdc1e04',1,'Student']]],
-  ['getstarttime_9',['getStartTime',['../classlesson.html#a0186115102100636a4c69cffd891dad8',1,'lesson']]],
-  ['getstudentgroups_10',['getStudentGroups',['../class_student.html#ad3420b04fc1bb5dcc413bfa771db896d',1,'Student']]],
-  ['getstudentid_11',['getStudentID',['../class_add_request.html#a8bf91870fe4add6e62dfb894acec4c2d',1,'AddRequest::getStudentID()'],['../class_switch_request.html#a663728c675735d1ec38039c76833365d',1,'SwitchRequest::getStudentID()'],['../class_student.html#a703e8d2004faa7e2569ef2f8bb320f2d',1,'Student::getStudentID()'],['../class_remove_request.html#aabf0af724fe92030946ed4ed027cf0ec',1,'RemoveRequest::getStudentID()']]],
-  ['gettype_12',['getType',['../classlesson.html#adf20c1b1799c88b25cf90fc7959489f9',1,'lesson::getType()'],['../class_request.html#a6af392e1e3f3c2fcb2acefc07524c4c4',1,'Request::getType()']]],
-  ['getuccode_13',['getUccode',['../classlesson.html#a527cfd5a2dee6d476b2552de7764d224',1,'lesson']]],
-  ['getuccode_14',['getUCCode',['../class_add_request.html#a115958c760847c2f820a412c7893f8cb',1,'AddRequest::getUCCode()'],['../class_remove_request.html#a0d704514e2c62900d719ed4045479ec0',1,'RemoveRequest::getUCCode()']]],
-  ['getuccode_15',['getUcCode',['../classstudent_group.html#ad7c965a71b623d190fe73f2e95204478',1,'studentGroup']]],
-  ['getuccode1_16',['getUCCode1',['../class_switch_request.html#a3d324de71e953e8f913dacf1ed38d7be',1,'SwitchRequest']]],
-  ['getuccode2_17',['getUCCode2',['../class_switch_request.html#aeb419b74fba465da8274314e287c8cce',1,'SwitchRequest']]],
-  ['getweekday_18',['getWeekday',['../classlesson.html#a0f81c69fa8107ca20eb40e59f9acb670',1,'lesson']]]
+  ['formatconflicts_0',['formatConflicts',['../class_control_unit.html#a81922c2ec63d63c3d9bb2f7109b8587e',1,'ControlUnit']]]
 ];

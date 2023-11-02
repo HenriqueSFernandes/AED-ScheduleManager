@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['yearstudents_0',['yearStudents',['../class_control_unit.html#acad3739b9fe2d14a380590afb17e7a6b',1,'ControlUnit']]]
+  ['ucwithmoststudents_0',['UCWithMostStudents',['../class_control_unit.html#a4e84e6a7a2f7df4b70c21eaf88376a89',1,'ControlUnit']]],
+  ['undorequest_1',['undoRequest',['../class_control_unit.html#a516424b32fb1e9b17cdd12f797ee784d',1,'ControlUnit']]]
 ];

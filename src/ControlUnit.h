@@ -52,7 +52,7 @@ public :
 
     /**
      * @brief Loads all the csv files.
-     * @param studentFilename A string that represents the student csv, it can eitheir be the original version or the updated version.
+     * @param studentFilename A string that represents the student csv, it can either be the original version or the updated version.
      */
     void loadCSV(string studentFilename);
 
@@ -107,7 +107,7 @@ public :
     /**
      * @brief Displays the students enrolled in exactly N courses.
      * @param n Integer representing the amount of courses.
-     * @return Integer representing the amount of students enrolle in N courses.
+     * @return Integer representing the amount of students enrolled in N courses.
      */
     int StudentsInUcs(int n);
 

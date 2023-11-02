@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['optionstudentmenu_0',['optionStudentMenu',['../class_menu.html#a58e5d0f3b61542ebea7ff8c8fc9712b7',1,'Menu']]]
+  ['numbalanced_0',['NumBalanced',['../class_control_unit.html#a21f0f5455651e5704f43a8fb97c36441',1,'ControlUnit']]]
 ];

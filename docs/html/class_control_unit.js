@@ -11,6 +11,7 @@ var class_control_unit =
     [ "createSwitch", "class_control_unit.html#ad24faea65b96b338b009177f7f3d599f", null ],
     [ "DisplayClassSchedule", "class_control_unit.html#a060eca73f85969895ea2a9a8d45c6242", null ],
     [ "DisplayStudentSchedule", "class_control_unit.html#a5c52dd3a2750f06cb5ade8826f3b81c0", null ],
+    [ "formatConflicts", "class_control_unit.html#a81922c2ec63d63c3d9bb2f7109b8587e", null ],
     [ "getClassInUc", "class_control_unit.html#ad0d79a6b6abb4f167252f203c65ab6dc", null ],
     [ "IsThereConflict", "class_control_unit.html#aa9d8dcb06d1c289d272bba0aabdefaab", null ],
     [ "LoadClassesCSV", "class_control_unit.html#aca5ddcdc893b2c5d279fcc6c737e4d5a", null ],

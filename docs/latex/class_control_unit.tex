@@ -20,6 +20,9 @@ void {\bfseries Load\+Classes\+CSV} ()
 \mbox{\Hypertarget{class_control_unit_a98481fa708eefb5b4a3123312843bba5}\label{class_control_unit_a98481fa708eefb5b4a3123312843bba5}} 
 void {\bfseries Load\+Classes\+Per\+Uc\+CSV} ()
 \begin{DoxyCompactList}\small\item\em Loads the classes\+\_\+per\+\_\+uc.\+csv file (which has all the courses and classes). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_unit_a81922c2ec63d63c3d9bb2f7109b8587e}\label{class_control_unit_a81922c2ec63d63c3d9bb2f7109b8587e}} 
+vector$<$ vector$<$ \mbox{\hyperlink{classlesson}{lesson}} $>$ $>$ {\bfseries format\+Conflicts} (vector$<$ \mbox{\hyperlink{classlesson}{lesson}} $>$ \&lessons)
+\begin{DoxyCompactList}\small\item\em deals with overlapping classes \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_control_unit_a2fa3112381692d9daa4876d706a5442e}\label{class_control_unit_a2fa3112381692d9daa4876d706a5442e}} 
 void {\bfseries Load\+Students\+Classes\+CSV} ()
 \begin{DoxyCompactList}\small\item\em Load students\+\_\+classes.\+csv or student\+\_\+classes\+\_\+updated.\+csv, depending on the option chose. \end{DoxyCompactList}\item 
@@ -226,7 +229,7 @@ Loads all the csv files.
 
 
 \begin{DoxyParams}{Parameters}
-{\em student\+Filename} & A string that represents the student csv, it can eitheir be the original version or the updated version. \\
+{\em student\+Filename} & A string that represents the student csv, it can either be the original version or the updated version. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_control_unit_a21f0f5455651e5704f43a8fb97c36441}\label{class_control_unit_a21f0f5455651e5704f43a8fb97c36441}} 
@@ -359,7 +362,7 @@ Displays the students enrolled in exactly N courses.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Integer representing the amount of students enrolle in N courses. 
+Integer representing the amount of students enrolled in N courses. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_control_unit_a516424b32fb1e9b17cdd12f797ee784d}\label{class_control_unit_a516424b32fb1e9b17cdd12f797ee784d}} 
 \index{ControlUnit@{ControlUnit}!undoRequest@{undoRequest}}

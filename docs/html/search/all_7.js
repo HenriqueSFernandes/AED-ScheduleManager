@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['numbalanced_0',['NumBalanced',['../class_control_unit.html#a21f0f5455651e5704f43a8fb97c36441',1,'ControlUnit']]]
+  ['menu_0',['Menu',['../class_menu.html',1,'']]],
+  ['menu_2eh_1',['Menu.h',['../_menu_8h.html',1,'']]]
 ];
