@@ -166,7 +166,9 @@ void ControlUnit::LoadStudentsClassesCSV() {
     students_classes.close();
 }
 
-
+//Getting the schedule is O(log n + m * k ) where n is the total number of students, m is the number of student groups each student has k is the lessons in a student group
+//Basically O(log n) as the other input is constant for each student and very small compared to n
+//Aditionally after getting the schedule it has to be displayed and that takes time which is not taken into consideration given its small impact on the overall performance
 void ControlUnit::DisplayStudentSchedule() {
     cout << "Would you like the default Version or the Visual Version" << endl;
     cout << "1) Default" << endl;
@@ -239,7 +241,7 @@ void ControlUnit::DisplayStudentSchedule() {
 
 
 }
-
+// Getting the schedule is O(n) where n is the total number of studentGroups
 void ControlUnit::DisplayClassSchedule() {
     cout << "Would you like the default Version or the Visual Version" << endl;
     cout << "1) Default" << endl;
