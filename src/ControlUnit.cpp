@@ -360,11 +360,11 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
     return OverlapVector;
 }
 
-// Escolher se deixo ali o cout ou n
 int ControlUnit::StudentsInAtLeastNUcs(int n) {
 
     int NumberOfStudents = 0;
 
+    // Iterate over every student, if the student is enrolled in more than n courses then output it.
     for (auto student: this->StudentSet) {
         set<studentGroup> studentgroups = student.getStudentGroups();
 
@@ -375,14 +375,13 @@ int ControlUnit::StudentsInAtLeastNUcs(int n) {
         }
     }
     return NumberOfStudents;
-
-
 }
 
 int ControlUnit::StudentsInAtMostNUcs(int n) {
 
     int NumberOfStudents = 0;
 
+    // Iterate over every student, if the student is enrolled in less than n courses then output it.
     for (auto student: this->StudentSet) {
         set<studentGroup> studentgroups = student.getStudentGroups();
 
@@ -401,6 +400,7 @@ int ControlUnit::StudentsInUcs(int n) {
 
     int NumberOfStudents = 0;
 
+    // Iterate over every student, if the student is enrolled in n courses then output it.
     for (auto student: this->StudentSet) {
         set<studentGroup> studentgroups = student.getStudentGroups();
 
@@ -417,6 +417,7 @@ int ControlUnit::StudentsInUcs(int n) {
 
 
 void ControlUnit::classStudents(string classCode, function<bool(Student, Student)> func) {
+    // Outputs the students from a specific class.
     set<studentGroup> groups;
     set<Student, decltype(func)> students(func);
     string ucCode;
@@ -469,6 +470,7 @@ void ControlUnit::classStudents(string classCode, function<bool(Student, Student
 }
 
 void ControlUnit::courseStudents(string courseCode, function<bool(Student, Student)> func) {
+    // Outputs the students in a specific course.
     set<studentGroup> groups;
     set<Student, decltype(func)> students(func);
     bool notexist = true;
@@ -499,6 +501,7 @@ void ControlUnit::courseStudents(string courseCode, function<bool(Student, Stude
 }
 
 void ControlUnit::yearStudents(char year, function<bool(Student, Student)> func) {
+    // Outputs the students in a specific year.
     set<studentGroup> groups;
     set<Student, decltype(func)> students(func);
     bool notexist = true;
@@ -529,19 +532,22 @@ void ControlUnit::yearStudents(char year, function<bool(Student, Student)> func)
 
 
 void ControlUnit::UCWithMostStudents() {
+    // Displays the courses starting with the one with the most students.
     set<studentGroup> groups;
-    map<string, int> ucs;
+    map<string, int> courseOccupation;
+    // Iterate over every student and get the occupation.
     for (auto student: StudentSet) {
         groups = student.getStudentGroups();
         for (auto group: groups) {
-            if (ucs.find(group.getUcCode()) == ucs.end()) {
-                ucs[group.getUcCode()] = 1;
+            if (courseOccupation.find(group.getUcCode()) == courseOccupation.end()) {
+                courseOccupation[group.getUcCode()] = 1;
             } else {
-                ucs[group.getUcCode()] += 1;
+                courseOccupation[group.getUcCode()] += 1;
             }
         }
     }
-    vector<pair<string, int>> ucsvec(ucs.begin(), ucs.end());
+    // Create and sort a vector with the courses.
+    vector<pair<string, int>> ucsvec(courseOccupation.begin(), courseOccupation.end());
     sort(ucsvec.begin(), ucsvec.end(), [](const pair<string, int> &a, const pair<string, int> &b) {
         return a.second > b.second;
     });
@@ -551,16 +557,14 @@ void ControlUnit::UCWithMostStudents() {
     }
 }
 
-//helper functions
 int ControlUnit::NumBalanced(vector<studentGroup> groups, map<MainKey, int> myMap) {
 
     int cap = this->cap;
     int min = cap + 1;
     int max = -1;
 
+    // Iterates over every class from a vector and checks the balance.
     for (auto studentGroup: groups) {
-
-
         MainKey key = {studentGroup.getUcCode(), studentGroup.getClassCode()};
 
         int size = myMap[key];
@@ -573,11 +577,11 @@ int ControlUnit::NumBalanced(vector<studentGroup> groups, map<MainKey, int> myMa
     return max - min;
 }
 
-//helper functions
 bool ControlUnit::IsThereConflict(vector<lesson> lessons) {
-
+    // Iterates over every pair of lessons in the vector.
     for (int i = 0; i < lessons.size() - 1; i++) {
         for (int j = i + 1; j < lessons.size(); j++) {
+            // Checks if they overlap, are both pratical and if they are on the same day.
             bool overLap = lessons[i].getStartTime() < lessons[j].getEndTime() and
                            lessons[j].getStartTime() < lessons[i].getEndTime();
 
@@ -589,15 +593,9 @@ bool ControlUnit::IsThereConflict(vector<lesson> lessons) {
                 return true;
             }
         }
-
-
     }
     return false;
-
-
 }
-//
-//FUNCOES PARA REQUEST
 
 void ControlUnit::createAdd() {
     string id;
