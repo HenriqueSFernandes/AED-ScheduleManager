@@ -2,7 +2,6 @@
 #ifndef PROJAED_CONTROLUNIT_H
 #define PROJAED_CONTROLUNIT_H
 
-
 #include <vector>
 #include <string>
 #include "studentGroup.h"
@@ -40,7 +39,7 @@ private:
     string filename;
     set<Student> StudentSet;
     vector<lesson> LessonVector;
-    list<studentGroup> StudentGroupList;
+    list <studentGroup> StudentGroupList;
     map<MainKey, studentGroup *> KeyToStudentGroup;
     map<MainKey, set<lesson *>> LessonMap;
     map<MainKey, int> SizeMap;
@@ -79,7 +78,7 @@ public :
      * @return A 2d vector with the conflicts.
      */
     vector<vector<lesson>> formatConflicts(vector<lesson> &lessons);
-    
+
     /**
      * @brief Saves the changes made, updating the file students_classes_updated.csv.
      *

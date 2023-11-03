@@ -629,6 +629,11 @@ void ControlUnit::createRemove() {
     cout << "What UC you want to remove the student from:" << endl;
     cin >> ucCode;
     studentgroup = getClassInUc(upCode, ucCode);
+    while (studentgroup == "invalidcourse") {
+        cout << "Student not in given UC please give another one." << endl;
+        cin >> ucCode;
+        studentgroup = getClassInUc(upCode, ucCode);
+    }
     RequestsToProcess.push(new RemoveRequest(upCode, ucCode, studentgroup));
 }
 
@@ -637,7 +642,7 @@ void ControlUnit::createSwitch() {
     string id;
     string uc1;
     string uc2;
-    int choice;
+    string choice;
     string studentgroup1;
     string studentgroup2;
     cin >> id;
@@ -652,39 +657,40 @@ void ControlUnit::createSwitch() {
         cout << "1) Switch UCs" << endl;
         cout << "2) Switch Classes" << endl;
         cin >> choice;
-        switch (choice) {
-            case 1:
-                cout << "What UC do you want to leave?" << endl;
+        if (choice == "1") {
+            cout << "What UC do you want to leave?" << endl;
+            cin >> uc1;
+            studentgroup1 = getClassInUc(id, uc1);
+            while (studentgroup1 == "invalidcourse") {
+                cout << "Student not in given UC please give another one." << endl;
                 cin >> uc1;
                 studentgroup1 = getClassInUc(id, uc1);
-                while (studentgroup1 == "false") {
-                    cout << "Student not in given UC please give another one." << endl;
-                    cin >> uc1;
-                    studentgroup1 = getClassInUc(id, uc1);
-                }
-                cout << "What UC do you want to join?" << endl;
-                cin >> uc2;
-                break;
-            case 2:
-                cout << "What UC do you want to swap classes?" << endl;
+            }
+            cout << "What UC do you want to join?" << endl;
+            cin >> uc2;
+            break;
+        } else if (choice == "2") {
+            cout << "What UC do you want to swap classes?" << endl;
+            cin >> uc1;
+            studentgroup1 = getClassInUc(id, uc1);
+            while (studentgroup1 == "invalidcourse") {
+                cout << "Student not in given UC please give another one." << endl;
                 cin >> uc1;
                 studentgroup1 = getClassInUc(id, uc1);
-                while (studentgroup1 == "false") {
-                    cout << "Student not in given UC please give another one." << endl;
-                    cin >> uc1;
-                    studentgroup1 = getClassInUc(id, uc1);
-                }
-                uc2 = uc1;
-                break;
-            default:
-                cout << "Invalid option." << endl;
-                continue;
+            }
+            uc2 = uc1;
+            break;
+        } else {
+            cout << "Invalid option." << endl;
         }
-        break;
     }
+
     cout << "What class do you want to go to?";
-    cin >> studentgroup2;
-    RequestsToProcess.push(new SwitchRequest(id, uc1, uc2, studentgroup1, studentgroup2));
+    cin >>
+        studentgroup2;
+    RequestsToProcess.push(new
+                                   SwitchRequest(id, uc1, uc2, studentgroup1, studentgroup2
+    ));
 }
 
 string ControlUnit::getClassInUc(string studentID, string ucCode) {
@@ -775,6 +781,20 @@ bool ControlUnit::CheckAdd(AddRequest *addrq) {
     }
     result = notMoreThan7 and studentExists and notInMoreThanOneClass and respectsCap and classExists and
              not IsThereConflict(lessonVec) and validBalance;
+    if (!notMoreThan7) {
+        cout << "Student is already enrolled in 7 courses.\n";
+    } else if (!notInMoreThanOneClass) {
+        cout << "Student is already enrolled in the chosen course.\n";
+    } else if (!respectsCap) {
+        cout << "The student cannot be added to the desired class because it exceeds the maximum capacity ("
+             << this->cap << ").\n";
+    } else if (!classExists) {
+        cout << "The chosen class doesn't exist.\n";
+    } else if (IsThereConflict(lessonVec)) {
+        cout << "The student cannot be added to the chosen class because there is a conflict in his schedule.\n";
+    } else if (!validBalance) {
+        cout << "The student cannot be added to the chosen class because it doesn't respect the balance.\n";
+    }
     return result;
 }
 
@@ -822,6 +842,13 @@ bool ControlUnit::CheckRemove(RemoveRequest *remrq) {
         validBalance = false;
     }
     result = (notLessThan0 and studentExists and isInClass and validBalance);
+    if (!notLessThan0) {
+        cout << "The student need to be enrolled in at least one course.\n";
+    } else if (!isInClass) {
+        cout << "The student isn't part of the chosen class.\n";
+    } else if (!validBalance) {
+        cout << "The student cannot be added to the chosen class because it doesn't respect the balance.\n";
+    }
     return result;
 }
 
@@ -916,8 +943,19 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
 
     result = (classExists and studentExists and isInClass and respectsCap and notInMoreThan1Class and !conflict and
               validBalanceAdd and validBalanceRem);
+    if (!classExists) {
+        cout << "The chosen class doesn't exist.\n";
+    } else if (!respectsCap) {
+        cout << "The student cannot be added to the desired class because it exceeds the maximum capacity ("
+             << this->cap << ").\n";
+    } else if (!notInMoreThan1Class) {
+        cout << "Student is already enrolled in the chosen course.\n";
+    } else if (conflict) {
+        cout << "The student cannot be added to the chosen class because there is a conflict in his schedule.\n";
+    } else if (!validBalanceAdd || !validBalanceRem) {
+        cout << "The student cannot be added to the chosen class because it doesn't respect the balance.\n";
+    }
     return result;
-
 }
 
 
@@ -1028,14 +1066,18 @@ void ControlUnit::processAllRequests() {
         RequestsToProcess.pop();
         if (!processRequest(request)) {
             // If it isn't valid then ask to ignore only that request or ignore every request
-            cout
-                    << "Invalid request, do you still want to continue processing the remaining requests?\n1) Yes\n2) No\n";
-            int answer;
-            cin >> answer;
-            if (answer == 2) {
-                while (!RequestsToProcess.empty()) {
-                    delete RequestsToProcess.front();
-                    RequestsToProcess.pop();
+            if (RequestsToProcess.empty()) {
+                cout << "Invalid request.\n";
+            } else {
+                cout
+                        << "Invalid request, do you still want to continue processing the remaining requests?\n1) Yes\n2) No\n";
+                string answer;
+                cin >> answer;
+                if (answer == "2") {
+                    while (!RequestsToProcess.empty()) {
+                        delete RequestsToProcess.front();
+                        RequestsToProcess.pop();
+                    }
                 }
             }
         }
