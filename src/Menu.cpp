@@ -37,6 +37,7 @@ void Menu::createMenu() {
         } else if (option == "2") {
             Menu::requestMenu();
         } else if (option == "3") {
+            this->Control.WritetoInvalidRequests();
             this->Control.saveChanges();
             this->Control.clearMemory();
             break;

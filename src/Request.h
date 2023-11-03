@@ -44,6 +44,7 @@ public:
      * @return A string representing the type of the request.
      */
     std::string getType() const { return type; }
+    int getId() const { return  requestId; }
 
     // Virtual function for allowing downcasting.
     virtual void dummy() {}

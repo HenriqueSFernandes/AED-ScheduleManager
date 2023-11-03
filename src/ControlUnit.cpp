@@ -933,6 +933,7 @@ bool ControlUnit::processRequest(Request *request, bool bypassStack) {
             }
             return true;
         } else {
+            InvalidRequests.push(request);
             delete request;
             return false;
         }
@@ -946,6 +947,7 @@ bool ControlUnit::processRequest(Request *request, bool bypassStack) {
             }
             return true;
         } else {
+            InvalidRequests.push(request);
             delete request;
             return false;
         }
@@ -959,6 +961,7 @@ bool ControlUnit::processRequest(Request *request, bool bypassStack) {
             }
             return true;
         } else {
+            InvalidRequests.push(request);
             delete request;
             cout << "Error in switch request" << endl;
             return false;
@@ -1034,6 +1037,7 @@ void ControlUnit::processAllRequests() {
             cin >> answer;
             if (answer == 2) {
                 while (!RequestsToProcess.empty()) {
+
                     delete RequestsToProcess.front();
                     RequestsToProcess.pop();
                 }
@@ -1089,6 +1093,51 @@ void ControlUnit::undoRequest(int n) {
             cout << "Unable to undo request\n";
         }
         delete request;
+    }
+}void ControlUnit::WritetoInvalidRequests() {
+    try {
+        fstream out("../data/InvalidRequests.csv", ios::out | ios::trunc);
+        if (!out.is_open()) {
+            cout << "Error opening the file." << endl;
+            return;  // Exit the function if the file couldn't be opened.
+        }
+
+        out << "RequestID,Type,StudentID,UcCode1,ClassCode1,UcCode2,ClassCode2\r\n";
+
+        while (!InvalidRequests.empty()) {
+            Request *request = InvalidRequests.top();
+            InvalidRequests.pop();
+
+            if (request->getType() == "add") {
+                AddRequest *request2 = dynamic_cast<AddRequest*>(request);
+                if (request2) {
+                    out << request2->getId() << "," << request2->getType() << "," << request2->getStudentID() << ","
+                        << request2->getUCCode() << "," << request2->getClassCode() << ",,\r\n";
+                    delete request2;
+                }
+            } else if (request->getType() == "remove") {
+                RemoveRequest *request2 = dynamic_cast<RemoveRequest*>(request);
+                if (request2) {
+                    out << request2->getId() << "," << request2->getType() << "," << request2->getStudentID() << ","
+                        << request2->getUCCode() << "," << request2->getClassCode() << ",,\r\n";
+                    delete request2;
+                }
+            } else if (request->getType() == "switch") {
+                SwitchRequest *request2 = dynamic_cast<SwitchRequest*>(request);
+                if (request2) {
+                    out << request2->getId() << "," << request2->getType() << "," << request2->getStudentID() << ","
+                        << request2->getUCCode1() << "," << request2->getClassCode1() << ","
+                        << request2->getUCCode2() << "," << request2->getClassCode2() << "\r\n";
+                    delete request2;
+                }
+            } else {
+                cout << "Unable to load to file\n";
+            }
+        }
+
+        out.close(); // Close the file when you're done writing.
+    } catch (const exception& e) {
+        cerr << "Exception: " << e.what() << endl;
     }
 }
 

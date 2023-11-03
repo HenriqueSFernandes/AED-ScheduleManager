@@ -46,6 +46,7 @@ private:
     map<MainKey, int> SizeMap;
     queue<Request *> RequestsToProcess;
     stack<Request *> ProcessedRequests;
+    stack<Request *> InvalidRequests;
     int cap = 30;
 
 public :
@@ -86,6 +87,14 @@ public :
      * Complexity is O(n * k) where n is the number of students and k is the number of classes for each student
      */
     void saveChanges();
+
+
+
+    void WritetoInvalidRequests();
+
+
+
+
 
     /**
      * @brief Displays the schedule of a student.
