@@ -17,7 +17,7 @@ private:
 
 public:
     /**
-     * @brief Resets the requeset counter.
+     * @brief Resets the request counter.
      */
     void static resetCount() {
         count = 0;

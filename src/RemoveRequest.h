@@ -50,7 +50,7 @@ public:
     void setStudentID(const std::string &studentID);
 
     /**
-     * @brief Sets a new couse code.
+     * @brief Sets a new course code.
      * @param ucCode The new course code.
      */
     void setUCCode(const std::string &ucCode);
