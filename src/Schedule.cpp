@@ -93,7 +93,7 @@ void Schedule::display() {
                     content = dayVector[index];
 
                 }
-                std::string cellContent = "| " + content;
+                std::string cellContent = "|" + string((13 - content.size()) / 2, ' ') + content;
                 while (cellContent.size() < cellWidth - 2) {
                     cellContent += " ";
                 }
