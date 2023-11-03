@@ -88,7 +88,11 @@ public :
      */
     void saveChanges();
 
-
+    /**
+    * @brief Saves the invalid  requests made to a csv file
+    *
+    * Complexity is O(n) where n is the number of invalid requests
+    */
 
     void WritetoInvalidRequests();
 

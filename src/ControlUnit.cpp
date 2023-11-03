@@ -832,6 +832,7 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
     bool isInClass = true;
     bool respectsCap = true;
     bool notInMoreThan1Class = true;
+    bool notTheSame= swrq->getUCCode1()+swrq->getClassCode1() !=  swrq->getUCCode2()+swrq->getClassCode2();
 
     MainKey key = {swrq->getUCCode2(), swrq->getClassCode2()};
     bool classExists = KeyToStudentGroup.find(key) != KeyToStudentGroup.end();
@@ -915,7 +916,7 @@ bool ControlUnit::CheckSwitch(SwitchRequest *swrq) {
     }
 
     result = (classExists and studentExists and isInClass and respectsCap and notInMoreThan1Class and !conflict and
-              validBalanceAdd and validBalanceRem);
+              validBalanceAdd and validBalanceRem and notTheSame);
     return result;
 
 }
@@ -934,7 +935,7 @@ bool ControlUnit::processRequest(Request *request, bool bypassStack) {
             return true;
         } else {
             InvalidRequests.push(request);
-            delete request;
+
             return false;
         }
 
@@ -948,7 +949,7 @@ bool ControlUnit::processRequest(Request *request, bool bypassStack) {
             return true;
         } else {
             InvalidRequests.push(request);
-            delete request;
+
             return false;
         }
 
@@ -962,7 +963,7 @@ bool ControlUnit::processRequest(Request *request, bool bypassStack) {
             return true;
         } else {
             InvalidRequests.push(request);
-            delete request;
+
             cout << "Error in switch request" << endl;
             return false;
         }
@@ -1112,14 +1113,14 @@ void ControlUnit::undoRequest(int n) {
                 AddRequest *request2 = dynamic_cast<AddRequest*>(request);
                 if (request2) {
                     out << request2->getId() << "," << request2->getType() << "," << request2->getStudentID() << ","
-                        << request2->getUCCode() << "," << request2->getClassCode() << ",,\r\n";
+                        << request2->getUCCode() << "," << request2->getClassCode() << "\r\n";
                     delete request2;
                 }
             } else if (request->getType() == "remove") {
                 RemoveRequest *request2 = dynamic_cast<RemoveRequest*>(request);
                 if (request2) {
                     out << request2->getId() << "," << request2->getType() << "," << request2->getStudentID() << ","
-                        << request2->getUCCode() << "," << request2->getClassCode() << ",,\r\n";
+                        << request2->getUCCode() << "," << request2->getClassCode() << "\r\n";
                     delete request2;
                 }
             } else if (request->getType() == "switch") {
