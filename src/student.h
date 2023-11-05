@@ -62,20 +62,20 @@ public:
      * @brief Adds a new class to the student.
      * @param GroupToAdd
      */
-    void addStudentGroup(const studentGroup& GroupToAdd);
+    void addStudentGroup(const studentGroup &GroupToAdd);
 
     /**
      * @brief Removes a class from the student.
      * @param GroupToRemove
      */
-    void removeGroup(const studentGroup& GroupToRemove);
+    void removeGroup(const studentGroup &GroupToRemove);
 
     /**
      * @brief Detects if the student is enrolled in a certain course.
      * @param uc String representing a course.
      * @return Returns true if the student is enrolled in a certain course.
      */
-    bool isInUC(const string& uc) const;
+    bool isInUC(const string &uc) const;
 
     /**
      * @brief Detects if the student is enrolled in a certain class from a course.
@@ -85,7 +85,7 @@ public:
      * @param studentGroup String representing a class.
      * @return Returns true if the student is enrolled in a certain class form a course.
      */
-    bool isInClass(const string& ucCode, const string& studentGroup) const;
+    bool isInClass(const string &ucCode, const string &studentGroup) const;
 
     bool operator<(const Student &other) const {
         return studentID < other.studentID;

@@ -1,4 +1,4 @@
 <map id="ControlUnit::classStudents" name="ControlUnit::classStudents">
 <area shape="rect" id="node1" title="Displays the students from a specific class." alt="" coords="5,5,200,32"/>
-<area shape="rect" id="node2" href="$class_student.html#ad3420b04fc1bb5dcc413bfa771db896d" title="Gets all the classes the student belongs to." alt="" coords="248,5,445,32"/>
+<area shape="rect" id="node2" href="$class_student.html#a8142e076321ed4d493b5d48b7e631e76" title="Gets all the classes the student belongs to." alt="" coords="248,5,445,32"/>
 </map>

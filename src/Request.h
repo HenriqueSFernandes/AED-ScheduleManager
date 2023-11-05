@@ -30,8 +30,6 @@ public:
     Request(std::string type) {
         count++;
         requestId = count;
-        cout << "request id is " << requestId << " and count is " << count << endl;
-
         this->type = type;
     }
 

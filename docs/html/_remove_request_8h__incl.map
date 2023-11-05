@@ -1,10 +1,11 @@
 <map id="src/RemoveRequest.h" name="src/RemoveRequest.h">
 <area shape="rect" id="node1" title=" " alt="" coords="5,5,169,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="54,304,113,331"/>
-<area shape="rect" id="node3" href="$_request_8h.html" title=" " alt="" coords="125,80,212,107"/>
-<area shape="rect" id="node4" href="$student_8h.html" title=" " alt="" coords="127,155,210,181"/>
-<area shape="rect" id="node7" href="$student_group_8h.html" title=" " alt="" coords="267,229,390,256"/>
-<area shape="rect" id="node5" title=" " alt="" coords="121,229,163,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="188,229,243,256"/>
-<area shape="rect" id="node8" title=" " alt="" coords="289,304,369,331"/>
+<area shape="rect" id="node2" title=" " alt="" coords="18,304,77,331"/>
+<area shape="rect" id="node3" href="$_request_8h.html" title=" " alt="" coords="136,80,223,107"/>
+<area shape="rect" id="node4" href="$student_8h.html" title=" " alt="" coords="138,155,221,181"/>
+<area shape="rect" id="node8" href="$student_group_8h.html" title=" " alt="" coords="298,229,421,256"/>
+<area shape="rect" id="node5" title=" " alt="" coords="85,229,127,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="152,229,207,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="231,229,274,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="319,304,399,331"/>
 </map>

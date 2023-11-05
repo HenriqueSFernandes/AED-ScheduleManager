@@ -13,7 +13,7 @@
 \DoxyCodeLine{12 \textcolor{keyword}{private}:}
 \DoxyCodeLine{13     \textcolor{keyword}{static} \textcolor{keywordtype}{int} count;  \textcolor{comment}{// Static variable for request counter.}}
 \DoxyCodeLine{14     \textcolor{keywordtype}{int} requestId; \textcolor{comment}{// ID for each request.}}
-\DoxyCodeLine{15     \textcolor{keywordtype}{bool} processed;}
+\DoxyCodeLine{15 }
 \DoxyCodeLine{16     std::string type;}
 \DoxyCodeLine{17 }
 \DoxyCodeLine{18 \textcolor{keyword}{public}:}
@@ -25,22 +25,18 @@
 \DoxyCodeLine{31         count++;}
 \DoxyCodeLine{32         requestId = count;}
 \DoxyCodeLine{33         cout << \textcolor{stringliteral}{"{}request id is "{}} << requestId << \textcolor{stringliteral}{"{} and count is "{}} << count << endl;}
-\DoxyCodeLine{34         processed = \textcolor{keyword}{false};}
+\DoxyCodeLine{34 }
 \DoxyCodeLine{35         this-\/>type = type;}
 \DoxyCodeLine{36     \}}
 \DoxyCodeLine{37 }
-\DoxyCodeLine{38     \textcolor{keywordtype}{void} setProcessed(\textcolor{keywordtype}{bool} processed) \{}
-\DoxyCodeLine{39         this-\/>processed = processed;}
-\DoxyCodeLine{40     \}}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{46     std::string \mbox{\hyperlink{class_request_a6af392e1e3f3c2fcb2acefc07524c4c4}{getType}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} type; \}}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48     \textcolor{comment}{// Virtual function for allowing downcasting.}}
-\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} dummy() \{\}}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_request}{\string~Request}}() \{\};}
-\DoxyCodeLine{52 \};}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PROJAED\_REQUEST\_H}}
+\DoxyCodeLine{42     std::string \mbox{\hyperlink{class_request_a6af392e1e3f3c2fcb2acefc07524c4c4}{getType}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} type; \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{comment}{// Virtual function for allowing downcasting.}}
+\DoxyCodeLine{45     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} dummy() \{\}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_request}{\string~Request}}() \{\};}
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PROJAED\_REQUEST\_H}}
 
 \end{DoxyCode}

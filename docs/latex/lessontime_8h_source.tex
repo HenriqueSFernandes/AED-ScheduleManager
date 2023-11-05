@@ -13,53 +13,54 @@
 \DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{10 }
 \DoxyCodeLine{11 \textcolor{keyword}{using namespace }std;}
-\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classlessontime}{lessontime}} \{}
-\DoxyCodeLine{16 \textcolor{keyword}{public}:}
-\DoxyCodeLine{21     \textcolor{keyword}{explicit} \mbox{\hyperlink{classlessontime_aefd56f6592294baed59d7f164cf08242}{lessontime}}(\textcolor{keywordtype}{double} time);}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{26     \mbox{\hyperlink{classlessontime_aefd56f6592294baed59d7f164cf08242}{lessontime}}();}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{33     \mbox{\hyperlink{classlessontime_aefd56f6592294baed59d7f164cf08242}{lessontime}}(\textcolor{keywordtype}{int} hour, \textcolor{keywordtype}{int} minutes);}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{39     \textcolor{keywordtype}{string} \mbox{\hyperlink{classlessontime_ab5f9e3946d2d4db1460615c2b8fc2c93}{displayHourFormat}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{45     \textcolor{keywordtype}{int} \mbox{\hyperlink{classlessontime_ace6faca730eaaf9023ab8d8950986cfc}{getHour}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{51     \textcolor{keywordtype}{int} \mbox{\hyperlink{classlessontime_afeb4c44a5ff994ca386d031ea4334c50}{getMinute}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{53     \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} \mbox{\hyperlink{classlessontime}{lessontime}} \&t);}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{classlessontime}{lessontime}} \&other)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{56         \textcolor{comment}{// Compare two lessontime objects based on their hours and minutes}}
-\DoxyCodeLine{57         \textcolor{keywordflow}{if} (hour < other.hour) \{}
-\DoxyCodeLine{58             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{59         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (hour == other.hour \&\& minute < other.minute) \{}
-\DoxyCodeLine{60             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{61         \}}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{63         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{64     \}}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{66     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classlessontime}{lessontime}} \&other)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{67         \textcolor{comment}{// Compare two lessontime objects based on their hours and minutes}}
-\DoxyCodeLine{68         \textcolor{keywordflow}{if} (hour == other.\mbox{\hyperlink{classlessontime_ace6faca730eaaf9023ab8d8950986cfc}{getHour}}() \&\& minute == other.\mbox{\hyperlink{classlessontime_afeb4c44a5ff994ca386d031ea4334c50}{getMinute}}()) \{}
-\DoxyCodeLine{69             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{70         \}}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{72         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{73     \}}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{75     \textcolor{keywordtype}{bool} operator<=(\textcolor{keyword}{const} \mbox{\hyperlink{classlessontime}{lessontime}} \&other)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{76         \textcolor{comment}{// Compare two lessontime objects based on their hours and minutes}}
-\DoxyCodeLine{77         \textcolor{keywordflow}{return} (hour < other.hour) || (hour == other.hour \&\& minute <= other.minute);}
-\DoxyCodeLine{78     \}}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80 \textcolor{keyword}{private}:}
-\DoxyCodeLine{81     \textcolor{keywordtype}{int} hour;}
-\DoxyCodeLine{82     \textcolor{keywordtype}{int} minute;}
-\DoxyCodeLine{83 \};}
-\DoxyCodeLine{84 }
+\DoxyCodeLine{12 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classlessontime}{lessontime}} \{}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     \textcolor{keyword}{explicit} \mbox{\hyperlink{classlessontime_aefd56f6592294baed59d7f164cf08242}{lessontime}}(\textcolor{keywordtype}{double} time);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{27     \mbox{\hyperlink{classlessontime_aefd56f6592294baed59d7f164cf08242}{lessontime}}();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{34     \mbox{\hyperlink{classlessontime_aefd56f6592294baed59d7f164cf08242}{lessontime}}(\textcolor{keywordtype}{int} hour, \textcolor{keywordtype}{int} minutes);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{string} \mbox{\hyperlink{classlessontime_ab5f9e3946d2d4db1460615c2b8fc2c93}{displayHourFormat}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{int} \mbox{\hyperlink{classlessontime_ace6faca730eaaf9023ab8d8950986cfc}{getHour}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{int} \mbox{\hyperlink{classlessontime_afeb4c44a5ff994ca386d031ea4334c50}{getMinute}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} \mbox{\hyperlink{classlessontime}{lessontime}} \&t);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{classlessontime}{lessontime}} \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{57         \textcolor{comment}{// Compare two lessontime objects based on their hours and minutes}}
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} (hour < other.hour) \{}
+\DoxyCodeLine{59             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{60         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (hour == other.hour \&\& minute < other.minute) \{}
+\DoxyCodeLine{61             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{62         \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classlessontime}{lessontime}} \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{68         \textcolor{comment}{// Compare two lessontime objects based on their hours and minutes}}
+\DoxyCodeLine{69         \textcolor{keywordflow}{if} (hour == other.\mbox{\hyperlink{classlessontime_ace6faca730eaaf9023ab8d8950986cfc}{getHour}}() \&\& minute == other.\mbox{\hyperlink{classlessontime_afeb4c44a5ff994ca386d031ea4334c50}{getMinute}}()) \{}
+\DoxyCodeLine{70             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{bool} operator<=(\textcolor{keyword}{const} \mbox{\hyperlink{classlessontime}{lessontime}} \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{77         \textcolor{comment}{// Compare two lessontime objects based on their hours and minutes}}
+\DoxyCodeLine{78         \textcolor{keywordflow}{return} (hour < other.hour) || (hour == other.hour \&\& minute <= other.minute);}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{keyword}{private}:}
+\DoxyCodeLine{82     \textcolor{keywordtype}{int} hour;}
+\DoxyCodeLine{83     \textcolor{keywordtype}{int} minute;}
+\DoxyCodeLine{84 \};}
 \DoxyCodeLine{85 }
-\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJAED\_LESSONTIME\_H}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJAED\_LESSONTIME\_H}}
 
 \end{DoxyCode}

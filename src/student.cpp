@@ -13,10 +13,10 @@ void Student::addStudentGroup(const studentGroup &GroupToAdd) {
 }
 
 void Student::removeGroup(const studentGroup &GroupToRemove) {
-    for (auto &sg: StudentGroups) {
-        if (sg.getUcCode() == GroupToRemove.getUcCode() and sg.getClassCode() == GroupToRemove.getClassCode()) {
-            this->StudentGroups.push_back(sg);
-
+    for (auto it = StudentGroups.begin(); it != StudentGroups.end(); it++) {
+        if (it->getUcCode() == GroupToRemove.getUcCode() && it->getClassCode() == GroupToRemove.getClassCode()){
+            StudentGroups.erase(it);
+            return;
         }
     }
 }
@@ -56,9 +56,9 @@ ostream &operator<<(ostream &os, const Student &student) {
 
 bool Student::isInUC(const string &uc) const {
     return any_of(StudentGroups.begin(), StudentGroups.end(),
-        [&uc](auto group) {
-            return group.getUcCode() == uc;
-        }
+                  [&uc](auto group) {
+                      return group.getUcCode() == uc;
+                  }
     );
 }
 

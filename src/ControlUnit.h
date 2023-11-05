@@ -77,29 +77,24 @@ public :
      * @param lessons Vector with all the lessons.
      * @return A 2d vector with the conflicts.
      */
-
-
     vector<vector<lesson>> formatConflicts(vector<lesson> &lessons);
 
     /**
-     * @brief gives max size of all studentgroups
+     * @brief Returns maximum size of all classes.
      *
      * Complexity is O(n) where n is the number of student groups.
      *
-     * @return Max size of a studentGroup.
+     * @return Integer representing the maximum size of a studentGroup.
      */
-
     int maxSgSize();
+
     /**
-     * @brief Set the cap
+     * @brief Set the class capacity.
      *
-     * Complexity is O(1)
-     *
-     * @return Max size of a studentGroup.
+     * @param n Integer representing the new maximum capacity.
      */
-
-
     void setCap(int n);
+
     /**
      * @brief Saves the changes made, updating the file students_classes_updated.csv.
      *
@@ -312,7 +307,6 @@ public :
      * @return String representing the class code.
      */
     string getClassInUc(string studentID, string ucCode);
-
 
 
     /**

@@ -46,13 +46,10 @@ Schedule::Schedule(vector<lesson> lessons) {
         while (BORDER.size() < cellWidth) {
             BORDER += "-";
         }
-
-
-
-// Calculate the position for the middle row
+        // Calculate the position for the middle row
         int middleRow = row + numRows / 2;
 
-// Place the content in the middle row and fill the other rows with borders
+        // Place the content in the middle row and fill the other rows with borders
         for (int i = 0; i < numRows; i++) {
             if (i == 0 || i == numRows - 1) {
                 ScheduleMap[{row + i, col}] = BORDER;
@@ -128,21 +125,21 @@ void Schedule::display() {
             line += "    ";
 
         } else if (i % 3 == 1) {
-            int meiasHoras = i / 3;
-            int horas = meiasHoras / 2 + 8;
-            int meiaHora = (meiasHoras % 2) * 30;
-            int nextHoras = 0;
+            int halfHours = i / 3;
+            int hours = halfHours / 2 + 8;
+            int halfHour = (halfHours % 2) * 30;
+            int nextHours = 0;
             int nextMin = 0;
-            if (meiaHora) {
-                nextHoras = horas + 1;
+            if (halfHour) {
+                nextHours = hours + 1;
                 nextMin = 0;
             } else {
-                nextHoras = horas;
+                nextHours = hours;
                 nextMin = 30;
             }
 
-            std::string cellContent = "| " + lessontime(horas, meiaHora).displayHourFormat() + "-" +
-                                      lessontime(nextHoras, nextMin).displayHourFormat();
+            std::string cellContent = "| " + lessontime(hours, halfHour).displayHourFormat() + "-" +
+                                      lessontime(nextHours, nextMin).displayHourFormat();
             while (cellContent.size() < cellWidth - 2) {
                 cellContent += " ";
             }

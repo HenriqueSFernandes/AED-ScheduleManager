@@ -1,5 +1,5 @@
 <map id="Menu::SeeStudentsInClass" name="Menu::SeeStudentsInClass">
 <area shape="rect" id="node1" title="Lists all the students in a specific class." alt="" coords="5,5,200,32"/>
 <area shape="rect" id="node2" href="$class_control_unit.html#aa69207511a13ce82ad5ba68c5fd2ca4b" title="Displays the students from a specific class." alt="" coords="248,5,443,32"/>
-<area shape="rect" id="node3" href="$class_student.html#ad3420b04fc1bb5dcc413bfa771db896d" title="Gets all the classes the student belongs to." alt="" coords="491,5,688,32"/>
+<area shape="rect" id="node3" href="$class_student.html#a8142e076321ed4d493b5d48b7e631e76" title="Gets all the classes the student belongs to." alt="" coords="491,5,688,32"/>
 </map>

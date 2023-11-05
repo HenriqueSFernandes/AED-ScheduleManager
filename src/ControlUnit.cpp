@@ -296,32 +296,31 @@ void ControlUnit::DisplayClassSchedule() {
         ClassSchedule.display();
     }
 }
+
 int ControlUnit::maxSgSize() {
-    int size=-1;
-    //ok depois se der muda-se
-    //n tem, era so em python
-    for( auto el: SizeMap){
-        if(el.second> size){
-            size=el.second;
+    int size = -1;
+    for (auto el: SizeMap) {
+        if (el.second > size) {
+            size = el.second;
         }
     }
     return size;
 }
+
 void ControlUnit::setCap(int n) {
-    this->cap=n;
+    this->cap = n;
 }
+
 // Removes overlaps and places inside a return vector the classes that make up each conflict.
 vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
     vector<vector<lesson>> OverlapVector;
-
     int numofconflit = 0;
 
-    for (auto it1 = lessons.begin(); it1 != lessons.end(); ++it1) {
-        for (auto it2 = std::next(it1); it2 != lessons.end(); ++it2) {
-
-            bool overLap = it1->getStartTime() < it2->getEndTime() &&
-                           it2->getStartTime() < it1->getEndTime();
-
+    auto it1 = lessons.begin();
+    while (it1 != lessons.end()) {
+        auto it2 = std::next(it1);
+        while (it2 != lessons.end()) {
+            bool overLap = it1->getStartTime() < it2->getEndTime() && it2->getStartTime() < it1->getEndTime();
             bool sameDay = it1->getWeekday() == it2->getWeekday();
             if (overLap && sameDay) {
                 lessontime start = std::min(it1->getStartTime(), it2->getStartTime());
@@ -337,34 +336,32 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
                 if (it2->getUccode() == "Overlap") {
                     cout << "OVERLAP" << endl;
                     cout << "CONFLICT NUM " << numofconflit << endl;
-                    lesson dummy = lesson("Overlap", "Overlap", it2->getWeekday(), startnum, endnum - startnum, it2->getType());
-                    vector<lesson> lessonsInConflict = OverlapVector[numofconflit - 1];
-                    lessonsInConflict.push_back(*it1);
+                    lesson dummy = lesson("Overlap", "Overlap", it2->getWeekday(), startnum, endnum - startnum,
+                                          it2->getType());
+                    vector<lesson> lessonsInConflict;
 
 
-                    lessons.erase(it2);
-                    lessons.erase(it1);
-
-
-                    OverlapVector[numofconflit - 1] = lessonsInConflict;
+                    OverlapVector[numofconflit - 1].push_back(*it1);
+                    it2 = lessons.erase(it2);
+                    it1 = lessons.erase(it1);
                     lessons.push_back(dummy);
                 } else {
                     numofconflit++;
-                    lesson dummy = lesson("Overlap", "Overlap", it1->getWeekday(), startnum, endnum - startnum, to_string(numofconflit));
+                    lesson dummy = lesson("Overlap", "Overlap", it1->getWeekday(), startnum, endnum - startnum,
+                                          to_string(numofconflit));
                     vector<lesson> lessonsInConflict;
-
                     lessonsInConflict.push_back(*it1);
                     lessonsInConflict.push_back(*it2);
-
-
-                    lessons.erase(it2);
-                    lessons.erase(it1);
-
                     OverlapVector.push_back(lessonsInConflict);
+                    it2 = lessons.erase(it2);
+                    it1 = lessons.erase(it1);
                     lessons.push_back(dummy);
                 }
+            } else {
+                ++it2;
             }
         }
+        ++it1;
     }
     return OverlapVector;
 }
@@ -697,9 +694,8 @@ void ControlUnit::createSwitch() {
         }
     }
 
-    cout << "What class do you want to go to?";
-    cin >>
-        studentgroup2;
+    cout << "What class do you want to go to?\n";
+    cin >> studentgroup2;
     RequestsToProcess.push(new
                                    SwitchRequest(id, uc1, uc2, studentgroup1, studentgroup2
     ));

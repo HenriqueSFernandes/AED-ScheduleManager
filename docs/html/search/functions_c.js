@@ -1,5 +1,28 @@
 var searchData=
 [
-  ['ucwithmoststudents_0',['UCWithMostStudents',['../class_control_unit.html#a4e84e6a7a2f7df4b70c21eaf88376a89',1,'ControlUnit']]],
-  ['undorequest_1',['undoRequest',['../class_control_unit.html#a516424b32fb1e9b17cdd12f797ee784d',1,'ControlUnit']]]
+  ['savechanges_0',['saveChanges',['../class_control_unit.html#ab4b432f7eadc39d3d6cae8349e56194d',1,'ControlUnit']]],
+  ['schedule_1',['Schedule',['../class_schedule.html#a0be056764a504da0dd223d75829a65eb',1,'Schedule']]],
+  ['schedulemenu_2',['scheduleMenu',['../class_menu.html#a8afd5d5427b0c4940fabdf4c7631ddbc',1,'Menu']]],
+  ['seeclassschedule_3',['SeeClassSchedule',['../class_menu.html#ab3a007c897b85519dd6ed6fc895f406d',1,'Menu']]],
+  ['seenumstudentsatleastnucs_4',['SeeNumStudentsAtLeastNUCs',['../class_menu.html#a8c0da428da25c2ba963484d6749fe5ac',1,'Menu']]],
+  ['seenumstudentsatmostnucs_5',['SeeNumStudentsAtMostNUCs',['../class_menu.html#ac0da908a0e0bccb055f9682288861faf',1,'Menu']]],
+  ['seenumstudentsinexactnucs_6',['SeeNumStudentsInExactNUCs',['../class_menu.html#a008b3d97730a151adf7598f2d31e9e05',1,'Menu']]],
+  ['seenumstudentsinnucs_7',['SeeNumStudentsInNUCs',['../class_menu.html#ae7b81eec228f8d81e8a84477e34b8fe8',1,'Menu']]],
+  ['seestudentschedule_8',['SeeStudentSchedule',['../class_menu.html#aa9f10ef3509c12ad06b5dd57954d6910',1,'Menu']]],
+  ['seestudentsinclass_9',['SeeStudentsInClass',['../class_menu.html#ad46178bce0aeaa6f983d21e31d1d613b',1,'Menu']]],
+  ['seestudentsinuc_10',['SeeStudentsInUc',['../class_menu.html#a626e9d8417d0c75193231c3c2efca41c',1,'Menu']]],
+  ['seestudentsinyear_11',['SeeStudentsInYear',['../class_menu.html#af70fc139163bc8f3915a907c60b8e5b4',1,'Menu']]],
+  ['seeucfrommoststudents_12',['SeeUcFromMostStudents',['../class_menu.html#a976e19892805e7229100fb5337c151a4',1,'Menu']]],
+  ['setcap_13',['setCap',['../class_control_unit.html#a900667070492211c2e49a3a966594258',1,'ControlUnit']]],
+  ['setclasscode_14',['setClassCode',['../class_remove_request.html#a216341f2e46a0d80dfdee357532a7f81',1,'RemoveRequest::setClassCode()'],['../class_add_request.html#a87a9c023ec2d97a940854894f300e859',1,'AddRequest::setClassCode()']]],
+  ['setname_15',['setName',['../class_student.html#add287224cef065944df9da7e8f38c116',1,'Student']]],
+  ['setstudentid_16',['setStudentID',['../class_add_request.html#a13adabc234b9509a5925aaf0ff7f0550',1,'AddRequest::setStudentID()'],['../class_remove_request.html#a9f46afdf2d494dcb5cddb43ff89fa1de',1,'RemoveRequest::setStudentID()'],['../class_student.html#aa061a0b43cd8c617edf76a28c31b5300',1,'Student::setStudentID()']]],
+  ['setuccode_17',['setUCCode',['../class_add_request.html#a1498829426e672f69f427c9e58f8e02f',1,'AddRequest::setUCCode()'],['../class_remove_request.html#a4feff91912b592afed813b1992666457',1,'RemoveRequest::setUCCode()']]],
+  ['student_18',['Student',['../class_student.html#ad1acbcd2c458613945d4bf4618d1ae47',1,'Student::Student()=default'],['../class_student.html#acb5cb34038f76e1c9e4c155946674d57',1,'Student::Student(string studentId, string name, list&lt; studentGroup &gt; group)']]],
+  ['studentgroup_19',['studentGroup',['../classstudent_group.html#aaada77eb8eb7cc3a379498f39b07cd95',1,'studentGroup::studentGroup()=default'],['../classstudent_group.html#a6e2bee808d62d0713c1983dee8bf7116',1,'studentGroup::studentGroup(const std::string &amp;ucCode, const std::string &amp;classCode)']]],
+  ['studentmenu_20',['studentMenu',['../class_menu.html#a66828d2cad3aae2e602ad2454c8ea8d7',1,'Menu']]],
+  ['studentsinatleastnucs_21',['StudentsInAtLeastNUcs',['../class_control_unit.html#a0ef689e620a95451eefa8e79ec7f0c27',1,'ControlUnit']]],
+  ['studentsinatmostnucs_22',['StudentsInAtMostNUcs',['../class_control_unit.html#a74d26657d23d65400b23b2b21c5dcdec',1,'ControlUnit']]],
+  ['studentsinexactnucs_23',['StudentsInExactNUcs',['../class_control_unit.html#ad87c7524437200f295856007e34136c6',1,'ControlUnit']]],
+  ['switchrequest_24',['SwitchRequest',['../class_switch_request.html#af4ad299661aaa07ec003f8b34ae969d0',1,'SwitchRequest']]]
 ];

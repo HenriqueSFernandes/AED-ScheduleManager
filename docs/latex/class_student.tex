@@ -15,11 +15,11 @@ Class used to represent a student.
 \mbox{\Hypertarget{class_student_ad1acbcd2c458613945d4bf4618d1ae47}\label{class_student_ad1acbcd2c458613945d4bf4618d1ae47}} 
 {\bfseries Student} ()=default
 \begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_student_adb31d1d0a15d674d92d8dcdefd4e660b}{Student}} (string student\+Id, string name, set$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$ group)
+\mbox{\hyperlink{class_student_acb5cb34038f76e1c9e4c155946674d57}{Student}} (string student\+Id, string name, list$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$ group)
 \begin{DoxyCompactList}\small\item\em Parameterized constructor. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_student_a703e8d2004faa7e2569ef2f8bb320f2d}{get\+Student\+ID}} () const
 \begin{DoxyCompactList}\small\item\em Gets the student ID. \end{DoxyCompactList}\item 
-set$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$ \mbox{\hyperlink{class_student_ad3420b04fc1bb5dcc413bfa771db896d}{get\+Student\+Groups}} () const
+list$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$ \mbox{\hyperlink{class_student_a8142e076321ed4d493b5d48b7e631e76}{get\+Student\+Groups}} () const
 \begin{DoxyCompactList}\small\item\em Gets all the classes the student belongs to. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_student_a1df6c28e6416e20d338b9ff11bdc1e04}{get\+Name}} () const
 \begin{DoxyCompactList}\small\item\em Gets the name of the student. \end{DoxyCompactList}\item 
@@ -41,11 +41,11 @@ bool \mbox{\hyperlink{class_student_aa54f74ba5d636a30d3e8f9b7026c46ef}{is\+In\+C
 Class used to represent a student. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_student_adb31d1d0a15d674d92d8dcdefd4e660b}\label{class_student_adb31d1d0a15d674d92d8dcdefd4e660b}} 
+\mbox{\Hypertarget{class_student_acb5cb34038f76e1c9e4c155946674d57}\label{class_student_acb5cb34038f76e1c9e4c155946674d57}} 
 \index{Student@{Student}!Student@{Student}}
 \index{Student@{Student}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{Student()}{Student()}}
-{\footnotesize\ttfamily Student\+::\+Student (\begin{DoxyParamCaption}\item[{string}]{student\+Id,  }\item[{string}]{name,  }\item[{set$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$}]{group }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Student\+::\+Student (\begin{DoxyParamCaption}\item[{string}]{student\+Id,  }\item[{string}]{name,  }\item[{list$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$}]{group }\end{DoxyParamCaption})}
 
 
 
@@ -57,7 +57,7 @@ Parameterized constructor.
 \hline
 {\em name} & String representing the name of the student. \\
 \hline
-{\em group} & A set with the classes the student has. \\
+{\em group} & A list with the classes the student has. \\
 \hline
 \end{DoxyParams}
 
@@ -95,18 +95,18 @@ A string representing the name of the student.
 \end{DoxyReturn}
 Here is the caller graph for this function\+:
 % FIG 1
-\mbox{\Hypertarget{class_student_ad3420b04fc1bb5dcc413bfa771db896d}\label{class_student_ad3420b04fc1bb5dcc413bfa771db896d}} 
+\mbox{\Hypertarget{class_student_a8142e076321ed4d493b5d48b7e631e76}\label{class_student_a8142e076321ed4d493b5d48b7e631e76}} 
 \index{Student@{Student}!getStudentGroups@{getStudentGroups}}
 \index{getStudentGroups@{getStudentGroups}!Student@{Student}}
 \doxysubsubsection{\texorpdfstring{getStudentGroups()}{getStudentGroups()}}
-{\footnotesize\ttfamily set$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$ Student\+::get\+Student\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{classstudent_group}{student\+Group}} $>$ Student\+::get\+Student\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
 Gets all the classes the student belongs to. 
 
 \begin{DoxyReturn}{Returns}
-A set of classes that the student belongs to. 
+A list of classes that the student belongs to. 
 \end{DoxyReturn}
 Here is the caller graph for this function\+:
 % FIG 2

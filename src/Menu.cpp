@@ -10,7 +10,7 @@ void Menu::createMenu() {
     while (true) {
 
         std::cout << "Hello, welcome to the Schedule Management System.\n";
-        std::cout << "Would you like to use the Original Version or the Updated Version of the Student DB\n";
+        std::cout << "\nWould you like to use the Original Version or the Updated Version of the Student DB\n";
         std::cout << "1) Original Version\n2) Updated Version\n";
         cin >> fileoption;
 
@@ -29,7 +29,7 @@ void Menu::createMenu() {
 
     while (true) {
         int max = this->Control.maxSgSize();
-        std::cout << "Please enter a value for the class Cap.\n";
+        std::cout << "\nPlease enter a value for the class Cap.\n";
         std::cout << "It can't be less than " << max << ".\n";
         string inputValue;
         cin >> inputValue;
@@ -42,7 +42,7 @@ void Menu::createMenu() {
     }
 
     while (true) {
-        std::cout << "Select an option:\n";
+        std::cout << "\nSelect an option:\n";
         std::cout << "1) Listing menu\n";
         std::cout << "2) Request menu\n";
         std::cout << "3) Leave the program\n";
@@ -66,7 +66,7 @@ void Menu::createMenu() {
 void Menu::listingMenu() {
     string option;
     while (true) {
-        cout << "Choose the type of listing you want to see.\n";
+        cout << "\nChoose the type of listing you want to see.\n";
         cout << "1) See Schedules\n";
         cout << "2) See Number of Students in N UCs\n";
         cout << "3) See Students\n";
@@ -93,7 +93,7 @@ void Menu::listingMenu() {
 void Menu::SeeNumStudentsInNUCs() {
     string option;
     while (true) {
-        cout << "Choose the type of listing you want to see.\n";
+        cout << "\nChoose the type of listing you want to see.\n";
         cout << "1) See in at least N UCs\n";
         cout << "2) See in exact N UCs\n";
         cout << "3) See in more than N UCs\n";
@@ -117,7 +117,7 @@ void Menu::SeeNumStudentsInNUCs() {
 void Menu::requestMenu() {
     string option;
     while (true) {
-        cout << "Choose the desired operation\n";
+        cout << "\nChoose the desired operation\n";
         cout << "1) Create request\n";
         cout << "2) Remove last pending request\n";
         cout << "3) Process pending requests\n";
@@ -146,7 +146,7 @@ void Menu::requestMenu() {
 void Menu::scheduleMenu() {
     string option;
     while (true) {
-        cout << "What do you want to see?\n";
+        cout << "\nWhat do you want to see?\n";
         cout << "1) Student Schedule\n";
         cout << "2) Class Schedule\n";
         cout << "3) Go back\n";
@@ -167,7 +167,7 @@ void Menu::studentMenu() {
     string option;
     function<bool(Student, Student)> func;
     while (true) {
-        cout << "Choose the type of student listing you want to see.\n";
+        cout << "\nChoose the type of student listing you want to see.\n";
         cout << "1) See all Students in an UC\n";
         cout << "2) See all Students in a Year\n";
         cout << "3) See all Students in a Class\n";
@@ -192,7 +192,7 @@ void Menu::studentMenu() {
 function<bool(Student, Student)> Menu::optionStudentMenu() {
     string option;
     while (true) {
-        cout << "What's the order you want to see students in?\n";
+        cout << "\nWhat's the order you want to see students in?\n";
         cout << "1) UP code ascending\n";
         cout << "2) UP code descending\n";
         cout << "3) Alphabetical ascending\n";
@@ -274,7 +274,7 @@ void Menu::SeeUcFromMostStudents() {
 void Menu::createRequest() {
     string option;
     while (true) {
-        cout << "What type of request do you want to do?\n";
+        cout << "\nWhat type of request do you want to do?\n";
         cout << "1) Add a Class\n";
         cout << "2) Remove a Class\n";
         cout << "3) Switch Classes\n";

@@ -6,5 +6,5 @@ digraph "ControlUnit::classStudents"
   rankdir="LR";
   Node1 [label="ControlUnit::classStudents",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Displays the students from a specific class."];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
-  Node2 [label="Student::getStudentGroups",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_student.html#ad3420b04fc1bb5dcc413bfa771db896d",tooltip="Gets all the classes the student belongs to."];
+  Node2 [label="Student::getStudentGroups",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_student.html#a8142e076321ed4d493b5d48b7e631e76",tooltip="Gets all the classes the student belongs to."];
 }

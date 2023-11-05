@@ -31,39 +31,47 @@
 \DoxyCodeLine{63     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classlesson_adf20c1b1799c88b25cf90fc7959489f9}{getType}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{64 }
 \DoxyCodeLine{65     \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&os, \textcolor{keyword}{const} \mbox{\hyperlink{classlesson}{lesson}} \&\mbox{\hyperlink{classlesson}{lesson}});}
-\DoxyCodeLine{66     \textcolor{keyword}{mutable} std::map<std::string, int> dayMap = \{\{\textcolor{stringliteral}{"{}Monday"{}},    0\},}
-\DoxyCodeLine{67                                                  \{\textcolor{stringliteral}{"{}Tuesday"{}},   1\},}
-\DoxyCodeLine{68                                                  \{\textcolor{stringliteral}{"{}Wednesday"{}}, 2\},}
-\DoxyCodeLine{69                                                  \{\textcolor{stringliteral}{"{}Thursday"{}},  3\},}
-\DoxyCodeLine{70                                                  \{\textcolor{stringliteral}{"{}Friday"{}},    4\},}
-\DoxyCodeLine{71                                                  \{\textcolor{stringliteral}{"{}Saturday"{}},  5\},}
-\DoxyCodeLine{72                                                  \{\textcolor{stringliteral}{"{}Sunday"{}},    6\}\};}
-\DoxyCodeLine{73     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{classlesson}{lesson}} \&other)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{74         \textcolor{keywordflow}{if}(dayMap[this-\/>\mbox{\hyperlink{classlesson_a0f81c69fa8107ca20eb40e59f9acb670}{getWeekday}}()]<dayMap[other.\mbox{\hyperlink{classlesson_a0f81c69fa8107ca20eb40e59f9acb670}{getWeekday}}()])\{}
-\DoxyCodeLine{75             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{76         \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(dayMap[this-\/>\mbox{\hyperlink{classlesson_a0f81c69fa8107ca20eb40e59f9acb670}{getWeekday}}()]==dayMap[other.\mbox{\hyperlink{classlesson_a0f81c69fa8107ca20eb40e59f9acb670}{getWeekday}}()])\{}
-\DoxyCodeLine{77             \textcolor{keywordflow}{if}(this-\/>\mbox{\hyperlink{classlesson_a0186115102100636a4c69cffd891dad8}{getStartTime}}()<other.\mbox{\hyperlink{classlesson_a0186115102100636a4c69cffd891dad8}{getStartTime}}())\{}
-\DoxyCodeLine{78                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{79             \}}
-\DoxyCodeLine{80             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82         \}}
-\DoxyCodeLine{83         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{84 }
-\DoxyCodeLine{85     \}}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{87 \textcolor{keyword}{private}:}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keyword}{mutable} std::map<std::string, int> dayMap = \{\{\textcolor{stringliteral}{"{}Monday"{}},    0\},}
+\DoxyCodeLine{68                                                  \{\textcolor{stringliteral}{"{}Tuesday"{}},   1\},}
+\DoxyCodeLine{69                                                  \{\textcolor{stringliteral}{"{}Wednesday"{}}, 2\},}
+\DoxyCodeLine{70                                                  \{\textcolor{stringliteral}{"{}Thursday"{}},  3\},}
+\DoxyCodeLine{71                                                  \{\textcolor{stringliteral}{"{}Friday"{}},    4\},}
+\DoxyCodeLine{72                                                  \{\textcolor{stringliteral}{"{}Saturday"{}},  5\},}
+\DoxyCodeLine{73                                                  \{\textcolor{stringliteral}{"{}Sunday"{}},    6\}\};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{classlesson}{lesson}} \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} (dayMap[this-\/>\mbox{\hyperlink{classlesson_a0f81c69fa8107ca20eb40e59f9acb670}{getWeekday}}()] < dayMap[other.\mbox{\hyperlink{classlesson_a0f81c69fa8107ca20eb40e59f9acb670}{getWeekday}}()]) \{}
+\DoxyCodeLine{77             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{78         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (dayMap[this-\/>\mbox{\hyperlink{classlesson_a0f81c69fa8107ca20eb40e59f9acb670}{getWeekday}}()] == dayMap[other.\mbox{\hyperlink{classlesson_a0f81c69fa8107ca20eb40e59f9acb670}{getWeekday}}()]) \{}
+\DoxyCodeLine{79             \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classlesson_a0186115102100636a4c69cffd891dad8}{getStartTime}}() < other.\mbox{\hyperlink{classlesson_a0186115102100636a4c69cffd891dad8}{getStartTime}}()) \{}
+\DoxyCodeLine{80                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{81             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (other.\mbox{\hyperlink{classlesson_a0186115102100636a4c69cffd891dad8}{getStartTime}}() < this-\/>getStartTime()) \{}
+\DoxyCodeLine{82                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{83             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classlesson_a527cfd5a2dee6d476b2552de7764d224}{getUccode}}() < other.\mbox{\hyperlink{classlesson_a527cfd5a2dee6d476b2552de7764d224}{getUccode}}()) \{}
+\DoxyCodeLine{84                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{85             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{86                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{87             \}}
 \DoxyCodeLine{88 }
-\DoxyCodeLine{89     std::string \mbox{\hyperlink{classstudent_group}{studentGroup}};}
-\DoxyCodeLine{90     std::string UcCode;}
-\DoxyCodeLine{91     std::string weekday;}
-\DoxyCodeLine{92     \mbox{\hyperlink{classlessontime}{lessontime}} startTime;}
-\DoxyCodeLine{93     \mbox{\hyperlink{classlessontime}{lessontime}} duration;}
-\DoxyCodeLine{94     \mbox{\hyperlink{classlessontime}{lessontime}} endTime;}
-\DoxyCodeLine{95     std::string type;}
-\DoxyCodeLine{96 \};}
-\DoxyCodeLine{97 }
-\DoxyCodeLine{98 }
-\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJAED\_LESSON\_H}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90         \}}
+\DoxyCodeLine{91         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{keyword}{private}:}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     std::string \mbox{\hyperlink{classstudent_group}{studentGroup}};}
+\DoxyCodeLine{98     std::string UcCode;}
+\DoxyCodeLine{99     std::string weekday;}
+\DoxyCodeLine{100     \mbox{\hyperlink{classlessontime}{lessontime}} startTime;}
+\DoxyCodeLine{101     \mbox{\hyperlink{classlessontime}{lessontime}} duration;}
+\DoxyCodeLine{102     \mbox{\hyperlink{classlessontime}{lessontime}} endTime;}
+\DoxyCodeLine{103     std::string type;}
+\DoxyCodeLine{104 \};}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJAED\_LESSON\_H}}
 
 \end{DoxyCode}

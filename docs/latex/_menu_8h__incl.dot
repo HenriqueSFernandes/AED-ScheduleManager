@@ -24,10 +24,11 @@ digraph "src/Menu.h"
   Node8 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
   Node10 [label="tuple",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node8 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="list",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node8 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
   Node2 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
   Node2 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
-  Node11 [label="list",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node2 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
   Node12 [label="queue",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node2 -> Node13 [color="midnightblue",fontsize="10",style="solid"];

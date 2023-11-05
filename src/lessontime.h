@@ -9,6 +9,7 @@
 #include <string>
 
 using namespace std;
+
 /**
  * @brief Class used to represent time.
  */
