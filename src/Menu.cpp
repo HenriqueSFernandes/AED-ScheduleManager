@@ -96,7 +96,7 @@ void Menu::SeeNumStudentsInNUCs() {
         cout << "\nChoose the type of listing you want to see.\n";
         cout << "1) See in at least N UCs\n";
         cout << "2) See in exact N UCs\n";
-        cout << "3) See in more than N UCs\n";
+        cout << "3) See in no more than N UCs\n";
         cout << "4) Go back\n";
         cin >> option;
         if (option == "1") {

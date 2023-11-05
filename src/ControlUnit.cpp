@@ -334,8 +334,6 @@ vector<vector<lesson>> ControlUnit::formatConflicts(vector<lesson> &lessons) {
                     endnum += 0.5;
                 }
                 if (it2->getUccode() == "Overlap") {
-                    cout << "OVERLAP" << endl;
-                    cout << "CONFLICT NUM " << numofconflit << endl;
                     lesson dummy = lesson("Overlap", "Overlap", it2->getWeekday(), startnum, endnum - startnum,
                                           it2->getType());
                     vector<lesson> lessonsInConflict;
@@ -855,7 +853,7 @@ bool ControlUnit::CheckRemove(RemoveRequest *remrq) {
     } else if (!isInClass) {
         cout << "The student isn't part of the chosen class.\n";
     } else if (!validBalance) {
-        cout << "The student cannot be added to the chosen class because it doesn't respect the balance.\n";
+        cout << "The student cannot be removed to the chosen class because it doesn't respect the balance.\n";
     }
     return result;
 }
