@@ -1094,6 +1094,9 @@ void ControlUnit::processAllRequests() {
 
 void ControlUnit::removeLastPendingRequest() {
     // Create a new queue and move every element from the original queue to the new one except for the last one.
+    if(RequestsToProcess.empty()){
+        return;
+    }
     queue<Request *> temporaryQueue;
     Request *request;
     while (!RequestsToProcess.empty()) {
