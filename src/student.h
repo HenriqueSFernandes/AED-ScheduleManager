@@ -5,6 +5,7 @@
 #include <set>
 #include <tuple>
 #include <string>
+#include <list>
 #include "studentGroup.h"
 
 using namespace std;
@@ -23,9 +24,9 @@ public:
      * @brief Parameterized constructor.
      * @param studentId String representing the student ID.
      * @param name String representing the name of the student.
-     * @param group A set with the classes the student has.
+     * @param group A list with the classes the student has.
      */
-    Student(string studentId, string name, set<studentGroup> group);
+    Student(string studentId, string name, list<studentGroup> group);
 
     /**
      * @brief Gets the student ID.
@@ -35,9 +36,9 @@ public:
 
     /**
      * @brief Gets all the classes the student belongs to.
-     * @return A set of classes that the student belongs to.
+     * @return A list of classes that the student belongs to.
      */
-    set<studentGroup> getStudentGroups() const;
+    list<studentGroup> getStudentGroups() const;
 
     /**
      * @brief Gets the name of the student.
@@ -99,7 +100,7 @@ public:
 private:
     std::string studentID;
     std::string name;
-    std::set<studentGroup> StudentGroups;
+    std::list<studentGroup> StudentGroups;
 };
 
 

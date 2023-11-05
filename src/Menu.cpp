@@ -24,7 +24,23 @@ void Menu::createMenu() {
             cout << "Invalid option, choose again.\n";
         }
     }
+
     this->Control.LoadCSV(filename);
+
+    while (true) {
+        int max = this->Control.maxSgSize();
+        std::cout << "Please enter a value for the class Cap.\n";
+        std::cout << "It can't be less than " << max << ".\n";
+        string inputValue;
+        cin >> inputValue;
+
+        if (stoi(inputValue) >= max) {
+            this->Control.setCap(stoi(inputValue));
+            break;
+
+        }
+    }
+
     while (true) {
         std::cout << "Select an option:\n";
         std::cout << "1) Listing menu\n";
@@ -37,6 +53,7 @@ void Menu::createMenu() {
         } else if (option == "2") {
             Menu::requestMenu();
         } else if (option == "3") {
+
             this->Control.saveChanges();
             this->Control.clearMemory();
             break;

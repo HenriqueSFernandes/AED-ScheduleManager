@@ -77,8 +77,29 @@ public :
      * @param lessons Vector with all the lessons.
      * @return A 2d vector with the conflicts.
      */
+
+
     vector<vector<lesson>> formatConflicts(vector<lesson> &lessons);
 
+    /**
+     * @brief gives max size of all studentgroups
+     *
+     * Complexity is O(n) where n is the number of student groups.
+     *
+     * @return Max size of a studentGroup.
+     */
+
+    int maxSgSize();
+    /**
+     * @brief Set the cap
+     *
+     * Complexity is O(1)
+     *
+     * @return Max size of a studentGroup.
+     */
+
+
+    void setCap(int n);
     /**
      * @brief Saves the changes made, updating the file students_classes_updated.csv.
      *
@@ -270,6 +291,7 @@ public :
      * @param remrq Request to be analysed.
      * @return Boolean representing if the request is possible or not.
      */
+
     bool CheckRemove(RemoveRequest *remrq);
 
     /**
@@ -290,6 +312,8 @@ public :
      * @return String representing the class code.
      */
     string getClassInUc(string studentID, string ucCode);
+
+
 
     /**
      * @brief Frees all the dynamic memory.

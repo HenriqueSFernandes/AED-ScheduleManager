@@ -76,8 +76,14 @@ public:
         }else if(dayMap[this->getWeekday()]==dayMap[other.getWeekday()]){
             if(this->getStartTime()<other.getStartTime()){
                 return true;
+            }else if(other.getStartTime()<this->getStartTime()){
+                return false;
+            }else if(this->getUccode()<other.getUccode()){
+                return true;
+            }else{
+                return false;
             }
-            return false;
+
 
         }
         return false;

@@ -12,7 +12,7 @@ class Request {
 private:
     static int count;  // Static variable for request counter.
     int requestId; // ID for each request.
-    bool processed;
+
     std::string type;
 
 public:
@@ -31,12 +31,8 @@ public:
         count++;
         requestId = count;
         cout << "request id is " << requestId << " and count is " << count << endl;
-        processed = false;
-        this->type = type;
-    }
 
-    void setProcessed(bool processed) {
-        this->processed = processed;
+        this->type = type;
     }
 
     /**

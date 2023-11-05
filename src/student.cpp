@@ -2,26 +2,26 @@
 #include <utility>
 #include <algorithm>
 
-Student::Student(string studentId, string name, set<studentGroup> group) {
+Student::Student(string studentId, string name, list<studentGroup> group) {
     this->studentID = std::move(studentId);
     this->name = std::move(name);
     this->StudentGroups = std::move(group);
 }
 
 void Student::addStudentGroup(const studentGroup &GroupToAdd) {
-    this->StudentGroups.insert(GroupToAdd);
+    this->StudentGroups.push_back(GroupToAdd);
 }
 
 void Student::removeGroup(const studentGroup &GroupToRemove) {
     for (auto &sg: StudentGroups) {
         if (sg.getUcCode() == GroupToRemove.getUcCode() and sg.getClassCode() == GroupToRemove.getClassCode()) {
-            this->StudentGroups.erase(sg);
+            this->StudentGroups.push_back(sg);
 
         }
     }
 }
 
-set<studentGroup> Student::getStudentGroups() const {
+list<studentGroup> Student::getStudentGroups() const {
     return this->StudentGroups;
 }
 
