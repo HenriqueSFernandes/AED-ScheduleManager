@@ -1,7 +1,7 @@
 # AED Project: Schedule Manager
-> College project for Algorithms and Data Structures
+> College group project for Algorithms and Data Structures
 
-By:
+Made by:
 - Henrique Fernandes
 - José Sousa
 - Leandro Martins
